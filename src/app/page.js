@@ -1,15 +1,24 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Typography color="base2" variant="h1">Heading 1</Typography>
-        <Typography color="primary.default" variant="h2">Heading 2</Typography>
-        <Typography color="accents.bubble1" variant="h3">Heading 3</Typography>
-        <Typography color="primary.dark2" variant="h4">Heading 4</Typography>
+        <Typography color="base2" variant="h1">
+          Heading 1
+        </Typography>
+        <Typography color="primary.default" variant="h2">
+          Heading 2
+        </Typography>
+        <Typography color="accents.bubble1" variant="h3">
+          Heading 3
+        </Typography>
+        <Typography color="primary.dark2" variant="h4">
+          Heading 4
+        </Typography>
         <Typography variant="h5">Heading 5</Typography>
         <Typography variant="h6">Heading 6</Typography>
         <Typography variant="titleLg">Title Large</Typography>
@@ -17,7 +26,7 @@ export default function Home() {
         <Typography variant="titleSm">Title Small</Typography>
         <Typography variant="subtitleLg">Subtitle Large</Typography>
         <Typography variant="subtitleSm">Subtitle Small</Typography>
-        <Typography variant="body" >Body Large</Typography>
+        <Typography variant="body">Body Large</Typography>
         <Typography variant="body1">Body Small</Typography>
         <Image
           className={styles.logo}
