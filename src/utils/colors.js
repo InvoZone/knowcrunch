@@ -41,7 +41,7 @@ export const colors = {
         main: "#46BB2F",
         light: "#A6E599"
     },
-    alert: {
+    error: {
         main: "#9C2116",
         light: "#EF978F"
     },
