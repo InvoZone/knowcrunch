@@ -26,9 +26,9 @@ export default async function RootLayout({ children }) {
                 {children}
               </Layout>
             </ThemeProvider>
+          </Provider>
         </NextIntlClientProvider>
-      </Provider>
-    </body>
+      </body>
     </html >
   );
 }
