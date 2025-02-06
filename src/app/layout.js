@@ -1,6 +1,8 @@
 import { Foco } from "@/lib/fonts";
+import { ThemeProvider } from "@mui/material/styles";
 import "./globals.css";
 import Provider from "@/store/Provider";
+import theme from "@/theme";
 
 export const metadata = {
   title: "KnowCrunch",
@@ -11,7 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={Foco.className}>
-        <Provider>{children}</Provider>
+        <ThemeProvider theme={theme}>
+          <Provider>{children}</Provider>
+        </ThemeProvider>
       </body>
     </html>
   );
