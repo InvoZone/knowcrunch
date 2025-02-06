@@ -1,5 +1,6 @@
 import { Foco } from "@/lib/fonts";
 import "./globals.css";
+import Provider from "@/store/Provider";
 
 export const metadata = {
   title: "KnowCrunch",
@@ -10,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={Foco.className}>
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
