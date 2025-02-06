@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 
 function page() {
-  return <div>home page</div>;
+  const t = useTranslations("HomePage");
+  return <div>{t("Dashboards")}</div>;
 }
 
 export default page;
