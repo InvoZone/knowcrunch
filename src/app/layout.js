@@ -3,6 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import "./globals.css";
 import Provider from "@/store/Provider";
 import theme from "@/theme";
+import Layout from "@/components/layout";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
@@ -19,11 +20,15 @@ export default async function RootLayout({ children }) {
     <html lang={locale}>
       <body className={Foco.className}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider theme={theme}>
-            <Provider>{children}</Provider>
-          </ThemeProvider>
+          <Provider>
+            <ThemeProvider theme={theme}>
+              <Layout>
+                {children}
+              </Layout>
+            </ThemeProvider>
+          </Provider>
         </NextIntlClientProvider>
       </body>
-    </html>
+    </html >
   );
 }
