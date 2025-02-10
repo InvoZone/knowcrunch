@@ -124,6 +124,13 @@ theme.typography = {
         lineHeight: "16px",
         letterSpacing: "0.005em"
     },
+    body2: {
+        fontFamily: "Foco",
+        fontSize: 12,
+        fontWeight: 800,
+        lineHeight: "16px",
+        letterSpacing: "0.005em"
+    },
 };
 
 export default theme;

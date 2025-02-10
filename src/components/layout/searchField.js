@@ -1,5 +1,8 @@
-import { CloseOutlined, SearchOutlined } from "@mui/icons-material";
+import searchIcon from "@/assets/icons/search.svg";
+import cancelIcon from "@/assets/icons/cross.svg";
+
 import { InputAdornment, TextField } from "@mui/material";
+import Image from "next/image";
 
 const SearchField = ({ handleClose }) => {
     return (
@@ -10,12 +13,12 @@ const SearchField = ({ handleClose }) => {
                 input: {
                     startAdornment: (
                         <InputAdornment position="start">
-                            <SearchOutlined color="secondary" />
+                            <Image src={searchIcon} width={24} height={24} alt={"searchIcon"} loading="lazy" />
                         </InputAdornment>
                     ),
                     endAdornment: (
                         <InputAdornment position="end" sx={{ cursor: "pointer" }}>
-                            <CloseOutlined color="secondary" onClick={handleClose} />
+                            <Image src={cancelIcon} width={24} height={24} alt={"cancelIcon"} onClick={handleClose} loading="lazy" />
                         </InputAdornment>
                     ),
                 },
