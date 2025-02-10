@@ -1,60 +1,105 @@
-
+// Enable client-side rendering
 "use client";
 
+// Import necessary dependencies
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-// import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import Image from "next/image";
-import { Badge, useTheme } from "@mui/material";
+import { Badge, useMediaQuery, useTheme } from "@mui/material";
 import CustomBtn from "../common/customBtn";
-import { Notifications, PersonOutlineOutlined, SearchOutlined, ShoppingCart } from "@mui/icons-material";
 import SearchField from "./searchField";
-// import AdbIcon from "@mui/icons-material/Adb";
 
-const pages = ["E-Learning Courses", "Classroom Courses", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+// Import icons
+import searchIcon from "@/assets/icons/search.svg";
+import notificationIcon from "@/assets/icons/notification.svg";
+import cartIcon from "@/assets/icons/cart.svg";
+import menuIcon from "@/assets/icons/menu.svg";
+import personIcon from "@/assets/icons/person.svg";
+
+// Import navigation data and components
+import { navbarMenu } from "@/utils/navbarMenu";
+import { useTranslations } from "next-intl";
+import SuperMenu from "./superMenu";
+import SuperMenuMobile from "./superMenuMobile";
 
 function Navbar() {
+    // Initialize theme and translations
     const theme = useTheme();
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const t = useTranslations("navbar");
+
+    // Responsive breakpoint check
+    const isLg = useMediaQuery(theme.breakpoints.up("lg"));
+
+    // State management
+    const [anchorElSuperMenu, setAnchorElSuperMenu] = React.useState(null);
     const [scrollY, setScrollY] = React.useState(0);
     const [searchActive, setSearchActive] = React.useState(false);
+    const [menu, setMenus] = React.useState({});
+    const [subMenu, setSubMenu] = React.useState({});
+    const [subMenu1, setSubMenu1] = React.useState({});
+    const [mobileMenu, setMobileMenu] = React.useState(false);
 
+
+    // Mock login state
     const login = false;
 
+    // Get theme accents
     const { accents } = theme.palette;
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
+    // Handle mobile menu toggle
+    const handleOpenMobileMenu = (event) => {
+        setMobileMenu(!mobileMenu);
+        setMenus({});
+        setSubMenu({});
+        setSubMenu1({});
+        setAnchorElSuperMenu(!mobileMenu ? event.target : null);
     };
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
+    // Handle super menu opening
+    const handleOpenSuperMenu = (event, page) => {
+        setMenus(page);
+        setAnchorElSuperMenu(event.target);
+        setSubMenu({});
+        setSubMenu1({});
     };
 
+    // Handle super menu closing
+    const handleCloseSuperMenu = () => {
+        setTimeout(() => {
+            setAnchorElSuperMenu(null);
+            setMenus({});
+            setSubMenu({});
+            setSubMenu1({});
+            setMobileMenu(false);
+        }, 100);
+    };
+
+    // Toggle search field visibility
     const handleSearchField = () => {
         setSearchActive(!searchActive);
     };
 
+    // Handle first level submenu
+    const handleSubMenu = (menu) => {
+        setSubMenu(menu);
+        setSubMenu1({});
+    };
 
+    // Handle second level submenu
+    const handleSubMenu1 = (menu) => {
+        setSubMenu1(menu);
+    };
+
+    // Handle navigation back in mobile menu
+    const goBack = () => {
+        subMenu?.id ? setSubMenu({}) : setMenus({});
+    };
+
+    // Handle scroll events
     React.useEffect(() => {
         // Check if window is available (client-side rendering)
         if (typeof window === "undefined") return;
@@ -70,114 +115,100 @@ function Navbar() {
         };
     }, []);
 
-
     return (
-        <AppBar component={"nav"} color={scrollY >= 0 ? "primary" : "transparent"} >
+        <AppBar component={"nav"} color={scrollY >= 0 ? "primary" : "transparent"} sx={{ zIndex: 1310, boxShadow: "none" }}>
             <Container maxWidth="xl">
-                <Toolbar disableGutters sx={{ height: 80 }}>
-                    <Image src={"/logo.webp"} alt='logos' width={135} height={40} />
-                    <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            {/* <MenuIcon /> */}
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: "bottom",
-                                horizontal: "left",
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: "top",
-                                horizontal: "left",
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{ display: { xs: "block", md: "none" } }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography sx={{ textAlign: "center" }}>{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                    {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
+                <Toolbar disableGutters sx={{ height: 80, display: "flex", justifyContent: "space-between" }}>
+                    {/* Conditional rendering of search field or main content */}
+                    {searchActive && !isLg ? <SearchField handleClose={handleSearchField} /> :
+                        <>
+                            {/* Mobile menu button and menu */}
+                            <Box sx={{ display: { xs: "flex", lg: "none" } }}>
+                                <IconButton onClick={handleOpenMobileMenu}>
+                                    <Image src={menuIcon} width={24} height={24} alt={"menuIcon"} priority />
+                                </IconButton>
+                                {!isLg && <SuperMenuMobile
+                                    handleOpenSuperMenu={handleOpenSuperMenu}
+                                    handleSubMenu={handleSubMenu}
+                                    handleSubMenu1={handleSubMenu1}
+                                    anchorElSuperMenu={anchorElSuperMenu}
+                                    handleCloseSuperMenu={handleCloseSuperMenu}
+                                    superMenu={navbarMenu}
+                                    menu={menu}
+                                    subMenu={subMenu}
+                                    subMenu1={subMenu1}
+                                    t={t}
+                                    handleOpenMobileMenu={handleOpenMobileMenu}
+                                    login={login}
+                                    goBack={goBack}
+                                />}
+                            </Box>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, pl: 3 }}>
-                        {!searchActive && pages.map((page) => (
-                            <CustomBtn key={page} onMouseEnter={handleOpenUserMenu} title={page} color="secondary" sx={{ minWidth: 100 }} />
-                        ))}
-                        {searchActive && <SearchField handleClose={handleSearchField} />}
-                    </Box>
-                    {!searchActive && <Box sx={{ flexGrow: 0 }}>
-                        <IconButton><SearchOutlined onClick={handleSearchField} color="secondary" /></IconButton>
-                        {login ? <>
-                            <IconButton>
-                                <Badge sx={{
-                                    "& .MuiBadge-dot": {
-                                        backgroundColor: "accents.bubble1", // Custom color for the badge dot
-                                    }
-                                }}
-                                    variant="dot" invisible={false}>
-                                    <ShoppingCart color="secondary" />
-                                </Badge>
-                            </IconButton>
-                            <IconButton>
-                                <Badge color="error" variant="dot" invisible={false}>
-                                    <Notifications color="secondary" />
-                                </Badge>
-                            </IconButton>
-                            <IconButton>
-                                <PersonOutlineOutlined color="secondary" />
-                            </IconButton>
-                        </>
-                            :
-                            <>
-                                <CustomBtn title={"Log In"} color="secondary" sx={{ minWidth: 100 }} />
-                                <CustomBtn variant="contained" title={"join Us"} sx={{ background: accents.bubble1, minWidth: 100 }} />
-                            </>}
+                            {/* Logo */}
+                            <Image src={"/logo.webp"} alt='logos' width={135} height={40} priority />
 
-                        {/* <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>*/}
-                        <Menu
-                            sx={{ background: "primary", mt: "45px", "& .MuiMenu-paper": { width: "100%", maxWidth: "100% !important", left: "0px !important" } }}
-                            id="menu-appbar"
-                            size={"100%"}
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: "top",
-                                horizontal: "right",
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: "top",
-                                horizontal: "center",
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography sx={{ textAlign: "center" }}>{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>}
+                            {/* Desktop navigation menu */}
+                            <Box sx={{ flexGrow: 1, display: { xs: "none", lg: "flex" }, pl: 3 }} >
+                                <Box onMouseLeave={handleCloseSuperMenu}>
+                                    {/* Main navigation buttons */}
+                                    {!searchActive && navbarMenu.map((el) => (
+                                        <CustomBtn key={el?.id} onMouseEnter={(e) => el?.menu && handleOpenSuperMenu(e, el)} title={t(el?.title)} color="secondary" sx={{ minWidth: 100, height: menu.id === el?.id ? 80 : 45 }}
+                                        />
+                                    ))}
+
+                                    {/* Desktop super menu */}
+                                    {isLg && <SuperMenu
+                                        handleSubMenu={handleSubMenu}
+                                        handleSubMenu1={handleSubMenu1}
+                                        anchorElSuperMenu={anchorElSuperMenu}
+                                        handleCloseSuperMenu={handleCloseSuperMenu}
+                                        menu={menu}
+                                        subMenu={subMenu}
+                                        subMenu1={subMenu1}
+                                        t={t}
+                                    />}
+                                </Box>
+                                {/* Search field */}
+                                {searchActive && <SearchField handleClose={handleSearchField} />}
+                            </Box>
+
+                            {/* Right side icons and buttons */}
+                            {!searchActive && <Box sx={{ flexGrow: 0 }}>
+                                <IconButton><Image loading="lazy" src={searchIcon} width={24} height={24} alt={"searchIcon"} onClick={handleSearchField} /></IconButton>
+                                {isLg && <>{login ?
+                                    // Logged in user icons
+                                    <>
+                                        <IconButton display={{ xs: "none", md: "flex" }}>
+                                            <Badge sx={{
+                                                "& .MuiBadge-dot": {
+                                                    backgroundColor: "accents.bubble1", // Custom color for the badge dot
+                                                }
+                                            }}
+                                                variant="dot" invisible={false}>
+                                                <Image src={cartIcon} width={24} height={24} alt={"cartIcon"} loading="lazy" />
+                                            </Badge>
+                                        </IconButton>
+                                        <IconButton>
+                                            <Badge color="error" variant="dot" invisible={false}>
+                                                <Image src={notificationIcon} width={24} height={24} alt={"notificationIcon"} loading="lazy" />
+                                            </Badge>
+                                        </IconButton>
+                                        <IconButton>
+                                            <Image src={personIcon} width={24} height={24} alt={"personIcon"} loading="lazy" />
+                                        </IconButton>
+                                    </>
+                                    :
+                                    // Login/Join buttons
+                                    <>
+                                        <CustomBtn title={"Log In"} color="secondary" sx={{ minWidth: 100 }} />
+                                        <CustomBtn variant="contained" title={"join Us"} sx={{ background: accents.bubble1, minWidth: 100 }} />
+                                    </>}  </>}
+                            </Box>}
+                        </>}
                 </Toolbar>
             </Container>
-        </AppBar>
+        </AppBar >
     );
 }
+
 export default Navbar;

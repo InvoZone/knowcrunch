@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Typography } from "@mui/material";
-import { useTranslations } from "next-intl";
+import { Box, Typography } from "@mui/material";
 
 export default function Home() {
   return (
@@ -13,6 +12,10 @@ export default function Home() {
         <Typography color="primary.default" variant="h2">
           Heading 2
         </Typography>
+        <Box sx={{ width: 400 }}>
+
+          {/* <CourseCard /> */}
+        </Box>
         <Typography color="accents.bubble1" variant="h3">
           Heading 3
         </Typography>
