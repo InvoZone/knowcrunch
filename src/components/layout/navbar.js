@@ -43,7 +43,6 @@ function Navbar() {
     const [subMenu1, setSubMenu1] = React.useState({});
     const [mobileMenu, setMobileMenu] = React.useState(false);
 
-
     // Mock login state
     const login = false;
 
@@ -116,98 +115,227 @@ function Navbar() {
     }, []);
 
     return (
-        <AppBar component={"nav"} color={scrollY >= 0 ? "primary" : "transparent"} sx={{ zIndex: 1310, boxShadow: "none" }}>
+        <AppBar
+            component={"nav"}
+            color={scrollY >= 0 ? "primary" : "transparent"}
+            sx={{ zIndex: 1310, boxShadow: "none" }}
+        >
             <Container maxWidth="lg">
-                <Toolbar disableGutters sx={{ height: 80, display: "flex", justifyContent: "space-between" }}>
+                <Toolbar
+                    disableGutters
+                    sx={{
+                        height: 80,
+                        display: "flex",
+                        justifyContent: "space-between",
+                    }}
+                >
                     {/* Conditional rendering of search field or main content */}
-                    {searchActive && !isLg ? <SearchField handleClose={handleSearchField} /> :
+                    {searchActive && !isLg ? (
+                        <SearchField handleClose={handleSearchField} />
+                    ) : (
                         <>
                             {/* Mobile menu button and menu */}
                             <Box sx={{ display: { xs: "flex", lg: "none" } }}>
                                 <IconButton onClick={handleOpenMobileMenu}>
-                                    <Image src={menuIcon} width={24} height={24} alt={"menuIcon"} priority />
+                                    <Image
+                                        src={menuIcon}
+                                        width={24}
+                                        height={24}
+                                        alt={"menuIcon"}
+                                        priority
+                                    />
                                 </IconButton>
-                                {!isLg && <SuperMenuMobile
-                                    handleOpenSuperMenu={handleOpenSuperMenu}
-                                    handleSubMenu={handleSubMenu}
-                                    handleSubMenu1={handleSubMenu1}
-                                    anchorElSuperMenu={anchorElSuperMenu}
-                                    handleCloseSuperMenu={handleCloseSuperMenu}
-                                    superMenu={navbarMenu}
-                                    menu={menu}
-                                    subMenu={subMenu}
-                                    subMenu1={subMenu1}
-                                    t={t}
-                                    handleOpenMobileMenu={handleOpenMobileMenu}
-                                    login={login}
-                                    goBack={goBack}
-                                />}
-                            </Box>
-
-                            {/* Logo */}
-                            <Image src={"/logo.webp"} alt='logos' width={135} height={40} priority />
-
-                            {/* Desktop navigation menu */}
-                            <Box sx={{ flexGrow: 1, display: { xs: "none", lg: "flex" }, pl: 3 }} >
-                                <Box onMouseLeave={handleCloseSuperMenu}>
-                                    {/* Main navigation buttons */}
-                                    {!searchActive && navbarMenu.map((el) => (
-                                        <CustomBtn key={el?.id} onMouseEnter={(e) => el?.menu && handleOpenSuperMenu(e, el)} title={t(el?.title)} color="secondary" sx={{ minWidth: 100, height: menu.id === el?.id ? 80 : 45 }}
-                                        />
-                                    ))}
-
-                                    {/* Desktop super menu */}
-                                    {isLg && <SuperMenu
+                                {!isLg && (
+                                    <SuperMenuMobile
+                                        handleOpenSuperMenu={
+                                            handleOpenSuperMenu
+                                        }
                                         handleSubMenu={handleSubMenu}
                                         handleSubMenu1={handleSubMenu1}
                                         anchorElSuperMenu={anchorElSuperMenu}
-                                        handleCloseSuperMenu={handleCloseSuperMenu}
+                                        handleCloseSuperMenu={
+                                            handleCloseSuperMenu
+                                        }
+                                        superMenu={navbarMenu}
                                         menu={menu}
                                         subMenu={subMenu}
                                         subMenu1={subMenu1}
                                         t={t}
-                                    />}
+                                        handleOpenMobileMenu={
+                                            handleOpenMobileMenu
+                                        }
+                                        login={login}
+                                        goBack={goBack}
+                                    />
+                                )}
+                            </Box>
+
+                            {/* Logo */}
+                            <Image
+                                src={"/logo.webp"}
+                                alt="logos"
+                                width={135}
+                                height={40}
+                                priority
+                            />
+
+                            {/* Desktop navigation menu */}
+                            <Box
+                                sx={{
+                                    flexGrow: 1,
+                                    display: { xs: "none", lg: "flex" },
+                                    pl: 3,
+                                }}
+                            >
+                                <Box onMouseLeave={handleCloseSuperMenu}>
+                                    {/* Main navigation buttons */}
+                                    {!searchActive &&
+                                        navbarMenu.map((el) => (
+                                            <CustomBtn
+                                                key={el?.id}
+                                                onMouseEnter={(e) =>
+                                                    el?.menu &&
+                                                    handleOpenSuperMenu(e, el)
+                                                }
+                                                title={t(el?.title)}
+                                                color="secondary"
+                                                sx={{
+                                                    minWidth: 100,
+                                                    height:
+                                                        menu.id === el?.id
+                                                            ? 80
+                                                            : 45,
+                                                }}
+                                            />
+                                        ))}
+
+                                    {/* Desktop super menu */}
+                                    {isLg && (
+                                        <SuperMenu
+                                            handleSubMenu={handleSubMenu}
+                                            handleSubMenu1={handleSubMenu1}
+                                            anchorElSuperMenu={
+                                                anchorElSuperMenu
+                                            }
+                                            handleCloseSuperMenu={
+                                                handleCloseSuperMenu
+                                            }
+                                            menu={menu}
+                                            subMenu={subMenu}
+                                            subMenu1={subMenu1}
+                                            t={t}
+                                        />
+                                    )}
                                 </Box>
                                 {/* Search field */}
-                                {searchActive && <SearchField handleClose={handleSearchField} />}
+                                {searchActive && (
+                                    <SearchField
+                                        handleClose={handleSearchField}
+                                    />
+                                )}
                             </Box>
 
                             {/* Right side icons and buttons */}
-                            {!searchActive && <Box sx={{ flexGrow: 0 }}>
-                                <IconButton><Image loading="lazy" src={searchIcon} width={24} height={24} alt={"searchIcon"} onClick={handleSearchField} /></IconButton>
-                                {isLg && <>{login ?
-                                    // Logged in user icons
-                                    <>
-                                        <IconButton display={{ xs: "none", md: "flex" }}>
-                                            <Badge sx={{
-                                                "& .MuiBadge-dot": {
-                                                    backgroundColor: "accents.bubble1", // Custom color for the badge dot
-                                                }
-                                            }}
-                                                variant="dot" invisible={false}>
-                                                <Image src={cartIcon} width={24} height={24} alt={"cartIcon"} loading="lazy" />
-                                            </Badge>
-                                        </IconButton>
-                                        <IconButton>
-                                            <Badge color="error" variant="dot" invisible={false}>
-                                                <Image src={notificationIcon} width={24} height={24} alt={"notificationIcon"} loading="lazy" />
-                                            </Badge>
-                                        </IconButton>
-                                        <IconButton>
-                                            <Image src={personIcon} width={24} height={24} alt={"personIcon"} loading="lazy" />
-                                        </IconButton>
-                                    </>
-                                    :
-                                    // Login/Join buttons
-                                    <>
-                                        <CustomBtn title={"Log In"} color="secondary" sx={{ minWidth: 100 }} />
-                                        <CustomBtn variant="contained" title={"join Us"} sx={{ background: accents.bubble1, minWidth: 100 }} />
-                                    </>}  </>}
-                            </Box>}
-                        </>}
+                            {!searchActive && (
+                                <Box sx={{ flexGrow: 0 }}>
+                                    <IconButton>
+                                        <Image
+                                            loading="lazy"
+                                            src={searchIcon}
+                                            width={24}
+                                            height={24}
+                                            alt={"searchIcon"}
+                                            onClick={handleSearchField}
+                                        />
+                                    </IconButton>
+                                    {isLg && (
+                                        <>
+                                            {login ? (
+                                                // Logged in user icons
+                                                <>
+                                                    <IconButton
+                                                        display={{
+                                                            xs: "none",
+                                                            md: "flex",
+                                                        }}
+                                                    >
+                                                        <Badge
+                                                            sx={{
+                                                                "& .MuiBadge-dot":
+                                                                    {
+                                                                        backgroundColor:
+                                                                            "accents.bubble1", // Custom color for the badge dot
+                                                                    },
+                                                            }}
+                                                            variant="dot"
+                                                            invisible={false}
+                                                        >
+                                                            <Image
+                                                                src={cartIcon}
+                                                                width={24}
+                                                                height={24}
+                                                                alt={"cartIcon"}
+                                                                loading="lazy"
+                                                            />
+                                                        </Badge>
+                                                    </IconButton>
+                                                    <IconButton>
+                                                        <Badge
+                                                            color="error"
+                                                            variant="dot"
+                                                            invisible={false}
+                                                        >
+                                                            <Image
+                                                                src={
+                                                                    notificationIcon
+                                                                }
+                                                                width={24}
+                                                                height={24}
+                                                                alt={
+                                                                    "notificationIcon"
+                                                                }
+                                                                loading="lazy"
+                                                            />
+                                                        </Badge>
+                                                    </IconButton>
+                                                    <IconButton>
+                                                        <Image
+                                                            src={personIcon}
+                                                            width={24}
+                                                            height={24}
+                                                            alt={"personIcon"}
+                                                            loading="lazy"
+                                                        />
+                                                    </IconButton>
+                                                </>
+                                            ) : (
+                                                // Login/Join buttons
+                                                <>
+                                                    <CustomBtn
+                                                        title={"Log In"}
+                                                        color="secondary"
+                                                        sx={{ minWidth: 100 }}
+                                                    />
+                                                    <CustomBtn
+                                                        variant="contained"
+                                                        title={"join Us"}
+                                                        sx={{
+                                                            background:
+                                                                accents.bubble1,
+                                                            minWidth: 100,
+                                                        }}
+                                                    />
+                                                </>
+                                            )}{" "}
+                                        </>
+                                    )}
+                                </Box>
+                            )}
+                        </>
+                    )}
                 </Toolbar>
             </Container>
-        </AppBar >
+        </AppBar>
     );
 }
 

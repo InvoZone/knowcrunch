@@ -21,12 +21,12 @@ const theme = createTheme({
         secondary: {
             main: "#FFFFFF",
             light: "#F4F5F6",
-            dark: "#383C42"
+            dark: "#383C42",
         },
         tertiary: {
             main: "#000000",
         },
-        ...colors
+        ...colors,
     },
 });
 
@@ -39,7 +39,7 @@ theme.typography = {
         [theme.breakpoints.down("sm")]: {
             fontSize: 40,
             lineHeight: "48px",
-        }
+        },
     },
     h2: {
         fontFamily: "Foco",
@@ -49,7 +49,7 @@ theme.typography = {
         [theme.breakpoints.down("sm")]: {
             fontSize: 32,
             lineHeight: "40px",
-        }
+        },
     },
     h3: {
         fontFamily: "Foco",
@@ -59,7 +59,7 @@ theme.typography = {
         [theme.breakpoints.down("sm")]: {
             fontSize: 28,
             lineHeight: "36px",
-        }
+        },
     },
     h4: {
         fontFamily: "Foco",
@@ -69,19 +69,19 @@ theme.typography = {
         [theme.breakpoints.down("sm")]: {
             fontSize: 24,
             lineHeight: "32px",
-        }
+        },
     },
     h5: {
         fontFamily: "Foco",
         fontSize: 24,
         fontWeight: 800,
-        lineHeight: "32px"
+        lineHeight: "32px",
     },
     h6: {
         fontFamily: "Foco",
         fontSize: 20,
         fontWeight: 800,
-        lineHeight: "28px"
+        lineHeight: "28px",
     },
     titleLg: {
         fontFamily: "Foco",
@@ -95,14 +95,14 @@ theme.typography = {
         fontSize: 16,
         fontWeight: 800,
         lineHeight: "20px",
-        letterSpacing: "0.001em"
+        letterSpacing: "0.001em",
     },
     titleSm: {
         fontFamily: "Foco",
         fontSize: 14,
         fontWeight: 800,
         lineHeight: "18px",
-        letterSpacing: "0.004em"
+        letterSpacing: "0.004em",
     },
     subtitleLg: {
         fontFamily: "Foco",
@@ -116,28 +116,28 @@ theme.typography = {
         fontSize: 20,
         fontWeight: 400,
         lineHeight: "22px",
-        letterSpacing: "0.004em"
+        letterSpacing: "0.004em",
     },
     body: {
         fontFamily: "Foco",
         fontSize: 16,
         fontWeight: 400,
         lineHeight: "24px",
-        letterSpacing: "0.001em"
+        letterSpacing: "0.001em",
     },
     body1: {
         fontFamily: "Foco",
         fontSize: 14,
         fontWeight: 400,
         lineHeight: "16px",
-        letterSpacing: "0.005em"
+        letterSpacing: "0.005em",
     },
     body2: {
         fontFamily: "Foco",
         fontSize: 12,
         fontWeight: 800,
         lineHeight: "16px",
-        letterSpacing: "0.005em"
+        letterSpacing: "0.005em",
     },
 };
 

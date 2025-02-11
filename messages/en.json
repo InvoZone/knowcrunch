@@ -1,16 +1,16 @@
 {
-  "navbar": {
-    "myProfile": "My Profile",
-    "eLearningCourse": "E-Learning Courses",
-    "classroomCourses": "Classroom Courses",
-    "blog": "Blog",
-    "contentMarketing": "Content marketing",
-    "socialMediaMarketing": "Social Media Marketing",
-    "socialEngineOptimization": "Social engine optimization",
-    "influencerMarketing": "Influencer marketing",
-    "performanceMarketing": "Performance marketing",
-    "email&MobileMarketing": "Email & mobile marketing",
-    "masterclassInMetaAdvertising": "Masterclass in Meta Advertising",
-    "masterclassInContentMarketingStrategy": "Masterclass in Content Marketing Strategy"
-  }
+    "navbar": {
+        "myProfile": "My Profile",
+        "eLearningCourse": "E-Learning Courses",
+        "classroomCourses": "Classroom Courses",
+        "blog": "Blog",
+        "contentMarketing": "Content marketing",
+        "socialMediaMarketing": "Social Media Marketing",
+        "socialEngineOptimization": "Social engine optimization",
+        "influencerMarketing": "Influencer marketing",
+        "performanceMarketing": "Performance marketing",
+        "email&MobileMarketing": "Email & mobile marketing",
+        "masterclassInMetaAdvertising": "Masterclass in Meta Advertising",
+        "masterclassInContentMarketingStrategy": "Masterclass in Content Marketing Strategy"
+    }
 }

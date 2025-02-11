@@ -14,7 +14,7 @@ export const colors = {
         light3: "#65AFFF",
         light4: "#98C9FF",
         light5: "#CFE6FF",
-        light6: "#F0F7FF"
+        light6: "#F0F7FF",
     },
     neutral: {
         neutral1: "#383C42",
@@ -29,7 +29,7 @@ export const colors = {
         neutral10: "#F4F5F6",
     },
     background: {
-        site: "#F0F7FF"
+        site: "#F0F7FF",
     },
     accents: {
         bubble1: "#C8D051",
@@ -39,19 +39,19 @@ export const colors = {
     },
     success: {
         main: "#46BB2F",
-        light: "#A6E599"
+        light: "#A6E599",
     },
     error: {
         main: "#9C2116",
-        light: "#EF978F"
+        light: "#EF978F",
     },
     warning: {
-        main: "#FF9F1C"
+        main: "#FF9F1C",
     },
     info: {
-        main: "#B8DAFF"
+        main: "#B8DAFF",
     },
     link: {
-        main: "#3366CC"
+        main: "#3366CC",
     },
 };

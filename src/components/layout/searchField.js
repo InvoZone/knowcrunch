@@ -13,12 +13,28 @@ const SearchField = ({ handleClose }) => {
                 input: {
                     startAdornment: (
                         <InputAdornment position="start">
-                            <Image src={searchIcon} width={24} height={24} alt={"searchIcon"} loading="lazy" />
+                            <Image
+                                src={searchIcon}
+                                width={24}
+                                height={24}
+                                alt={"searchIcon"}
+                                loading="lazy"
+                            />
                         </InputAdornment>
                     ),
                     endAdornment: (
-                        <InputAdornment position="end" sx={{ cursor: "pointer" }}>
-                            <Image src={cancelIcon} width={24} height={24} alt={"cancelIcon"} onClick={handleClose} loading="lazy" />
+                        <InputAdornment
+                            position="end"
+                            sx={{ cursor: "pointer" }}
+                        >
+                            <Image
+                                src={cancelIcon}
+                                width={24}
+                                height={24}
+                                alt={"cancelIcon"}
+                                onClick={handleClose}
+                                loading="lazy"
+                            />
                         </InputAdornment>
                     ),
                 },
@@ -27,7 +43,7 @@ const SearchField = ({ handleClose }) => {
                 "& input": {
                     color: "secondary.main",
                     fontSize: 16,
-                    fontWeight: 800
+                    fontWeight: 800,
                 },
                 "& .MuiOutlinedInput-root": {
                     "& fieldset": {
@@ -44,8 +60,8 @@ const SearchField = ({ handleClose }) => {
                         border: 0,
                         borderBottomWidth: "1px",
                         borderColor: "base1.dark2", // Default border color
-                    }
-                }
+                    },
+                },
             }}
             variant="outlined"
         />

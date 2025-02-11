@@ -8,11 +8,11 @@ const nextConfig = {
         // Enable SVGR for SVG imports
         config.module.rules.push({
             test: /\.svg$/,
-            use: ["@svgr/webpack"]
+            use: ["@svgr/webpack"],
         });
 
         return config;
-    }
+    },
 };
 
 export default withNextIntl(nextConfig);

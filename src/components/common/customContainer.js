@@ -11,7 +11,7 @@ const CustomContainer = () => {
                     lg: 6, // for large screens
                 },
                 width: "100%",
-                maxWidth: "1360px"
+                maxWidth: "1360px",
             }}
         >
             Responsive content here
