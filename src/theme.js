@@ -3,6 +3,15 @@ import { createTheme } from "@mui/material/styles";
 import { colors } from "./utils/colors";
 
 const theme = createTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            md: 900,
+            lg: 1280,
+            xl: 1536,
+        },
+    },
     cssVariables: true,
     palette: {
         mode: "light",
@@ -19,7 +28,6 @@ const theme = createTheme({
         },
         ...colors
     },
-
 });
 
 theme.typography = {

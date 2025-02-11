@@ -117,7 +117,7 @@ function Navbar() {
 
     return (
         <AppBar component={"nav"} color={scrollY >= 0 ? "primary" : "transparent"} sx={{ zIndex: 1310, boxShadow: "none" }}>
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
                 <Toolbar disableGutters sx={{ height: 80, display: "flex", justifyContent: "space-between" }}>
                     {/* Conditional rendering of search field or main content */}
                     {searchActive && !isLg ? <SearchField handleClose={handleSearchField} /> :
