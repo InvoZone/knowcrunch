@@ -125,7 +125,7 @@ const Courses = () => {
 
                 {/* Course grid layout */}
                 <Grid2 container justifyContent={"center"}>
-                    <Grid2 container size={{ xs: 12, sm: 12, md: 12, lg: filterOpen ? 12 : 9 }} spacing={2}>
+                    <Grid2 container size={{ xs: 12, sm: 12, md: 12, lg: filterOpen ? 12 : 10 }} spacing={2}>
                         {/* Display course cards */}
                         {[...new Array(9).fill()]?.map((el, ind) => (
                             <Grid2 key={`course_${ind}`} size={{ xs: 12, sm: 12, md: 6, lg: 4 }}>

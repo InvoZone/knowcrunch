@@ -198,8 +198,7 @@ function Navbar() {
                                             <CustomBtn
                                                 key={el?.id}
                                                 onMouseEnter={(e) =>
-                                                    el?.menu &&
-                                                    handleOpenSuperMenu(e, el)
+                                                    el?.menu ? handleOpenSuperMenu(e, el) : handleCloseSuperMenu()
                                                 }
                                                 title={t(el?.title)}
                                                 onClick={() => router.push(el?.link)}

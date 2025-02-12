@@ -116,8 +116,10 @@ export default function CourseCard({ enrollButton = true }) {
                 variant="outlined"
                 sx={{
                     height: 24,
+                    border: "1px solid",
                     backgroundColor: "tertiary",
-                    borderRadius: 0.5,
+                    borderColor: "neutral.neutral9",
+                    borderRadius: "4px",
                     mb: 1,
                     mt: 0.5,
                 }}
