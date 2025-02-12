@@ -10,7 +10,7 @@ import playBtnIcon from "@/assets/icons/playBtn.webp";
 import { Box } from "@mui/material";
 import CustomBtn from "./customBtn";
 
-export default function CourseCard() {
+export default function CourseCard({ enrollButton = true }) {
     return (
         <Box
             sx={{
@@ -158,6 +158,17 @@ export default function CourseCard() {
                     </Typography>
                 </Box>
             </Box>
-        </Box>
+            {enrollButton && <Box component={"div"} pt={5}>
+                <Typography
+                    variant="body2"
+                    color="error.main"
+                    pl={0.5}
+                    pb={0.5}
+                >
+                    50% off 1.000 €
+                </Typography>
+                <CustomBtn title='Enrol 1.500,00€' variant="filled" sx={{ backgroundColor: "base1.default", width: "100%" }} txtVariant="h6" color="secondary" />
+            </Box>}
+        </Box >
     );
 }

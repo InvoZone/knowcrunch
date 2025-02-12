@@ -44,7 +44,7 @@ function Navbar() {
     const [mobileMenu, setMobileMenu] = React.useState(false);
 
     // Mock login state
-    const login = false;
+    const login = true;
 
     // Get theme accents
     const { accents } = theme.palette;
@@ -126,7 +126,6 @@ function Navbar() {
                     sx={{
                         height: 80,
                         display: "flex",
-                        justifyContent: "space-between",
                     }}
                 >
                     {/* Conditional rendering of search field or main content */}
@@ -171,13 +170,15 @@ function Navbar() {
                             </Box>
 
                             {/* Logo */}
-                            <Image
-                                src={"/logo.webp"}
-                                alt="logos"
-                                width={135}
-                                height={40}
-                                priority
-                            />
+                            <Box component={"div"} flexGrow={{ xs: 1, lg: 0 }}>
+                                <Image
+                                    src={"/logo.webp"}
+                                    alt="logos"
+                                    width={135}
+                                    height={40}
+                                    priority
+                                />
+                            </Box>
 
                             {/* Desktop navigation menu */}
                             <Box
@@ -248,94 +249,90 @@ function Navbar() {
                                             onClick={handleSearchField}
                                         />
                                     </IconButton>
-                                    {isLg && (
+
+                                    {login && (
+                                        // Logged in user icons
                                         <>
-                                            {login ? (
-                                                // Logged in user icons
-                                                <>
-                                                    <IconButton
-                                                        display={{
-                                                            xs: "none",
-                                                            md: "flex",
-                                                        }}
-                                                    >
-                                                        <Badge
-                                                            sx={{
-                                                                "& .MuiBadge-dot":
-                                                                    {
-                                                                        backgroundColor:
-                                                                            "accents.bubble1", // Custom color for the badge dot
-                                                                    },
-                                                            }}
-                                                            variant="dot"
-                                                            invisible={false}
-                                                        >
-                                                            <Image
-                                                                src={cartIcon}
-                                                                width={24}
-                                                                height={24}
-                                                                alt={"cartIcon"}
-                                                                loading="lazy"
-                                                            />
-                                                        </Badge>
-                                                    </IconButton>
-                                                    <IconButton>
-                                                        <Badge
-                                                            color="error"
-                                                            variant="dot"
-                                                            invisible={false}
-                                                        >
-                                                            <Image
-                                                                src={
-                                                                    notificationIcon
-                                                                }
-                                                                width={24}
-                                                                height={24}
-                                                                alt={
-                                                                    "notificationIcon"
-                                                                }
-                                                                loading="lazy"
-                                                            />
-                                                        </Badge>
-                                                    </IconButton>
-                                                    <IconButton>
-                                                        <Image
-                                                            src={personIcon}
-                                                            width={24}
-                                                            height={24}
-                                                            alt={"personIcon"}
-                                                            loading="lazy"
-                                                        />
-                                                    </IconButton>
-                                                </>
-                                            ) : (
-                                                // Login/Join buttons
-                                                <>
-                                                    <CustomBtn
-                                                        title={"Log In"}
-                                                        color="secondary"
-                                                        sx={{ minWidth: 100 }}
+                                            <IconButton
+                                                display={{
+                                                    xs: "none",
+                                                    md: "flex",
+                                                }}
+                                            >
+                                                <Badge
+                                                    sx={{
+                                                        "& .MuiBadge-dot":
+                                                        {
+                                                            backgroundColor:
+                                                                "accents.bubble1", // Custom color for the badge dot
+                                                        },
+                                                    }}
+                                                    variant="dot"
+                                                    invisible={false}
+                                                >
+                                                    <Image
+                                                        src={cartIcon}
+                                                        width={24}
+                                                        height={24}
+                                                        alt={"cartIcon"}
+                                                        loading="lazy"
                                                     />
-                                                    <CustomBtn
-                                                        variant="contained"
-                                                        title={"join Us"}
-                                                        sx={{
-                                                            background:
-                                                                accents.bubble1,
-                                                            minWidth: 100,
-                                                        }}
+                                                </Badge>
+                                            </IconButton>
+                                            <IconButton>
+                                                <Badge
+                                                    color="error"
+                                                    variant="dot"
+                                                    invisible={false}
+                                                >
+                                                    <Image
+                                                        src={
+                                                            notificationIcon
+                                                        }
+                                                        width={24}
+                                                        height={24}
+                                                        alt={
+                                                            "notificationIcon"
+                                                        }
+                                                        loading="lazy"
                                                     />
-                                                </>
-                                            )}{" "}
+                                                </Badge>
+                                            </IconButton>
+                                            <IconButton>
+                                                <Image
+                                                    src={personIcon}
+                                                    width={24}
+                                                    height={24}
+                                                    alt={"personIcon"}
+                                                    loading="lazy"
+                                                />
+                                            </IconButton>
                                         </>
                                     )}
+                                    {/* // Login/Join buttons */}
+                                    {isLg && !login && <>
+                                        <CustomBtn
+                                            title={"Log In"}
+                                            color="secondary"
+                                            sx={{ minWidth: 100 }}
+                                        />
+                                        <CustomBtn
+                                            variant="contained"
+                                            title={"join Us"}
+                                            sx={{
+                                                background:
+                                                    accents.bubble1,
+                                                minWidth: 100,
+                                            }}
+                                        />
+                                    </>}
                                 </Box>
                             )}
                         </>
                     )}
                 </Toolbar>
             </Container>
-        </AppBar>
+        </AppBar >
     );
 }
 

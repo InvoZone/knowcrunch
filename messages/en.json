@@ -1,4 +1,29 @@
 {
+    "general": {
+        "cleatFilters": "Clear Filters",
+        "filters": "Filters",
+        "filterBy": "Filter by",
+        "careerPaths": "Career Paths",
+        "analytics": "Analytics",
+        "contentMarketing": "Content Marketing",
+        "emailMobileMarketing": "Email & Mobile Marketing",
+        "digitalMarketingStrategy": "Digital Marketing Strategy",
+        "growthMarketingStrategy": "Growth Marketing Strategy",
+        "influencerMarketing": "Influencer Marketing",
+        "performanceMarketing": "Performance Marketing",
+        "price": "Price",
+        "paid": "Paid",
+        "free": "Free",
+        "duration": "Duration",
+        "lessThan10h": "< 10h",
+        "10hTo30h": "10h - 30h",
+        "moreThan30h": "30h +",
+        "languages": "Languages",
+        "english": "English",
+        "greek": "Greek",
+        "paymentInstallments": "Payment installments",
+        "yes": "Yes"
+    },
     "navbar": {
         "myProfile": "My Profile",
         "eLearningCourse": "E-Learning Courses",
@@ -12,5 +37,15 @@
         "email&MobileMarketing": "Email & mobile marketing",
         "masterclassInMetaAdvertising": "Masterclass in Meta Advertising",
         "masterclassInContentMarketingStrategy": "Masterclass in Content Marketing Strategy"
+    },
+    "courses": {
+        "allCourses": "All Courses"
+    },
+    "sort": {
+        "sortBy": "Sort by",
+        "popularity": "Popularity",
+        "rating": "Rating",
+        "newestOldest": "Newest - oldest",
+        "oldestNewest": "Oldest - newest"
     }
 }

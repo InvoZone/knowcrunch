@@ -12,9 +12,12 @@ const CustomBtn = ({
     onMouseOver,
     startIcon = "",
     endIcon = "",
+    type = "button",
+    fontWeight = ""
 }) => {
     return (
         <Button
+            type={type}
             variant={variant}
             onMouseOver={onMouseOver}
             onMouseEnter={onMouseEnter}
@@ -30,7 +33,7 @@ const CustomBtn = ({
             startIcon={startIcon}
             endIcon={endIcon}
         >
-            <Typography variant={txtVariant} color={color}>
+            <Typography variant={txtVariant} color={color} fontWeight={fontWeight}>
                 {title}
             </Typography>
         </Button>

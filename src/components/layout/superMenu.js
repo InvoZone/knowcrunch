@@ -143,7 +143,7 @@ const SuperMenu = ({
                         {/* Course card display when third level is selected */}
                         {subMenu1?.id && (
                             <Grid2 size={{ md: 3, lg: 3 }}>
-                                <CourseCard />
+                                <CourseCard enrollButton={false} />
                             </Grid2>
                         )}
                     </Grid2>

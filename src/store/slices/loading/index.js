@@ -1,5 +1,5 @@
 // ** Redux Imports
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
     loading: false,
