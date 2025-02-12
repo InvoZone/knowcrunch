@@ -34,20 +34,7 @@ import FooterLinksMobile from "../Footer/Getnews/mobileFooterLinks";
 
 const Footer = () => {
     const theme = useTheme();
-    const [isMobile, setIsMobile] = useState(false);
-
-    const handleResize = () => {
-        setIsMobile(window.innerWidth <= 991);
-    };
-
-    useEffect(() => {
-        handleResize();
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+    const isMed = useMediaQuery(theme.breakpoints.down("md"));
 
     return (
         <Box
@@ -68,7 +55,7 @@ const Footer = () => {
                         mb: 3,
                     }}
                 >
-                    {isMobile && (
+                    {isMed && (
                         <>
                             <Grid2
                                 item="true"
