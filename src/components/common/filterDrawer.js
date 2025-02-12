@@ -1,4 +1,7 @@
+// Enable client-side rendering
 "use client";
+
+// Import necessary dependencies
 import * as React from "react";
 import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
@@ -7,46 +10,75 @@ import { filterStatus } from "@/store/slices/course";
 import { useDispatch } from "react-redux";
 import { FormGroup, Typography } from "@mui/material";
 import CustomCheckbox from "./customCheckbox";
+import { CloseOutlined } from "@mui/icons-material";
 
+// Set drawer width constant
 const drawerWidth = 311;
 
+/**
+ * FilterDrawer Component
+ * A responsive drawer component that displays filter options
+ * 
+ * @param {Object} props - Component props
+ * @param {Function} props.window - Window function for mobile drawer
+ * @param {ReactNode} props.children - Child components to render
+ * @param {boolean} props.open - Controls drawer open state
+ * @param {Function} props.t - Translation function
+ * @param {Array} props.filters - Array of filter options
+ * @param {Function} props.handleChange - Handler for filter changes
+ */
 function FilterDrawer(props) {
     const dispatch = useDispatch();
-    const { window, children, open, t, filters } = props;
+    const { window, children, open, t, filters, handleChange, selectedFilters } = props;
 
+    // Handle drawer close action
     const handleClose = () => {
         dispatch(filterStatus(false));
     };
 
+    // Drawer content component
     const drawer = (
         <div>
-            <Typography variant="h4" pb={1} color="base1.dark4">{t("filterBy")}</Typography>
+            {/* Header section with title and close button */}
+            <Box component={"div"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+                <Typography variant="h4" pb={1} color="base1.dark4">{t("filterBy")}</Typography>
+                <CloseOutlined sx={{ color: "base1.dark4", display: { xs: "block", lg: "none" } }} onClick={handleClose} />
+            </Box>
+            {/* Filter options mapping */}
             {
-                filters?.map(el => <div key={el?.id}>
+                filters?.map(el => <Box component={"div"} key={el?.id} pb={1}>
                     <Typography variant="h6" py={0.5} color="base1.dark4">{t(el?.value)}</Typography>
                     <FormGroup pb={1}>
                         {
-                            el?.filters?.map(e => <CustomCheckbox t={t} label={e?.value} key={e?.id} />)
+                            el?.filters?.map(e => (
+                                <CustomCheckbox
+                                    key={e?.id}
+                                    checked={selectedFilters?.includes(e?.value)}
+                                    t={t}
+                                    label={e?.value}
+                                    onChange={(event) => handleChange(event, e)} name={e?.value}
+                                />
+                            ))
                         }
                     </FormGroup>
-                    {el?.filters?.length > 5 && <Typography py={1} variant="h6" color="base1.default">Show more</Typography>}
+                    {el?.filters?.length > 5 && <Typography pt={1} variant="h6" color="base1.default">Show more</Typography>}
 
-                </div>)
+                </Box>)
             }
         </div>
     );
 
-    // Remove this const when copying and pasting into your project.
+    // Container for mobile drawer
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <Box sx={{ display: "flex", columnGap: 2 }}>
-
+            {/* Drawer wrapper */}
             <Box
                 component="div"
                 sx={{ width: { lg: drawerWidth }, flexShrink: { md: 0, display: open ? "block" : "none" } }}
             >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+                {/* Mobile drawer implementation */}
                 <Drawer
                     container={container}
                     variant="permanent"
@@ -57,11 +89,12 @@ function FilterDrawer(props) {
                     }}
                     sx={{
                         display: { xs: "block", sm: "block", md: "block", lg: "none" },
-                        "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth, px: 5, pt: "128px" },
+                        "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth, px: 6, pt: "128px" },
                     }}
                 >
                     {drawer}
                 </Drawer>
+                {/* Desktop drawer implementation */}
                 <Drawer
                     variant="persistent"
                     sx={{
@@ -73,7 +106,9 @@ function FilterDrawer(props) {
                     {drawer}
                 </Drawer>
             </Box>
+            {/* Main content area */}
             <Box
+                component={"div"}
             >
                 {children}
             </Box>
@@ -81,6 +116,7 @@ function FilterDrawer(props) {
     );
 }
 
+// PropTypes validation
 FilterDrawer.propTypes = {
     window: PropTypes.func,
 };

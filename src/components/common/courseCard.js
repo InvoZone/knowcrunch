@@ -1,6 +1,9 @@
+// Import necessary dependencies from React and Material-UI
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+
+// Import assets and icons
 import courseThumb from "@/assets/course/courseThumb.webp";
 import heartIcon from "@/assets/icons/heart.svg";
 import globIcon from "@/assets/icons/glob.svg";
@@ -10,6 +13,12 @@ import playBtnIcon from "@/assets/icons/playBtn.webp";
 import { Box } from "@mui/material";
 import CustomBtn from "./customBtn";
 
+/**
+ * CourseCard Component
+ * Displays a card with course information including thumbnail, title, description,
+ * language, rating, duration and enrollment button
+ * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
+ */
 export default function CourseCard({ enrollButton = true }) {
     return (
         <Box
@@ -22,6 +31,7 @@ export default function CourseCard({ enrollButton = true }) {
             }}
             p={1}
         >
+            {/* Course thumbnail section with play button overlay */}
             <Box
                 component={"div"}
                 sx={{
@@ -31,6 +41,7 @@ export default function CourseCard({ enrollButton = true }) {
                     position: "relative",
                 }}
             >
+                {/* Play button overlay */}
                 <Box
                     component={"div"}
                     position={"absolute"}
@@ -46,6 +57,7 @@ export default function CourseCard({ enrollButton = true }) {
                     />
                 </Box>
 
+                {/* Best seller badge and heart icon */}
                 <Box
                     component={"div"}
                     sx={{
@@ -74,6 +86,8 @@ export default function CourseCard({ enrollButton = true }) {
                     alt="course thumb"
                 />
             </Box>
+
+            {/* Course title */}
             <Typography
                 gutterBottom
                 variant="titleLg"
@@ -83,6 +97,8 @@ export default function CourseCard({ enrollButton = true }) {
             >
                 Masterclass in Google Advertising
             </Typography>
+
+            {/* Course description */}
             <Typography
                 gutterBottom
                 variant="body2"
@@ -93,6 +109,8 @@ export default function CourseCard({ enrollButton = true }) {
                 An exceedingly advanced training program that provides
                 comprehensive lectures
             </Typography>
+
+            {/* Course type badge */}
             <CustomBtn
                 title={"Professional Diploma"}
                 variant="outlined"
@@ -107,7 +125,9 @@ export default function CourseCard({ enrollButton = true }) {
                 color="neutral.neutral2"
             />
 
+            {/* Course metadata: language, rating, and duration */}
             <Box component={"div"} display={"flex"} gap={0.5}>
+                {/* Language indicator */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image src={globIcon} alt="glob" width={20} height={20} />
                     <Typography
@@ -118,6 +138,7 @@ export default function CourseCard({ enrollButton = true }) {
                         EN •
                     </Typography>
                 </Box>
+                {/* Rating display */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image
                         src={starIcon}
@@ -142,6 +163,7 @@ export default function CourseCard({ enrollButton = true }) {
                         •
                     </Typography>
                 </Box>
+                {/* Duration display */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image
                         src={clockIcon}
@@ -158,6 +180,8 @@ export default function CourseCard({ enrollButton = true }) {
                     </Typography>
                 </Box>
             </Box>
+
+            {/* Enrollment section with price and button */}
             {enrollButton && <Box component={"div"} pt={5}>
                 <Typography
                     variant="body2"

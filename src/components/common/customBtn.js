@@ -13,7 +13,8 @@ const CustomBtn = ({
     startIcon = "",
     endIcon = "",
     type = "button",
-    fontWeight = ""
+    fontWeight = "",
+    name = ""
 }) => {
     return (
         <Button
@@ -32,6 +33,7 @@ const CustomBtn = ({
             onClick={onClick}
             startIcon={startIcon}
             endIcon={endIcon}
+            name={name}
         >
             <Typography variant={txtVariant} color={color} fontWeight={fontWeight}>
                 {title}

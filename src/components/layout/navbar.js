@@ -25,9 +25,11 @@ import { navbarMenu } from "@/utils/navbarMenu";
 import { useTranslations } from "next-intl";
 import SuperMenu from "./superMenu";
 import SuperMenuMobile from "./superMenuMobile";
+import { useRouter } from "next/navigation";
 
 function Navbar() {
     // Initialize theme and translations
+    const router = useRouter();
     const theme = useTheme();
     const t = useTranslations("navbar");
 
@@ -44,7 +46,7 @@ function Navbar() {
     const [mobileMenu, setMobileMenu] = React.useState(false);
 
     // Mock login state
-    const login = true;
+    const login = false;
 
     // Get theme accents
     const { accents } = theme.palette;
@@ -165,6 +167,7 @@ function Navbar() {
                                         }
                                         login={login}
                                         goBack={goBack}
+                                        router={router}
                                     />
                                 )}
                             </Box>
@@ -199,6 +202,7 @@ function Navbar() {
                                                     handleOpenSuperMenu(e, el)
                                                 }
                                                 title={t(el?.title)}
+                                                onClick={() => router.push(el?.link)}
                                                 color="secondary"
                                                 sx={{
                                                     minWidth: 100,

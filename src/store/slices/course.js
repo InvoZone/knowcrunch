@@ -1,10 +1,9 @@
 // ** Redux Imports
-import { courseFilters } from "@/utils/courses";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
     filterOpen: false,
-    filters: courseFilters
+    selectedFilters: []
 };
 
 export const courseSlice = createSlice({
@@ -14,8 +13,11 @@ export const courseSlice = createSlice({
         filterStatus: (state, { payload }) => {
             state.filterOpen = payload;
         },
+        selectFilter: (state, { payload }) => {
+            state.selectedFilters = payload;
+        }
     },
 });
-export const { filterStatus } = courseSlice.actions;
+export const { filterStatus, selectFilter } = courseSlice.actions;
 
 export default courseSlice.reducer;

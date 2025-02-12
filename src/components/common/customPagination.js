@@ -19,7 +19,7 @@ export default function CustomPagination() {
                         lineHeight: 20, /* 125% */
                     },
                     "& .Mui-selected": {
-                        bgcolor: "base2.light6",
+                        backgroundColor: "#F0F7FF !important",
                         border: "1px solid",
                         borderColor: "base1.default",
                     }

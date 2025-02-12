@@ -27,6 +27,7 @@ const SuperMenuMobile = ({
     handleOpenSuperMenu,
     handleOpenMobileMenu,
     goBack,
+    router
 }) => {
     const theme = useTheme();
     const { primary } = theme.palette;
@@ -48,7 +49,7 @@ const SuperMenuMobile = ({
                     "& .MuiMenu-list": { padding: 0 },
                     zIndex: 1310,
                 }}
-                id="menu-appbar"
+                id="menu-appbar-mobile"
                 anchorEl={anchorElSuperMenu}
                 disableScrollLock
                 anchorOrigin={{
@@ -134,8 +135,10 @@ const SuperMenuMobile = ({
                                 {superMenu?.map((menu) => (
                                     <MenuItem
                                         key={menu?.id}
-                                        onClick={(e) =>
-                                            handleOpenSuperMenu(e, menu)
+                                        onClick={(e) => {
+                                            router.push(menu?.link);
+                                            handleOpenSuperMenu(e, menu);
+                                        }
                                         }
                                         sx={{ height: 54, borderRadius: 1 }}
                                     >
