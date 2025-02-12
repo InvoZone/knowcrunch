@@ -1,7 +1,7 @@
 "use client";
 
 // Import necessary dependencies
-import { Box, Container, Grid2, Typography } from "@mui/material";
+import { Box, Container, Grid2 } from "@mui/material";
 import CustomBtn from "../common/customBtn";
 import { useTranslations } from "next-intl";
 import CourseCard from "../common/courseCard";
@@ -12,6 +12,7 @@ import { CloseOutlined, TuneOutlined } from "@mui/icons-material";
 import FilterDrawer from "../common/filterDrawer";
 import { useDispatch, useSelector } from "react-redux";
 import { filterStatus, selectFilter } from "@/store/slices/course";
+import PageHeadingDesc from "../common/pageHeadingDesc";
 
 /**
  * Courses Component
@@ -75,8 +76,7 @@ const Courses = () => {
                 selectedFilters={selectedFilters}
                 handleChange={handleFilterChange}
             >
-                {/* Main content header */}
-                <Typography variant="h2" color="base1.dark4">{t1("allCourses")}</Typography>
+                <PageHeadingDesc heading={t1("allCourses")} />
 
                 {/* Filter and sort controls */}
                 <Box component='div' py={3} justifyContent={"space-between"} display={"flex"}>
