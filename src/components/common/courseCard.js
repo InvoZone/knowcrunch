@@ -53,7 +53,7 @@ export default function CourseCard({ enrollButton = true }) {
                         height={50}
                         width={50}
                         alt="playBtnIcon"
-                        loading="lazy"
+                        priority
                     />
                 </Box>
 
@@ -78,12 +78,13 @@ export default function CourseCard({ enrollButton = true }) {
                             borderRadius: 0.5,
                         }}
                     />
-                    <Image src={heartIcon} height={24} width={24} alt="heart" />
+                    <Image src={heartIcon} height={24} width={24} alt="heart" priority />
                 </Box>
                 <Image
                     src={courseThumb}
                     className="imgWidth"
                     alt="course thumb"
+                    priority
                 />
             </Box>
 
@@ -147,6 +148,7 @@ export default function CourseCard({ enrollButton = true }) {
                         alt="starIcon"
                         width={20}
                         height={20}
+                        priority
                     />
                     <Typography
                         variant="body"
@@ -172,6 +174,7 @@ export default function CourseCard({ enrollButton = true }) {
                         alt="clockIcon"
                         width={20}
                         height={20}
+                        priority
                     />
                     <Typography
                         variant="body"

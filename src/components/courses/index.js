@@ -83,7 +83,7 @@ const Courses = () => {
                     <CustomBtn
                         variant="outlined"
                         title={t("filters")}
-                        startIcon={<TuneOutlined color={filterOpen ? "secondary" : "neutral.neutral1"} />}
+                        startIcon={<TuneOutlined sx={{ color: filterOpen ? "secondary" : "neutral.neutral1" }} />}
                         sx={{ borderRadius: 8, borderColor: "neutral.neutral1", backgroundColor: filterOpen && "neutral.neutral1" }}
                         txtVariant={"titleLg"}
                         fontWeight="400"

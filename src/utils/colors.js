@@ -53,5 +53,6 @@ export const colors = {
     },
     link: {
         main: "#3366CC",
+        light: "#0D0D78",
     },
 };

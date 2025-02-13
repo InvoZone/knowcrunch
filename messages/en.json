@@ -47,5 +47,15 @@
         "rating": "Rating",
         "newestOldest": "Newest - oldest",
         "oldestNewest": "Oldest - newest"
+    },
+    "account": {
+        "loginHeading": "Log in to your account",
+        "email": "Email",
+        "password": "Password",
+        "signin": "Sign in",
+        "signup": "Sign up",
+        "dontHaveAccount": "Don’t have an account?",
+        "or": "or",
+        "continueWithGoogle": "Continue with Google"
     }
 }

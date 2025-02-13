@@ -13,6 +13,7 @@ import chevRightIcon from "@/assets/icons/chevRight.svg";
 import chevLeftIcon from "@/assets/icons/chevLeft.svg";
 import cancelIcon from "@/assets/icons/cross.svg";
 import CustomBtn from "../common/customBtn";
+import Login from "../auth/login";
 
 const SuperMenuMobile = ({
     anchorElSuperMenu,
@@ -23,14 +24,16 @@ const SuperMenuMobile = ({
     subMenu,
     t,
     superMenu,
-    login,
+    isLoggedIn,
     handleOpenSuperMenu,
     handleOpenMobileMenu,
     goBack,
-    router
+    router,
+    handleLogout
 }) => {
     const theme = useTheme();
     const { primary } = theme.palette;
+
 
     return (
         <Box position={"relative"}>
@@ -117,7 +120,7 @@ const SuperMenuMobile = ({
                         {/* Main menu items and auth buttons */}
                         {!menu?.id && !subMenu?.id && (
                             <Grid2 size={12}>
-                                {login && (
+                                {isLoggedIn && (
                                     <MenuItem
                                         onClick={(e) =>
                                             handleOpenSuperMenu(e, menu)
@@ -169,19 +172,16 @@ const SuperMenuMobile = ({
                                             md: "flex-end",
                                         }}
                                     >
-                                        {login ? (
+                                        {isLoggedIn ? (
                                             <CustomBtn
                                                 title={"Log out"}
                                                 color="secondary"
                                                 sx={{ minWidth: 100 }}
+                                                onClick={handleLogout}
                                             />
                                         ) : (
                                             <>
-                                                <CustomBtn
-                                                    title={"Log In"}
-                                                    color="secondary"
-                                                    sx={{ minWidth: 100 }}
-                                                />
+                                                <Login />
                                                 <CustomBtn
                                                     variant="contained"
                                                     title={"join Us"}

@@ -26,12 +26,17 @@ import { useTranslations } from "next-intl";
 import SuperMenu from "./superMenu";
 import SuperMenuMobile from "./superMenuMobile";
 import { useRouter } from "next/navigation";
+import Login from "../auth/login";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "@/store/slices/auth";
 
 function Navbar() {
     // Initialize theme and translations
     const router = useRouter();
     const theme = useTheme();
+    const dispatch = useDispatch();
     const t = useTranslations("navbar");
+    const { isLoggedIn } = useSelector(state => state.auth);
 
     // Responsive breakpoint check
     const isLg = useMediaQuery(theme.breakpoints.up("lg"));
@@ -45,8 +50,7 @@ function Navbar() {
     const [subMenu1, setSubMenu1] = React.useState({});
     const [mobileMenu, setMobileMenu] = React.useState(false);
 
-    // Mock login state
-    const login = false;
+
 
     // Get theme accents
     const { accents } = theme.palette;
@@ -98,6 +102,10 @@ function Navbar() {
     // Handle navigation back in mobile menu
     const goBack = () => {
         subMenu?.id ? setSubMenu({}) : setMenus({});
+    };
+
+    const handleLogout = () => {
+        dispatch(logout());
     };
 
     // Handle scroll events
@@ -165,9 +173,10 @@ function Navbar() {
                                         handleOpenMobileMenu={
                                             handleOpenMobileMenu
                                         }
-                                        login={login}
+                                        isLoggedIn={isLoggedIn}
                                         goBack={goBack}
                                         router={router}
+                                        handleLogout={handleLogout}
                                     />
                                 )}
                             </Box>
@@ -253,7 +262,7 @@ function Navbar() {
                                         />
                                     </IconButton>
 
-                                    {login && (
+                                    {isLoggedIn && (
                                         // Logged in user icons
                                         <>
                                             <IconButton
@@ -301,7 +310,7 @@ function Navbar() {
                                                     />
                                                 </Badge>
                                             </IconButton>
-                                            <IconButton>
+                                            <IconButton onClick={handleLogout}>
                                                 <Image
                                                     src={personIcon}
                                                     width={24}
@@ -313,12 +322,8 @@ function Navbar() {
                                         </>
                                     )}
                                     {/* // Login/Join buttons */}
-                                    {isLg && !login && <>
-                                        <CustomBtn
-                                            title={"Log In"}
-                                            color="secondary"
-                                            sx={{ minWidth: 100 }}
-                                        />
+                                    {isLg && !isLoggedIn && <>
+                                        <Login />
                                         <CustomBtn
                                             variant="contained"
                                             title={"join Us"}

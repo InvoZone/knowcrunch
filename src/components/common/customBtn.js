@@ -1,4 +1,5 @@
 import { Button, Typography } from "@mui/material";
+import CircleLoader from "./circleLoader";
 
 const CustomBtn = ({
     title,
@@ -14,7 +15,10 @@ const CustomBtn = ({
     endIcon = "",
     type = "button",
     fontWeight = "",
-    name = ""
+    name = "",
+    disabled = false,
+    btnColor = "",
+    loading = false
 }) => {
     return (
         <Button
@@ -23,20 +27,24 @@ const CustomBtn = ({
             onMouseOver={onMouseOver}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            disabled={disabled}
+            color={btnColor}
+            autoComplete="off"
+            loadingPosition="start"
             sx={{
                 borderRadius: 1.5,
                 textTransform: "none",
                 height: 45,
                 cursor: "pointer",
-                ...sx,
+                ...sx
             }}
             onClick={onClick}
             startIcon={startIcon}
             endIcon={endIcon}
             name={name}
         >
-            <Typography variant={txtVariant} color={color} fontWeight={fontWeight}>
-                {title}
+            <Typography variant={txtVariant} color={color} fontWeight={fontWeight} display={"flex"} alignItems="center" gap={0.5}>
+                {loading && <CircleLoader />} {loading ? "Please wait..." : title}
             </Typography>
         </Button>
     );
