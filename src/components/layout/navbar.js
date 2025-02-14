@@ -25,10 +25,9 @@ import { navbarMenu } from "@/utils/navbarMenu";
 import { useTranslations } from "next-intl";
 import SuperMenu from "./superMenu";
 import SuperMenuMobile from "./superMenuMobile";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/store/slices/auth";
-import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 
 const Login = dynamic(() => import("../auth/login"));
@@ -129,7 +128,7 @@ function Navbar() {
     return (
         <AppBar
             component={"nav"}
-            color={(scrollY >= 10 || menu?.id != undefined) ? "primary" : pathname == "/" ? "transparent" : "primary"}
+            color={(scrollY >= 10 || menu?.id !== undefined) ? "primary" : pathname === "/" ? "transparent" : "primary"}
             sx={{ zIndex: 1310, boxShadow: "none" }}
         >
             <Container maxWidth="lg">
