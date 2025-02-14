@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import { Box, Grid2, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import whyknowcrunch from "@/assets/course/kowcrunchimg.svg";
 import styles from "./whykowcruch.module.scss";
 import Tick from "@/assets/icons/tick.svg";
-export default function ProfileCard({ profileImage, name, title, company }) {
+export default function Whyknow() {
     const theme = useTheme();
-    const { primary, base2, base1, link, neutral, secondary } = theme.palette;
+    const {  base1, neutral } = theme.palette;
 
     return (
         <Box className={styles.main}>

@@ -1,16 +1,15 @@
 "use client";
 import Image from "next/image";
-import { Box, Grid2, Typography, useTheme } from "@mui/material";
-import diploma from "@/assets/course/diploma.svg";
+import { Box, Typography, useTheme } from "@mui/material";
 import styles from "./banner.module.scss";
 import rightaward from "@/assets/icons/rightaward.svg";
 import leftaward from "@/assets/icons/leftaward.svg";
 import bannerstar from "@/assets/icons/bannerstar.svg";
 
 
-export default function ProfileCard({ profileImage, name, title, company }) {
+export default function Banner() {
     const theme = useTheme();
-    const { primary, base2, base1, link, neutral } = theme.palette;
+    const { base2 } = theme.palette;
 
     return (
         <Box className={styles.main} sx={{ padding: "48px",  }}>

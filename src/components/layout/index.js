@@ -16,9 +16,7 @@ const Layout = ({ children }) => {
             <Box
                 component={"main"}
             >
-                {/* {children} */}
-                {/* <CourseCard  /> */}
-                <Home />
+                {children}
             </Box>
             {/* Footer  component */}
             <Footer />

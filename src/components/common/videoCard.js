@@ -1,8 +1,7 @@
 "use client";
-import { Box, Typography, useTheme } from "@mui/material";
-export default function VideoCard({ videoUrl, title }) {
-    const theme = useTheme();
-    const { primary, base2, base1, link, neutral } = theme.palette;
+import { Box } from "@mui/material";
+export default function VideoCard() {
+
     return (
         <Box
             sx={{
@@ -14,7 +13,6 @@ export default function VideoCard({ videoUrl, title }) {
                 alignItems: "start",
             }}
             p={1}
-            // mx={1}
         >
             <iframe
                 width="100%"

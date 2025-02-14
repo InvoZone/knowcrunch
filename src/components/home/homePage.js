@@ -1,13 +1,6 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import courseThumb from "@/assets/course/courseThumb.webp";
-import heartIcon from "@/assets/icons/heart.svg";
-import globIcon from "@/assets/icons/glob.svg";
-import clockIcon from "@/assets/icons/clock.svg";
-import starIcon from "@/assets/icons/star.svg";
-import playBtnIcon from "@/assets/icons/playBtn.webp";
-import CustomBtn from "../common/customBtn";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -21,8 +14,6 @@ import {
     Box,
     Container,
     Grid2,
-    Menu,
-    MenuItem,
     Typography,
     useTheme,
     useMediaQuery,
@@ -241,7 +232,7 @@ const homepage = ({ enrollButton = true }) => {
     return (
         <Container maxWidth="lg" sx={{padding:0}} className={styles.mainconatiner}>
             {/* Bannner section */}
-            <Box sx={{marginTop:'80px'}}>
+            <Box >
                 <Banner  />
                 <Box  className={styles.LogoAnimate}>
                     <LogoAnimate />
@@ -534,12 +525,12 @@ const homepage = ({ enrollButton = true }) => {
                     Video testimonials
                 </Typography>
                 <Slider {...videoSettigs} className={styles.sliderContaier}>
-                    <VideoCard profileImage={img1} title="CEO" company="@KnowCrunch" name="Tolis Aivalis"/>
-                    <VideoCard profileImage={img2} title="Managing Director" company="Olive Creative Marketing House" name="Elia Balta" />
-                    <VideoCard profileImage={img3} title="Founder" company="@Content Studio" name="Christina Dehola" />
-                    <VideoCard profileImage={img2} title="Managing Director" company="Olive Creative Marketing House" name="Elia Balta" />
-                    <VideoCard profileImage={img1} title="CEO" company="@KnowCrunch" name="Tolis Aivalis" />
-                    <VideoCard profileImage={img3} title="Founder" company="@Content Studio" name="Christina Dehola" />
+                    <VideoCard />
+                    <VideoCard  />
+                    <VideoCard  />
+                    <VideoCard  />
+                    <VideoCard />
+                    <VideoCard  />
                 </Slider>
             </Box>
             {/* Diploma */}

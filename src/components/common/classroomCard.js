@@ -5,19 +5,12 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import * as styles from "./classroomCard.module.scss";
 // Import assets and icons
-import courseThumb from "@/assets/course/courseThumb.webp";
 import heartIcon from "@/assets/icons/heart.svg";
-import globIcon from "@/assets/icons/glob.svg";
-import clockIcon from "@/assets/icons/clock.svg";
-import starIcon from "@/assets/icons/star.svg";
-import playBtnIcon from "@/assets/icons/playBtn.webp";
 import clockhour from "@/assets/icons/clockhour.svg";
 import staricon from "@/assets/icons/staricon.svg";
 import globalicon from "@/assets/icons/globalicon.svg";
 import calendaricon from "@/assets/icons/calendaricon.svg";
 import locationicon from "@/assets/icons/locationicon.svg";
-// import classroomcourse from "@/assets/icons/classroomcourse.svg";
-import classroomcourse from "@/assets/icons/classroomcourse.svg?url";
 
 import { Box } from "@mui/material";
 import CustomBtn from "./customBtn";
@@ -54,21 +47,6 @@ export default function ClassroomCard({ enrollButton = true , homepage = false }
                     position: "relative",
                 }}
             >
-                {/* Play button overlay */}
-                {/* <Box
-                    component={"div"}
-                    position={"absolute"}
-                    top={"40%"}
-                    left={"43%"}
-                >
-                    <Image
-                        src={playBtnIcon}
-                        height={50}
-                        width={50}
-                        alt="playBtnIcon"
-                        loading="lazy"
-                    />
-                </Box> */}
 
                 {/* Best seller badge and heart icon */}
                 <Box
@@ -93,11 +71,6 @@ export default function ClassroomCard({ enrollButton = true , homepage = false }
                     />
                     <Image src={heartIcon} height={24} width={24} alt="heart" />
                 </Box>
-                {/* <Image
-                    src={courseThumb}
-                    className="imgWidth"
-                    alt="course thumb"
-                /> */}
             </Box>
 
             {/* Course title */}
