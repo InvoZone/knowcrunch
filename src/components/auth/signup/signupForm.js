@@ -71,13 +71,17 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
             <CustomInput name={"password"}
                 label={t("password")}
                 formik={formik} mb={1}
-                type='password' />
+                type='password'
+                autoComplete="new-password"
+            />
 
             {/* Rewrite Password input field */}
             <CustomInput name={"confirmPassword"}
                 label={t("rewritePassword")}
                 formik={formik} mb={3}
-                type='password' />
+                type='password'
+                autoComplete="new-password"
+            />
 
             {/* Submit button for email/password signup */}
             <CustomBtn type='submit'

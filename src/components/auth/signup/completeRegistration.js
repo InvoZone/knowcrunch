@@ -56,12 +56,14 @@ const CompleteRegistration = ({ t, handleClose }) => {
             <CustomInput name={"name"}
                 label={t("name")}
                 formik={formik} mb={1}
+                inputProps={{ autoComplete: "name" }}
             />
 
             {/* Surname input field */}
             <CustomInput name={"surname"}
                 label={t("surname")}
                 formik={formik} mb={1}
+                inputProps={{ autoComplete: "sur-name" }}
             />
 
             {/* Mobile phone input field */}
@@ -77,6 +79,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
                         height: '45px',
                         borderRadius: '8px',
                     }}
+                    inputProps={{ autoComplete: "tel" }}
                 />
             </Box>
 
@@ -84,18 +87,21 @@ const CompleteRegistration = ({ t, handleClose }) => {
             <CustomInput name={"workTitle"}
                 label={t("work title")}
                 formik={formik} mb={1}
+                inputProps={{ autoComplete: "job-title" }}
             />
 
             {/* Company input field */}
             <CustomInput name={"company"}
                 label={t("company")}
                 formik={formik} mb={1}
+                inputProps={{ autoComplete: "organization" }}
             />
 
             {/* City input field */}
             <CustomInput name={"city"}
                 label={t("city")}
                 formik={formik} mb={3}
+                inputProps={{ autoComplete: "address-level2" }}
             />
 
             {/* Terms and conditions checkbox */}

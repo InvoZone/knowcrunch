@@ -10,7 +10,7 @@ export default function Diploma() {
 
     return (
         <Box className={styles.main}>
-            <Image className={styles.img} src={diploma}  alt="diploma" layout="responsive" />
+            <Image className={styles.img} src={diploma}  alt="diploma" />
             <Box className={styles.typo} >
                 <Typography variant="h2" sx={{ color: base1.dark4 }}>
                     Earn your professional certification or diploma
