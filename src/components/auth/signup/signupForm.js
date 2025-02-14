@@ -9,6 +9,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import googleIcon from "@/assets/icons/google.svg";
 import Image from "next/image";
+import { useState } from "react";
+import CompleteRegistration from "./completeRegistration"
 
 // Define validation schema for the signup form
 const validationSchema = yup.object({
@@ -31,7 +33,9 @@ const validationSchema = yup.object({
  * @param {Object} props - Component props
  * @param {Function} props.t - Translation function for internationalization
  */
-const SignupForm = ({ t, handleClose }) => {
+const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
+    const [showCompleteRegistration, setShowCompleteRegistration] = useState(false);
+
     // Initialize formik for form handling and validation
     const formik = useFormik({
         initialValues: {
@@ -41,13 +45,19 @@ const SignupForm = ({ t, handleClose }) => {
         },
         validationSchema,
         onSubmit: () => {
-            handleClose();
+            handleSubmitForm();
+            setShowCompleteRegistration(true);
         },
     });
 
     // Initialize Google OAuth Signup handler
     const googleSignup = useGoogleLogin({
     });
+
+    // Render CompleteRegistration form if state is true
+    if (showCompleteRegistration) {
+        return <CompleteRegistration t={t} handleClose={handleClose} />;
+    }
 
     return (
         <form onSubmit={formik.handleSubmit}>

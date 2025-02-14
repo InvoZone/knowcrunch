@@ -49,7 +49,10 @@
         "oldestNewest": "Oldest - newest"
     },
     "account": {
+        "RegisterHeading":"Register",
         "loginHeading": "Log in to your account",
+        "Completeregistration": "Complete registration",
+        "registrationHeading": "Complete registration",
         "email": "Email",
         "password": "Password",
         "signin": "Sign in",
@@ -60,6 +63,15 @@
         "signupHeading": "Register an account",
         "rewritePassword": "Rewrite Password",
         "alreadyHaveAccount": "Already have an account?",
-        "continue": "Continue"
+        "continue": "Continue",
+        "name":"Name",
+        "surname": "Surname",
+        "mobile phone": "Mobile phone",
+        "work title": "Work title",
+        "company": "Company",
+        "city": "City",
+        "I agree to the":"I agree to the",
+        "Terms & Conditions":"Terms & Conditions",
+        "I want to receive marketing emails":"I want to receive marketing emails"
     }
 }

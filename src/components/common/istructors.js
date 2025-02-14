@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
 import { Box, Typography, useTheme } from "@mui/material";
-// import styles from "./ProfileCard.module.css"; // Optional for custom styles
 
 export default function ProfileCard({ profileImage, name, title, company }) {
     const theme = useTheme();
-    const { primary, base2, base1, link, neutral } = theme.palette;
+    const { neutral } = theme.palette;
 
     return (
         <Box
