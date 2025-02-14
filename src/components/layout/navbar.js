@@ -29,10 +29,12 @@ import { useRouter } from "next/navigation";
 import Login from "../auth/login";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/store/slices/auth";
+import { usePathname } from "next/navigation";
 
 function Navbar() {
     // Initialize theme and translations
     const router = useRouter();
+    const pathname = usePathname();
     const theme = useTheme();
     const dispatch = useDispatch();
     const t = useTranslations("navbar");
@@ -127,7 +129,7 @@ function Navbar() {
     return (
         <AppBar
             component={"nav"}
-            color={scrollY >= 0 ? "primary" : "transparent"}
+            color={(scrollY >= 10 || menu?.id != undefined ) ? "primary" :  pathname == "/" ? "transparent" : "primary"}
             sx={{ zIndex: 1310, boxShadow: "none" }}
         >
             <Container maxWidth="lg">
@@ -136,6 +138,7 @@ function Navbar() {
                     sx={{
                         height: 80,
                         display: "flex",
+                        padding: pathname == "/" ? '0 16px' : ''
                     }}
                 >
                     {/* Conditional rendering of search field or main content */}

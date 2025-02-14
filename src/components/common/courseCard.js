@@ -19,7 +19,7 @@ import CustomBtn from "./customBtn";
  * language, rating, duration and enrollment button
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
  */
-export default function CourseCard({ enrollButton = true }) {
+export default function CourseCard({ enrollButton = true , homepage = false }) {
     return (
         <Box
             sx={{
@@ -30,6 +30,7 @@ export default function CourseCard({ enrollButton = true }) {
                 minHeight: 400,
             }}
             p={1}
+            mx={homepage ? 1 : 0}
         >
             {/* Course thumbnail section with play button overlay */}
             <Box
@@ -188,14 +189,14 @@ export default function CourseCard({ enrollButton = true }) {
 
             {/* Enrollment section with price and button */}
             {enrollButton && <Box component={"div"} pt={5}>
-                <Typography
+               {!homepage && <Typography
                     variant="body2"
                     color="error.main"
                     pl={0.5}
                     pb={0.5}
                 >
                     50% off 1.000 €
-                </Typography>
+                </Typography>}
                 <CustomBtn title='Enrol 1.500,00€' variant="filled" sx={{ backgroundColor: "base1.default", width: "100%" }} txtVariant="h6" color="secondary" />
             </Box>}
         </Box >
