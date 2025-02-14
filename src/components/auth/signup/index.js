@@ -23,6 +23,7 @@ const Signup = () => {
     const { signupPopup } = useSelector(state => state.auth);
 
     const handleOpen = () => {
+        setRegisterText("signupHeading")
         dispatch(openLoginSignUpPopup({
             signupPopup: true
         }));
@@ -74,7 +75,7 @@ const Signup = () => {
                 <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
                     <SignupForm t={t} handleClose={handleClose} handleSubmitForm={handleSubmitForm}/>
                     {/* Sign up prompt for users without an account */}
-                    <Box component='div' textAlign={"center"}>
+                    {registerText == "signupHeading" &&  <Box component='div' textAlign={"center"}>
                         <Typography variant="body" color="neutral.neutral4">{t("alreadyHaveAccount")} {"  "}
                             <Typography fontWeight={800}
                                 variant="body"
@@ -86,7 +87,7 @@ const Signup = () => {
                                 {t("signin")}
                             </Typography>
                         </Typography>
-                    </Box>
+                    </Box>}
                 </GoogleOAuthProvider>
             </CustomDialog>
         </>
