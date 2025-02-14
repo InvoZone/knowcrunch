@@ -9,10 +9,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import googleIcon from "@/assets/icons/google.svg";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
-import { login } from "@/store/slices/auth";
 
-// Define validation schema for the login form
+// Define validation schema for the signup form
 const validationSchema = yup.object({
     email: yup
         .string("Enter your email")
@@ -22,30 +20,33 @@ const validationSchema = yup.object({
         .string("Enter your password")
         .min(1, "Password should be of minimum 1 characters length")
         .required("Password is required"),
+    confirmPassword: yup
+        .string("Enter your password")
+        .min(1, "Password should be of minimum 1 characters length")
+        .required("Password is required"),
 });
 
 /**
- * LoginForm component handles user authentication through email/password and Google OAuth
+ * signupForm component handles user authentication through email/password and Google OAuth
  * @param {Object} props - Component props
  * @param {Function} props.t - Translation function for internationalization
  */
-const LoginForm = ({ t, handleClose }) => {
-    const dispatch = useDispatch();
+const SignupForm = ({ t, handleClose }) => {
     // Initialize formik for form handling and validation
     const formik = useFormik({
         initialValues: {
             email: "",
-            password: ""
+            password: "",
+            confirmPassword: "",
         },
         validationSchema,
         onSubmit: () => {
-            dispatch(login(true));
             handleClose();
         },
     });
 
-    // Initialize Google OAuth login handler
-    const handleLogin = useGoogleLogin({
+    // Initialize Google OAuth Signup handler
+    const googleSignup = useGoogleLogin({
     });
 
     return (
@@ -59,29 +60,36 @@ const LoginForm = ({ t, handleClose }) => {
             {/* Password input field */}
             <CustomInput name={"password"}
                 label={t("password")}
+                formik={formik} mb={1}
+                type='password' />
+
+            {/* Rewrite Password input field */}
+            <CustomInput name={"confirmPassword"}
+                label={t("rewritePassword")}
                 formik={formik} mb={3}
                 type='password' />
 
-            {/* Submit button for email/password login */}
+            {/* Submit button for email/password signup */}
             <CustomBtn type='submit'
-                title={t("signin")}
+                title={t("continue")}
                 variant="contained"
                 loading={false}
+                color="secondary"
                 sx={{
-                    backgroundColor: "accents.bubble1",
+                    backgroundColor: "base1.default",
                     width: "100%",
-                    opacity: !formik?.values?.email && !formik?.values?.password ? 0.5 : 1
+                    opacity: (!formik?.values?.email || !formik?.values?.password || !formik?.values?.confirmPassword) ? 0.5 : 1
                 }}
             />
 
-            {/* Divider between login methods */}
+            {/* Divider between signup methods */}
             <Divider sx={{ py: 2 }}>{t("or")}</Divider>
 
-            {/* Google OAuth login button */}
+            {/* Google OAuth signup button */}
             <CustomBtn type='button'
                 title={t("continueWithGoogle")}
                 variant="outlined"
-                onClick={handleLogin}
+                onClick={googleSignup}
                 startIcon={<Image src={googleIcon} width={24} height={24} loading="lazy" alt="google" />}
                 sx={{
                     border: "1px solid",
@@ -93,4 +101,4 @@ const LoginForm = ({ t, handleClose }) => {
     );
 };
 
-export default LoginForm;
+export default SignupForm;

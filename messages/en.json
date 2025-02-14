@@ -56,6 +56,10 @@
         "signup": "Sign up",
         "dontHaveAccount": "Don’t have an account?",
         "or": "or",
-        "continueWithGoogle": "Continue with Google"
+        "continueWithGoogle": "Continue with Google",
+        "signupHeading": "Register an account",
+        "rewritePassword": "Rewrite Password",
+        "alreadyHaveAccount": "Already have an account?",
+        "continue": "Continue"
     }
 }

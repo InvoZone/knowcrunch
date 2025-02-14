@@ -13,7 +13,10 @@ import chevRightIcon from "@/assets/icons/chevRight.svg";
 import chevLeftIcon from "@/assets/icons/chevLeft.svg";
 import cancelIcon from "@/assets/icons/cross.svg";
 import CustomBtn from "../common/customBtn";
-import Login from "../auth/login";
+import dynamic from "next/dynamic";
+
+const Login = dynamic(() => import("../auth/login"));
+const Signup = dynamic(() => import("../auth/signup"));
 
 const SuperMenuMobile = ({
     anchorElSuperMenu,
@@ -182,15 +185,7 @@ const SuperMenuMobile = ({
                                         ) : (
                                             <>
                                                 <Login />
-                                                <CustomBtn
-                                                    variant="contained"
-                                                    title={"join Us"}
-                                                    sx={{
-                                                        backgroundColor:
-                                                            "accents.bubble1",
-                                                        minWidth: 100,
-                                                    }}
-                                                />
+                                                <Signup />
                                             </>
                                         )}
                                     </Box>

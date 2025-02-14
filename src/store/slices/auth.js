@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state for authentication
 export const initialState = {
-    isLoggedIn: false // Tracks whether user is currently logged in
+    isLoggedIn: false, // Tracks whether user is currently logged in
+    loginPopup: false,
+    signupPopup: false
 };
 
 /**
@@ -21,12 +23,16 @@ export const authSlice = createSlice({
         // Sets isLoggedIn to false when user logs out
         logout: (state) => {
             state.isLoggedIn = false;
+        },
+        openLoginSignUpPopup: (state, { payload }) => {
+            state.loginPopup = payload?.loginPopup || false;
+            state.signupPopup = payload?.signupPopup || false;
         }
     },
 });
 
 // Export actions to be used by components
-export const { login, logout } = authSlice.actions;
+export const { login, logout, openLoginSignUpPopup } = authSlice.actions;
 
 // Export reducer to be included in store
 export default authSlice.reducer;

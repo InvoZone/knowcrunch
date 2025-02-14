@@ -3,21 +3,41 @@
 // Import necessary components and hooks
 import CustomBtn from "@/components/common/customBtn";
 import CustomDialog from "@/components/common/customDialog";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
 import LoginForm from "./loginForm";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { useDispatch, useSelector } from "react-redux";
+import { openLoginSignUpPopup } from "@/store/slices/auth";
 
 /**
  * Login component that handles the login dialog and button
  * Provides Google OAuth functionality and login form
  */
 const Login = () => {
+    const dispatch = useDispatch();
     // Get translations for account-related text
     const t = useTranslations("account");
-    // State to control dialog open/close
-    const [open, setOpen] = useState(false);
+    const { loginPopup } = useSelector(state => state.auth);
+
+    const handleOpen = () => {
+        dispatch(openLoginSignUpPopup({
+            loginPopup: true
+        }));
+    };
+
+    const handleOpenSignup = () => {
+        dispatch(openLoginSignUpPopup({
+            signupPopup: true,
+            loginPopup: false
+        }));
+    };
+
+    const handleClose = () => {
+        dispatch(openLoginSignUpPopup({
+            loginPopup: false
+        }));
+    };
 
     return (
         <>
@@ -26,20 +46,26 @@ const Login = () => {
                 title={"Log In"}
                 color="secondary"
                 sx={{ minWidth: 100 }}
-                onClick={() => setOpen(true)}
+                onClick={handleOpen}
             />
 
             {/* Login dialog containing the form */}
             <CustomDialog
-                open={open}
-                handleClose={() => setOpen(false)}
+                open={loginPopup}
+                handleClose={handleClose}
                 shouldCloseOutside={false}
             >
                 {/* Dialog heading */}
                 <Typography variant="h4" color="tertiary" pb={3}>{t("loginHeading")}</Typography>
                 {/* Wrap login form with Google OAuth provider */}
                 <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
-                    <LoginForm t={t} handleClose={() => setOpen(false)} />
+                    <LoginForm t={t} handleClose={handleClose} />
+                    {/* Sign up prompt for users without an account */}
+                    <Box component='div' textAlign={"center"}>
+                        <Typography variant="body" color="neutral.neutral4">{t("dontHaveAccount")} {"  "}
+                            <Typography onClick={handleOpenSignup} fontWeight={800} variant="body" color="link.light" component={"span"} sx={{ cursor: "pointer" }}>{t("signup")}</Typography>
+                        </Typography>
+                    </Box>
                 </GoogleOAuthProvider>
             </CustomDialog>
         </>
