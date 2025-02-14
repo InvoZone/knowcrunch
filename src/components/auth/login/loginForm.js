@@ -4,7 +4,7 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import CustomBtn from "@/components/common/customBtn";
 import CustomInput from "@/components/common/customInput";
-import { Box, Divider, Typography } from "@mui/material";
+import { Divider } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import googleIcon from "@/assets/icons/google.svg";
@@ -20,7 +20,7 @@ const validationSchema = yup.object({
         .required("Email is required"),
     password: yup
         .string("Enter your password")
-        .min(1, "Password should be of minimum 8 characters length")
+        .min(1, "Password should be of minimum 1 characters length")
         .required("Password is required"),
 });
 
@@ -89,13 +89,6 @@ const LoginForm = ({ t, handleClose }) => {
                     width: "100%", mb: 2
                 }}
             />
-
-            {/* Sign up prompt for users without an account */}
-            <Box component='div' textAlign={"center"}>
-                <Typography variant="body" color="neutral.neutral4">{t("dontHaveAccount")} {"  "}
-                    <Typography fontWeight={800} variant="body" color="link.light" component={"span"}>{t("signup")}</Typography>
-                </Typography>
-            </Box>
         </form>
     );
 };

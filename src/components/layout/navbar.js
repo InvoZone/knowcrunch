@@ -26,10 +26,14 @@ import { useTranslations } from "next-intl";
 import SuperMenu from "./superMenu";
 import SuperMenuMobile from "./superMenuMobile";
 import { useRouter } from "next/navigation";
-import Login from "../auth/login";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/store/slices/auth";
 import { usePathname } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const Login = dynamic(() => import("../auth/login"));
+const Signup = dynamic(() => import("../auth/signup"));
+
 
 function Navbar() {
     // Initialize theme and translations
@@ -52,10 +56,6 @@ function Navbar() {
     const [subMenu1, setSubMenu1] = React.useState({});
     const [mobileMenu, setMobileMenu] = React.useState(false);
 
-
-
-    // Get theme accents
-    const { accents } = theme.palette;
 
     // Handle mobile menu toggle
     const handleOpenMobileMenu = (event) => {
@@ -129,7 +129,7 @@ function Navbar() {
     return (
         <AppBar
             component={"nav"}
-            color={(scrollY >= 10 || menu?.id != undefined ) ? "primary" :  pathname == "/" ? "transparent" : "primary"}
+            color={(scrollY >= 10 || menu?.id != undefined) ? "primary" : pathname == "/" ? "transparent" : "primary"}
             sx={{ zIndex: 1310, boxShadow: "none" }}
         >
             <Container maxWidth="lg">
@@ -138,7 +138,7 @@ function Navbar() {
                     sx={{
                         height: 80,
                         display: "flex",
-                        padding: pathname == "/" ? '0 16px' : ''
+                        padding: pathname == "/" ? "0 16px" : ""
                     }}
                 >
                     {/* Conditional rendering of search field or main content */}
@@ -327,15 +327,7 @@ function Navbar() {
                                     {/* // Login/Join buttons */}
                                     {isLg && !isLoggedIn && <>
                                         <Login />
-                                        <CustomBtn
-                                            variant="contained"
-                                            title={"join Us"}
-                                            sx={{
-                                                background:
-                                                    accents.bubble1,
-                                                minWidth: 100,
-                                            }}
-                                        />
+                                        <Signup />
                                     </>}
                                 </Box>
                             )}
