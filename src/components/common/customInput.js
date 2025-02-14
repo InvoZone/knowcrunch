@@ -22,7 +22,7 @@ export default function CustomInput({
     return (
         <Stack>
             {/* Input label */}
-            <InputLabel><Typography sx={{color:neutral.neutral1}} variant="body2" fontWeight={400} pb={0.5}>{label}</Typography></InputLabel>
+            <InputLabel><Typography color={neutral.neutral1} variant="body2" fontWeight={400} pb={0.5}>{label}</Typography></InputLabel>
 
             {/* Text input field */}
             <TextField
