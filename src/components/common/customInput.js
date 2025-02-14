@@ -1,6 +1,6 @@
 // Import Material-UI components
 import TextField from "@mui/material/TextField";
-import { InputLabel, Stack, Typography } from "@mui/material";
+import { InputLabel, Stack, Typography, useTheme } from "@mui/material";
 
 /**
  * CustomInput component provides a styled text input field with label
@@ -17,10 +17,12 @@ export default function CustomInput({
     mb = 0,
     type = "text"
 }) {
+    const theme = useTheme();
+    const { neutral } = theme.palette;
     return (
         <Stack>
             {/* Input label */}
-            <InputLabel><Typography variant="body2" fontWeight={400} pb={0.5}>{label}</Typography></InputLabel>
+            <InputLabel><Typography sx={{color:neutral.neutral1}} variant="body2" fontWeight={400} pb={0.5}>{label}</Typography></InputLabel>
 
             {/* Text input field */}
             <TextField

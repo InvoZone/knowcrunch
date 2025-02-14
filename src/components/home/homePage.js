@@ -289,7 +289,7 @@ const homepage = ({ enrollButton = true }) => {
                         }}
                     >
                         <SelectAbleLinks />
-                        <Grid2 cotaier sx={{ display: "flex", gap: "24px" }} className={styles.career} >
+                        <Grid2 sx={{ display: "flex", gap: "24px" }} className={styles.career} >
                             <Grid2
                                 sx={{
                                     display: "flex",

@@ -12,6 +12,7 @@ import Image from "next/image";
 import { Badge, useMediaQuery, useTheme } from "@mui/material";
 import CustomBtn from "../common/customBtn";
 import SearchField from "./searchField";
+import Link from "next/link";
 
 // Import icons
 import searchIcon from "@/assets/icons/search.svg";
@@ -185,13 +186,15 @@ function Navbar() {
 
                             {/* Logo */}
                             <Box component={"div"} flexGrow={{ xs: 1, lg: 0 }}>
-                                <Image
-                                    src={"/logo.webp"}
-                                    alt="logos"
-                                    width={135}
-                                    height={40}
-                                    priority
-                                />
+                                <Link href="/" passHref>
+                                    <Image
+                                        src={"/logo.webp"}
+                                        alt="logos"
+                                        width={135}
+                                        height={40}
+                                        priority
+                                    />
+                                </Link>
                             </Box>
 
                             {/* Desktop navigation menu */}
