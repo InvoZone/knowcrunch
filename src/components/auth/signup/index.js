@@ -9,12 +9,14 @@ import SignupForm from "./signupForm";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { openLoginSignUpPopup } from "@/store/slices/auth";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
 /**
  * Signup component that handles the Signup dialog and button
  * Provides Google OAuth functionality and Signup form
  */
 const Signup = () => {
+    const [registerText, setRegisterText] = useState('signupHeading');
     const dispatch = useDispatch();
     // Get translations for account-related text
     const t = useTranslations("account");
@@ -31,6 +33,13 @@ const Signup = () => {
             signupPopup: false
         }));
     };
+    const handleSubmitForm = () => {
+        setRegisterText("Completeregistration")
+        // dispatch(openLoginSignUpPopup({
+        //     signupPopup: false
+        // }));
+    };
+
 
     const handleOpenLogin = () => {
         dispatch(openLoginSignUpPopup({
@@ -60,10 +69,10 @@ const Signup = () => {
                 shouldCloseOutside={false}
             >
                 {/* Dialog heading */}
-                <Typography variant="h4" color="tertiary" pb={3}>{t("signupHeading")}</Typography>
+                <Typography variant="h4" color="tertiary" pb={3}>{t(registerText)}</Typography>
                 {/* Wrap Signup form with Google OAuth provider */}
                 <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
-                    <SignupForm t={t} handleClose={handleClose} />
+                    <SignupForm t={t} handleClose={handleClose} handleSubmitForm={handleSubmitForm}/>
                     {/* Sign up prompt for users without an account */}
                     <Box component='div' textAlign={"center"}>
                         <Typography variant="body" color="neutral.neutral4">{t("alreadyHaveAccount")} {"  "}

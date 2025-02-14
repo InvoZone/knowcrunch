@@ -6,7 +6,6 @@ import {
     AccordionDetails,
     Typography,
     Grid2,
-    useMediaQuery,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../footer.scss";

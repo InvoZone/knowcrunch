@@ -55,11 +55,10 @@ function PrevArrow(props) {
     );
 }
 
-const homepage = ({ enrollButton = true }) => {
+const homepage = () => {
     const theme = useTheme();
-    const { primary, base2, base1, link, neutral } = theme.palette;
+    const { primary, base1, link, neutral } = theme.palette;
     const isLg = useMediaQuery(theme.breakpoints.up("md"));
-    const isMed = useMediaQuery(theme.breakpoints.down("md"));
 
     // Slider settings
     const settings = {
