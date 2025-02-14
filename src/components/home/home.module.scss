@@ -1,0 +1,80 @@
+.mainconatiner{
+  padding: 0;
+  @media (max-width: 1280) {
+    padding: 0 !important;
+  }
+}
+.conatiner{
+  @media (max-width: 1280) {
+    padding: 32px 16px !important;
+  }
+}
+
+
+.LogoAnimate{
+  margin-top: -25px;
+  padding: 0 48px;
+  @media (max-width: 575px) {
+    padding: 0 24px;
+  }
+}
+.arrowStyle{
+    display: flex;
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    cursor: pointer;
+    // left: -24px;
+}
+
+.career{
+  @media (max-width: 575px) {
+  flex-direction: column;
+  } 
+}
+
+.sliderContaier .slick-slider .slick-list .slick-track{
+    display: flex !important;
+    gap: 20px !important;
+}
+
+.sliderContaier .slick-slide {
+    margin: 0 10px; // Add margin to create a gap between cards
+  }
+  .sliderContaier {
+    display: flex; // Use flexbox layout
+    gap: 10px; // Add gap between cards
+  }
+  .sliderContaier {
+    .slick-slide {
+      padding: 0 10px !important; // Adjust the value for the desired gap
+    }
+    
+    .slick-list {
+      margin: 0 -10px !important; // Counteracts the padding to keep the alignment
+    }
+  }
+  .sliderContaier .slick-slide{
+    padding: 20px !important;
+  }
+
+  .slick-slide {
+    padding: 10px; // Adjust the padding value as needed
+  }
+
+  .tickMark{
+    display: flex;
+    gap: 6px;
+  }
+  .markValue{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 60px;
+  }
+  .basicTypo{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  

@@ -2,6 +2,8 @@
 import { Box } from "@mui/material";
 import Navbar from "./navbar";
 import Footer from "./Footer";
+import CourseCard from "../common/courseCard";
+import Home from "../home/homePage";
 
 // Layout component that wraps the entire application
 // Provides consistent structure with navigation and main content area
@@ -14,7 +16,9 @@ const Layout = ({ children }) => {
             <Box
                 component={"main"}
             >
-                {children}
+                {/* {children} */}
+                {/* <CourseCard  /> */}
+                <Home />
             </Box>
             {/* Footer  component */}
             <Footer />

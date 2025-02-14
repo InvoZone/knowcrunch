@@ -1,0 +1,17 @@
+.main{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+    background-image: url("../../assets/icons/Hero.svg");
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+
+}
+.typo{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 542px;
+}
+
