@@ -7,6 +7,7 @@ import {
     Box,
     Typography,
     useTheme,
+    Container,
 } from "@mui/material";
 import skodalogo from "@/assets/icons/skodalogo.svg";
 import emiratelogo from "@/assets/icons/emiratelogo.svg";
@@ -24,18 +25,20 @@ const logoAnimate = () => {
     const { base1, neutral } = theme.palette;
 
   return (
-    <Box className={styles.LogoAnimate} sx={{padding:'4px 48px',display:'flex', background:'white', alignItems:'center', justifyContent:'start', border:`1px solid ${neutral.neutral9}` , borderRadius:'48px'}}>
-       <Typography variant='titleMd' sx={{width:'150px', color:base1.dark4}}>Trusted by</Typography>
-      <Marquee>
-        {[skodalogo, emiratelogo, audilogo, ingrouplogo, volklogo, ddlogo, knowcrunchlogo, pepsilogo, sarantislogo, trainedlogo].map((item, index) => (
-          <Box 
-            key={index} sx={{padding: '0 24px'}}
-          >
-            <Image loading="lazy" src={item} alt={"item"} />
-          </Box>
-        ))}
-      </Marquee>
-    </Box>
+      <Container maxWidth="lg" sx={{padding:0}} className={styles.mainconatiner}>
+        <Box className={styles.LogoAnimate} sx={{padding:'4px 48px',display:'flex', background:'white', alignItems:'center', justifyContent:'start', border:`1px solid ${neutral.neutral9}` , borderRadius:'48px'}}>
+          <Typography variant='titleMd' sx={{width:'150px', color:base1.dark4}}>Trusted by</Typography>
+          <Marquee>
+            {[skodalogo, emiratelogo, audilogo, ingrouplogo, volklogo, ddlogo, knowcrunchlogo, pepsilogo, sarantislogo, trainedlogo].map((item, index) => (
+              <Box 
+                key={index} sx={{padding: '0 24px'}}
+              >
+                <Image loading="lazy" src={item} alt={"item"} />
+              </Box>
+            ))}
+          </Marquee>
+        </Box>
+      </Container>
   )
 }
 

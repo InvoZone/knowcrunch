@@ -13,15 +13,17 @@ import playBtnIcon from "@/assets/icons/playBtn.webp";
 import { Box } from "@mui/material";
 import CustomBtn from "./customBtn";
 
+import * as styles from "./courseCard.module.scss";
 /**
  * CourseCard Component
  * Displays a card with course information including thumbnail, title, description,
  * language, rating, duration and enrollment button
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
  */
-export default function CourseCard({ enrollButton = true , homepage = false }) {
+export default function CourseCard({ enrollButton = true , homepage = false, customClass= false }) {
     return (
         <Box
+            className={customClass ? styles.main : ''}
             sx={{
                 backgroundColor: "secondary.main",
                 borderRadius: 2,
