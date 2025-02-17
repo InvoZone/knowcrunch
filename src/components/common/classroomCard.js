@@ -1,5 +1,5 @@
 // Import necessary dependencies from React and Material-UI
-'use client'
+"use client";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
@@ -21,14 +21,17 @@ import CustomBtn from "./customBtn";
  * language, rating, duration and enrollment button
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
  */
-export default function ClassroomCard({ enrollButton = true , homepage = false }) {
+export default function ClassroomCard({
+    enrollButton = true,
+    homepage = false,
+}) {
     return (
         <Box
             className={styles.main}
             sx={{
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
                 borderRadius: 2,
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
@@ -47,7 +50,6 @@ export default function ClassroomCard({ enrollButton = true , homepage = false }
                     position: "relative",
                 }}
             >
-
                 {/* Best seller badge and heart icon */}
                 <Box
                     component={"div"}
@@ -75,15 +77,16 @@ export default function ClassroomCard({ enrollButton = true , homepage = false }
 
             {/* Course title */}
             <Box component={"div"} display={"flex"} alignItems={"center"}>
-                    <Image src={locationicon} alt="calendaricon" width={20} height={20} />
-                    <Typography
-                        variant="body"
-                        color="secondary.main"
-                        pl={0.5}
-                    >
-                        Athens, GR 
-                    </Typography>
-                </Box>
+                <Image
+                    src={locationicon}
+                    alt="calendaricon"
+                    width={20}
+                    height={20}
+                />
+                <Typography variant="body" color="secondary.main" pl={0.5}>
+                    Athens, GR
+                </Typography>
+            </Box>
             <Typography
                 gutterBottom
                 variant="h5"
@@ -116,34 +119,36 @@ export default function ClassroomCard({ enrollButton = true , homepage = false }
                     backgroundColor: "tertiary",
                     borderColor: "neutral.neutral9",
                     borderRadius: "4px",
-                    color:"secondary.main",
+                    color: "secondary.main",
                     mb: 1,
                     mt: 0.5,
                 }}
                 txtVariant="body2"
-                color="secondary.main"         
+                color="secondary.main"
             />
 
             {/* Course metadata: language, rating, and duration */}
-            <Box component={"div"} display={"flex"} gap={0.5} sx={{flexWrap:'wrap'}}>
+            <Box
+                component={"div"}
+                display={"flex"}
+                gap={0.5}
+                sx={{ flexWrap: "wrap" }}
+            >
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
-                    <Image src={calendaricon} alt="calendaricon" width={20} height={20} />
-                    <Typography
-                        variant="body"
-                        color="secondary.main"
-                        pl={1}
-                    >
+                    <Image
+                        src={calendaricon}
+                        alt="calendaricon"
+                        width={20}
+                        height={20}
+                    />
+                    <Typography variant="body" color="secondary.main" pl={1}>
                         January 2025 •
                     </Typography>
                 </Box>
                 {/* Language indicator */}
-                <Box component={"div"} display={"flex"} alignItems={"center"} >
+                <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image src={globalicon} alt="glob" width={20} height={20} />
-                    <Typography
-                        variant="body"
-                        color="secondary.main"
-                        pl={1}
-                    >
+                    <Typography variant="body" color="secondary.main" pl={1}>
                         EN •
                     </Typography>
                 </Box>
@@ -155,11 +160,7 @@ export default function ClassroomCard({ enrollButton = true , homepage = false }
                         width={20}
                         height={20}
                     />
-                    <Typography
-                        variant="body"
-                        color="secondary.main"
-                        pl={1}
-                    >
+                    <Typography variant="body" color="secondary.main" pl={1}>
                         4.5{" "}
                         <Typography
                             variant="body2"
@@ -180,28 +181,34 @@ export default function ClassroomCard({ enrollButton = true , homepage = false }
                         width={20}
                         height={20}
                     />
-                    <Typography
-                        variant="body"
-                        color="secondary.main"
-                        pl={1}
-                    >
+                    <Typography variant="body" color="secondary.main" pl={1}>
                         139h
                     </Typography>
                 </Box>
             </Box>
 
             {/* Enrollment section with price and button */}
-            {enrollButton && <Box component={"div"} pt={5}>
-               {!homepage && <Typography
-                    variant="body2"
-                    color="error.main"
-                    pl={0.5}
-                    pb={0.5}
-                >
-                    50% off 1.000 €
-                </Typography>}
-                <CustomBtn title='Enrol 1.500,00€' variant="filled" sx={{ backgroundColor: "base1.default", width: "100%" }} txtVariant="h6" color="secondary" />
-            </Box>}
-        </Box >
+            {enrollButton && (
+                <Box component={"div"} pt={5}>
+                    {!homepage && (
+                        <Typography
+                            variant="body2"
+                            color="error.main"
+                            pl={0.5}
+                            pb={0.5}
+                        >
+                            50% off 1.000 €
+                        </Typography>
+                    )}
+                    <CustomBtn
+                        title="Enrol 1.500,00€"
+                        variant="filled"
+                        sx={{ backgroundColor: "base1.default", width: "100%" }}
+                        txtVariant="h6"
+                        color="secondary"
+                    />
+                </Box>
+            )}
+        </Box>
     );
 }

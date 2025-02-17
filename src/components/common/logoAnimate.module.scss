@@ -9,11 +9,10 @@
     background-color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
 
-  .LogoAnimate{
+.LogoAnimate {
     @media (max-width: 575px) {
-      padding: 4 16px !important;
+        padding: 4 16px !important;
     }
-  }
-  
+}

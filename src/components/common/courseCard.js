@@ -20,10 +20,14 @@ import * as styles from "./courseCard.module.scss";
  * language, rating, duration and enrollment button
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
  */
-export default function CourseCard({ enrollButton = true , homepage = false, customClass= false }) {
+export default function CourseCard({
+    enrollButton = true,
+    homepage = false,
+    customClass = false,
+}) {
     return (
         <Box
-            className={customClass ? styles.main : ''}
+            className={customClass ? styles.main : ""}
             sx={{
                 backgroundColor: "secondary.main",
                 borderRadius: 2,
@@ -81,7 +85,13 @@ export default function CourseCard({ enrollButton = true , homepage = false, cus
                             borderRadius: 0.5,
                         }}
                     />
-                    <Image src={heartIcon} height={24} width={24} alt="heart" priority />
+                    <Image
+                        src={heartIcon}
+                        height={24}
+                        width={24}
+                        alt="heart"
+                        priority
+                    />
                 </Box>
                 <Image
                     src={courseThumb}
@@ -190,17 +200,27 @@ export default function CourseCard({ enrollButton = true , homepage = false, cus
             </Box>
 
             {/* Enrollment section with price and button */}
-            {enrollButton && <Box component={"div"} pt={5}>
-               {!homepage && <Typography
-                    variant="body2"
-                    color="error.main"
-                    pl={0.5}
-                    pb={0.5}
-                >
-                    50% off 1.000 €
-                </Typography>}
-                <CustomBtn title='Enrol 1.500,00€' variant="filled" sx={{ backgroundColor: "base1.default", width: "100%" }} txtVariant="h6" color="secondary" />
-            </Box>}
-        </Box >
+            {enrollButton && (
+                <Box component={"div"} pt={5}>
+                    {!homepage && (
+                        <Typography
+                            variant="body2"
+                            color="error.main"
+                            pl={0.5}
+                            pb={0.5}
+                        >
+                            50% off 1.000 €
+                        </Typography>
+                    )}
+                    <CustomBtn
+                        title="Enrol 1.500,00€"
+                        variant="filled"
+                        sx={{ backgroundColor: "base1.default", width: "100%" }}
+                        txtVariant="h6"
+                        color="secondary"
+                    />
+                </Box>
+            )}
+        </Box>
     );
 }

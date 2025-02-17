@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
     filterOpen: false,
-    selectedFilters: []
+    selectedFilters: [],
 };
 
 export const courseSlice = createSlice({
@@ -15,7 +15,7 @@ export const courseSlice = createSlice({
         },
         selectFilter: (state, { payload }) => {
             state.selectedFilters = payload;
-        }
+        },
     },
 });
 export const { filterStatus, selectFilter } = courseSlice.actions;

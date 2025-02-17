@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const initialState = {
     isLoggedIn: false, // Tracks whether user is currently logged in
     loginPopup: false,
-    signupPopup: false
+    signupPopup: false,
 };
 
 /**
@@ -27,7 +27,7 @@ export const authSlice = createSlice({
         openLoginSignUpPopup: (state, { payload }) => {
             state.loginPopup = payload?.loginPopup || false;
             state.signupPopup = payload?.signupPopup || false;
-        }
+        },
     },
 });
 

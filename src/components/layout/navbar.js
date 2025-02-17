@@ -34,7 +34,6 @@ import dynamic from "next/dynamic";
 const Login = dynamic(() => import("../auth/login"));
 const Signup = dynamic(() => import("../auth/signup"));
 
-
 function Navbar() {
     // Initialize theme and translations
     const router = useRouter();
@@ -42,7 +41,7 @@ function Navbar() {
     const theme = useTheme();
     const dispatch = useDispatch();
     const t = useTranslations("navbar");
-    const { isLoggedIn } = useSelector(state => state.auth);
+    const { isLoggedIn } = useSelector((state) => state.auth);
 
     // Responsive breakpoint check
     const isLg = useMediaQuery(theme.breakpoints.up("lg"));
@@ -55,7 +54,6 @@ function Navbar() {
     const [subMenu, setSubMenu] = React.useState({});
     const [subMenu1, setSubMenu1] = React.useState({});
     const [mobileMenu, setMobileMenu] = React.useState(false);
-
 
     // Handle mobile menu toggle
     const handleOpenMobileMenu = (event) => {
@@ -129,7 +127,13 @@ function Navbar() {
     return (
         <AppBar
             component={"nav"}
-            color={(scrollY >= 10 || menu?.id !== undefined) ? "primary" : pathname === "/" ? "transparent" : "primary"}
+            color={
+                scrollY >= 10 || menu?.id !== undefined
+                    ? "primary"
+                    : pathname === "/"
+                      ? "transparent"
+                      : "primary"
+            }
             sx={{ zIndex: 1310, boxShadow: "none" }}
         >
             <Container maxWidth="lg">
@@ -138,7 +142,7 @@ function Navbar() {
                     sx={{
                         height: 80,
                         display: "flex",
-                        padding: pathname === "/" ? "0 16px" : ""
+                        padding: pathname === "/" ? "0 16px" : "",
                     }}
                 >
                     {/* Conditional rendering of search field or main content */}
@@ -212,10 +216,17 @@ function Navbar() {
                                             <CustomBtn
                                                 key={el?.id}
                                                 onMouseEnter={(e) =>
-                                                    el?.menu ? handleOpenSuperMenu(e, el) : handleCloseSuperMenu()
+                                                    el?.menu
+                                                        ? handleOpenSuperMenu(
+                                                              e,
+                                                              el
+                                                          )
+                                                        : handleCloseSuperMenu()
                                                 }
                                                 title={t(el?.title)}
-                                                onClick={() => router.push(el?.link)}
+                                                onClick={() =>
+                                                    router.push(el?.link)
+                                                }
                                                 color="secondary"
                                                 sx={{
                                                     minWidth: 100,
@@ -278,8 +289,7 @@ function Navbar() {
                                             >
                                                 <Badge
                                                     sx={{
-                                                        "& .MuiBadge-dot":
-                                                        {
+                                                        "& .MuiBadge-dot": {
                                                             backgroundColor:
                                                                 "accents.bubble1", // Custom color for the badge dot
                                                         },
@@ -303,14 +313,10 @@ function Navbar() {
                                                     invisible={false}
                                                 >
                                                     <Image
-                                                        src={
-                                                            notificationIcon
-                                                        }
+                                                        src={notificationIcon}
                                                         width={24}
                                                         height={24}
-                                                        alt={
-                                                            "notificationIcon"
-                                                        }
+                                                        alt={"notificationIcon"}
                                                         loading="lazy"
                                                     />
                                                 </Badge>
@@ -327,17 +333,19 @@ function Navbar() {
                                         </>
                                     )}
                                     {/* // Login/Join buttons */}
-                                    {isLg && !isLoggedIn && <>
-                                        <Login />
-                                        <Signup />
-                                    </>}
+                                    {isLg && !isLoggedIn && (
+                                        <>
+                                            <Login />
+                                            <Signup />
+                                        </>
+                                    )}
                                 </Box>
                             )}
                         </>
                     )}
                 </Toolbar>
             </Container>
-        </AppBar >
+        </AppBar>
     );
 }
 

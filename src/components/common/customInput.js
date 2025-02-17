@@ -1,6 +1,6 @@
 // Import Material-UI components
 import TextField from "@mui/material/TextField";
-import { InputLabel, Stack, Typography, useTheme } from "@mui/material";
+import { InputLabel, Stack, Typography } from "@mui/material";
 
 /**
  * CustomInput component provides a styled text input field with label
@@ -15,14 +15,21 @@ export default function CustomInput({
     name,
     formik,
     mb = 0,
-    type = "text"
+    type = "text",
 }) {
-    const theme = useTheme();
-    const { neutral } = theme.palette;
     return (
         <Stack>
             {/* Input label */}
-            <InputLabel><Typography color={"neutral.neutral1"} variant="body2" fontWeight={400} pb={0.5}>{label}</Typography></InputLabel>
+            <InputLabel>
+                <Typography
+                    color={"neutral.neutral1"}
+                    variant="body2"
+                    fontWeight={400}
+                    pb={0.5}
+                >
+                    {label}
+                </Typography>
+            </InputLabel>
 
             {/* Text input field */}
             <TextField
@@ -43,21 +50,24 @@ export default function CustomInput({
                         fontWeight: 400,
                         padding: "8px 10px",
                         // Add error background when field is touched and has error
-                        background: formik.touched?.[name] && Boolean(formik.errors?.[name]) && "#EF978F54",
+                        background:
+                            formik.touched?.[name] &&
+                            Boolean(formik.errors?.[name]) &&
+                            "#EF978F54",
                     },
                     // Outline styling for different states
                     "& .MuiOutlinedInput-root": {
                         "& fieldset": {
                             border: "1px solid",
-                            borderColor: "neutral.neutral7"
+                            borderColor: "neutral.neutral7",
                         },
                         "&:hover fieldset": {
                             border: "1px solid",
-                            borderColor: "neutral.neutral7"
+                            borderColor: "neutral.neutral7",
                         },
                         "&.Mui-focused fieldset": {
                             border: "1px solid",
-                            borderColor: "neutral.neutral7"
+                            borderColor: "neutral.neutral7",
                         },
                     },
                 }}

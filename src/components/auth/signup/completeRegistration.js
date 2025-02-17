@@ -16,8 +16,12 @@ import { login } from "@/store/slices/auth";
 const validationSchema = yup.object({
     name: yup.string("Enter your name").required("Name is required"),
     surname: yup.string("Enter your surname").required("Surname is required"),
-    mobile: yup.string("Enter your mobile phone").required("Mobile phone is required"),
-    workTitle: yup.string("Enter your work title").required("Work title is required"),
+    mobile: yup
+        .string("Enter your mobile phone")
+        .required("Mobile phone is required"),
+    workTitle: yup
+        .string("Enter your work title")
+        .required("Work title is required"),
     company: yup.string("Enter your company").required("Company is required"),
     city: yup.string("Enter your city").required("City is required"),
     terms: yup.bool().oneOf([true], "You must accept the terms and conditions"),
@@ -53,104 +57,141 @@ const CompleteRegistration = ({ t, handleClose }) => {
     return (
         <form onSubmit={formik.handleSubmit}>
             {/* Name input field */}
-            <CustomInput name={"name"}
+            <CustomInput
+                name={"name"}
                 label={t("name")}
-                formik={formik} mb={1}
+                formik={formik}
+                mb={1}
                 inputProps={{ autoComplete: "name" }}
             />
 
             {/* Surname input field */}
-            <CustomInput name={"surname"}
+            <CustomInput
+                name={"surname"}
                 label={t("surname")}
-                formik={formik} mb={1}
+                formik={formik}
+                mb={1}
                 inputProps={{ autoComplete: "sur-name" }}
             />
 
             {/* Mobile phone input field */}
-            <Box sx={{mb:0.8}}>
-                <Typography sx={{mb:0.5, fontSize:'12px', color:neutral.neutral1}}>Mobile phone</Typography>
+            <Box sx={{ mb: 0.8 }}>
+                <Typography
+                    sx={{ mb: 0.5, fontSize: "12px", color: neutral.neutral1 }}
+                >
+                    Mobile phone
+                </Typography>
                 <PhoneInput
                     country={"us"}
                     value={formik.values.mobile}
                     onChange={(phone) => formik.setFieldValue("mobile", phone)}
                     placeholder="Mobile number"
                     inputStyle={{
-                        width: '100%',
-                        height: '45px',
-                        borderRadius: '8px',
+                        width: "100%",
+                        height: "45px",
+                        borderRadius: "8px",
                     }}
                     inputProps={{ autoComplete: "tel" }}
                 />
             </Box>
 
             {/* Work title input field */}
-            <CustomInput name={"workTitle"}
+            <CustomInput
+                name={"workTitle"}
                 label={t("work title")}
-                formik={formik} mb={1}
+                formik={formik}
+                mb={1}
                 inputProps={{ autoComplete: "job-title" }}
             />
 
             {/* Company input field */}
-            <CustomInput name={"company"}
+            <CustomInput
+                name={"company"}
                 label={t("company")}
-                formik={formik} mb={1}
+                formik={formik}
+                mb={1}
                 inputProps={{ autoComplete: "organization" }}
             />
 
             {/* City input field */}
-            <CustomInput name={"city"}
+            <CustomInput
+                name={"city"}
                 label={t("city")}
-                formik={formik} mb={3}
+                formik={formik}
+                mb={3}
                 inputProps={{ autoComplete: "address-level2" }}
             />
 
             {/* Terms and conditions checkbox */}
-            <Box sx={{display:'flex', gap:'8px', marginBottom:'8px'}}>
+            <Box sx={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
                 <input
                     type="checkbox"
                     name="terms"
                     onChange={formik.handleChange}
                     checked={formik.values.terms}
                     style={{
-                        width: '21px',
-                        height: '21px',
+                        width: "21px",
+                        height: "21px",
                         border: `2px solid ${base1.dark4}`,
-                        borderRadius: '4px',
-                        cursor: 'pointer'
-                      }}
+                        borderRadius: "4px",
+                        cursor: "pointer",
+                    }}
                 />
-                <label> <Typography variant="body">{t("I agree to the")}</Typography> <a href="#" style={{color:base1.default}} ><Typography variant="titleMd">{t("Terms & Conditions")}</Typography></a></label>
+                <label>
+                    {" "}
+                    <Typography variant="body">
+                        {t("I agree to the")}
+                    </Typography>{" "}
+                    <a href="#" style={{ color: base1.default }}>
+                        <Typography variant="titleMd">
+                            {t("Terms & Conditions")}
+                        </Typography>
+                    </a>
+                </label>
             </Box>
 
             {/* Marketing emails checkbox */}
-            <Box sx={{display:'flex', gap:'8px', marginBottom:'8px'}}>
+            <Box sx={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
                 <input
                     type="checkbox"
                     name="marketing"
                     onChange={formik.handleChange}
                     style={{
-                        width: '21px',
-                        height: '21px',
+                        width: "21px",
+                        height: "21px",
                         border: `2px solid ${base1.dark4}`,
-                        borderRadius: '4px',
-                        cursor: 'pointer'
-                      }}
+                        borderRadius: "4px",
+                        cursor: "pointer",
+                    }}
                 />
-                <label><Typography variant="body" >{t("I want to receive marketing emails")}</Typography></label>
+                <label>
+                    <Typography variant="body">
+                        {t("I want to receive marketing emails")}
+                    </Typography>
+                </label>
             </Box>
 
             {/* Submit button for registration */}
-            <CustomBtn type='submit'
+            <CustomBtn
+                type="submit"
                 title="Register"
                 variant="contained"
                 loading={false}
                 sx={{
                     backgroundColor: "accents.bubble1",
                     width: "100%",
-                    opacity: !formik?.values?.name || !formik?.values?.surname || !formik?.values?.mobile || !formik?.values?.workTitle || !formik?.values?.company || !formik?.values?.city || !formik?.values?.terms ? 0.5 : 1
+                    opacity:
+                        !formik?.values?.name ||
+                        !formik?.values?.surname ||
+                        !formik?.values?.mobile ||
+                        !formik?.values?.workTitle ||
+                        !formik?.values?.company ||
+                        !formik?.values?.city ||
+                        !formik?.values?.terms
+                            ? 0.5
+                            : 1,
                 }}
             />
-            
         </form>
     );
 };

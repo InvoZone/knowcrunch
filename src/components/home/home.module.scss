@@ -1,24 +1,23 @@
-.mainconatiner{
-  padding: 0;
-  @media (max-width: 1280) {
-    padding: 0 !important;
-  }
+.mainconatiner {
+    padding: 0;
+    @media (max-width: 1280) {
+        padding: 0 !important;
+    }
 }
-.conatiner{
-  @media (max-width: 575px) {
-    padding: 32px 16px !important;
-  }
+.conatiner {
+    @media (max-width: 575px) {
+        padding: 32px 16px !important;
+    }
 }
 
-
-.LogoAnimate{
-  margin-top: -25px;
-  padding: 0 48px;
-  @media (max-width: 575px) {
-    padding: 0 24px;
-  }
+.LogoAnimate {
+    margin-top: -25px;
+    padding: 0 48px;
+    @media (max-width: 575px) {
+        padding: 0 24px;
+    }
 }
-.arrowStyle{
+.arrowStyle {
     display: flex;
     position: absolute;
     top: 40%;
@@ -27,54 +26,53 @@
     // left: -24px;
 }
 
-.career{
-  @media (max-width: 575px) {
-  flex-direction: column;
-  } 
+.career {
+    @media (max-width: 575px) {
+        flex-direction: column;
+    }
 }
 
-.sliderContaier .slick-slider .slick-list .slick-track{
+.sliderContaier .slick-slider .slick-list .slick-track {
     display: flex !important;
     gap: 20px !important;
 }
 
 .sliderContaier .slick-slide {
     margin: 0 10px; // Add margin to create a gap between cards
-  }
-  .sliderContaier {
+}
+.sliderContaier {
     display: flex; // Use flexbox layout
     gap: 10px; // Add gap between cards
-  }
-  .sliderContaier {
+}
+.sliderContaier {
     .slick-slide {
-      padding: 0 10px !important; // Adjust the value for the desired gap
+        padding: 0 10px !important; // Adjust the value for the desired gap
     }
-    
+
     .slick-list {
-      margin: 0 -10px !important; // Counteracts the padding to keep the alignment
+        margin: 0 -10px !important; // Counteracts the padding to keep the alignment
     }
-  }
-  .sliderContaier .slick-slide{
+}
+.sliderContaier .slick-slide {
     padding: 20px !important;
-  }
+}
 
-  .slick-slide {
+.slick-slide {
     padding: 10px; // Adjust the padding value as needed
-  }
+}
 
-  .tickMark{
+.tickMark {
     display: flex;
     gap: 6px;
-  }
-  .markValue{
+}
+.markValue {
     display: flex;
     flex-direction: column;
     gap: 4px;
     height: 60px;
-  }
-  .basicTypo{
+}
+.basicTypo {
     display: flex;
     flex-direction: column;
     gap: 6px;
-  }
-  
+}

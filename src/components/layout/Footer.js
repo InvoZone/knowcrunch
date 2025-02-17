@@ -1,11 +1,6 @@
 "use client";
 import React from "react";
-import {
-    Box,
-    Typography,
-    Button,
-    useMediaQuery,
-} from "@mui/material";
+import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Grid2 from "@mui/material/Grid2";
 import Facebook from "@/assets/footer/Facebook.svg";

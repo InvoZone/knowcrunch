@@ -1,4 +1,4 @@
-.main{
+.main {
     display: flex;
     max-width: 1280px;
     margin: 0 auto;
@@ -9,22 +9,21 @@
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     // background-position: right;
     padding-top: 120px !important;
     @media (max-width: 1360) {
         max-width: 100%;
-      }
+    }
     @media (max-width: 575) {
         background-image: url("../../assets/header/Heromob.svg");
         padding-left: 32px !important;
         padding-top: 125px !important;
-      }
+    }
 }
-.typo{
+.typo {
     display: flex;
     flex-direction: column;
     gap: 16px;
     max-width: 542px;
 }
-

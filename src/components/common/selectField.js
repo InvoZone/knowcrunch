@@ -15,7 +15,6 @@ export default function TransitionsPopper({ options }) {
     const [anchorElSelect, setAnchorElSelect] = React.useState(null);
     const [sort, setSort] = React.useState("popularity");
 
-
     const handleClick = (event) => {
         setAnchorElSelect(anchorElSelect ? null : event.currentTarget);
         setOpen((previousOpen) => !previousOpen);
@@ -30,10 +29,27 @@ export default function TransitionsPopper({ options }) {
     const canBeOpen = open && Boolean(anchorElSelect);
     const id = canBeOpen ? "transition-popper" : undefined;
 
-
     return (
         <div>
-            <CustomBtn variant="outlined" onClick={handleClick} title={`${t("sortBy")} : ${t(sort)}`} endIcon={<Image src={open ? chevDownIcon : chevUpIcon} alt="filter" />} sx={{ borderRadius: 8, borderColor: "neutral.neutral1", backgroundColor: open && "neutral.neutral1" }} txtVariant={"titleLg"} fontWeight="400" color={open ? "secondary" : "neutral.neutral1"} />
+            <CustomBtn
+                variant="outlined"
+                onClick={handleClick}
+                title={`${t("sortBy")} : ${t(sort)}`}
+                endIcon={
+                    <Image
+                        src={open ? chevDownIcon : chevUpIcon}
+                        alt="filter"
+                    />
+                }
+                sx={{
+                    borderRadius: 8,
+                    borderColor: "neutral.neutral1",
+                    backgroundColor: open && "neutral.neutral1",
+                }}
+                txtVariant={"titleLg"}
+                fontWeight="400"
+                color={open ? "secondary" : "neutral.neutral1"}
+            />
             <Popover
                 id={id}
                 open={open}
@@ -54,20 +70,40 @@ export default function TransitionsPopper({ options }) {
                         border: "1px solid",
                         borderColor: "neutral.neutral9",
                         boxShadow: "none",
-                        borderRadius: 2
-                    }
+                        borderRadius: 2,
+                    },
                 }}
             >
-                <Box sx={{
-                    py: 3,
-                    px: 4,
-                    bgcolor: "secondary",
-                }} component={"div"}>
-                    {
-                        options?.map(el => <Box key={el?.id} sx={{ cursor: "pointer", alignItems: "center", display: "flex" }} component={"div"} height={40} minWidth={200} onClick={() => onSelect(el?.value)}>
-                            <Typography variant="titleLg" color="neutral.neutral1" fontWeight={400}>{el?.value}</Typography>
-                        </Box>)
-                    }
+                <Box
+                    sx={{
+                        py: 3,
+                        px: 4,
+                        bgcolor: "secondary",
+                    }}
+                    component={"div"}
+                >
+                    {options?.map((el) => (
+                        <Box
+                            key={el?.id}
+                            sx={{
+                                cursor: "pointer",
+                                alignItems: "center",
+                                display: "flex",
+                            }}
+                            component={"div"}
+                            height={40}
+                            minWidth={200}
+                            onClick={() => onSelect(el?.value)}
+                        >
+                            <Typography
+                                variant="titleLg"
+                                color="neutral.neutral1"
+                                fontWeight={400}
+                            >
+                                {el?.value}
+                            </Typography>
+                        </Box>
+                    ))}
                 </Box>
             </Popover>
         </div>

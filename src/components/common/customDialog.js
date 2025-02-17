@@ -12,8 +12,12 @@ import { CloseOutlined } from "@mui/icons-material";
  * @param {React.ReactNode} props.children - Content to render inside dialog
  * @param {boolean} props.shouldCloseOutside - Whether clicking outside closes dialog
  */
-export default function CustomDialog({ open, handleClose, children, shouldCloseOutside = true }) {
-
+export default function CustomDialog({
+    open,
+    handleClose,
+    children,
+    shouldCloseOutside = true,
+}) {
     return (
         <Dialog
             open={open}
@@ -21,31 +25,37 @@ export default function CustomDialog({ open, handleClose, children, shouldCloseO
             sx={{
                 "& .MuiDialog-paper": {
                     borderRadius: 2,
-                    width: { xs: 360, lg: 480 } // Responsive width based on screen size
-                }
+                    width: { xs: 360, lg: 480 }, // Responsive width based on screen size
+                },
             }}
         >
             {/* Dialog content wrapper */}
-            <Box component='div' position={"relative"} sx={{
-                pt: 3,
-                pb: 3,
-                px: { xs: 3, lg: 4 }, // Responsive padding
-            }}>
+            <Box
+                component="div"
+                position={"relative"}
+                sx={{
+                    pt: 3,
+                    pb: 3,
+                    px: { xs: 3, lg: 4 }, // Responsive padding
+                }}
+            >
                 {/* Close button */}
                 <CloseOutlined
                     sx={{
                         color: "neutral.neutral1",
-                        height: 18, width: 18,
+                        height: 18,
+                        width: 18,
                         position: "absolute",
-                        right: 16, top: 16,
-                        cursor: "pointer"
+                        right: 16,
+                        top: 16,
+                        cursor: "pointer",
                     }}
-                    onClick={handleClose} />
+                    onClick={handleClose}
+                />
 
                 {/* Render passed children content */}
                 {children}
             </Box>
-
         </Dialog>
     );
 }

@@ -10,7 +10,7 @@ import * as yup from "yup";
 import googleIcon from "@/assets/icons/google.svg";
 import Image from "next/image";
 import { useState } from "react";
-import CompleteRegistration from "./completeRegistration"
+import CompleteRegistration from "./completeRegistration";
 
 // Define validation schema for the signup form
 const validationSchema = yup.object({
@@ -34,7 +34,8 @@ const validationSchema = yup.object({
  * @param {Function} props.t - Translation function for internationalization
  */
 const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
-    const [showCompleteRegistration, setShowCompleteRegistration] = useState(false);
+    const [showCompleteRegistration, setShowCompleteRegistration] =
+        useState(false);
 
     // Initialize formik for form handling and validation
     const formik = useFormik({
@@ -51,8 +52,7 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
     });
 
     // Initialize Google OAuth Signup handler
-    const googleSignup = useGoogleLogin({
-    });
+    const googleSignup = useGoogleLogin({});
 
     // Render CompleteRegistration form if state is true
     if (showCompleteRegistration) {
@@ -62,29 +62,36 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
     return (
         <form onSubmit={formik.handleSubmit}>
             {/* Email input field */}
-            <CustomInput name={"email"}
+            <CustomInput
+                name={"email"}
                 label={t("email")}
-                formik={formik} mb={1}
+                formik={formik}
+                mb={1}
             />
 
             {/* Password input field */}
-            <CustomInput name={"password"}
+            <CustomInput
+                name={"password"}
                 label={t("password")}
-                formik={formik} mb={1}
-                type='password'
+                formik={formik}
+                mb={1}
+                type="password"
                 autoComplete="new-password"
             />
 
             {/* Rewrite Password input field */}
-            <CustomInput name={"confirmPassword"}
+            <CustomInput
+                name={"confirmPassword"}
                 label={t("rewritePassword")}
-                formik={formik} mb={3}
-                type='password'
+                formik={formik}
+                mb={3}
+                type="password"
                 autoComplete="new-password"
             />
 
             {/* Submit button for email/password signup */}
-            <CustomBtn type='submit'
+            <CustomBtn
+                type="submit"
                 title={t("continue")}
                 variant="contained"
                 loading={false}
@@ -92,7 +99,12 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                 sx={{
                     backgroundColor: "base1.default",
                     width: "100%",
-                    opacity: (!formik?.values?.email || !formik?.values?.password || !formik?.values?.confirmPassword) ? 0.5 : 1
+                    opacity:
+                        !formik?.values?.email ||
+                        !formik?.values?.password ||
+                        !formik?.values?.confirmPassword
+                            ? 0.5
+                            : 1,
                 }}
             />
 
@@ -100,15 +112,25 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
             <Divider sx={{ py: 2 }}>{t("or")}</Divider>
 
             {/* Google OAuth signup button */}
-            <CustomBtn type='button'
+            <CustomBtn
+                type="button"
                 title={t("continueWithGoogle")}
                 variant="outlined"
                 onClick={googleSignup}
-                startIcon={<Image src={googleIcon} width={24} height={24} loading="lazy" alt="google" />}
+                startIcon={
+                    <Image
+                        src={googleIcon}
+                        width={24}
+                        height={24}
+                        loading="lazy"
+                        alt="google"
+                    />
+                }
                 sx={{
                     border: "1px solid",
                     borderColor: "neutral.neutral8",
-                    width: "100%", mb: 2
+                    width: "100%",
+                    mb: 2,
                 }}
             />
         </form>

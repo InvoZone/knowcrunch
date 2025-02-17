@@ -7,7 +7,7 @@ export const store = configureStore({
     reducer: {
         loading,
         course,
-        auth
+        auth,
         // Add your reducers here
         // yourReducer: yourReducer,
     },

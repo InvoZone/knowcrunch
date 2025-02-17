@@ -5,7 +5,6 @@ import CircularProgress, {
 } from "@mui/material/CircularProgress";
 import { Stack } from "@mui/material";
 
-
 // Inspired by the former Facebook spinners.
 function CustomCircularProgress(props) {
     return (
@@ -46,12 +45,10 @@ function CustomCircularProgress(props) {
     );
 }
 
-
 export default function CircleLoader({ size = 24 }) {
     return (
         <Stack spacing={2} sx={{ flexGrow: 1, pt: 1 }}>
             <CustomCircularProgress size={size} />
         </Stack>
-
     );
 }

@@ -11,11 +11,7 @@ const Layout = ({ children }) => {
             {/* Navigation bar component */}
             <Navbar />
             {/* Main content wrapper */}
-            <Box
-                component={"main"}
-            >
-                {children}
-            </Box>
+            <Box component={"main"}>{children}</Box>
             {/* Footer  component */}
             <Footer />
         </Box>

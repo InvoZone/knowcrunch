@@ -18,25 +18,31 @@ const Login = () => {
     const dispatch = useDispatch();
     // Get translations for account-related text
     const t = useTranslations("account");
-    const { loginPopup } = useSelector(state => state.auth);
+    const { loginPopup } = useSelector((state) => state.auth);
 
     const handleOpen = () => {
-        dispatch(openLoginSignUpPopup({
-            loginPopup: true
-        }));
+        dispatch(
+            openLoginSignUpPopup({
+                loginPopup: true,
+            })
+        );
     };
 
     const handleOpenSignup = () => {
-        dispatch(openLoginSignUpPopup({
-            signupPopup: true,
-            loginPopup: false
-        }));
+        dispatch(
+            openLoginSignUpPopup({
+                signupPopup: true,
+                loginPopup: false,
+            })
+        );
     };
 
     const handleClose = () => {
-        dispatch(openLoginSignUpPopup({
-            loginPopup: false
-        }));
+        dispatch(
+            openLoginSignUpPopup({
+                loginPopup: false,
+            })
+        );
     };
 
     return (
@@ -56,14 +62,28 @@ const Login = () => {
                 shouldCloseOutside={false}
             >
                 {/* Dialog heading */}
-                <Typography variant="h4" color="tertiary" pb={3}>{t("loginHeading")}</Typography>
+                <Typography variant="h4" color="tertiary" pb={3}>
+                    {t("loginHeading")}
+                </Typography>
                 {/* Wrap login form with Google OAuth provider */}
-                <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
+                <GoogleOAuthProvider
+                    clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+                >
                     <LoginForm t={t} handleClose={handleClose} />
                     {/* Sign up prompt for users without an account */}
-                    <Box component='div' textAlign={"center"}>
-                        <Typography variant="body" color="neutral.neutral4">{t("dontHaveAccount")} {"  "}
-                            <Typography onClick={handleOpenSignup} fontWeight={800} variant="body" color="link.light" component={"span"} sx={{ cursor: "pointer" }}>{t("signup")}</Typography>
+                    <Box component="div" textAlign={"center"}>
+                        <Typography variant="body" color="neutral.neutral4">
+                            {t("dontHaveAccount")} {"  "}
+                            <Typography
+                                onClick={handleOpenSignup}
+                                fontWeight={800}
+                                variant="body"
+                                color="link.light"
+                                component={"span"}
+                                sx={{ cursor: "pointer" }}
+                            >
+                                {t("signup")}
+                            </Typography>
                         </Typography>
                     </Box>
                 </GoogleOAuthProvider>

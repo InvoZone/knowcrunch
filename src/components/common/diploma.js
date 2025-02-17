@@ -6,12 +6,12 @@ import styles from "./diploma.module.scss";
 
 export default function Diploma() {
     const theme = useTheme();
-    const {  base1, neutral } = theme.palette;
+    const { base1, neutral } = theme.palette;
 
     return (
         <Box className={styles.main}>
-            <Image className={styles.img} src={diploma}  alt="diploma" />
-            <Box className={styles.typo} >
+            <Image className={styles.img} src={diploma} alt="diploma" />
+            <Box className={styles.typo}>
                 <Typography variant="h2" sx={{ color: base1.dark4 }}>
                     Earn your professional certification or diploma
                 </Typography>

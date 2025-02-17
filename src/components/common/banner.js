@@ -6,23 +6,56 @@ import rightaward from "@/assets/icons/rightaward.svg";
 import leftaward from "@/assets/icons/leftaward.svg";
 import bannerstar from "@/assets/icons/bannerstar.svg";
 
-
 export default function Banner() {
     const theme = useTheme();
     const { base2 } = theme.palette;
 
     return (
-        <Box className={styles.main} sx={{ padding: "48px",  }}>
-            <Container maxWidth="lg" sx={{padding:0}} className={styles.mainconatiner}>
-                <Box className={styles.typo} >
+        <Box className={styles.main} sx={{ padding: "48px" }}>
+            <Container
+                maxWidth="lg"
+                sx={{ padding: 0 }}
+                className={styles.mainconatiner}
+            >
+                <Box className={styles.typo}>
                     <Typography variant="h1" sx={{ color: base2.light6 }}>
                         Professional educational courses & training
                     </Typography>
                     <Typography variant="h4" sx={{ color: base2.light6 }}>
-                    Knowcrunch helps you learn, transform and thrive.
+                        Knowcrunch helps you learn, transform and thrive.
                     </Typography>
-                    <Box sx={{display:'flex', justifyContent:'flex-start', alignItems:'center', gap:'8px'}}>
-                        <Typography sx={{color:'white'}}>4.8</Typography> <Image loading="lazy" src={bannerstar} width={24} height={24} alt={"bannerstar"} /> <Typography sx={{color:'white'}}>Trustpilot</Typography>  <Image loading="lazy" src={leftaward} alt={"leftaward"} /> <Typography sx={{color:'white'}}>23 Awards</Typography> <Image loading="lazy" src={rightaward} alt={"rightaward"} />
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "flex-start",
+                            alignItems: "center",
+                            gap: "8px",
+                        }}
+                    >
+                        <Typography sx={{ color: "white" }}>4.8</Typography>{" "}
+                        <Image
+                            loading="lazy"
+                            src={bannerstar}
+                            width={24}
+                            height={24}
+                            alt={"bannerstar"}
+                        />{" "}
+                        <Typography sx={{ color: "white" }}>
+                            Trustpilot
+                        </Typography>{" "}
+                        <Image
+                            loading="lazy"
+                            src={leftaward}
+                            alt={"leftaward"}
+                        />{" "}
+                        <Typography sx={{ color: "white" }}>
+                            23 Awards
+                        </Typography>{" "}
+                        <Image
+                            loading="lazy"
+                            src={rightaward}
+                            alt={"rightaward"}
+                        />
                     </Box>
                 </Box>
                 <Box></Box>

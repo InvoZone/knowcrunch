@@ -16,37 +16,42 @@ import { useState } from "react";
  * Provides Google OAuth functionality and Signup form
  */
 const Signup = () => {
-    const [registerText, setRegisterText] = useState('signupHeading');
+    const [registerText, setRegisterText] = useState("signupHeading");
     const dispatch = useDispatch();
     // Get translations for account-related text
     const t = useTranslations("account");
-    const { signupPopup } = useSelector(state => state.auth);
+    const { signupPopup } = useSelector((state) => state.auth);
 
     const handleOpen = () => {
-        setRegisterText("signupHeading")
-        dispatch(openLoginSignUpPopup({
-            signupPopup: true
-        }));
+        setRegisterText("signupHeading");
+        dispatch(
+            openLoginSignUpPopup({
+                signupPopup: true,
+            })
+        );
     };
 
     const handleClose = () => {
-        dispatch(openLoginSignUpPopup({
-            signupPopup: false
-        }));
+        dispatch(
+            openLoginSignUpPopup({
+                signupPopup: false,
+            })
+        );
     };
     const handleSubmitForm = () => {
-        setRegisterText("Completeregistration")
+        setRegisterText("Completeregistration");
         // dispatch(openLoginSignUpPopup({
         //     signupPopup: false
         // }));
     };
 
-
     const handleOpenLogin = () => {
-        dispatch(openLoginSignUpPopup({
-            signupPopup: false,
-            loginPopup: true
-        }));
+        dispatch(
+            openLoginSignUpPopup({
+                signupPopup: false,
+                loginPopup: true,
+            })
+        );
     };
 
     return (
@@ -56,8 +61,7 @@ const Signup = () => {
                 variant="contained"
                 title={"join Us"}
                 sx={{
-                    backgroundColor:
-                        "accents.bubble1",
+                    backgroundColor: "accents.bubble1",
                     minWidth: 100,
                 }}
                 onClick={handleOpen}
@@ -70,24 +74,36 @@ const Signup = () => {
                 shouldCloseOutside={false}
             >
                 {/* Dialog heading */}
-                <Typography variant="h4" color="tertiary" pb={3}>{t(registerText)}</Typography>
+                <Typography variant="h4" color="tertiary" pb={3}>
+                    {t(registerText)}
+                </Typography>
                 {/* Wrap Signup form with Google OAuth provider */}
-                <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
-                    <SignupForm t={t} handleClose={handleClose} handleSubmitForm={handleSubmitForm}/>
+                <GoogleOAuthProvider
+                    clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+                >
+                    <SignupForm
+                        t={t}
+                        handleClose={handleClose}
+                        handleSubmitForm={handleSubmitForm}
+                    />
                     {/* Sign up prompt for users without an account */}
-                    {registerText == "signupHeading" &&  <Box component='div' textAlign={"center"}>
-                        <Typography variant="body" color="neutral.neutral4">{t("alreadyHaveAccount")} {"  "}
-                            <Typography fontWeight={800}
-                                variant="body"
-                                color="link.light"
-                                component={"span"}
-                                sx={{ cursor: "pointer" }}
-                                onClick={handleOpenLogin}
-                            >
-                                {t("signin")}
+                    {registerText == "signupHeading" && (
+                        <Box component="div" textAlign={"center"}>
+                            <Typography variant="body" color="neutral.neutral4">
+                                {t("alreadyHaveAccount")} {"  "}
+                                <Typography
+                                    fontWeight={800}
+                                    variant="body"
+                                    color="link.light"
+                                    component={"span"}
+                                    sx={{ cursor: "pointer" }}
+                                    onClick={handleOpenLogin}
+                                >
+                                    {t("signin")}
+                                </Typography>
                             </Typography>
-                        </Typography>
-                    </Box>}
+                        </Box>
+                    )}
                 </GoogleOAuthProvider>
             </CustomDialog>
         </>

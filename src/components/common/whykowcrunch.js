@@ -6,7 +6,7 @@ import styles from "./whykowcruch.module.scss";
 import Tick from "@/assets/icons/tick.svg";
 export default function Whyknow() {
     const theme = useTheme();
-    const {  base1, neutral } = theme.palette;
+    const { base1, neutral } = theme.palette;
 
     return (
         <Box className={styles.main}>

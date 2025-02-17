@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CourseCard from "../common/courseCard";
 import ClassroomCard from "../common/classroomCard";
-import InstructorCard from "../common/istructors"
+import InstructorCard from "../common/istructors";
 import previousArrow from "@/assets/icons/previousArrow.svg";
 import nextArrow from "@/assets/icons/nextArrow.svg";
 import * as styles from "./home.module.scss";
@@ -19,7 +19,7 @@ import {
     useMediaQuery,
 } from "@mui/material";
 import SelectAbleLinks from "../common/selectableLinks";
-import LogoAnimate from "../common/logoAnimate"
+import LogoAnimate from "../common/logoAnimate";
 import Tick from "@/assets/icons/tick.svg";
 import img1 from "@/assets/course/img1.svg";
 import img2 from "@/assets/course/img2.svg";
@@ -32,7 +32,10 @@ import Banner from "../common/banner";
 function Arrow(props) {
     const { onClick } = props;
     return (
-        <Box sx={{right:{xs:props?.val || -20, sm:-20}}} className={styles.arrowStyle}>
+        <Box
+            sx={{ right: { xs: props?.val || -20, sm: -20 } }}
+            className={styles.arrowStyle}
+        >
             <div onClick={onClick}>
                 <Image src={nextArrow} height={40} width={40} alt="nextArrow" />
             </div>
@@ -42,7 +45,10 @@ function Arrow(props) {
 function PrevArrow(props) {
     const { onClick } = props;
     return (
-        <Box sx={{left:{xs:props?.val || -24, sm:-24}}} className={styles.arrowStyle} >
+        <Box
+            sx={{ left: { xs: props?.val || -24, sm: -24 } }}
+            className={styles.arrowStyle}
+        >
             <div onClick={onClick}>
                 <Image
                     src={previousArrow}
@@ -69,8 +75,8 @@ const homepage = () => {
         slidesToShow: 4,
         slidesToScroll: 1,
         arrows: true,
-        prevArrow: <PrevArrow val={2}/>,
-        nextArrow: <Arrow val={2}/>,
+        prevArrow: <PrevArrow val={2} />,
+        nextArrow: <Arrow val={2} />,
         responsive: [
             {
                 breakpoint: 1024,
@@ -111,8 +117,8 @@ const homepage = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: true,
-        prevArrow: <PrevArrow val={2}/>,
-        nextArrow: <Arrow val={2}/>,
+        prevArrow: <PrevArrow val={2} />,
+        nextArrow: <Arrow val={2} />,
         responsive: [
             {
                 breakpoint: 1024,
@@ -145,101 +151,104 @@ const homepage = () => {
         ],
     };
     const instructorSettigs = {
-      dots: false,
-      infinite: true,
-      speed: 500,
+        dots: false,
+        infinite: true,
+        speed: 500,
 
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: true,
-      prevArrow: <PrevArrow val={-14} />,
-      nextArrow: <Arrow  val={-14}/>,
-      responsive: [
-          {
-              breakpoint: 1024,
-              settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 1,
-              },
-          },
-          {
-            breakpoint: 900,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: <PrevArrow val={-14} />,
+        nextArrow: <Arrow val={-14} />,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                },
             },
-        },
-          {
-              breakpoint: 600,
-              settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 1,
-              },
-          },
-          {
-              breakpoint: 575,
-              settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-              },
-          },
-      ],
-  };
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    };
 
-  const videoSettigs = {
-    dots: false,
-    infinite: true,
-    speed: 500,
+    const videoSettigs = {
+        dots: false,
+        infinite: true,
+        speed: 500,
 
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    prevArrow: <PrevArrow />,
-    nextArrow: <Arrow />,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: <PrevArrow />,
+        nextArrow: <Arrow />,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                },
             },
-        },
-        {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
             },
-        },
-        {
-            breakpoint: 900,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
             },
-        },
-        {
-            breakpoint: 575,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
             },
-        },
-    ],
-};
+        ],
+    };
 
     return (
-        <Box sx={{padding:0}} className={styles.mainconatiner}>
+        <Box sx={{ padding: 0 }} className={styles.mainconatiner}>
             {/* Bannner section */}
-            <Box >
-                <Banner  />
-                <Box  className={styles.LogoAnimate}>
+            <Box>
+                <Banner />
+                <Box className={styles.LogoAnimate}>
                     <LogoAnimate />
                 </Box>
             </Box>
             {/* popular e-learning */}
-            <Container maxWidth="lg" sx={{padding:0}} className={styles.mainconatiner}>
-
+            <Container
+                maxWidth="lg"
+                sx={{ padding: 0 }}
+                className={styles.mainconatiner}
+            >
                 <Box className={styles.conatiner} sx={{ padding: "48px" }}>
                     <Typography
                         sx={{ color: primary.main, marginBottom: "24px" }}
@@ -269,7 +278,10 @@ const homepage = () => {
                     </Typography>
                 </Box>
                 {/* career path */}
-                <Box className={styles.conatiner} sx={{ background: neutral.neutral10, padding: "48px" }}>
+                <Box
+                    className={styles.conatiner}
+                    sx={{ background: neutral.neutral10, padding: "48px" }}
+                >
                     <Grid2
                         sx={{
                             display: "flex",
@@ -290,7 +302,10 @@ const homepage = () => {
                             }}
                         >
                             <SelectAbleLinks />
-                            <Grid2 sx={{ display: "flex", gap: "24px" }} className={styles.career} >
+                            <Grid2
+                                sx={{ display: "flex", gap: "24px" }}
+                                className={styles.career}
+                            >
                                 <Grid2
                                     sx={{
                                         display: "flex",
@@ -328,9 +343,9 @@ const homepage = () => {
                                             variant="body"
                                             sx={{ color: neutral.neutral1 }}
                                         >
-                                            Define and develop digital strategies to
-                                            deliver business growth through online
-                                            channels.
+                                            Define and develop digital
+                                            strategies to deliver business
+                                            growth through online channels.
                                         </Typography>
                                         <Box className={styles.markValue}>
                                             <Typography
@@ -343,8 +358,8 @@ const homepage = () => {
                                                 variant="body"
                                                 sx={{ color: neutral.neutral1 }}
                                             >
-                                                median salary in Greece, for this
-                                                career path in 2023
+                                                median salary in Greece, for
+                                                this career path in 2023
                                             </Typography>
                                         </Box>
                                         <Box className={styles.markValue}>
@@ -358,8 +373,8 @@ const homepage = () => {
                                                 variant="body"
                                                 sx={{ color: neutral.neutral1 }}
                                             >
-                                                of course graduates report positive
-                                                career impact
+                                                of course graduates report
+                                                positive career impact
                                             </Typography>
                                         </Box>
                                         <Box
@@ -390,8 +405,8 @@ const homepage = () => {
                                                 />
                                                 <Typography variant="body">
                                                     Expertise in social media,
-                                                    content trends, analytics, and
-                                                    influencer
+                                                    content trends, analytics,
+                                                    and influencer
                                                     relationship-building.
                                                 </Typography>
                                             </Box>
@@ -404,14 +419,14 @@ const homepage = () => {
                                                     alt={"Tick"}
                                                 />
                                                 <Typography variant="body">
-                                                    High demand across industries as
-                                                    brands prioritise influencer
+                                                    High demand across
+                                                    industries as brands
+                                                    prioritise influencer
                                                     partnerships.
                                                 </Typography>
                                             </Box>
                                         </Box>
                                     </Box>
-
                                 </Grid2>
                                 <Grid2
                                     sx={{
@@ -431,12 +446,14 @@ const homepage = () => {
                                             width: "100%",
                                             paddingBottom: "24px",
                                             paddingTop: "24px",
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
+                                            justifyContent: "center",
+                                            alignItems: "center",
                                         }}
                                     >
-                                        <CourseCard customClass={true}/>
-                                        {isLg  &&<CourseCard customClass={true}/>}
+                                        <CourseCard customClass={true} />
+                                        {isLg && (
+                                            <CourseCard customClass={true} />
+                                        )}
                                     </Grid2>
                                     <Grid2>
                                         <Typography
@@ -466,7 +483,10 @@ const homepage = () => {
                     >
                         Classroom courses
                     </Typography>
-                    <Slider {...classroomSettigs} className={styles.sliderContaier}>
+                    <Slider
+                        {...classroomSettigs}
+                        className={styles.sliderContaier}
+                    >
                         <ClassroomCard homepage={true} />
                         <ClassroomCard homepage={true} />
                         <ClassroomCard homepage={true} />
@@ -496,13 +516,46 @@ const homepage = () => {
                     >
                         Our instructors
                     </Typography>
-                    <Slider {...instructorSettigs} className={styles.sliderContaier}>
-                        <InstructorCard profileImage={img1} title="CEO" company="@KnowCrunch" name="Tolis Aivalis"/>
-                        <InstructorCard profileImage={img2} title="Managing Director" company="Olive Creative Marketing House" name="Elia Balta" />
-                        <InstructorCard profileImage={img3} title="Founder" company="@Content Studio" name="Christina Dehola" />
-                        <InstructorCard profileImage={img2} title="Managing Director" company="Olive Creative Marketing House" name="Elia Balta" />
-                        <InstructorCard profileImage={img1} title="CEO" company="@KnowCrunch" name="Tolis Aivalis" />
-                        <InstructorCard profileImage={img3} title="Founder" company="@Content Studio" name="Christina Dehola" />
+                    <Slider
+                        {...instructorSettigs}
+                        className={styles.sliderContaier}
+                    >
+                        <InstructorCard
+                            profileImage={img1}
+                            title="CEO"
+                            company="@KnowCrunch"
+                            name="Tolis Aivalis"
+                        />
+                        <InstructorCard
+                            profileImage={img2}
+                            title="Managing Director"
+                            company="Olive Creative Marketing House"
+                            name="Elia Balta"
+                        />
+                        <InstructorCard
+                            profileImage={img3}
+                            title="Founder"
+                            company="@Content Studio"
+                            name="Christina Dehola"
+                        />
+                        <InstructorCard
+                            profileImage={img2}
+                            title="Managing Director"
+                            company="Olive Creative Marketing House"
+                            name="Elia Balta"
+                        />
+                        <InstructorCard
+                            profileImage={img1}
+                            title="CEO"
+                            company="@KnowCrunch"
+                            name="Tolis Aivalis"
+                        />
+                        <InstructorCard
+                            profileImage={img3}
+                            title="Founder"
+                            company="@Content Studio"
+                            name="Christina Dehola"
+                        />
                     </Slider>
                     <Typography
                         variant="h6"
@@ -527,15 +580,18 @@ const homepage = () => {
                     </Typography>
                     <Slider {...videoSettigs} className={styles.sliderContaier}>
                         <VideoCard />
-                        <VideoCard  />
-                        <VideoCard  />
-                        <VideoCard  />
                         <VideoCard />
-                        <VideoCard  />
+                        <VideoCard />
+                        <VideoCard />
+                        <VideoCard />
+                        <VideoCard />
                     </Slider>
                 </Box>
                 {/* Diploma */}
-                <Box className={styles.conatiner} sx={{ padding: "48px", backgroundColor:neutral.neutral10}}>
+                <Box
+                    className={styles.conatiner}
+                    sx={{ padding: "48px", backgroundColor: neutral.neutral10 }}
+                >
                     <Diploma />
                 </Box>
                 {/* WhykowCrunch */}
@@ -543,7 +599,6 @@ const homepage = () => {
                     <WhykowCrunch />
                 </Box>
             </Container>
-            
         </Box>
     );
 };

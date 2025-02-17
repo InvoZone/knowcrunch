@@ -32,11 +32,10 @@ const SuperMenuMobile = ({
     handleOpenMobileMenu,
     goBack,
     router,
-    handleLogout
+    handleLogout,
 }) => {
     const theme = useTheme();
     const { primary } = theme.palette;
-
 
     return (
         <Box position={"relative"}>
@@ -144,8 +143,7 @@ const SuperMenuMobile = ({
                                         onClick={(e) => {
                                             router.push(menu?.link);
                                             handleOpenSuperMenu(e, menu);
-                                        }
-                                        }
+                                        }}
                                         sx={{ height: 54, borderRadius: 1 }}
                                     >
                                         <Typography

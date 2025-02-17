@@ -16,13 +16,13 @@ export default function CustomPagination() {
                         fontSize: 16,
                         fontStyle: "normal",
                         fontWeight: 400,
-                        lineHeight: 20, /* 125% */
+                        lineHeight: 20 /* 125% */,
                     },
                     "& .Mui-selected": {
                         backgroundColor: "#F0F7FF !important",
                         border: "1px solid",
                         borderColor: "base1.default",
-                    }
+                    },
                 }}
             />
         </Stack>

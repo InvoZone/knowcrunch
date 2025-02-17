@@ -35,7 +35,7 @@ const LoginForm = ({ t, handleClose }) => {
     const formik = useFormik({
         initialValues: {
             email: "",
-            password: ""
+            password: "",
         },
         validationSchema,
         onSubmit: () => {
@@ -45,35 +45,42 @@ const LoginForm = ({ t, handleClose }) => {
     });
 
     // Initialize Google OAuth login handler
-    const handleLogin = useGoogleLogin({
-    });
+    const handleLogin = useGoogleLogin({});
 
     return (
         <form onSubmit={formik.handleSubmit}>
             {/* Email input field */}
-            <CustomInput name={"email"}
+            <CustomInput
+                name={"email"}
                 label={t("email")}
-                formik={formik} mb={1}
+                formik={formik}
+                mb={1}
                 autoComplete="email"
             />
 
             {/* Password input field */}
-            <CustomInput name={"password"}
+            <CustomInput
+                name={"password"}
                 label={t("password")}
-                formik={formik} mb={3}
-                type='password'
+                formik={formik}
+                mb={3}
+                type="password"
                 autoComplete="current-password"
             />
 
             {/* Submit button for email/password login */}
-            <CustomBtn type='submit'
+            <CustomBtn
+                type="submit"
                 title={t("signin")}
                 variant="contained"
                 loading={false}
                 sx={{
                     backgroundColor: "accents.bubble1",
                     width: "100%",
-                    opacity: !formik?.values?.email && !formik?.values?.password ? 0.5 : 1
+                    opacity:
+                        !formik?.values?.email && !formik?.values?.password
+                            ? 0.5
+                            : 1,
                 }}
             />
 
@@ -81,15 +88,25 @@ const LoginForm = ({ t, handleClose }) => {
             <Divider sx={{ py: 2 }}>{t("or")}</Divider>
 
             {/* Google OAuth login button */}
-            <CustomBtn type='button'
+            <CustomBtn
+                type="button"
                 title={t("continueWithGoogle")}
                 variant="outlined"
                 onClick={handleLogin}
-                startIcon={<Image src={googleIcon} width={24} height={24} loading="lazy" alt="google" />}
+                startIcon={
+                    <Image
+                        src={googleIcon}
+                        width={24}
+                        height={24}
+                        loading="lazy"
+                        alt="google"
+                    />
+                }
                 sx={{
                     border: "1px solid",
                     borderColor: "neutral.neutral8",
-                    width: "100%", mb: 2
+                    width: "100%",
+                    mb: 2,
                 }}
             />
         </form>

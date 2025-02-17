@@ -10,7 +10,6 @@ const PageContainer = ({ children }) => {
                 py={{ xs: 4, sm: 4, md: 4, lg: 6 }}
                 px={{ xs: 0, sm: 0, md: 3, lg: 3 }}
             >
-
                 {children}
             </Box>
         </>
