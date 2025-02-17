@@ -44,7 +44,6 @@ const SuperMenu = ({
                 id="menu-appbar"
                 anchorEl={anchorElSuperMenu}
                 disableScrollLock
-                disableEnforceFocus
                 anchorOrigin={{
                     vertical: "top",
                     horizontal: "right",
