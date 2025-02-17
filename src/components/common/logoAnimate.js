@@ -46,8 +46,14 @@ const logoAnimate = () => {
                         "/icons/sarantislogo.svg",
                         "/icons/trainedlogo.svg",
                     ].map((item, index) => (
-                        <Box key={index} sx={{ padding: "0 24px" }}>
-                            <Image loading="lazy" src={item} alt={"item"} />
+                        <Box key={item?.id || index} sx={{ padding: "0 24px" }}>
+                            <Image
+                                width={50}
+                                height={50}
+                                loading="lazy"
+                                src={item}
+                                alt={"item"}
+                            />
                         </Box>
                     ))}
                 </Marquee>

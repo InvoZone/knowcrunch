@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { Box, Typography } from "@mui/material";
 import HomeCom from "@/components/home/homePage";
+
+export const viewport = "width=device-width, initial-scale=1";
 
 export const metadata = {
     title: "Home Page",

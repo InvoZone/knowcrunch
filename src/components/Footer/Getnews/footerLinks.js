@@ -12,7 +12,7 @@ const FooterLinks = ({ title, links }) => {
                 {title}
             </Typography>
             {links.map((link, index) => (
-                <Typography key={index} variant="titleMd">
+                <Typography key={link?.id || index} variant="titleMd">
                     {link}
                 </Typography>
             ))}

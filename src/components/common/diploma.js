@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Box, Typography, useTheme } from "@mui/material";
-import diploma from "@/assets/course/diploma.svg";
+import diploma from "@/assets/course/professional-diploma.webp";
 import styles from "./diploma.module.scss";
 
 export default function Diploma() {
