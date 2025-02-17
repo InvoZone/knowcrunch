@@ -14,7 +14,7 @@ export default function Whyknow() {
                 className={styles.img}
                 src={whyknowcrunch}
                 alt="diploma"
-                layout="responsive"
+                priority
             />
             <Box className={styles.typo}>
                 <Typography variant="h2" sx={{ color: base1.dark4 }}>

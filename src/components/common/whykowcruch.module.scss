@@ -7,12 +7,6 @@
     .img{
         width:100% !important;
         height:100% !important;
-        // width: 354px !important;
-        // height: 249px !important;
-        @media (max-width: 575px) {
-            width: 336px !important;
-            height: 237px !important;
-        }
     }
     @media (max-width: 899px) {
         flex-direction: column;

@@ -29,13 +29,13 @@ export default function ProfileCard({ profileImage, name, title, company }) {
                     borderRadius: "8px",
                     overflow: "hidden",
                     position: "relative",
+                    width:'100%', height:'100%'
                 }}
             >
                 <Image
                     src={profileImage}
                     alt="Profile Image"
-                    layout="fill"
-                    objectFit="cover"
+                    style={{width:'100%', height:'100%', objectFit:'conver' }}
                 />
             </Box>
 

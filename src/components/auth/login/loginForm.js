@@ -54,13 +54,16 @@ const LoginForm = ({ t, handleClose }) => {
             <CustomInput name={"email"}
                 label={t("email")}
                 formik={formik} mb={1}
+                autoComplete="email"
             />
 
             {/* Password input field */}
             <CustomInput name={"password"}
                 label={t("password")}
                 formik={formik} mb={3}
-                type='password' />
+                type='password'
+                autoComplete="current-password"
+            />
 
             {/* Submit button for email/password login */}
             <CustomBtn type='submit'

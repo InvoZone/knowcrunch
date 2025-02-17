@@ -1,7 +1,6 @@
 "use client";
 import { Box } from "@mui/material";
 export default function VideoCard() {
-
     return (
         <Box
             sx={{
@@ -17,13 +16,17 @@ export default function VideoCard() {
             <iframe
                 width="100%"
                 height="228px"
-                src="https://www.youtube.com/embed/QusJ4fpWQwA?si=93qGHlehkoGyUaCt"
+                src="https://www.youtube-nocookie.com/embed/QusJ4fpWQwA?si=93qGHlehkoGyUaCt&modestbranding=1&rel=0&controls=1&disablekb=1"
                 title="YouTube video player"
-                // frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
-                style={{ borderRadius: "16px", }}
+                style={{
+                    borderRadius: "16px",
+                    border: "0",
+                    overflow: "hidden",
+                }}
+                loading="lazy"
             ></iframe>
         </Box>
     );
