@@ -111,7 +111,7 @@ function Navbar() {
         window.addEventListener("scroll", handleScroll);
 
         return () => {
-            window.removeEventListener("scroll", debounceScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 

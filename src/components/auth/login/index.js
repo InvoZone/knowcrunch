@@ -67,7 +67,7 @@ const Login = () => {
                 </Typography>
                 {/* Wrap login form with Google OAuth provider */}
                 <GoogleOAuthProvider
-                    clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+                    clientId={"809876541195-b6s0ppqe1faimu5a7rrl0pai1rjc7c5k.apps.googleusercontent.com"}
                 >
                     <LoginForm t={t} handleClose={handleClose} />
                     {/* Sign up prompt for users without an account */}
