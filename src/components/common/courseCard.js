@@ -8,7 +8,6 @@ import courseThumb from "@/assets/course/courseThumb.webp";
 import { Box } from "@mui/material";
 import CustomBtn from "./customBtn";
 
-import * as styles from "./courseCard.module.scss";
 /**
  * CourseCard Component
  * Displays a card with course information including thumbnail, title, description,
@@ -17,12 +16,11 @@ import * as styles from "./courseCard.module.scss";
  */
 export default function CourseCard({
     enrollButton = true,
-    homepage = false,
-    customClass = false,
+    mx = 0,
+    discountTag = false
 }) {
     return (
         <Box
-            className={customClass ? styles.main : ""}
             sx={{
                 backgroundColor: "secondary.main",
                 borderRadius: 2,
@@ -31,7 +29,7 @@ export default function CourseCard({
                 minHeight: 400,
             }}
             p={1}
-            mx={homepage ? 1 : 0}
+            mx={mx}
         >
             {/* Course thumbnail section with play button overlay */}
             <Box
@@ -197,7 +195,7 @@ export default function CourseCard({
             {/* Enrollment section with price and button */}
             {enrollButton && (
                 <Box component={"div"} pt={5}>
-                    {!homepage && (
+                    {discountTag && (
                         <Typography
                             variant="body2"
                             color="error.main"

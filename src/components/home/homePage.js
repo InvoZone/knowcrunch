@@ -254,12 +254,12 @@ const Homepage = () => {
                         Popular E-learning Courses
                     </Typography>
                     <Slider {...settings} className={styles.sliderContaier}>
-                        <CourseCard customClass={true} homepage={true} />
-                        <CourseCard customClass={true} homepage={true} />
-                        <CourseCard customClass={true} homepage={true} />
-                        <CourseCard customClass={true} homepage={true} />
-                        <CourseCard customClass={true} homepage={true} />
-                        <CourseCard customClass={true} homepage={true} />
+                        <CourseCard customClass={true} mx={1} />
+                        <CourseCard customClass={true} mx={1} />
+                        <CourseCard customClass={true} mx={1} />
+                        <CourseCard customClass={true} mx={1} />
+                        <CourseCard customClass={true} mx={1} />
+                        <CourseCard customClass={true} mx={1} />
                     </Slider>
                     <Typography
                         variant="h6"

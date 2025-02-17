@@ -176,7 +176,7 @@ const Courses = () => {
                                 key={`course_${ind}`}
                                 size={{ xs: 12, sm: 12, md: 6, lg: 4 }}
                             >
-                                <CourseCard />
+                                <CourseCard discountTag={true} />
                             </Grid2>
                         ))}
                         {/* Pagination */}

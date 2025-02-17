@@ -1,5 +1,8 @@
 "use client";
 import { Box } from "@mui/material";
+import videoThumb from "@/assets/home/videoThumb.webp";
+import Image from "next/image";
+
 export default function VideoCard() {
     return (
         <Box
@@ -10,10 +13,22 @@ export default function VideoCard() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "start",
+
             }}
             p={1}
         >
-            <iframe
+            <Box component={"div"} position={"absolute"} left={"42%"} top={"40%"}>
+                <Image src={"/icons/playBtn.webp"}
+                    height={50}
+                    width={50}
+                    alt="playBtnIcon"
+                    loading="lazy"
+                />
+            </Box>
+            <Box component={"div"} borderRadius={2} overflow={"hidden"}>
+                <Image src={videoThumb} alt='video img' height={228} />
+            </Box>
+            {/* <iframe
                 width="100%"
                 height="228px"
                 src="https://www.youtube-nocookie.com/embed/QusJ4fpWQwA?si=93qGHlehkoGyUaCt&modestbranding=1&rel=0&controls=1&disablekb=1"
@@ -27,7 +42,7 @@ export default function VideoCard() {
                     overflow: "hidden",
                 }}
                 loading="lazy"
-            ></iframe>
+            ></iframe> */}
         </Box>
     );
 }

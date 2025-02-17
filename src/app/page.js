@@ -30,8 +30,6 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <>
-      <HomeCom />
-    </>
+    <HomeCom />
   );
 }
