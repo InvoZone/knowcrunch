@@ -87,7 +87,7 @@ const Signup = () => {
                         handleSubmitForm={handleSubmitForm}
                     />
                     {/* Sign up prompt for users without an account */}
-                    {registerText == "signupHeading" && (
+                    {registerText === "signupHeading" && (
                         <Box component="div" textAlign={"center"}>
                             <Typography variant="body" color="neutral.neutral4">
                                 {t("alreadyHaveAccount")} {"  "}

@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee"; // Import Marquee
 import * as styles from "./logoAnimate.module.scss"; // Import CSS for styling
 import { Box, Typography, useTheme, Container } from "@mui/material";
 
-const logoAnimate = () => {
+const LogoAnimate = () => {
     const theme = useTheme();
     const { base1, neutral } = theme.palette;
 
@@ -62,4 +62,4 @@ const logoAnimate = () => {
     );
 };
 
-export default logoAnimate;
+export default LogoAnimate;

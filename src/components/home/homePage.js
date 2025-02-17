@@ -58,7 +58,7 @@ function PrevArrow(props) {
     );
 }
 
-const homepage = () => {
+const Homepage = () => {
     const theme = useTheme();
     const { primary, base1, link, neutral } = theme.palette;
     const isLg = useMediaQuery(theme.breakpoints.up("md"));
@@ -600,4 +600,4 @@ const homepage = () => {
     );
 };
 
-export default homepage;
+export default Homepage;
