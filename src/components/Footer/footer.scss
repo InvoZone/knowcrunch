@@ -9,32 +9,3 @@
         align-items: center;
     }
 }
-
-.accordLinks
-    .css-13u14ls-MuiPaper-root-MuiAccordion-root.Mui-expanded:last-of-type {
-    background: transparent !important;
-}
-.accordLinks .css-1hkgvkw-MuiAccordionDetails-root {
-    background: transparent !important;
-    padding: 8px 0 8px 0;
-}
-.accordLinks .css-13u14ls-MuiPaper-root-MuiAccordion-root:last-of-type {
-    background: transparent !important;
-    border: none !important;
-}
-.css-13u14ls-MuiPaper-root-MuiAccordion-root:last-of-type {
-    border-bottom-left-radius: none !important;
-    border-bottom-right-radius: none !important;
-}
-.accordLinks .css-1rnsd9r-MuiButtonBase-root-MuiAccordionSummary-root {
-    border-bottom: 1px solid #244891 !important;
-    padding: 0;
-}
-.accordLinks .css-1hkgvkw-MuiAccordionDetails-root {
-    div {
-        font-size: 16px;
-        font-weight: 800;
-        padding: 2px;
-        line-height: "20px";
-    }
-}

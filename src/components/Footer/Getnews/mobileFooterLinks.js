@@ -28,25 +28,54 @@ const FooterAccordion = ({ title, links }) => {
                 expanded={expanded}
                 onChange={handleChange}
                 sx={{
-                    backgroundColor: "#0D1B2A",
+                    backgroundColor: "transparent",
                     border: "none",
                     boxShadow: "none",
-                    borderBottom: "1px solid #3E3E3E",
-                }}
-            >
-                <AccordionSummary
+                    "&:last-of-type": {
+                        backgroundColor: "transparent",
+                        border: "none",
+                        borderBottomLeftRadius: 0,
+                        borderBottomRightRadius: 0,
+                    },
+                    "&.Mui-expanded:last-of-type": {
+                        backgroundColor: "transparent",
+                    },
+                    }}
+                >
+                    <AccordionSummary
                     expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
-                >
+                    sx={{
+                        borderBottom: "1px solid #244891",
+                        padding: 0,
+                        backgroundColor: "transparent",
+                    }}
+                    >
                     <Typography
                         variant="h6"
-                        sx={{ color: "white", fontWeight: "bold" }}
+                        sx={{
+                        color: "white",
+                        fontWeight: "bold",
+                        backgroundColor: "transparent",
+                        }}
                     >
                         {title}
                     </Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={{ backgroundColor: "#0D1B2A" }}>
+                    </AccordionSummary>
+                    <AccordionDetails
+                    sx={{
+                        backgroundColor: "transparent",
+                        padding: "8px 0",
+                        border: "1px solid #yourBorderColor",
+                        "& div": {
+                        fontSize: "16px",
+                        fontWeight: 800,
+                        padding: "4px",
+                        lineHeight: "20px",
+                        },
+                    }}
+                    >
                     {links.map((link, index) => (
                         <div key={link?.id || index} style={{ color: "white" }}>
                             {link}

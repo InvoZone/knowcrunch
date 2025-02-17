@@ -3,15 +3,6 @@ import React from "react";
 import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Grid2 from "@mui/material/Grid2";
-import Facebook from "@/assets/footer/Facebook.svg";
-import Instagram from "@/assets/footer/Instagram.svg";
-import Linkedin from "@/assets/footer/Linkedin.svg";
-import Medium from "@/assets/footer/Medium.svg";
-import Pinterest from "@/assets/footer/Pinterest.svg";
-import Spotify from "@/assets/footer/Spotify.svg";
-import TikTok from "@/assets/footer/TikTok.svg";
-import X from "@/assets/footer/X.svg";
-import Youtube from "@/assets/footer/Youtube.svg";
 import Image from "next/image";
 import "./footer.scss";
 
@@ -244,63 +235,63 @@ const Footer = () => {
                         <Box sx={{ display: "flex", gap: "17px" }}>
                             <Image
                                 loading="lazy"
-                                src={Facebook}
+                                src={"/icons/Facebook.svg"}
                                 width={24}
                                 height={24}
                                 alt={"Facebook"}
                             />
                             <Image
                                 loading="lazy"
-                                src={Instagram}
+                                src={"/icons/Instagram.svg"}
                                 width={24}
                                 height={24}
                                 alt={"Instagram"}
                             />
                             <Image
                                 loading="lazy"
-                                src={Linkedin}
+                                src={"/icons/Linkedin.svg"}
                                 width={24}
                                 height={24}
                                 alt={"Linkedin"}
                             />
                             <Image
                                 loading="lazy"
-                                src={Youtube}
+                                src={"/icons/Youtube.svg"}
                                 width={24}
                                 height={24}
                                 alt={"Youtube"}
                             />
                             <Image
                                 loading="lazy"
-                                src={TikTok}
+                                src={"/icons/TikTok.svg"}
                                 width={24}
                                 height={24}
                                 alt={"TikTok"}
                             />
                             <Image
                                 loading="lazy"
-                                src={Medium}
+                                src={"/icons/Medium.svg"}
                                 width={24}
                                 height={24}
                                 alt={"Medium"}
                             />
                             <Image
                                 loading="lazy"
-                                src={Pinterest}
+                                src={"/icons/Pinterest.svg"}
                                 width={24}
                                 height={24}
                                 alt={"Pinterest"}
                             />
                             <Image
                                 loading="lazy"
-                                src={Spotify}
+                                src={"/icons/Spotify.svg"}
                                 width={24}
                                 height={24}
                                 alt={"Spotify"}
                             />
                             <Image
                                 loading="lazy"
-                                src={X}
+                                src={"/icons/X.svg"}
                                 width={24}
                                 height={24}
                                 alt={"X"}

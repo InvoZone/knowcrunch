@@ -15,8 +15,8 @@
     @media (max-width: 1360) {
         max-width: 100%;
     }
-    @media (max-width: 575) {
-        background-image: url("../../assets/header/Hero.webp");
+    @media (max-width: 575px) {
+        background-image: url("../../../public/icons/Hero.webp") !important;
         padding-left: 32px !important;
         padding-top: 125px !important;
     }
