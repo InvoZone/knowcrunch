@@ -71,7 +71,6 @@ const Signup = () => {
             <CustomDialog
                 open={signupPopup}
                 handleClose={handleClose}
-                shouldCloseOutside={false}
             >
                 {/* Dialog heading */}
                 <Typography variant="h4" color="tertiary" pb={3}>
