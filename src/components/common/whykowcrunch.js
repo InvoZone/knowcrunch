@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Box, Typography, useTheme } from "@mui/material";
-import whyknowcrunch from "@/assets/course/kowcrunchimg.svg";
+import whyknowcrunch from "@/assets/course/whykowcrunchimg.webp";
 import styles from "./whykowcruch.module.scss";
 export default function Whyknow() {
     const theme = useTheme();

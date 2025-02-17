@@ -48,7 +48,7 @@ const FooterAccordion = ({ title, links }) => {
                 </AccordionSummary>
                 <AccordionDetails sx={{ backgroundColor: "#0D1B2A" }}>
                     {links.map((link, index) => (
-                        <div key={index} style={{ color: "white" }}>
+                        <div key={link?.id || index} style={{ color: "white" }}>
                             {link}
                         </div>
                     ))}

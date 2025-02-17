@@ -2,38 +2,45 @@
     background-color: #1c3870;
     width: 290px;
 
-    @media (max-width: 1199px) {
-        width: 100%;
-    }
-
     height: 45px;
     padding-left: 10px;
     padding-right: 10px;
     color: #98c9ff;
-    &::placeholder {
-        color: #98c9ff;
-    }
+
     font-size: 16px;
     line-height: 16px;
     font-weight: 400;
     border: 1px solid #1c3870;
     border-radius: 8px;
+
+    @media (max-width: 1199px) {
+        width: 100%;
+    }
+
+    &::placeholder {
+        color: #98c9ff;
+    }
+
     &:focus-within {
         outline: none !important;
     }
+
     .form-control {
         background-color: #1c3870 !important;
         border: none !important;
         width: auto !important;
     }
+
     .flag-dropdown {
         background-color: #1c3870 !important;
         border: none !important;
     }
+
     .react-tel-input {
         input {
             color: #98c9ff !important;
         }
+
         .flag-dropdown .selected-flag:hover {
             background-color: "#1c3870 !important";
         }
@@ -41,39 +48,44 @@
 }
 
 .mainFooter {
+    display: flex;
+    gap: 48px;
+
     @media (min-width: 1080px) {
         display: contents;
     }
-    display: flex;
-    gap: 48px;
+
     @media (max-width: 899px) {
         gap: 40px;
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 40px;
         display: flex;
+
         .FooterLinks {
             display: none !important;
         }
     }
+
     @media (max-width: 578px) {
         .mainFooterForm {
             width: 100%;
         }
     }
-    margin-bottom: 20px;
+
     // margin-top: 20px;
 }
 
 .widthBtn {
     width: 290px;
+    height: 45px;
 
     @media (max-width: 1199px) {
         width: 100%;
     }
 
-    height: 45px;
 }
+
 .footerRights {
     display: flex;
     justify-content: space-between;
@@ -83,21 +95,25 @@
         flex-direction: column;
         align-items: center;
         gap: 24px;
+
         div {
             justify-content: center;
             flex-wrap: wrap;
             text-align: center;
         }
+
         p {
             text-align: center;
         }
     }
 }
+
 .sunset {
     display: flex;
     justify-content: flex-end;
     border-bottom: 2px solid #3366cc;
     padding-bottom: 10px;
+
     @media (max-width: 899px) {
         justify-content: center;
         text-align: center;

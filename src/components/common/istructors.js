@@ -41,6 +41,7 @@ export default function ProfileCard({ profileImage, name, title, company }) {
                         height: "100%",
                         objectFit: "conver",
                     }}
+                    loading="lazy"
                 />
             </Box>
 

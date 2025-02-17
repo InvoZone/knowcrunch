@@ -5,7 +5,7 @@
     justify-content: space-between;
     gap: 50px;
     align-items: center;
-    background-image: url("/icons/Hero.svg");
+    background-image: url("../../assets/header/HeroDesk.webp");
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@
         max-width: 100%;
     }
     @media (max-width: 575) {
-        background-image: url("../../assets/header/Heromob.svg");
+        background-image: url("../../assets/header/Hero.webp");
         padding-left: 32px !important;
         padding-top: 125px !important;
     }

@@ -43,6 +43,8 @@ export default function Banner() {
                         <Image
                             loading="lazy"
                             src="/icons/leftaward.svg"
+                            width={17}
+                            height={52}
                             alt={"leftaward"}
                         />{" "}
                         <Typography sx={{ color: "white" }}>
@@ -52,6 +54,8 @@ export default function Banner() {
                             loading="lazy"
                             src="/icons/rightaward.svg"
                             alt={"rightaward"}
+                            width={19}
+                            height={52}
                         />
                     </Box>
                 </Box>
