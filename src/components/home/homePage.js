@@ -18,9 +18,9 @@ import {
 } from "@mui/material";
 import SelectAbleLinks from "../common/selectableLinks";
 import LogoAnimate from "../common/logoAnimate";
-import img1 from "@/assets/course/img1.svg";
-import img2 from "@/assets/course/img2.svg";
-import img3 from "@/assets/course/img3.svg";
+import img1 from "@/assets/course/instructor1.webp";
+import img2 from "@/assets/course/instructor2.webp";
+import img3 from "@/assets/course/instructor3.webp";
 import VideoCard from "../common/videoCard";
 import Diploma from "../common/diploma";
 import WhykowCrunch from "../common/whykowcrunch";
