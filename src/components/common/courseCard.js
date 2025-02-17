@@ -5,11 +5,6 @@ import Image from "next/image";
 
 // Import assets and icons
 import courseThumb from "@/assets/course/courseThumb.webp";
-import heartIcon from "@/assets/icons/heart.svg";
-import globIcon from "@/assets/icons/glob.svg";
-import clockIcon from "@/assets/icons/clock.svg";
-import starIcon from "@/assets/icons/star.svg";
-import playBtnIcon from "@/assets/icons/playBtn.webp";
 import { Box } from "@mui/material";
 import CustomBtn from "./customBtn";
 
@@ -56,7 +51,7 @@ export default function CourseCard({
                     left={"43%"}
                 >
                     <Image
-                        src={playBtnIcon}
+                        src={"/icons/playBtn.webp"}
                         height={50}
                         width={50}
                         alt="playBtnIcon"
@@ -86,7 +81,7 @@ export default function CourseCard({
                         }}
                     />
                     <Image
-                        src={heartIcon}
+                        src="/icons/heart.svg"
                         height={24}
                         width={24}
                         alt="heart"
@@ -145,7 +140,7 @@ export default function CourseCard({
             <Box component={"div"} display={"flex"} gap={0.5}>
                 {/* Language indicator */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
-                    <Image src={globIcon} alt="glob" width={20} height={20} />
+                    <Image src="/icons/glob.svg" alt="glob" width={20} height={20} />
                     <Typography
                         variant="body"
                         color="neutral.neutral2"
@@ -157,7 +152,7 @@ export default function CourseCard({
                 {/* Rating display */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image
-                        src={starIcon}
+                        src="/icons/star.svg"
                         alt="starIcon"
                         width={20}
                         height={20}
@@ -183,7 +178,7 @@ export default function CourseCard({
                 {/* Duration display */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image
-                        src={clockIcon}
+                        src="/icons/clock.svg"
                         alt="clockIcon"
                         width={20}
                         height={20}

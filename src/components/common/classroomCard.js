@@ -4,13 +4,6 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import * as styles from "./classroomCard.module.scss";
-// Import assets and icons
-import heartIcon from "@/assets/icons/heart.svg";
-import clockhour from "@/assets/icons/clockhour.svg";
-import staricon from "@/assets/icons/staricon.svg";
-import globalicon from "@/assets/icons/globalicon.svg";
-import calendaricon from "@/assets/icons/calendaricon.svg";
-import locationicon from "@/assets/icons/locationicon.svg";
 
 import { Box } from "@mui/material";
 import CustomBtn from "./customBtn";
@@ -71,14 +64,14 @@ export default function ClassroomCard({
                             borderRadius: 0.5,
                         }}
                     />
-                    <Image src={heartIcon} height={24} width={24} alt="heart" />
+                    <Image src="/icons/heart.svg" height={24} width={24} alt="heart" />
                 </Box>
             </Box>
 
             {/* Course title */}
             <Box component={"div"} display={"flex"} alignItems={"center"}>
                 <Image
-                    src={locationicon}
+                    src="/icons/locationicon.svg"
                     alt="calendaricon"
                     width={20}
                     height={20}
@@ -136,7 +129,7 @@ export default function ClassroomCard({
             >
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image
-                        src={calendaricon}
+                        src="/icons/calendaricon.svg"
                         alt="calendaricon"
                         width={20}
                         height={20}
@@ -147,7 +140,7 @@ export default function ClassroomCard({
                 </Box>
                 {/* Language indicator */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
-                    <Image src={globalicon} alt="glob" width={20} height={20} />
+                    <Image src="/icons/globalicon.svg" alt="glob" width={20} height={20} />
                     <Typography variant="body" color="secondary.main" pl={1}>
                         EN •
                     </Typography>
@@ -155,7 +148,7 @@ export default function ClassroomCard({
                 {/* Rating display */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image
-                        src={staricon}
+                        src="/icons/staricon.svg"
                         alt="starIcon"
                         width={20}
                         height={20}
@@ -176,7 +169,7 @@ export default function ClassroomCard({
                 {/* Duration display */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image
-                        src={clockhour}
+                        src="/icons/clockhour.svg"
                         alt="clockIcon"
                         width={20}
                         height={20}

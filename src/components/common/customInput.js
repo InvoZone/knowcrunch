@@ -40,6 +40,7 @@ export default function CustomInput({
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={formik.touched?.[name] && Boolean(formik.errors?.[name])}
+                autoComplete={name}
                 sx={{
                     mb,
                     // Input field styling

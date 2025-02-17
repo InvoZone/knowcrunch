@@ -7,7 +7,6 @@ import CustomInput from "@/components/common/customInput";
 import { Divider } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import googleIcon from "@/assets/icons/google.svg";
 import Image from "next/image";
 import { useState } from "react";
 import CompleteRegistration from "./completeRegistration";
@@ -101,8 +100,8 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                     width: "100%",
                     opacity:
                         !formik?.values?.email ||
-                        !formik?.values?.password ||
-                        !formik?.values?.confirmPassword
+                            !formik?.values?.password ||
+                            !formik?.values?.confirmPassword
                             ? 0.5
                             : 1,
                 }}
@@ -119,7 +118,7 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                 onClick={googleSignup}
                 startIcon={
                     <Image
-                        src={googleIcon}
+                        src="/icons/google.svg"
                         width={24}
                         height={24}
                         loading="lazy"

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Box, Typography, useTheme } from "@mui/material";
 import whyknowcrunch from "@/assets/course/kowcrunchimg.svg";
 import styles from "./whykowcruch.module.scss";
-import Tick from "@/assets/icons/tick.svg";
 export default function Whyknow() {
     const theme = useTheme();
     const { base1, neutral } = theme.palette;
@@ -27,7 +26,7 @@ export default function Whyknow() {
                     <Box className={styles.tickMark}>
                         <Image
                             loading="lazy"
-                            src={Tick}
+                            src="/icons/tick.svg"
                             width={24}
                             height={24}
                             alt={"Tick"}
@@ -54,7 +53,7 @@ export default function Whyknow() {
                     <Box className={styles.tickMark}>
                         <Image
                             loading="lazy"
-                            src={Tick}
+                            src="/icons/tick.svg"
                             width={24}
                             height={24}
                             alt={"Tick"}
@@ -81,7 +80,7 @@ export default function Whyknow() {
                     <Box className={styles.tickMark}>
                         <Image
                             loading="lazy"
-                            src={Tick}
+                            src="/icons/tick.svg"
                             width={24}
                             height={24}
                             alt={"Tick"}
@@ -108,7 +107,7 @@ export default function Whyknow() {
                     <Box className={styles.tickMark}>
                         <Image
                             loading="lazy"
-                            src={Tick}
+                            src="/icons/tick.svg"
                             width={24}
                             height={24}
                             alt={"Tick"}
@@ -135,7 +134,7 @@ export default function Whyknow() {
                     <Box className={styles.tickMark}>
                         <Image
                             loading="lazy"
-                            src={Tick}
+                            src="/icons/tick.svg"
                             width={24}
                             height={24}
                             alt={"Tick"}

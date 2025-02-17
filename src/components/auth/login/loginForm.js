@@ -7,7 +7,6 @@ import CustomInput from "@/components/common/customInput";
 import { Divider } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import googleIcon from "@/assets/icons/google.svg";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { login } from "@/store/slices/auth";
@@ -95,7 +94,7 @@ const LoginForm = ({ t, handleClose }) => {
                 onClick={handleLogin}
                 startIcon={
                     <Image
-                        src={googleIcon}
+                        src="/icons/google.svg"
                         width={24}
                         height={24}
                         loading="lazy"

@@ -19,7 +19,7 @@ body {
 body {
     color: var(--foreground);
     background: var(--background);
-    font-family: "Foco", sans-serif;
+    font-family: sans-serif, "Arial", "Foco";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

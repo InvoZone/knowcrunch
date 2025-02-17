@@ -4,16 +4,6 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee"; // Import Marquee
 import * as styles from "./logoAnimate.module.scss"; // Import CSS for styling
 import { Box, Typography, useTheme, Container } from "@mui/material";
-import skodalogo from "@/assets/icons/skodalogo.svg";
-import emiratelogo from "@/assets/icons/emiratelogo.svg";
-import audilogo from "@/assets/icons/audilogo.svg";
-import ingrouplogo from "@/assets/icons/ingrouplogo.svg";
-import volklogo from "@/assets/icons/volklogo.svg";
-import ddlogo from "@/assets/icons/ddlogo.svg";
-import knowcrunchlogo from "@/assets/icons/knowcrunchlogo.svg";
-import pepsilogo from "@/assets/icons/pepsilogo.svg";
-import sarantislogo from "@/assets/icons/sarantislogo.svg";
-import trainedlogo from "@/assets/icons/trainedlogo.svg";
 
 const logoAnimate = () => {
     const theme = useTheme();
@@ -45,16 +35,16 @@ const logoAnimate = () => {
                 </Typography>
                 <Marquee>
                     {[
-                        skodalogo,
-                        emiratelogo,
-                        audilogo,
-                        ingrouplogo,
-                        volklogo,
-                        ddlogo,
-                        knowcrunchlogo,
-                        pepsilogo,
-                        sarantislogo,
-                        trainedlogo,
+                        "/icons/skodalogo.svg",
+                        "/icons/emiratelogo.svg",
+                        "/icons/audilogo.svg",
+                        "/icons/ingrouplogo.svg",
+                        "/icons/volklogo.svg",
+                        "/icons/ddlogo.svg",
+                        "/icons/knowcrunchlogo.svg",
+                        "/icons/pepsilogo.svg",
+                        "/icons/sarantislogo.svg",
+                        "/icons/trainedlogo.svg",
                     ].map((item, index) => (
                         <Box key={index} sx={{ padding: "0 24px" }}>
                             <Image loading="lazy" src={item} alt={"item"} />

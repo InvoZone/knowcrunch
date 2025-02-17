@@ -4,8 +4,6 @@ import Box from "@mui/material/Box";
 import Popover from "@mui/material/Popover";
 import CustomBtn from "./customBtn";
 import Image from "next/image";
-import chevUpIcon from "@/assets/icons/chevUp.svg";
-import chevDownIcon from "@/assets/icons/chevDown.svg";
 import { useTranslations } from "use-intl";
 import { Typography } from "@mui/material";
 
@@ -37,8 +35,10 @@ export default function TransitionsPopper({ options }) {
                 title={`${t("sortBy")} : ${t(sort)}`}
                 endIcon={
                     <Image
-                        src={open ? chevDownIcon : chevUpIcon}
+                        src={open ? "/icons/chevDown.svg" : "/icons/chevUp.svg"}
                         alt="filter"
+                        width={24}
+                        height={24}
                     />
                 }
                 sx={{

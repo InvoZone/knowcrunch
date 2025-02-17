@@ -2,9 +2,6 @@
 import Image from "next/image";
 import { Box, Container, Typography, useTheme } from "@mui/material";
 import styles from "./banner.module.scss";
-import rightaward from "@/assets/icons/rightaward.svg";
-import leftaward from "@/assets/icons/leftaward.svg";
-import bannerstar from "@/assets/icons/bannerstar.svg";
 
 export default function Banner() {
     const theme = useTheme();
@@ -35,7 +32,7 @@ export default function Banner() {
                         <Typography sx={{ color: "white" }}>4.8</Typography>{" "}
                         <Image
                             loading="lazy"
-                            src={bannerstar}
+                            src="/icons/bannerstar.svg"
                             width={24}
                             height={24}
                             alt={"bannerstar"}
@@ -45,7 +42,7 @@ export default function Banner() {
                         </Typography>{" "}
                         <Image
                             loading="lazy"
-                            src={leftaward}
+                            src="/icons/leftaward.svg"
                             alt={"leftaward"}
                         />{" "}
                         <Typography sx={{ color: "white" }}>
@@ -53,7 +50,7 @@ export default function Banner() {
                         </Typography>{" "}
                         <Image
                             loading="lazy"
-                            src={rightaward}
+                            src="/icons/rightaward.svg"
                             alt={"rightaward"}
                         />
                     </Box>

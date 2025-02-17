@@ -9,9 +9,6 @@ import {
     useTheme,
 } from "@mui/material";
 import Image from "next/image";
-import chevRightIcon from "@/assets/icons/chevRight.svg";
-import chevLeftIcon from "@/assets/icons/chevLeft.svg";
-import cancelIcon from "@/assets/icons/cross.svg";
 import CustomBtn from "../common/customBtn";
 import dynamic from "next/dynamic";
 
@@ -55,7 +52,6 @@ const SuperMenuMobile = ({
                     zIndex: 1310,
                 }}
                 id="menu-appbar-mobile"
-                anchorEl={anchorElSuperMenu}
                 disableScrollLock
                 anchorOrigin={{
                     vertical: "top",
@@ -68,6 +64,7 @@ const SuperMenuMobile = ({
                 }}
                 open={Boolean(anchorElSuperMenu)}
                 onClose={handleCloseSuperMenu}
+                anchorEl={anchorElSuperMenu}
             >
                 <Container maxWidth={"xl"} sx={{ py: 4, minHeight: 500 }}>
                     <Grid2 container>
@@ -95,7 +92,7 @@ const SuperMenuMobile = ({
                                         onClick={goBack}
                                     >
                                         <Image
-                                            src={chevLeftIcon}
+                                            src={"/icons/chevLeft.svg"}
                                             alt="chevLeftIcon"
                                             width={24}
                                             height={24}
@@ -110,7 +107,7 @@ const SuperMenuMobile = ({
                                     </Box>
                                 )}
                                 <Image
-                                    src={cancelIcon}
+                                    src={"/icons/cross.svg"}
                                     alt="cancel"
                                     width={48}
                                     height={48}
@@ -213,7 +210,7 @@ const SuperMenuMobile = ({
                                             {t(menu?.title)}{" "}
                                         </Typography>{" "}
                                         <Image
-                                            src={chevRightIcon}
+                                            src={"/icons/chevRight.svg"}
                                             alt="chevRightIcon"
                                             width={24}
                                             height={24}

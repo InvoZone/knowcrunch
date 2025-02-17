@@ -7,8 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import CourseCard from "../common/courseCard";
 import ClassroomCard from "../common/classroomCard";
 import InstructorCard from "../common/istructors";
-import previousArrow from "@/assets/icons/previousArrow.svg";
-import nextArrow from "@/assets/icons/nextArrow.svg";
 import * as styles from "./home.module.scss";
 import {
     Box,
@@ -20,7 +18,6 @@ import {
 } from "@mui/material";
 import SelectAbleLinks from "../common/selectableLinks";
 import LogoAnimate from "../common/logoAnimate";
-import Tick from "@/assets/icons/tick.svg";
 import img1 from "@/assets/course/img1.svg";
 import img2 from "@/assets/course/img2.svg";
 import img3 from "@/assets/course/img3.svg";
@@ -37,7 +34,7 @@ function Arrow(props) {
             className={styles.arrowStyle}
         >
             <div onClick={onClick}>
-                <Image src={nextArrow} height={40} width={40} alt="nextArrow" />
+                <Image src="/icons/nextArrow.svg" height={40} width={40} alt="nextArrow" />
             </div>
         </Box>
     );
@@ -51,7 +48,7 @@ function PrevArrow(props) {
         >
             <div onClick={onClick}>
                 <Image
-                    src={previousArrow}
+                    src="/icons/previousArrow.svg"
                     height={40}
                     width={40}
                     alt="previousArrow"
@@ -384,7 +381,7 @@ const homepage = () => {
                                             <Box className={styles.tickMark}>
                                                 <Image
                                                     loading="lazy"
-                                                    src={Tick}
+                                                    src="/icons/tick.svg"
                                                     width={18}
                                                     height={18}
                                                     alt={"Tick"}
@@ -398,7 +395,7 @@ const homepage = () => {
                                             <Box className={styles.tickMark}>
                                                 <Image
                                                     loading="lazy"
-                                                    src={Tick}
+                                                    src="/icons/tick.svg"
                                                     width={18}
                                                     height={18}
                                                     alt={"Tick"}
@@ -413,7 +410,7 @@ const homepage = () => {
                                             <Box className={styles.tickMark}>
                                                 <Image
                                                     loading="lazy"
-                                                    src={Tick}
+                                                    src="/icons/tick.svg"
                                                     width={18}
                                                     height={18}
                                                     alt={"Tick"}

@@ -9,8 +9,6 @@ import {
     useTheme,
 } from "@mui/material";
 import Image from "next/image";
-import chevRightIcon from "@/assets/icons/chevRight.svg";
-import chevRightBlackIcon from "@/assets/icons/chevRightBlack.svg";
 import CourseCard from "../common/courseCard";
 
 const SuperMenu = ({
@@ -93,8 +91,8 @@ const SuperMenu = ({
                                     <Image
                                         src={
                                             subMenu?.id === menu?.id
-                                                ? chevRightBlackIcon
-                                                : chevRightIcon
+                                                ? "/icons/chevRightBlack.svg"
+                                                : "/icons/chevRight.svg"
                                         }
                                         alt="chevRightIcon"
                                         width={24}

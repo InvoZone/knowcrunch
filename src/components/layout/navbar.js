@@ -14,13 +14,6 @@ import CustomBtn from "../common/customBtn";
 import SearchField from "./searchField";
 import Link from "next/link";
 
-// Import icons
-import searchIcon from "@/assets/icons/search.svg";
-import notificationIcon from "@/assets/icons/notification.svg";
-import cartIcon from "@/assets/icons/cart.svg";
-import menuIcon from "@/assets/icons/menu.svg";
-import personIcon from "@/assets/icons/person.svg";
-
 // Import navigation data and components
 import { navbarMenu } from "@/utils/navbarMenu";
 import { useTranslations } from "next-intl";
@@ -67,20 +60,18 @@ function Navbar() {
     // Handle super menu opening
     const handleOpenSuperMenu = (event, page) => {
         setMenus(page);
-        setAnchorElSuperMenu(event.target);
+        isLg && setAnchorElSuperMenu(event.target);
         setSubMenu({});
         setSubMenu1({});
     };
 
     // Handle super menu closing
     const handleCloseSuperMenu = () => {
-        setTimeout(() => {
-            setAnchorElSuperMenu(null);
-            setMenus({});
-            setSubMenu({});
-            setSubMenu1({});
-            setMobileMenu(false);
-        }, 100);
+        setAnchorElSuperMenu(null);
+        setMenus({});
+        setSubMenu({});
+        setSubMenu1({});
+        setMobileMenu(false);
     };
 
     // Toggle search field visibility
@@ -131,8 +122,8 @@ function Navbar() {
                 scrollY >= 10 || menu?.id !== undefined
                     ? "primary"
                     : pathname === "/"
-                      ? "transparent"
-                      : "primary"
+                        ? "transparent"
+                        : "primary"
             }
             sx={{ zIndex: 1310, boxShadow: "none" }}
         >
@@ -154,7 +145,7 @@ function Navbar() {
                             <Box sx={{ display: { xs: "flex", lg: "none" } }}>
                                 <IconButton onClick={handleOpenMobileMenu}>
                                     <Image
-                                        src={menuIcon}
+                                        src={"/icons/menu.svg"}
                                         width={24}
                                         height={24}
                                         alt={"menuIcon"}
@@ -217,10 +208,7 @@ function Navbar() {
                                                 key={el?.id}
                                                 onMouseEnter={(e) =>
                                                     el?.menu
-                                                        ? handleOpenSuperMenu(
-                                                              e,
-                                                              el
-                                                          )
+                                                        ? handleOpenSuperMenu(e, el)
                                                         : handleCloseSuperMenu()
                                                 }
                                                 title={t(el?.title)}
@@ -270,7 +258,7 @@ function Navbar() {
                                     <IconButton>
                                         <Image
                                             loading="lazy"
-                                            src={searchIcon}
+                                            src={"/icons/search.svg"}
                                             width={24}
                                             height={24}
                                             alt={"searchIcon"}
@@ -298,7 +286,7 @@ function Navbar() {
                                                     invisible={false}
                                                 >
                                                     <Image
-                                                        src={cartIcon}
+                                                        src={"/icons/cart.svg"}
                                                         width={24}
                                                         height={24}
                                                         alt={"cartIcon"}
@@ -313,7 +301,7 @@ function Navbar() {
                                                     invisible={false}
                                                 >
                                                     <Image
-                                                        src={notificationIcon}
+                                                        src={"/icons/notification.svg"}
                                                         width={24}
                                                         height={24}
                                                         alt={"notificationIcon"}
@@ -323,7 +311,7 @@ function Navbar() {
                                             </IconButton>
                                             <IconButton onClick={handleLogout}>
                                                 <Image
-                                                    src={personIcon}
+                                                    src={"/icons/person.svg"}
                                                     width={24}
                                                     height={24}
                                                     alt={"personIcon"}

@@ -1,6 +1,3 @@
-import searchIcon from "@/assets/icons/search.svg";
-import cancelIcon from "@/assets/icons/cross.svg";
-
 import { InputAdornment, TextField } from "@mui/material";
 import Image from "next/image";
 
@@ -14,7 +11,7 @@ const SearchField = ({ handleClose }) => {
                     startAdornment: (
                         <InputAdornment position="start">
                             <Image
-                                src={searchIcon}
+                                src={"/icons/search.svg"}
                                 width={24}
                                 height={24}
                                 alt={"searchIcon"}
@@ -28,7 +25,7 @@ const SearchField = ({ handleClose }) => {
                             sx={{ cursor: "pointer" }}
                         >
                             <Image
-                                src={cancelIcon}
+                                src={"/icons/cross.svg"}
                                 width={24}
                                 height={24}
                                 alt={"cancelIcon"}
