@@ -60,6 +60,7 @@ const SuperMenuMobile = ({
                     vertical: "top",
                     horizontal: "center",
                 }}
+                closeAfterTransition={false}
                 open={Boolean(anchorElSuperMenu)}
                 onClose={handleCloseSuperMenu}
                 anchorEl={anchorElSuperMenu}

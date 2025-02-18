@@ -23,14 +23,14 @@ const SuperMenu = ({
 }) => {
     // Get theme and destructure needed colors
     const theme = useTheme();
-    const { primary, base2, base1 } = theme.palette;
+    const { base2, base1 } = theme.palette;
 
     return (
-        <Box position={"relative"}>
+        <Box position={"relative"} component={"div"}>
             {/* Main Menu Component */}
             <Menu
                 sx={{
-                    mt: "76px",
+                    mt: "46px",
                     minHeight: 100,
                     position: "absolute",
                     "& .MuiMenu-paper": {
@@ -38,25 +38,25 @@ const SuperMenu = ({
                         maxWidth: "100% !important",
                         left: "0px !important",
                         top: "0px !important",
-                        background: primary.main,
+                        backgroundColor: "primary.main",
                     },
                 }}
                 id="menu-appbar"
                 anchorEl={anchorElSuperMenu}
-                disableScrollLock
                 anchorOrigin={{
                     vertical: "top",
                     horizontal: "right",
                 }}
-                keepMounted
                 transformOrigin={{
                     vertical: "top",
                     horizontal: "center",
                 }}
                 open={Boolean(anchorElSuperMenu)}
-                // onMouseEnter={handleOpenSuperMenu}
                 onClose={handleCloseSuperMenu}
+                autoFocus={false}
+                closeAfterTransition={false}
                 MenuListProps={{ onMouseLeave: handleCloseSuperMenu }}
+                aria-hidden={"false"}
             >
                 <Container maxWidth={"xl"} sx={{ py: 4 }}>
                     <Grid2 container spacing={2}>
