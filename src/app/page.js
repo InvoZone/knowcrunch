@@ -8,11 +8,11 @@ export const metadata = {
   openGraph: {
     title: "Home Page",
     description: "Professional educational courses & training",
-    url: "https://yoursite.com/",
+    url: `${process.env.NEXT_PUBLIC_SITE_LINK}/`,
     siteName: "KnowCrunch",
     images: [
       {
-        url: "https://yoursite.com/og-image.jpg",
+        url: `${process.env.NEXT_PUBLIC_SITE_LINK}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: "Open Graph Image Description",
@@ -24,7 +24,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Professional educational courses & training",
     description: "Knowcrunch helps you learn, transform and thrive.",
-    images: ["https://yoursite.com/twitter-image.jpg"],
+    images: [`${process.env.NEXT_PUBLIC_SITE_LINK}/twitter-image.jpg`],
   },
 };
 

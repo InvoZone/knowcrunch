@@ -1,12 +1,12 @@
 import PageContainer from "@/components/common/pageContainer";
-import Courses from "@/components/courses";
+import ClassroomCourses from "@/components/classroomCourses";
 
 export const metadata = {
-    title: "Courses",
-    description: "E-learning courses",
+    title: "Classroom Courses",
+    description: "Classroom courses",
     openGraph: {
-        title: "E-learning courses",
-        description: "E-learning courses Description",
+        title: "Classroom courses",
+        description: "Classroom courses Description",
         url: `${process.env.NEXT_PUBLIC_SITE_LINK}/page`,
         siteName: "KnowCrunch",
         images: [
@@ -21,16 +21,17 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "E-learning courses",
-        description: "TE-learning courses Description",
+        title: "Classroom courses",
+        description: "Classroom courses Description",
         images: [`${process.env.NEXT_PUBLIC_SITE_LINK}/twitter-image.jpg`],
     },
 };
 
-export default function CoursesPage() {
+
+export default function ClassrooomCoursesPage() {
     return (
         <PageContainer>
-            <Courses />
+            <ClassroomCourses />
         </PageContainer>
     );
 }

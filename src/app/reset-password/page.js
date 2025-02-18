@@ -1,13 +1,13 @@
 import PageContainer from "@/components/common/pageContainer";
-import Courses from "@/components/courses";
+import ResetPassword from "@/components/auth/resetPassword";
 
 export const metadata = {
-    title: "Courses",
-    description: "E-learning courses",
+    title: "Reset Password",
+    description: "Reset your password",
     openGraph: {
-        title: "E-learning courses",
-        description: "E-learning courses Description",
-        url: `${process.env.NEXT_PUBLIC_SITE_LINK}/page`,
+        title: "Reset Password",
+        description: "Reset your password Description",
+        url: `${process.env.NEXT_PUBLIC_SITE_LINK}/reset-password`,
         siteName: "KnowCrunch",
         images: [
             {
@@ -21,16 +21,17 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "E-learning courses",
-        description: "TE-learning courses Description",
+        title: "Reset Password",
+        description: "Reset your password Description",
         images: [`${process.env.NEXT_PUBLIC_SITE_LINK}/twitter-image.jpg`],
     },
 };
 
-export default function CoursesPage() {
+
+export default function ResetPasswordPage() {
     return (
         <PageContainer>
-            <Courses />
+            <ResetPassword />
         </PageContainer>
     );
 }

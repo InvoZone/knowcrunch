@@ -6,6 +6,7 @@ export const initialState = {
     isLoggedIn: false, // Tracks whether user is currently logged in
     loginPopup: false,
     signupPopup: false,
+    forgotPopup: false,
 };
 
 /**
@@ -27,12 +28,17 @@ export const authSlice = createSlice({
         openLoginSignUpPopup: (state, { payload }) => {
             state.loginPopup = payload?.loginPopup || false;
             state.signupPopup = payload?.signupPopup || false;
+            state.forgotPopup = payload?.forgotPopup || false;
+        },
+        openForgotPopup: (state, { payload }) => {
+            state.loginPopup = payload?.loginPopup || false;
+            state.forgotPopup = payload?.forgotPopup || false;
         },
     },
 });
 
 // Export actions to be used by components
-export const { login, logout, openLoginSignUpPopup } = authSlice.actions;
+export const { login, logout, openLoginSignUpPopup, openForgotPopup } = authSlice.actions;
 
 // Export reducer to be included in store
 export default authSlice.reducer;

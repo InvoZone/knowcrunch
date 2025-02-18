@@ -4,29 +4,29 @@
 import { Box, Container, Grid2 } from "@mui/material";
 import CustomBtn from "../common/customBtn";
 import { useTranslations } from "next-intl";
-import CourseCard from "../common/courseCard";
+import ClassroomCourseCard from "../common/classroomCard";
 import SelectField from "../common/selectField";
-import { courseFilters, courseSortFilters } from "@/utils/courses";
+import { sortFilters, classroomCourseFilters } from "@/utils/classroomCourses";
 import CustomPagination from "../common/customPagination";
 import { CloseOutlined, TuneOutlined } from "@mui/icons-material";
 import FilterDrawer from "../common/filterDrawer";
 import { useDispatch, useSelector } from "react-redux";
-import { filterStatus, selectFilter } from "@/store/slices/course";
+import { filterStatus, selectFilter } from "@/store/slices/classroomCourses";
 import PageHeadingDesc from "../common/pageHeadingDesc";
 
 /**
- * Courses Component
- * Main component for displaying course listings with filtering functionality
+ * Classroom Courses Component
+ * Main component for displaying classroom course listings with filtering functionality
  */
-const Courses = () => {
+const ClassroomCourses = () => {
     const dispatch = useDispatch();
     // Get filter state from Redux store
     const { filterOpen, selectedFilters } = useSelector(
-        (state) => state.course
+        (state) => state.classroomCourses
     );
     // Initialize translation functions
     const t = useTranslations("general");
-    const t1 = useTranslations("courses");
+    const t1 = useTranslations("classroomCourses");
 
     /**
      * Toggle filter drawer open/close state
@@ -72,18 +72,20 @@ const Courses = () => {
         dispatch(filterStatus(false));
     };
 
+
     return (
         <Container maxWidth="lg">
             {/* Filter drawer component */}
             <FilterDrawer
                 open={filterOpen}
                 t={t}
-                filters={courseFilters}
+                filters={classroomCourseFilters}
                 selectedFilters={selectedFilters}
                 handleChange={handleFilterChange}
+                drawerWidth={210}
                 closeFilterBar={closeFilterBar}
             >
-                <PageHeadingDesc heading={t1("allCourses")} />
+                <PageHeadingDesc heading={t1("inClassCourses")} subHeading={t1("classroomListingSubheading")} />
 
                 {/* Filter and sort controls */}
                 <Box
@@ -114,7 +116,7 @@ const Courses = () => {
                         color={filterOpen ? "secondary" : "neutral.neutral1"}
                         onClick={handleOpen}
                     />
-                    <SelectField options={courseSortFilters} />
+                    <SelectField options={sortFilters} />
                 </Box>
 
                 {/* Active filters display */}
@@ -163,7 +165,7 @@ const Courses = () => {
                     </Box>
                 )}
 
-                {/* Course grid layout */}
+                {/* Classroom Course grid layout */}
                 <Grid2 container justifyContent={"center"}>
                     <Grid2
                         container
@@ -175,13 +177,13 @@ const Courses = () => {
                         }}
                         spacing={2}
                     >
-                        {/* Display course cards */}
+                        {/* Display classroom course cards */}
                         {[...new Array(9).fill()]?.map((el, ind) => (
                             <Grid2
-                                key={`course_${ind}`}
+                                key={`classroom_course_${ind}`}
                                 size={{ xs: 12, sm: 12, md: 6, lg: 4 }}
                             >
-                                <CourseCard discountTag={true} />
+                                <ClassroomCourseCard />
                             </Grid2>
                         ))}
                         {/* Pagination */}
@@ -199,4 +201,4 @@ const Courses = () => {
     );
 };
 
-export default Courses;
+export default ClassroomCourses;

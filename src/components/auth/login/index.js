@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import LoginForm from "./loginForm";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
-import { openLoginSignUpPopup } from "@/store/slices/auth";
+import { openForgotPopup, openLoginSignUpPopup } from "@/store/slices/auth";
 
 /**
  * Login component that handles the login dialog and button
@@ -33,6 +33,7 @@ const Login = () => {
             openLoginSignUpPopup({
                 signupPopup: true,
                 loginPopup: false,
+                forgotPopup: false,
             })
         );
     };
@@ -44,6 +45,16 @@ const Login = () => {
             })
         );
     };
+
+    const handleOpenForgotPopup = () => {
+        dispatch(
+            openForgotPopup({
+                forgotPopup: true,
+                loginPopup: false
+            })
+        );
+    };
+
 
     return (
         <>
@@ -66,9 +77,9 @@ const Login = () => {
                 </Typography>
                 {/* Wrap login form with Google OAuth provider */}
                 <GoogleOAuthProvider
-                    clientId={"809876541195-b6s0ppqe1faimu5a7rrl0pai1rjc7c5k.apps.googleusercontent.com"}
+                    clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}
                 >
-                    <LoginForm t={t} handleClose={handleClose} />
+                    <LoginForm t={t} handleClose={handleClose} handleOpenForgotPopup={handleOpenForgotPopup} />
                     {/* Sign up prompt for users without an account */}
                     <Box component="div" textAlign={"center"}>
                         <Typography variant="body" color="neutral.neutral4">

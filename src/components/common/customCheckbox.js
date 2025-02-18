@@ -10,7 +10,7 @@ import { Checkbox, FormControlLabel } from "@mui/material";
  * @param {boolean} checked - The checked state of the checkbox
  * @param {function} onChange - Handler function for checkbox state changes
  */
-const CustomCheckbox = ({ label, t, checked, onChange, name }) => {
+const CustomCheckbox = ({ label, checked, onChange, name }) => {
     return (
         <FormControlLabel
             sx={{
@@ -40,7 +40,7 @@ const CustomCheckbox = ({ label, t, checked, onChange, name }) => {
                     }}
                 />
             }
-            label={t(label)}
+            label={label}
         />
     );
 };

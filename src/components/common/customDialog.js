@@ -22,6 +22,7 @@ export default function CustomDialog({
         <Dialog
             open={open}
             onClose={shouldCloseOutside && handleClose}
+            closeAfterTransition={false}
             sx={{
                 "& .MuiDialog-paper": {
                     borderRadius: 2,

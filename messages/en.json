@@ -22,7 +22,13 @@
         "english": "English",
         "greek": "Greek",
         "paymentInstallments": "Payment installments",
-        "yes": "Yes"
+        "yes": "Yes",
+        "location": "Location",
+        "athens": "Athens",
+        "thessaloniki": "Thessaloniki",
+        "date": "Date",
+        "upcoming": "Upcoming",
+        "past": "Past"
     },
     "navbar": {
         "myProfile": "My Profile",
@@ -72,6 +78,19 @@
         "city": "City",
         "I agree to the": "I agree to the",
         "Terms & Conditions": "Terms & Conditions",
-        "I want to receive marketing emails": "I want to receive marketing emails"
+        "I want to receive marketing emails": "I want to receive marketing emails",
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot password?",
+        "confirmPassword": "Confirm password",
+        "resetYourPassword": "Reset your password",
+        "resetPassword": "Reset password",
+        "resetAccountPassword": "Reset account password",
+        "resetPasswordInstruction": "Enter a new password for info@bluepeak.gr",
+        "resetInstruction": "To reset your password, enter the email address you use to login",
+        "sendResetLink": "Send reset link"
+    },
+    "classroomCourses": {
+        "inClassCourses": "In class courses",
+        "classroomListingSubheading": "Delivered on-site in different venues on scheduled days & times."
     }
 }

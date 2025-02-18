@@ -3,36 +3,40 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import * as styles from "./classroomCard.module.scss";
 
 import { Box } from "@mui/material";
 import CustomBtn from "./customBtn";
+import cardThumb from "@/assets/course/Classroomcourse.webp";
 
 /**
  * ClassroomCard Component
- * Displays a card with course information including thumbnail, title, description,
- * language, rating, duration and enrollment button
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
  */
 export default function ClassroomCard({
-    enrollButton = true,
     homepage = false,
 }) {
     return (
         <Box
-            className={styles.main}
             sx={{
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
+                position: "relative",
                 borderRadius: 2,
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
                 minHeight: 400,
+                overflow: "hidden"
             }}
-            p={1}
+            p={2}
             mx={homepage ? 1 : 0}
+            component={"div"}
         >
+            <Image
+                src={cardThumb}
+                alt="Classroom background"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                className="imgFitBG"
+                priority
+            />
             {/* Course thumbnail section with play button overlay */}
             <Box
                 component={"div"}
@@ -51,7 +55,6 @@ export default function ClassroomCard({
                         display: "flex",
                         justifyContent: "space-between",
                         width: "100%",
-                        p: 1,
                     }}
                 >
                     <CustomBtn
@@ -64,7 +67,7 @@ export default function ClassroomCard({
                             borderRadius: 0.5,
                         }}
                     />
-                    <Image src="/icons/heart.svg" height={24} width={24} alt="heart" />
+                    <Image src="/icons/heart.svg" height={24} width={24} alt="heart" loading="lazy" />
                 </Box>
             </Box>
 
@@ -75,6 +78,7 @@ export default function ClassroomCard({
                     alt="calendaricon"
                     width={20}
                     height={20}
+                    loading="lazy"
                 />
                 <Typography variant="body" color="secondary.main" pl={0.5}>
                     Athens, GR
@@ -133,6 +137,7 @@ export default function ClassroomCard({
                         alt="calendaricon"
                         width={20}
                         height={20}
+                        loading="lazy"
                     />
                     <Typography variant="body" color="secondary.main" pl={1}>
                         January 2025 •
@@ -140,7 +145,7 @@ export default function ClassroomCard({
                 </Box>
                 {/* Language indicator */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
-                    <Image src="/icons/globalicon.svg" alt="glob" width={20} height={20} />
+                    <Image src="/icons/globalicon.svg" alt="glob" width={20} height={20} loading="lazy" />
                     <Typography variant="body" color="secondary.main" pl={1}>
                         EN •
                     </Typography>
@@ -152,6 +157,7 @@ export default function ClassroomCard({
                         alt="starIcon"
                         width={20}
                         height={20}
+                        loading="lazy"
                     />
                     <Typography variant="body" color="secondary.main" pl={1}>
                         4.5{" "}
@@ -173,6 +179,7 @@ export default function ClassroomCard({
                         alt="clockIcon"
                         width={20}
                         height={20}
+                        loading="lazy"
                     />
                     <Typography variant="body" color="secondary.main" pl={1}>
                         139h
@@ -181,27 +188,15 @@ export default function ClassroomCard({
             </Box>
 
             {/* Enrollment section with price and button */}
-            {enrollButton && (
-                <Box component={"div"} pt={5}>
-                    {!homepage && (
-                        <Typography
-                            variant="body2"
-                            color="error.main"
-                            pl={0.5}
-                            pb={0.5}
-                        >
-                            50% off 1.000 €
-                        </Typography>
-                    )}
-                    <CustomBtn
-                        title="Enrol 1.500,00€"
-                        variant="filled"
-                        sx={{ backgroundColor: "base1.default", width: "100%" }}
-                        txtVariant="h6"
-                        color="secondary"
-                    />
-                </Box>
-            )}
+            <Box component={"div"} pt={2}>
+                <CustomBtn
+                    title="Enrol 1.500,00€"
+                    variant="filled"
+                    sx={{ backgroundColor: "base1.default", width: "100%" }}
+                    txtVariant="h6"
+                    color="secondary"
+                />
+            </Box>
         </Box>
     );
 }

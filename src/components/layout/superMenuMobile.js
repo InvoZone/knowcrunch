@@ -10,10 +10,8 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import CustomBtn from "../common/customBtn";
-import dynamic from "next/dynamic";
-
-const Login = dynamic(() => import("../auth/login"));
-const Signup = dynamic(() => import("../auth/signup"));
+import Login from "../auth/login";
+import Signup from "../auth/signup";
 
 const SuperMenuMobile = ({
     anchorElSuperMenu,

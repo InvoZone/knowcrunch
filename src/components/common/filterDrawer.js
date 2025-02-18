@@ -6,14 +6,11 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import { filterStatus } from "@/store/slices/course";
-import { useDispatch } from "react-redux";
 import { FormGroup, Typography } from "@mui/material";
 import CustomCheckbox from "./customCheckbox";
 import { CloseOutlined } from "@mui/icons-material";
 
-// Set drawer width constant
-const drawerWidth = 311;
+
 
 /**
  * FilterDrawer Component
@@ -28,7 +25,6 @@ const drawerWidth = 311;
  * @param {Function} props.handleChange - Handler for filter changes
  */
 function FilterDrawer(props) {
-    const dispatch = useDispatch();
     const {
         window,
         children,
@@ -37,11 +33,13 @@ function FilterDrawer(props) {
         filters,
         handleChange,
         selectedFilters,
+        drawerWidth = 311,
+        closeFilterBar
     } = props;
 
     // Handle drawer close action
     const handleClose = () => {
-        dispatch(filterStatus(false));
+        closeFilterBar();
     };
 
     // Drawer content component
@@ -76,8 +74,7 @@ function FilterDrawer(props) {
                             <CustomCheckbox
                                 key={e?.id}
                                 checked={selectedFilters?.includes(e?.value)}
-                                t={t}
-                                label={e?.value}
+                                label={t(`${e?.value}`)}
                                 onChange={(event) => handleChange(event, e)}
                                 name={e?.value}
                             />
@@ -95,7 +92,7 @@ function FilterDrawer(props) {
 
     // Container for mobile drawer
     const container =
-        window !== undefined ? () => window().document.body : undefined;
+        typeof window !== "undefined" ? () => window.document.body : undefined;
 
     return (
         <Box sx={{ display: "flex", columnGap: 2 }}>

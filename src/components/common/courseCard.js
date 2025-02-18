@@ -30,6 +30,7 @@ export default function CourseCard({
             }}
             p={1}
             mx={mx}
+            component={"div"}
         >
             {/* Course thumbnail section with play button overlay */}
             <Box

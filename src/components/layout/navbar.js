@@ -22,10 +22,8 @@ import SuperMenuMobile from "./superMenuMobile";
 import { useRouter, usePathname } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/store/slices/auth";
-import dynamic from "next/dynamic";
-
-const Login = dynamic(() => import("../auth/login"));
-const Signup = dynamic(() => import("../auth/signup"));
+import Login from "../auth/login";
+import Signup from "../auth/signup";
 
 function Navbar() {
     // Initialize theme and translations
@@ -117,7 +115,7 @@ function Navbar() {
 
     return (
         <AppBar
-            component={"nav"}
+            component={"div"}
             color={
                 scrollY >= 10 || menu?.id !== undefined
                     ? "primary"

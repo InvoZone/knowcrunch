@@ -4,12 +4,13 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import CustomBtn from "@/components/common/customBtn";
 import CustomInput from "@/components/common/customInput";
-import { Divider } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { login } from "@/store/slices/auth";
+import CustomCheckbox from "@/components/common/customCheckbox";
 
 // Define validation schema for the login form
 const validationSchema = yup.object({
@@ -21,6 +22,8 @@ const validationSchema = yup.object({
         .string("Enter your password")
         .min(1, "Password should be of minimum 1 characters length")
         .required("Password is required"),
+    rememberMe: yup
+        .boolean(),
 });
 
 /**
@@ -28,13 +31,14 @@ const validationSchema = yup.object({
  * @param {Object} props - Component props
  * @param {Function} props.t - Translation function for internationalization
  */
-const LoginForm = ({ t, handleClose }) => {
+const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
     const dispatch = useDispatch();
     // Initialize formik for form handling and validation
     const formik = useFormik({
         initialValues: {
             email: "",
             password: "",
+            rememberMe: false
         },
         validationSchema,
         onSubmit: () => {
@@ -62,10 +66,30 @@ const LoginForm = ({ t, handleClose }) => {
                 name={"password"}
                 label={t("password")}
                 formik={formik}
-                mb={3}
+                mb={1}
                 type="password"
                 autoComplete="current-password"
             />
+
+            <Box component='div' display={"flex"} justifyContent={"space-between"}>
+                <CustomCheckbox
+                    label={t("rememberMe")}
+                    checked={formik.values.rememberMe}
+                    onChange={formik.handleChange}
+                    name={"rememberMe"}
+                />
+
+                <Typography
+                    onClick={handleOpenForgotPopup}
+                    fontWeight={800}
+                    variant="body"
+                    color="link.light"
+                    sx={{ cursor: "pointer" }}
+                >
+                    {t("forgotPassword")}
+                </Typography>
+            </Box>
+
 
             {/* Submit button for email/password login */}
             <CustomBtn
@@ -76,12 +100,14 @@ const LoginForm = ({ t, handleClose }) => {
                 sx={{
                     backgroundColor: "accents.bubble1",
                     width: "100%",
+                    mt: 3,
                     opacity:
                         !formik?.values?.email && !formik?.values?.password
                             ? 0.5
                             : 1,
                 }}
             />
+
 
             {/* Divider between login methods */}
             <Divider sx={{ py: 2 }}>{t("or")}</Divider>
