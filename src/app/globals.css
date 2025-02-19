@@ -56,3 +56,19 @@ a {
     object-fit: cover;
     z-index: -1;
 }
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerX {
+    display: flex;
+    justify-content: center;
+}
+
+.centerY {
+    display: flex;
+    align-items: center;
+}
