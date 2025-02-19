@@ -16,6 +16,7 @@ export default function CustomInput({
     formik,
     mb = 0,
     type = "text",
+    placeholder = ""
 }) {
     return (
         <Stack>
@@ -36,6 +37,7 @@ export default function CustomInput({
                 variant="outlined"
                 name={name}
                 type={type}
+                placeholder={placeholder}
                 value={formik.values?.[name]}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}

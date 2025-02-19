@@ -5,8 +5,10 @@ import Image from "next/image";
 
 // Import assets and icons
 import courseThumb from "@/assets/course/courseThumb.webp";
-import { Box } from "@mui/material";
+import { Box, LinearProgress } from "@mui/material";
 import CustomBtn from "./customBtn";
+import CustomizedProgressBars from "./linearProgressBar";
+import { colors } from "@/utils/colors";
 
 /**
  * CourseCard Component
@@ -17,7 +19,11 @@ import CustomBtn from "./customBtn";
 export default function CourseCard({
     enrollButton = true,
     mx = 0,
-    discountTag = false
+    discountTag = false,
+    title = "Enrol 1.500,00€",
+    description = true,
+    progress = false,
+    progressValue = false
 }) {
     return (
         <Box
@@ -69,23 +75,23 @@ export default function CourseCard({
                         p: 1,
                     }}
                 >
-                    <CustomBtn
-                        txtVariant={"body2"}
-                        title={"BEST SELLER"}
-                        variant="contained"
-                        sx={{
-                            height: 24,
-                            backgroundColor: "accents.bubble1",
-                            borderRadius: 0.5,
-                        }}
-                    />
-                    <Image
-                        src="/icons/heart.svg"
-                        height={24}
-                        width={24}
-                        alt="heart"
-                        priority
-                    />
+                    {description && <>
+                        <CustomBtn
+                            txtVariant={"body2"}
+                            title={"BEST SELLER"}
+                            variant="contained"
+                            sx={{
+                                height: 24,
+                                backgroundColor: "accents.bubble1",
+                                borderRadius: 0.5,
+                            }} />
+                        <Image
+                            src="/icons/heart.svg"
+                            height={24}
+                            width={24}
+                            alt="heart"
+                            priority />
+                    </>}
                 </Box>
                 <Image
                     src={courseThumb}
@@ -106,8 +112,17 @@ export default function CourseCard({
                 Masterclass in Google Advertising
             </Typography>
 
+            {/* progress bar */}
+            {progressValue && <Box>
+                <Typography style={{ background: "transparent" }}>
+                    {progressValue ? `${progressValue}% complete` : ""}
+                </Typography>
+                <CustomizedProgressBars value={progressValue} />
+                {/* <LinearProgress variant="determinate" value={40} sx={{borderRadius: "5px", bgcolor: colors.neutral.neutral9}} color="primary" /> */}
+            </Box>}
+
             {/* Course description */}
-            <Typography
+            {description && <Typography
                 gutterBottom
                 variant="body2"
                 fontWeight={400}
@@ -116,10 +131,10 @@ export default function CourseCard({
             >
                 An exceedingly advanced training program that provides
                 comprehensive lectures
-            </Typography>
+            </Typography>}
 
             {/* Course type badge */}
-            <CustomBtn
+            {description && <CustomBtn
                 title={"Professional Diploma"}
                 variant="outlined"
                 sx={{
@@ -133,10 +148,10 @@ export default function CourseCard({
                 }}
                 txtVariant="body2"
                 color="neutral.neutral2"
-            />
+            />}
 
             {/* Course metadata: language, rating, and duration */}
-            <Box component={"div"} display={"flex"} gap={0.5}>
+            {description && <Box component={"div"} display={"flex"} gap={0.5}>
                 {/* Language indicator */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image src="/icons/glob.svg" alt="glob" width={20} height={20} />
@@ -191,11 +206,11 @@ export default function CourseCard({
                         25h
                     </Typography>
                 </Box>
-            </Box>
+            </Box>}
 
             {/* Enrollment section with price and button */}
             {enrollButton && (
-                <Box component={"div"} pt={5}>
+                <Box component={"div"} pt={description ? 5 : progressValue !== null ? 10 : 13.5}>
                     {discountTag && (
                         <Typography
                             variant="body2"
@@ -207,7 +222,7 @@ export default function CourseCard({
                         </Typography>
                     )}
                     <CustomBtn
-                        title="Enrol 1.500,00€"
+                        title={title}
                         variant="filled"
                         sx={{ backgroundColor: "base1.default", width: "100%" }}
                         txtVariant="h6"
