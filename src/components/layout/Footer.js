@@ -24,6 +24,9 @@ const Footer = () => {
                 padding: "48px 35px 16px",
                 borderTopLeftRadius: "32px",
                 borderTopRightRadius: "32px",
+                position: "relative",
+                bottom: 0,
+                width: "100%",
             }}
         >
             <Box className="globalCotainer">

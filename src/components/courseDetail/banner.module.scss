@@ -1,0 +1,38 @@
+.main {
+    display: flex;
+    max-width: 1280px;
+    margin: 0 auto;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+    // background-image: url("../../assets/header/HeroDesk.webp");
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-position: right;
+    padding-top: 60px !important;
+    @media (max-width: 1360) {
+        max-width: 100%;
+    }
+    @media (max-width: 600px) {
+        // background-image: url("../../../public/icons/Hero.webp") !important;
+        padding: 24px !important;
+        // padding-top: 125px !important;
+    }
+}
+.breadcrumb {
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+}
+
+.bannerImg{
+    img{
+        @media (min-width: 601px) and (max-width: 767px ) {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+    }
+   
+}
