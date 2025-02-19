@@ -17,7 +17,8 @@ import CustomBtn from "./customBtn";
 export default function CourseCard({
     enrollButton = true,
     mx = 0,
-    discountTag = false
+    discountTag = false,
+    width = "100%"
 }) {
     return (
         <Box
@@ -27,6 +28,7 @@ export default function CourseCard({
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
                 minHeight: 400,
+                width: width
             }}
             p={1}
             mx={mx}
