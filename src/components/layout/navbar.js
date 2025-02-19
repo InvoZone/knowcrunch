@@ -186,6 +186,7 @@ function Navbar() {
                                         width={135}
                                         height={40}
                                         priority
+                                        unoptimized={100}
                                     />
                                 </Link>
                             </Box>

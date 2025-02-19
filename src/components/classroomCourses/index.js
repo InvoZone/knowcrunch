@@ -172,7 +172,7 @@ const ClassroomCourses = () => {
                         size={{
                             xs: 12,
                             sm: 12,
-                            md: 12,
+                            md: 10,
                             lg: filterOpen ? 12 : 10,
                         }}
                         spacing={2}

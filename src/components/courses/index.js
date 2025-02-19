@@ -170,13 +170,13 @@ const Courses = () => {
                         size={{
                             xs: 12,
                             sm: 12,
-                            md: 12,
+                            md: 10,
                             lg: filterOpen ? 12 : 10,
                         }}
                         spacing={2}
                     >
                         {/* Display course cards */}
-                        {[...new Array(9).fill()]?.map((el, ind) => (
+                        {[...new Array(12).fill()]?.map((el, ind) => (
                             <Grid2
                                 key={`course_${ind}`}
                                 size={{ xs: 12, sm: 12, md: 6, lg: 4 }}
