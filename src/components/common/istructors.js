@@ -20,7 +20,7 @@ export default function ProfileCard({ profileImage, name, title, company }) {
                 alignItems: "start",
             }}
             p={1}
-            mx={2}
+            mx={1}
         >
             <Box
                 sx={{

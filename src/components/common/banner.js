@@ -29,7 +29,7 @@ export default function Banner() {
                             gap: "8px",
                         }}
                     >
-                        <Typography sx={{ color: "white" }}>4.8</Typography>{" "}
+                        <Typography variant="h6" sx={{ color: "white" }}>4.8</Typography>{" "}
                         <Image
                             loading="lazy"
                             src="/icons/bannerstar.svg"
@@ -37,7 +37,7 @@ export default function Banner() {
                             height={24}
                             alt={"bannerstar"}
                         />{" "}
-                        <Typography sx={{ color: "white" }}>
+                        <Typography variant="h6" sx={{ color: "white" }}>
                             Trustpilot
                         </Typography>{" "}
                         <Image
@@ -47,7 +47,7 @@ export default function Banner() {
                             height={52}
                             alt={"leftaward"}
                         />{" "}
-                        <Typography sx={{ color: "white" }}>
+                        <Typography variant="h6" sx={{ color: "white" }}>
                             23 Awards
                         </Typography>{" "}
                         <Image

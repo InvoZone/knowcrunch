@@ -72,3 +72,8 @@ a {
     display: flex;
     align-items: center;
 }
+
+.sliderContaier .slick-track {
+    display: flex !important;
+    gap: 20px !important;
+}

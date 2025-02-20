@@ -62,6 +62,9 @@ const Homepage = () => {
     const theme = useTheme();
     const { primary, base1, link, neutral } = theme.palette;
     const isLg = useMediaQuery(theme.breakpoints.up("md"));
+    const isBetween = useMediaQuery("(min-width:700px) and (max-width:768px)");
+
+    const cardWidth = isBetween ? "298px" : "100%";
 
     // Slider settings
     const settings = {
@@ -253,13 +256,13 @@ const Homepage = () => {
                     >
                         Popular E-learning Courses
                     </Typography>
-                    <Slider {...settings} className={styles.sliderContaier}>
-                        <CourseCard customClass={true} mx={1} />
-                        <CourseCard customClass={true} mx={1} />
-                        <CourseCard customClass={true} mx={1} />
-                        <CourseCard customClass={true} mx={1} />
-                        <CourseCard customClass={true} mx={1} />
-                        <CourseCard customClass={true} mx={1} />
+                    <Slider {...settings} className="sliderContaier">
+                        <CourseCard customClass={true} width={cardWidth} />
+                        <CourseCard customClass={true} width={cardWidth} />
+                        <CourseCard customClass={true} width={cardWidth} />
+                        <CourseCard customClass={true} width={cardWidth} />
+                        <CourseCard customClass={true} width={cardWidth} />
+                        <CourseCard customClass={true} width={cardWidth} />
                     </Slider>
                     <Typography
                         variant="h6"
@@ -283,7 +286,7 @@ const Homepage = () => {
                         sx={{
                             display: "flex",
                             flexDirection: "column",
-                            gap: "24px",
+                            gap: "8px",
                         }}
                     >
                         <Grid2>
@@ -300,19 +303,23 @@ const Homepage = () => {
                         >
                             <SelectAbleLinks />
                             <Grid2
-                                sx={{ display: "flex", gap: "24px" }}
+                                sx={{
+                                    display: "flex",
+                                    gap: "16px",
+                                    justifyContent: "space-between",
+                                }}
                                 className={styles.career}
                             >
                                 <Grid2
                                     sx={{
                                         display: "flex",
                                         width: "100%",
-                                        padding: "24px",
-                                        gap: "16px",
+                                        padding: "16px 8px",
+                                        gap: "8px",
                                     }}
                                     item="true"
                                     md={12}
-                                    lg={6}
+                                    lg={7.5}
                                     sm={12}
                                 >
                                     {/* Content Marketing Section */}
@@ -325,7 +332,8 @@ const Homepage = () => {
                                             borderRadius: "8px",
                                             display: "flex",
                                             flexDirection: "column",
-                                            gap: "24px",
+                                            gap: "16px",
+                                            mb: 1,
                                         }}
                                     >
                                         <Typography
@@ -338,13 +346,19 @@ const Homepage = () => {
                                         </Typography>
                                         <Typography
                                             variant="body"
-                                            sx={{ color: neutral.neutral1 }}
+                                            sx={{
+                                                color: "neutral.neutral1",
+                                                mt: -1.5,
+                                            }}
                                         >
                                             Define and develop digital
                                             strategies to deliver business
                                             growth through online channels.
                                         </Typography>
-                                        <Box className={styles.markValue}>
+                                        <Box
+                                            className={styles.markValue}
+                                            sx={{ mb: 1, mt: -1 }}
+                                        >
                                             <Typography
                                                 variant="h5"
                                                 sx={{ color: link.main }}
@@ -359,7 +373,10 @@ const Homepage = () => {
                                                 this career path in 2023
                                             </Typography>
                                         </Box>
-                                        <Box className={styles.markValue}>
+                                        <Box
+                                            className={styles.markValue}
+                                            sx={{ mb: 1 }}
+                                        >
                                             <Typography
                                                 variant="h5"
                                                 sx={{ color: link.main }}
@@ -376,7 +393,10 @@ const Homepage = () => {
                                         </Box>
                                         <Box
                                             className={styles.basicTypo}
-                                            sx={{ color: neutral.neutral1 }}
+                                            sx={{
+                                                color: "neutral.neutral1",
+                                                mt: 1,
+                                            }}
                                         >
                                             <Box className={styles.tickMark}>
                                                 <Image
@@ -427,13 +447,14 @@ const Homepage = () => {
                                 </Grid2>
                                 <Grid2
                                     sx={{
+                                        padding: "16px 8px",
                                         display: "flex",
                                         flexDirection: "column",
                                         width: "100%",
                                     }}
                                     item="true"
                                     md={12}
-                                    lg={6}
+                                    lg={4.5}
                                     sm={12}
                                 >
                                     <Grid2
@@ -441,15 +462,20 @@ const Homepage = () => {
                                             display: "flex",
                                             gap: "16px",
                                             width: "100%",
-                                            paddingBottom: "24px",
-                                            paddingTop: "24px",
+                                            // padding: "16px 8px",
                                             justifyContent: "center",
                                             alignItems: "center",
                                         }}
                                     >
-                                        <CourseCard customClass={true} />
+                                        <CourseCard
+                                            customClass={true}
+                                            discountTag={true}
+                                        />
                                         {isLg && (
-                                            <CourseCard customClass={true} />
+                                            <CourseCard
+                                                customClass={true}
+                                                discountTag={true}
+                                            />
                                         )}
                                     </Grid2>
                                     <Grid2>

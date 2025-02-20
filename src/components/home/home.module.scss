@@ -76,3 +76,7 @@
     flex-direction: column;
     gap: 6px;
 }
+
+.sliderContainer .slick-slide {
+    margin: 0 10px; // Adjust the margin as needed for the gap
+}
