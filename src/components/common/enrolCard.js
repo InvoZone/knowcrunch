@@ -24,7 +24,8 @@ const enrolCard = ({
             xs={12}
             sm={12}
             sx={{
-                backgroundColor: "base2.light6",
+                backgroundColor:
+                    selectedCourse === course ? "base2.light6" : "",
                 padding: "16px  8px",
                 alignItems: "center",
                 gap: "8px",

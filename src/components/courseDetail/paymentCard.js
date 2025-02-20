@@ -17,6 +17,7 @@ import EnrolCard from "../common/enrolCard";
 const CourseDetail = () => {
     const [value, setValue] = React.useState(0);
     const [selectedCourse, setSelectedCourse] = React.useState(null);
+    const [participantEmails, setParticipantEmails] = React.useState(["", ""]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -112,75 +113,142 @@ const CourseDetail = () => {
                     </Grid2>
                 ) : (
                     <Box sx={{ marginTop: 2 }}>
-                        <Typography variant="h6" align="center">
-                            For groups (2+ people)
-                        </Typography>
-                        <Typography
-                            variant="h4"
-                            align="center"
-                            sx={{ color: "green", marginBottom: 2 }}
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                            }}
                         >
-                            450€
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            align="center"
-                            sx={{ marginBottom: 2 }}
-                        >
-                            per participant
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            align="center"
-                            sx={{ marginBottom: 2 }}
-                        >
-                            7 tickets left
-                        </Typography>
-
+                            <Typography
+                                sx={{ color: "neutral.neutral1" }}
+                                variant="body"
+                                align="center"
+                            >
+                                For groups (2+ people)
+                            </Typography>
+                            <Typography
+                                variant="h2"
+                                align="center"
+                                sx={{ color: "base1.dark4", marginBottom: 1 }}
+                            >
+                                450€
+                            </Typography>
+                            <Typography
+                                variant="titleMd"
+                                align="center"
+                                sx={{ marginBottom: 0.5, color: "base1.dark4" }}
+                            >
+                                per participant
+                            </Typography>
+                            <Typography
+                                variant="body1"
+                                align="center"
+                                sx={{ marginBottom: 2, color: "base1.dark4" }}
+                            >
+                                7 tickets left
+                            </Typography>
+                        </Box>
                         <Box
                             component="form"
                             sx={{
                                 display: "flex",
                                 flexDirection: "column",
-                                gap: 2,
+                                gap: "10px",
                             }}
                         >
-                            <input
-                                type="email"
-                                placeholder="Participant Email"
-                                required
-                            />
-                            <input
-                                type="email"
-                                placeholder="Participant Email"
-                                required
-                            />
-                            <Button
+                            {participantEmails.map((email, index) => (
+                                <Box
+                                    key={index}
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between",
+                                        gap: "10px",
+                                    }}
+                                >
+                                    <input
+                                        type="email"
+                                        placeholder="Participant Email"
+                                        required
+                                        value={email}
+                                        className={styles.inputCard}
+                                        onChange={(e) => {
+                                            const newEmails = [
+                                                ...participantEmails,
+                                            ];
+                                            newEmails[index] = e.target.value;
+                                            setParticipantEmails(newEmails);
+                                        }}
+                                    />
+                                    {index > 1 && (
+                                        <Image
+                                            loading="lazy"
+                                            src="/icons/delete.svg"
+                                            width={24}
+                                            height={24}
+                                            alt="Delete"
+                                            onClick={() => {
+                                                const newEmails =
+                                                    participantEmails.filter(
+                                                        (_, i) => i !== index
+                                                    );
+                                                setParticipantEmails(newEmails);
+                                            }}
+                                            style={{
+                                                cursor: "pointer",
+                                                marginLeft: "8px",
+                                                paddingRight: "5px",
+                                            }}
+                                        />
+                                    )}
+                                </Box>
+                            ))}
+                            <Typography
+                                sx={{
+                                    color: "base1.default",
+                                    cursor: "pointer",
+                                }}
+                                onClick={() => {
+                                    setParticipantEmails([
+                                        ...participantEmails,
+                                        "",
+                                    ]);
+                                }}
+                            >
+                                Add another participant
+                            </Typography>
+
+                            {/* <Button
                                 variant="contained"
                                 color="primary"
                                 fullWidth
                             >
                                 Enroll now
-                            </Button>
-                            <Typography variant="body2" align="center">
-                                Up to 2 monthly installments
-                            </Typography>
-                        </Box>
-                        <Box sx={{ marginTop: 2 }}>
-                            <Typography variant="subtitle1">
-                                INCLUDES
-                            </Typography>
-                            <ul>
-                                <li>Lifetime alumni discounts</li>
-                                <li>Access to our instructors</li>
-                                <li>24h access to videos & files</li>
-                            </ul>
+                            </Button> */}
+                            <CustomBtn
+                                type="button"
+                                title={"Enroll now"}
+                                variant="h6"
+                                color="base2.light6"
+                                // onClick={handleLogin}
+                                sx={{
+                                    border: "1px solid transparent",
+                                    // borderColor: "base1.default",
+                                    width: "100%",
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    borderRadius: "8px",
+                                    height: "45px",
+                                    backgroundColor: "base1.default",
+                                }}
+                            />
                             <Typography
-                                variant="body2"
+                                sx={{ color: "secondary.dark" }}
+                                variant="body1"
                                 align="center"
-                                sx={{ marginTop: 2 }}
                             >
-                                Available in Premium Plan
+                                Up to 2 monthly installments
                             </Typography>
                         </Box>
                     </Box>
@@ -265,6 +333,20 @@ const CourseDetail = () => {
                             24h access to videos & files
                         </Typography>
                     </Box>
+                </Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        mt: 1,
+                    }}
+                >
+                    <Typography
+                        sx={{ color: "base1.default", cursor: "pointer" }}
+                        variant="body"
+                    >
+                        Available in Premium Plan
+                    </Typography>
                 </Box>
             </Box>
             <CustomBtn

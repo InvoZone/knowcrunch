@@ -4,6 +4,8 @@ import * as styles from "./course.module.scss";
 import { Box, Container, Grid2 } from "@mui/material";
 import Banner from "./banner";
 import PaymentCard from "./paymentCard";
+import ABOUT from "./about";
+import Learn from "./learn";
 
 const CourseDetail = () => {
     return (
@@ -32,8 +34,13 @@ const CourseDetail = () => {
                                 spacing={4}
                                 sx={{ display: "flex" }}
                             >
-                                <Grid2></Grid2>
-                                <Grid2></Grid2>
+                                <Grid2
+                                    item="true"
+                                    size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
+                                >
+                                    <ABOUT />
+                                    <Learn />
+                                </Grid2>
                             </Grid2>
                         </Grid2>
                         <Grid2

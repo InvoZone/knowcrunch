@@ -6,3 +6,13 @@
     border: 2px solid;
     border-color: "base1.default";
 }
+.inputCard{
+    display: flex;
+    height: 45px;
+    padding: 8px;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #B2B6BD;
+    border-radius: 8px;
+    width: 100%;
+}
