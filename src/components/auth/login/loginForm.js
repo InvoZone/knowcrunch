@@ -11,6 +11,10 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { login } from "@/store/slices/auth";
 import CustomCheckbox from "@/components/common/customCheckbox";
+import { InputAdornment, IconButton } from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useState } from "react";
 
 // Define validation schema for the login form
 const validationSchema = yup.object({
@@ -33,6 +37,8 @@ const validationSchema = yup.object({
  */
 const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
     const dispatch = useDispatch();
+    const [showPassword, setShowPassword] = useState(false);
+
     // Initialize formik for form handling and validation
     const formik = useFormik({
         initialValues: {
@@ -67,8 +73,28 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                 label={t("password")}
                 formik={formik}
                 mb={1}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 autoComplete="current-password"
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <IconButton
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={() => setShowPassword(!showPassword)}
+                                edge="end"
+                                color="primary"
+                                sx={{ visibility: "visible" }}
+                            >
+                                {showPassword ? (
+                                    <Visibility />
+                                ) : (
+                                    <VisibilityOff />
+                                    
+                                )}
+                            </IconButton>
+                        </InputAdornment>
+                    ),
+                }}
             />
 
             <Box component='div' display={"flex"} justifyContent={"space-between"}>

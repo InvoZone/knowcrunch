@@ -4,12 +4,14 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import CustomBtn from "@/components/common/customBtn";
 import CustomInput from "@/components/common/customInput";
-import { Divider } from "@mui/material";
+import { Divider, InputAdornment, IconButton } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Image from "next/image";
 import { useState } from "react";
 import CompleteRegistration from "./completeRegistration";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 // Define validation schema for the signup form
 const validationSchema = yup.object({
@@ -35,6 +37,8 @@ const validationSchema = yup.object({
 const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
     const [showCompleteRegistration, setShowCompleteRegistration] =
         useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     // Initialize formik for form handling and validation
     const formik = useFormik({
@@ -74,8 +78,28 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                 label={t("password")}
                 formik={formik}
                 mb={1}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 autoComplete="new-password"
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <IconButton
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={() => setShowPassword(!showPassword)}
+                                edge="end"
+                                color="primary"
+                                sx={{ visibility: "visible" }}
+                            >
+                                {showPassword ? (
+                                    <Visibility />
+                                ) : (
+                                    <VisibilityOff />
+                                    
+                                )}
+                            </IconButton>
+                        </InputAdornment>
+                    ),
+                }}
             />
 
             {/* Rewrite Password input field */}
@@ -84,8 +108,29 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                 label={t("rewritePassword")}
                 formik={formik}
                 mb={3}
-                type="password"
+                type={showConfirmPassword ? "text" : "password"}
                 autoComplete="new-password"
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <IconButton
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={() =>
+                                    setShowConfirmPassword(!showConfirmPassword)
+                                }
+                                edge="end"
+                                color="primary"
+                            >
+                                {showConfirmPassword ? (
+                                    <Visibility />
+                                ) : (
+                                    <VisibilityOff />
+                                    
+                                )}
+                            </IconButton>
+                        </InputAdornment>
+                    ),
+                }}
             />
 
             {/* Submit button for email/password signup */}
