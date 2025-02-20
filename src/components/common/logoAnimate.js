@@ -28,7 +28,7 @@ const LogoAnimate = () => {
                 }}
             >
                 <Typography
-                    variant="titleMd"
+                    variant="body"
                     sx={{ width: "150px", color: base1.dark4 }}
                 >
                     Trusted by
