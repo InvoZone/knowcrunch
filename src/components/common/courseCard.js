@@ -24,7 +24,7 @@ export default function CourseCard({
         <Box
             sx={{
                 backgroundColor: "secondary.main",
-                borderRadius: 2,
+                borderRadius: 4,
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
                 minHeight: 400,
@@ -79,6 +79,7 @@ export default function CourseCard({
                             height: 24,
                             backgroundColor: "accents.bubble1",
                             borderRadius: 0.5,
+                            px: "5px"
                         }}
                     />
                     <Image

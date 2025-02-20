@@ -6,6 +6,9 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import CourseCard from "../common/courseCard";
+import ScrollAbleSection from "../common/scrollAbleSection";
+import VideoCard from "../common/videoCard";
+import FeedbackCard from "../common/feedbackCard";
 
 const CareerPath = () => {
     const content = {
@@ -37,6 +40,40 @@ const CareerPath = () => {
             },
             {
                 id: "course2",
+                title: "Social Media Strategy",
+                description: "Develop a comprehensive social media strategy to reach your target audience."
+            },
+        ],
+        videos: [
+            {
+                id: "video1",
+                title: "Content Marketing Fundamentals",
+                description: "Learn the basics of content marketing and how to create effective campaigns."
+            },
+            {
+                id: "video2",
+                title: "Social Media Strategy",
+                description: "Develop a comprehensive social media strategy to reach your target audience."
+            },
+            {
+                id: "video3",
+                title: "Social Media Strategy",
+                description: "Develop a comprehensive social media strategy to reach your target audience."
+            },
+        ],
+        testimonials: [
+            {
+                id: "video1",
+                title: "Content Marketing Fundamentals",
+                description: "Learn the basics of content marketing and how to create effective campaigns."
+            },
+            {
+                id: "video2",
+                title: "Social Media Strategy",
+                description: "Develop a comprehensive social media strategy to reach your target audience."
+            },
+            {
+                id: "video3",
                 title: "Social Media Strategy",
                 description: "Develop a comprehensive social media strategy to reach your target audience."
             },
@@ -133,8 +170,8 @@ const CareerPath = () => {
                     <Box
                         component={"div"}
                         display={"flex"}
-                        gap={2}
-                        width={768}
+                        gap={{ xs: 3, lg: 2 }}
+                        width={1152}
                         pl={{ xs: 4, md: 0 }}
                         pt={{ xs: 3, lg: 0 }}
                         justifyContent={"center"}
@@ -145,7 +182,7 @@ const CareerPath = () => {
                                 key={course.id}
                                 title={course.title}
                                 description={course.description}
-                                width={298}
+                                width={{ xs: 298, lg: 282 }}
                             />
                         ))}
                     </Box>
@@ -157,6 +194,7 @@ const CareerPath = () => {
                         display={"flex"}
                         justifyContent={"flex-end"}
                         pt={2}
+                        pr={2}
                     >
                         <Typography
                             variant="h6"
@@ -165,6 +203,30 @@ const CareerPath = () => {
                             View courses
                         </Typography>
                     </Box>
+                </Grid2>
+
+                <Grid2
+                    size={{ xs: 12 }} px={{ xs: 0, md: 2 }}>
+                    <ScrollAbleSection title={"Video testimonials"}>
+                        {content.videos.map((course) => (
+                            <VideoCard
+                                key={course.id}
+                                width={368}
+                            />
+                        ))}
+                    </ScrollAbleSection>
+                </Grid2>
+
+                <Grid2
+                    size={{ xs: 12 }} px={{ xs: 0, md: 2 }} pt={2}>
+                    <ScrollAbleSection title={"Testimonials"}>
+                        {content.testimonials.map((course) => (
+                            <FeedbackCard
+                                key={course.id}
+                                width={361}
+                            />
+                        ))}
+                    </ScrollAbleSection>
                 </Grid2>
             </Grid2>
         </Container >

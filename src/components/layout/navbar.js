@@ -125,7 +125,7 @@ function Navbar() {
             }
             sx={{ zIndex: 1310, boxShadow: "none" }}
         >
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 <Toolbar
                     disableGutters
                     sx={{
@@ -181,7 +181,7 @@ function Navbar() {
                             <Box component={"div"} flexGrow={{ xs: 1, lg: 0 }}>
                                 <Link href="/" passHref>
                                     <Image
-                                        src={"/logo.webp"}
+                                        src={"/logo.svg"}
                                         alt="logos"
                                         width={135}
                                         height={40}
