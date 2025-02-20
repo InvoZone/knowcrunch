@@ -9,7 +9,7 @@ const theme = createTheme({
       sm: 600,
       md: 834,
       lg: 1280,
-      xl: 1536,
+      xl: 1728,
     },
   },
   cssVariables: true,

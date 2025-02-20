@@ -1,8 +1,5 @@
 import { Container, Grid2, Typography } from "@mui/material";
-import CourseCard from "../common/courseCard";
-import ClassroomCard from "../common/classroomCard";
-import InstructorCard from "../common/istructors";
-import img1 from "@/assets/course/instructor1.webp";
+import SectionGenerator from "./sectionGenerator";
 
 const SearchResults = () => {
     return (
@@ -25,118 +22,49 @@ const SearchResults = () => {
             </Grid2>
 
             {/* E-Learning Courses */}
-            <Grid2 container justifyContent={"center"} pb={3}>
-                <Grid2 size={{ xs: 12, md: 12, lg: 10 }}>
-                    <Typography variant={"h3"} color={"tertiary"} pb={3}>{"E-Learning Courses"}</Typography>
-                </Grid2>
-                <Grid2 container size={{ xs: 10, md: 10, lg: 9 }} justifyContent={"center"} spacing={3}>
-                    {[...new Array(3).fill()]?.map((el, ind) => (
-                        <Grid2
-                            key={`course_${ind}`}
-                            size={{ xs: 12, sm: 12, md: 6, lg: 4 }}
-                            display={{ xs: ind === 2 ? "none" : "flex", lg: "flex" }}
-                        >
-                            <CourseCard discountTag={true} />
-                        </Grid2>
-                    ))}
-                </Grid2>
-                <Grid2 size={{ xs: 10, md: 10, lg: 9 }} display={"flex"} justifyContent={"flex-end"} pt={2}>
+            <SectionGenerator
+                heading={"E-Learning Courses"}
+                type="course"
+                linkTxt={"View courses"}
+            />
 
-                    <Typography
-                        variant="h6"
-                        color="base1.default"
-                    >
-                        View courses
-                    </Typography>
-                </Grid2>
-            </Grid2>
 
             {/* Classroom Courses */}
-            <Grid2 container justifyContent={"center"} pb={3}>
-                <Grid2 size={{ xs: 12, md: 12, lg: 10 }}>
-                    <Typography variant={"h3"} color={"tertiary"} pb={3}>{"Classroom Courses"}</Typography>
-                </Grid2>
-                <Grid2 container size={{ xs: 10, md: 10, lg: 9 }} justifyContent={"center"} spacing={3}>
-                    {[...new Array(3).fill()]?.map((el, ind) => (
-                        <Grid2
-                            key={`course_${ind}`}
-                            size={{ xs: 12, sm: 12, md: 6, lg: 4 }}
-                            display={{ xs: ind === 2 ? "none" : "flex", lg: "flex" }}
-                        >
-                            <ClassroomCard />
-                        </Grid2>
-                    ))}
-                </Grid2>
-                <Grid2 size={{ xs: 10, md: 10, lg: 9 }} display={"flex"} justifyContent={"flex-end"} pt={2}>
+            <SectionGenerator
+                heading={"Classroom Courses"}
+                type="classroom"
+                linkTxt={"View courses"}
+            />
 
-                    <Typography
-                        variant="h6"
-                        color="base1.default"
-                    >
-                        View courses
-                    </Typography>
-                </Grid2>
-            </Grid2>
 
             {/* Instructor */}
-            <Grid2 container justifyContent={"center"} pb={3}>
-                <Grid2 size={{ xs: 12, md: 12, lg: 10 }}>
-                    <Typography variant={"h3"} color={"tertiary"} pb={3}>{"Instructors"}</Typography>
-                </Grid2>
-                <Grid2 container size={{ xs: 10, md: 9, lg: 8 }} justifyContent={"center"} spacing={3}>
-                    {[...new Array(3).fill()]?.map((el, ind) => (
-                        <Grid2
-                            key={`course_${ind}`}
-                            size={{ xs: 12, sm: 12, md: 6, lg: 4 }}
-                            display={{ xs: ind === 2 ? "none" : "flex", lg: "flex" }}
-                        >
-                            <InstructorCard
-                                profileImage={img1}
-                                title="Managing Director"
-                                company="Olive Creative Marketing House"
-                                name="Jonathan Martin Johnson"
-                            />
-                        </Grid2>
-                    ))}
-                </Grid2>
-                <Grid2 size={{ xs: 10, md: 10, lg: 9 }} display={"flex"} justifyContent={"flex-end"} pt={2}>
+            <SectionGenerator
+                heading={"Instructors"}
+                type="instructor"
+                linkTxt={"View instructors"}
+                cardSizes={{ xs: 10, md: 9, lg: 8 }}
+                linkSizes={{ xs: 10, md: 10, lg: 9 }}
+            />
 
-                    <Typography
-                        variant="h6"
-                        color="base1.default"
-                    >
-                        View Instructors
-                    </Typography>
-                </Grid2>
-            </Grid2>
 
             {/* Blogs */}
-            <Grid2 container justifyContent={"center"} pb={3}>
-                <Grid2 size={{ xs: 12, md: 12, lg: 10 }}>
-                    <Typography variant={"h3"} color={"tertiary"} pb={3}>{"Blog"}</Typography>
-                </Grid2>
-                <Grid2 container size={{ xs: 10, md: 10, lg: 9 }} justifyContent={"center"} spacing={3}>
-                    {[...new Array(3).fill()]?.map((el, ind) => (
-                        <Grid2
-                            key={`course_${ind}`}
-                            size={{ xs: 12, sm: 12, md: 6, lg: 4 }}
-                            display={{ xs: ind === 2 ? "none" : "flex", lg: "flex" }}
-                        >
-                            <ClassroomCard />
-                        </Grid2>
-                    ))}
-                </Grid2>
-                <Grid2 size={{ xs: 10, md: 10, lg: 9 }} display={"flex"} justifyContent={"flex-end"} pt={2}>
+            <SectionGenerator
+                heading={"Blog"}
+                type="blog"
+                linkTxt={"View blogs"}
+                cardSizes={{ xs: 10, md: 10, lg: 9 }}
+                linkSizes={{ xs: 10, md: 10, lg: 9 }}
+            />
 
-                    <Typography
-                        variant="h6"
-                        color="base1.default"
-                    >
-                        View blogs
-                    </Typography>
-                </Grid2>
-            </Grid2>
 
+            {/* Podcasts */}
+            <SectionGenerator
+                heading={"Podcasts"}
+                type="podcasts"
+                linkTxt={"View podcasts"}
+                cardSizes={{ xs: 12, md: 12, lg: 10 }}
+                linkSizes={{ xs: 10, md: 10, lg: 10 }}
+            />
         </Container >
     );
 };

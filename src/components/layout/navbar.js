@@ -125,7 +125,7 @@ function Navbar() {
             }
             sx={{ zIndex: 1310, boxShadow: "none" }}
         >
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 <Toolbar
                     disableGutters
                     sx={{
