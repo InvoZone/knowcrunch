@@ -190,7 +190,7 @@ export default function ClassroomCard({
             {/* Enrollment section with price and button */}
             <Box component={"div"} pt={2}>
                 <CustomBtn
-                    title="Enrol 1.500,00€"
+                    title="Enrol 100€"
                     variant="filled"
                     sx={{ backgroundColor: "base1.default", width: "100%" }}
                     txtVariant="h6"

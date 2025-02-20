@@ -205,11 +205,11 @@ export default function CourseCard({
                             pl={0.5}
                             pb={0.5}
                         >
-                            50% off 1.000 €
+                            50% off 100 €
                         </Typography>
                     )}
                     <CustomBtn
-                        title="Enrol 1.500,00€"
+                        title="Enrol 100€"
                         variant="filled"
                         sx={{ backgroundColor: "base1.default", width: "100%" }}
                         txtVariant="h6"

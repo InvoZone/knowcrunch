@@ -5,6 +5,10 @@ import CustomBtn from "@/components/common/customBtn";
 import CustomInput from "@/components/common/customInput";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { InputAdornment, IconButton } from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useState } from "react";
 
 // Define validation schema for the reset password form
 const validationSchema = yup.object({
@@ -24,6 +28,8 @@ const validationSchema = yup.object({
  */
 const ResetPasswordForm = ({ t }) => {
     // Initialize formik for form handling and validation
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const formik = useFormik({
         initialValues: {
             password: "",
@@ -44,7 +50,27 @@ const ResetPasswordForm = ({ t }) => {
                 formik={formik}
                 mb={1}
                 autoComplete="new-password"
-                type="password"
+                type={showPassword ? "text" : "password"}
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <IconButton
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={() => setShowPassword(!showPassword)}
+                                edge="end"
+                                color="primary"
+                                sx={{ visibility: "visible" }}
+                            >
+                                {showPassword ? (
+                                    <Visibility />
+                                ) : (
+                                    <VisibilityOff />
+                                    
+                                )}
+                            </IconButton>
+                        </InputAdornment>
+                    ),
+                }}
             />
 
             {/* Confirm Password input field */}
@@ -54,7 +80,28 @@ const ResetPasswordForm = ({ t }) => {
                 formik={formik}
                 mb={1}
                 autoComplete="new-password"
-                type="password"
+                type={showConfirmPassword ? "text" : "password"}
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <IconButton
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={() =>
+                                    setShowConfirmPassword(!showConfirmPassword)
+                                }
+                                edge="end"
+                                color="primary"
+                            >
+                                {showConfirmPassword ? (
+                                    <Visibility />
+                                ) : (
+                                    <VisibilityOff />
+                                    
+                                )}
+                            </IconButton>
+                        </InputAdornment>
+                    ),
+                }}
             />
 
             {/* Submit button for password reset */}
