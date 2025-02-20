@@ -73,6 +73,10 @@ a {
     align-items: center;
 }
 
+.radius-16 {
+    border-radius: 16px;
+}
+
 .sliderContaier .slick-track {
     display: flex !important;
     gap: 20px !important;

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Box, Typography, useTheme } from "@mui/material";
 
-export default function ProfileCard({ profileImage, name, title, company }) {
+export default function ProfileCard({ profileImage, name, title, company, mx = 0 }) {
     const theme = useTheme();
     const { neutral } = theme.palette;
 
@@ -18,18 +18,17 @@ export default function ProfileCard({ profileImage, name, title, company }) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "start",
+                width: "100%"
             }}
             p={1}
-            mx={1}
+            mx={mx}
         >
             <Box
                 sx={{
                     width: "100%",
-                    height: 257,
                     borderRadius: "8px",
                     overflow: "hidden",
                     position: "relative",
-                    width: "100%",
                     height: "100%",
                 }}
             >
@@ -49,7 +48,7 @@ export default function ProfileCard({ profileImage, name, title, company }) {
                 sx={{ color: "#000000" }}
                 variant="titleLg"
                 component="div"
-                mt={0.5}
+                pt={1}
             >
                 {name}
             </Typography>
@@ -64,6 +63,7 @@ export default function ProfileCard({ profileImage, name, title, company }) {
                 sx={{ color: "#000000" }}
                 variant="body"
                 color="text.secondary"
+                pb={1}
             >
                 {company}
             </Typography>
