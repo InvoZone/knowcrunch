@@ -16,9 +16,16 @@ export default function VideoCard() {
 
             }}
             p={1}
+            mx={0.7}
         >
-            <Box component={"div"} position={"absolute"} left={"42%"} top={"40%"}>
-                <Image src={"/icons/playBtn.webp"}
+            <Box
+                component={"div"}
+                position={"absolute"}
+                left={"42%"}
+                top={"40%"}
+            >
+                <Image
+                    src={"/icons/playBtn.webp"}
                     height={50}
                     width={50}
                     alt="playBtnIcon"
@@ -26,7 +33,7 @@ export default function VideoCard() {
                 />
             </Box>
             <Box component={"div"} borderRadius={2} overflow={"hidden"}>
-                <Image src={videoThumb} alt='video img' height={228} />
+                <Image src={videoThumb} alt="video img" height={228} />
             </Box>
             {/* <iframe
                 width="100%"
