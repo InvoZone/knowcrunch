@@ -1,5 +1,5 @@
-import { LinkedIn } from "@mui/icons-material";
 import { Avatar, Box, Rating, Typography } from "@mui/material";
+import Image from "next/image";
 
 const FeedbackCard = (
     width = "100%"
@@ -20,8 +20,11 @@ const FeedbackCard = (
                     <Typography variant="body" color="tertiary" >
                         Digital Marketing Specialist
                     </Typography>
-                    <Box component={"div"}>
-                        <LinkedIn sx={{ color: "neutral.neutral2" }} />
+                    <Box component={"div"} gap={1} display={"flex"} alignItems={"center"}>
+                        <Image src="/icons/fb.svg" width={20} height={20} alt='fb' />
+                        <Image src="/icons/insta.svg" width={20} height={20} alt='insta' />
+                        <Image src="/icons/lin.svg" width={20} height={20} alt='lin' />
+                        <Image src="/icons/twitter.svg" width={17} height={17} alt='twitter' />
                     </Box>
                 </Box>
             </Box>

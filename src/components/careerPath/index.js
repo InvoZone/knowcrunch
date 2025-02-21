@@ -214,7 +214,6 @@ const CareerPath = () => {
                         {content.videos.map((course) => (
                             <VideoCard
                                 key={course.id}
-                                width={368}
                             />
                         ))}
                     </ScrollAbleSection>

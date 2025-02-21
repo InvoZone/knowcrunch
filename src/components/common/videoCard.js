@@ -3,17 +3,11 @@ import { Box } from "@mui/material";
 import videoThumb from "@/assets/home/videoThumb.webp";
 import Image from "next/image";
 
-export default function VideoCard({ width = "100%" }) {
+export default function VideoCard() {
     return (
         <Box
             sx={{
-                minHeight: "auto",
-                overflow: "hidden",
                 position: "relative",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
-                width
 
             }}
         >
@@ -31,7 +25,7 @@ export default function VideoCard({ width = "100%" }) {
                     loading="lazy"
                 />
             </Box>
-            <Box component={"div"} borderRadius={4} overflow={"hidden"}>
+            <Box component={"div"} borderRadius={4}>
                 <Image src={videoThumb} alt='video img' height={228} className="radius-16" />
             </Box>
             {/* <iframe
