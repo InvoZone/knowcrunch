@@ -23,7 +23,7 @@ const FeedbackCard = (
                     <Box component={"div"} gap={1} display={"flex"} alignItems={"center"}>
                         <Image src="/icons/fb.svg" width={20} height={20} alt='fb' />
                         <Image src="/icons/insta.svg" width={20} height={20} alt='insta' />
-                        <Image src="/icons/lin.svg" width={20} height={20} alt='lin' />
+                        <Image src="/icons/lIn.svg" width={20} height={20} alt='lin' />
                         <Image src="/icons/twitter.svg" width={17} height={17} alt='twitter' />
                     </Box>
                 </Box>
