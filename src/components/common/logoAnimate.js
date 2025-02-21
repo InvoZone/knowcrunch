@@ -1,16 +1,35 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import Marquee from "react-fast-marquee"; // Import Marquee
-import * as styles from "./logoAnimate.module.scss"; // Import CSS for styling
+import Marquee from "react-fast-marquee";
+import * as styles from "./logoAnimate.module.scss";
 import { Box, Typography, useTheme, Container } from "@mui/material";
 
 const LogoAnimate = () => {
     const theme = useTheme();
     const { base1, neutral } = theme.palette;
 
+    const [play, setPlay] = useState(false);
+    const [direction, setDirection] = useState("left");
+
+    const handleMouseEnter = () => {
+        setDirection("left");
+        setPlay(true);
+    };
+
+    const handleMouseLeave = () => {
+        setDirection("right");
+        setPlay(true);
+    };
+
+    const onCycleComplete = () => {
+        setPlay(false);
+    };
+
     return (
         <Container
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             maxWidth="lg"
             sx={{ padding: 0 }}
             className={styles.mainconatiner}
@@ -27,13 +46,16 @@ const LogoAnimate = () => {
                     borderRadius: "48px",
                 }}
             >
-                <Typography
-                    variant="body"
-                    sx={{ width: "150px", color: base1.dark4 }}
-                >
+                <Typography variant="body1" sx={{ width: "90px", color: base1.dark4 }}>
                     Trusted by
                 </Typography>
-                <Marquee>
+                <Marquee 
+                    play={play} 
+                    speed={130} 
+                    direction={direction} 
+                    onCycleComplete={onCycleComplete}
+                    // loop={1} // Stop after reaching the end
+                >
                     {[
                         "/icons/skodalogo.svg",
                         "/icons/emiratelogo.svg",
@@ -46,14 +68,8 @@ const LogoAnimate = () => {
                         "/icons/sarantislogo.svg",
                         "/icons/trainedlogo.svg",
                     ].map((item, index) => (
-                        <Box key={item?.id || index} sx={{ padding: "0 24px" }}>
-                            <Image
-                                width={50}
-                                height={50}
-                                loading="lazy"
-                                src={item}
-                                alt={"item"}
-                            />
+                        <Box key={index} sx={{ padding: "0 24px" }}>
+                            <Image width={50} height={50} loading="lazy" src={item} alt={`logo-${index}`} />
                         </Box>
                     ))}
                 </Marquee>

@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -30,7 +31,9 @@ function Arrow(props) {
     const { onClick } = props;
     return (
         <Box
-            sx={{ right: { xs: props?.val || -20, sm: -20 } }}
+            sx={{ right: { xs: props?.val || -20, sm: -20 },
+                    display: props.isDisabled ? "none" : "block",
+             }}
             className={styles.arrowStyle}
         >
             <div onClick={onClick}>
@@ -43,7 +46,7 @@ function PrevArrow(props) {
     const { onClick } = props;
     return (
         <Box
-            sx={{ left: { xs: props?.val || -24, sm: -24 } }}
+            sx={{ left: { xs: props?.val || -24, sm: -24 }, display: props.isDisabled ? "none" : "block", }}
             className={styles.arrowStyle}
         >
             <div onClick={onClick}>
@@ -59,43 +62,66 @@ function PrevArrow(props) {
 }
 
 const Homepage = () => {
+    
+    // Separate state for each slider
+    const [currentSlide, setCurrentSlide] = useState({
+        main: 0,
+        classroom: 0,
+        instructor: 0,
+        video: 0,
+    });
+
     const theme = useTheme();
     const { primary, base1, link, neutral } = theme.palette;
     const isLg = useMediaQuery(theme.breakpoints.up("md"));
-    const isBetween = useMediaQuery("(min-width:700px) and (max-width:768px)");
+    const ismed = useMediaQuery(theme.breakpoints.down("md"));
+    const isTab = useMediaQuery("(max-width:991px)");
+    const isTablet = useMediaQuery(theme.breakpoints.between("md", "lg"));
 
-    const cardWidth = isBetween ? "298px" : "100%";
+    // const cardWidth = isTablet ? "298px" : "100%";
+    const cardWidth = "auto";
+    const totalSlides = 6;
+
+    // Function to determine slidesToShow based on screen size
+    const getSlidesToShow = () => {
+        if (isLg) return 4;
+        if (ismed) return 3;
+        if (isTablet) return 2;
+        return 1; // Default for smaller screens
+    };
 
     // Slider settings
     const settings = {
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
-
-        slidesToShow: 4,
+        centerMode: false,
+        slidesToShow: 4, // Dynamically set slidesToShow
         slidesToScroll: 1,
         arrows: true,
-        prevArrow: <PrevArrow val={2} />,
-        nextArrow: <Arrow val={2} />,
+        beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, main: newIndex })), // Track slide changes
+
+        prevArrow: <PrevArrow isDisabled={currentSlide.main === 0} val={2} />,
+        nextArrow: <Arrow isDisabled={currentSlide.main >= totalSlides - getSlidesToShow()} val={-20} />,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1280,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 900,
+                breakpoint: 991,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 700,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                 },
             },
@@ -111,33 +137,41 @@ const Homepage = () => {
 
     const classroomSettigs = {
         dots: false,
-        infinite: true,
         speed: 500,
-
+        infinite: false,
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: true,
-        prevArrow: <PrevArrow val={2} />,
-        nextArrow: <Arrow val={2} />,
+        beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, classroom: newIndex })),
+
+        prevArrow: <PrevArrow isDisabled={currentSlide.classroom === 0} val={2} />,
+        nextArrow: <Arrow isDisabled={currentSlide.classroom >= totalSlides - getSlidesToShow()} val={2} />,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2.30,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 900,
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2.30,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 800,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 700,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                 },
             },
@@ -152,31 +186,31 @@ const Homepage = () => {
     };
     const instructorSettigs = {
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
-
-        slidesToShow: 4,
+        slidesToShow: 4.20, // Dynamically set slidesToShow
         slidesToScroll: 1,
         arrows: true,
-        prevArrow: <PrevArrow val={-14} />,
-        nextArrow: <Arrow val={-14} />,
+        beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, instructor: newIndex })),
+        prevArrow: <PrevArrow isDisabled={currentSlide.instructor === 0} val={-14} />,
+        nextArrow: <Arrow isDisabled={currentSlide.instructor >= totalSlides - getSlidesToShow()} val={-14} />,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2.75,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 900,
+                breakpoint: 991,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2.75,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 750,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
@@ -185,7 +219,7 @@ const Homepage = () => {
             {
                 breakpoint: 575,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 1.30,
                     slidesToScroll: 1,
                 },
             },
@@ -194,33 +228,33 @@ const Homepage = () => {
 
     const videoSettigs = {
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
-
-        slidesToShow: 3,
+        slidesToShow: 3, // Dynamically set slidesToShow
         slidesToScroll: 1,
         arrows: true,
-        prevArrow: <PrevArrow />,
-        nextArrow: <Arrow />,
+        beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, video: newIndex })),
+        prevArrow: <PrevArrow isDisabled={currentSlide.video === 0} />,
+        nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - getSlidesToShow()} />,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                 },
             },
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 900,
-                settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                 },
             },
@@ -255,14 +289,17 @@ const Homepage = () => {
                         variant="h2"
                     >
                         Popular E-learning Courses
+
+
                     </Typography>
-                    <Slider {...settings} className="sliderContaier">
-                        <CourseCard customClass={true} width={cardWidth} />
-                        <CourseCard customClass={true} width={cardWidth} />
-                        <CourseCard customClass={true} width={cardWidth} />
-                        <CourseCard customClass={true} width={cardWidth} />
-                        <CourseCard customClass={true} width={cardWidth} />
-                        <CourseCard customClass={true} width={cardWidth} />
+                    <Slider {...settings} className="sliderContaierCard"
+                    >
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
                     </Slider>
                     <Typography
                         variant="h6"
@@ -471,7 +508,7 @@ const Homepage = () => {
                                             customClass={true}
                                             discountTag={true}
                                         />
-                                        {isLg && (
+                                        {!isTab && (
                                             <CourseCard
                                                 customClass={true}
                                                 discountTag={true}
@@ -541,7 +578,7 @@ const Homepage = () => {
                     </Typography>
                     <Slider
                         {...instructorSettigs}
-                        className={styles.sliderContaier}
+                        className={"sliderContaier"}
                     >
                         <InstructorCard
                             profileImage={img1}
@@ -601,7 +638,7 @@ const Homepage = () => {
                     >
                         Video testimonials
                     </Typography>
-                    <Slider {...videoSettigs} className={styles.sliderContaier}>
+                    <Slider {...videoSettigs} className={"sliderContaier"}>
                         <VideoCard />
                         <VideoCard />
                         <VideoCard />

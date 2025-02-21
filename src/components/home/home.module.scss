@@ -13,8 +13,12 @@
 .LogoAnimate {
     margin-top: -25px;
     padding: 0 48px;
+
+    @media (max-width: 991px) {
+        padding: 0 16px;
+    }
     @media (max-width: 575px) {
-        padding: 0 24px;
+        padding: 0 16px;
     }
 }
 .arrowStyle {
@@ -80,3 +84,6 @@
 .sliderContainer .slick-slide {
     margin: 0 10px; // Adjust the margin as needed for the gap
 }
+// .sliderContaier .slick-track .slick-slide{
+//     width: 298px !important;
+// }

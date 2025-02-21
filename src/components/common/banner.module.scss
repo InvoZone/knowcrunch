@@ -1,6 +1,5 @@
 .main {
     display: flex;
-    max-width: 1280px;
     margin: 0 auto;
     justify-content: space-between;
     gap: 50px;
@@ -12,9 +11,9 @@
     background-size: cover;
     // background-position: right;
     padding-top: 120px !important;
-    @media (max-width: 1360) {
-        max-width: 100%;
-    }
+    // @media (max-width: 1360) {
+    //     max-width: 100%;
+    // }
     @media (max-width: 575px) {
         background-image: url("../../../public/icons/Hero.webp") !important;
         padding-left: 32px !important;
