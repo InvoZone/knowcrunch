@@ -60,16 +60,19 @@ const PricingPlans = () => {
                         </Grid2>
                     </Grid2>
                 </Grid2>
-                <Grid2 container size={{ xs: 12, sm: 12, md: 12, lg: 10 }} spacing={3} justifyContent={"center"}>
-                    <Grid2 size={12} display={{ xs: "flex", lg: "none" }} justifyContent='center'>
-                        {/* Pricing card */}
-                        <PricingCard
-                            plan={plans?.[1]}
-                            period={period}
-                        />
+                <Grid2 container size={{ xs: 12, sm: 12, md: 10, lg: 10 }} rowSpacing={3} columnSpacing={{ xs: 0, sm: 3 }} justifyContent={"center"}>
+                    <Grid2 container size={12} display={{ xs: "flex", lg: "none" }} justifyContent='center'>
+                        <Grid2 size={{ xs: 10, sm: 6 }} justifyContent={"center"} display={"flex"}>
+
+                            {/* Pricing card */}
+                            <PricingCard
+                                plan={plans?.[1]}
+                                period={period}
+                            />
+                        </Grid2>
                     </Grid2>
                     {plans.map((plan) => (
-                        <Grid2 size={{ xs: 12, sm: 5, md: 5, lg: 4 }} key={plan?.id} display={{ xs: plan?.mostPopular ? "none" : "flex", lg: "flex" }} justifyContent={"center"}>
+                        <Grid2 size={{ xs: 10, sm: 6, md: 6, lg: 4 }} key={plan?.id} display={{ xs: plan?.mostPopular ? "none" : "flex", lg: "flex" }} justifyContent={"center"}>
                             {/* Pricing card */}
                             <PricingCard
                                 plan={plan}

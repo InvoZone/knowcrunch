@@ -153,7 +153,7 @@ function FilterDrawer(props) {
                 </Drawer>
             </Box>
             {/* Main content area */}
-            <Box component={"div"}>{children}</Box>
+            <Box component={"div"} width={"100%"}>{children}</Box>
         </Box>
     );
 }

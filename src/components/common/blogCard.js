@@ -32,6 +32,7 @@ export default function BlogCard() {
             >
                 <Image
                     src={blogThumb}
+                    height={100}
                     className="imgWidth"
                     alt="course thumb"
                     priority

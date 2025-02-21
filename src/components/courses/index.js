@@ -192,6 +192,15 @@ const Courses = () => {
                         >
                             <CustomPagination />
                         </Grid2>
+
+                        {/* Not fond any course */}
+                        {/* <Grid2
+                            size={12}
+                            justifyContent={"center"}
+                            display={"flex"}
+                        >
+                            <NoDataFound />
+                        </Grid2> */}
                     </Grid2>
                 </Grid2>
             </FilterDrawer>
