@@ -3,14 +3,16 @@ import {
     Container,
     Grid2,
     Typography
-} from "@mui/material";
-import Image from "next/image";
-import CourseCard from "../common/courseCard";
-import ScrollAbleSection from "../common/scrollAbleSection";
-import VideoCard from "../common/videoCard";
-import FeedbackCard from "../common/feedbackCard";
+} from "@mui/material"; // Import necessary dependencies from MUI
+import Image from "next/image"; // Import Image component from next/image for image rendering
+import CourseCard from "../common/courseCard"; // Import custom component for course cards
+import ScrollAbleSection from "../common/scrollAbleSection"; // Import custom component for scrollable sections
+import VideoCard from "../common/videoCard"; // Import custom component for video cards
+import FeedbackCard from "../common/feedbackCard"; // Import custom component for feedback cards
 
+// CareerPath component definition
 const CareerPath = () => {
+    // Content object for career path details
     const content = {
         title: "Content marketing",
         description: "Define and develop digital strategies to deliver business growth through online channels.",
@@ -80,6 +82,7 @@ const CareerPath = () => {
         ],
     };
 
+    // JSX for the CareerPath component
     return (
         <Container maxWidth='lg'>
             <Grid2
