@@ -18,7 +18,8 @@ export default function CourseCard({
     enrollButton = true,
     mx = 0,
     discountTag = false,
-    width = "100%"
+    width = "100%",
+    minWidth= 100
 }) {
     return (
         <Box
@@ -28,7 +29,8 @@ export default function CourseCard({
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
                 minHeight: 400,
-                width: width
+                width: width,
+                minWidth: minWidth
             }}
             p={1}
             mx={mx}

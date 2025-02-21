@@ -10,7 +10,7 @@ export default function Banner() {
     return (
         <Box className={styles.main} sx={{ padding: "48px" }}>
             <Container
-                maxWidth="lg"
+                maxWidth="xl"
                 sx={{ padding: 0 }}
                 className={styles.mainconatiner}
             >
