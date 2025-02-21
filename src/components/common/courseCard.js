@@ -40,7 +40,7 @@ export default function CourseCard({
                 sx={{
                     width: "100%",
                     height: 191,
-                    borderRadius: 1,
+                    borderRadius: 2,
                     position: "relative",
                 }}
             >
@@ -78,7 +78,7 @@ export default function CourseCard({
                         sx={{
                             height: 24,
                             backgroundColor: "accents.bubble1",
-                            borderRadius: 0.5,
+                            borderRadius: 1,
                             px: "5px"
                         }}
                     />
