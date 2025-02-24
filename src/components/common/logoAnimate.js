@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import * as styles from "./logoAnimate.module.scss";
 import { Box, Typography, useTheme, Container } from "@mui/material";
 
 const LogoAnimate = () => {
@@ -31,9 +30,7 @@ const LogoAnimate = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             maxWidth="lg"
-            sx={{ padding: 0, position: "relative" }}
-            style={{padding:"0 !important"}}
-            className={styles.mainconatiner}
+            sx={{ padding: "0 !important", position: "relative" }}
         >
             <Box
                 sx={{
