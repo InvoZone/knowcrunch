@@ -267,7 +267,7 @@ export const navbarMenu = [
     {
         id: "super_menu_2",
         title: "classroomCourses",
-        link: "/",
+        link: "/classroom-courses",
         menu: [
             {
                 id: "menu_2_1",

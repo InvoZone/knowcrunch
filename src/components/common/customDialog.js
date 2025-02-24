@@ -17,16 +17,20 @@ export default function CustomDialog({
     handleClose,
     children,
     shouldCloseOutside = true,
+    width = { xs: 360, sm: 480, lg: 480 },
+    py,
+    px
 }) {
     return (
         <Dialog
             open={open}
             onClose={shouldCloseOutside && handleClose}
             closeAfterTransition={false}
+            maxWidth={"xl"}
             sx={{
                 "& .MuiDialog-paper": {
                     borderRadius: 2,
-                    width: { xs: 360, sm:480, lg: 480 }, // Responsive width based on screen size
+                    width, // Responsive width based on screen size
                 },
             }}
         >
@@ -35,9 +39,8 @@ export default function CustomDialog({
                 component="div"
                 position={"relative"}
                 sx={{
-                    pt: 3,
-                    pb: 3,
-                    px: { xs: 3, lg: 4 }, // Responsive padding
+                    py: py || 3,
+                    px: px || { xs: 3, lg: 4 }, // Responsive padding
                 }}
             >
                 {/* Close button */}

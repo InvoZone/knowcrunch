@@ -32,7 +32,7 @@ const CustomBtn = ({
             autoComplete="off"
             loadingPosition="start"
             sx={{
-                borderRadius: 1.5,
+                borderRadius: 2,
                 textTransform: "none",
                 height: 45,
                 cursor: "pointer",
