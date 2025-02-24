@@ -32,7 +32,7 @@ function Arrow(props) {
     return (
         <Box
             sx={{ right: { xs: props?.val || -20, sm: -20 },
-                    display: props.isDisabled ? "none" : "block",
+                    display: props.isDisabled ? "none !important" : "block !important",
              }}
             className={styles.arrowStyle}
         >
@@ -46,7 +46,7 @@ function PrevArrow(props) {
     const { onClick } = props;
     return (
         <Box
-            sx={{ left: { xs: props?.val || -24, sm: -24 }, display: props.isDisabled ? "none" : "block", }}
+            sx={{ left: { xs: props?.val || -24, sm: -24 }, display: props.isDisabled ? "none !important" : "block !important", }}
             className={styles.arrowStyle}
         >
             <div onClick={onClick}>
@@ -82,14 +82,6 @@ const Homepage = () => {
     const cardWidth = "auto";
     const totalSlides = 6;
 
-    // Function to determine slidesToShow based on screen size
-    const getSlidesToShow = () => {
-        if (isLg) return 4;
-        if (ismed) return 3;
-        if (isTablet) return 2;
-        return 1; // Default for smaller screens
-    };
-
     // Slider settings
     const settings = {
         dots: false,
@@ -99,16 +91,19 @@ const Homepage = () => {
         slidesToShow: 4, // Dynamically set slidesToShow
         slidesToScroll: 1,
         arrows: true,
-        beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, main: newIndex })), // Track slide changes
+        beforeChange: (oldIndex, newIndex) => {
+            setCurrentSlide((prev) => ({ ...prev, main: newIndex })); // Track slide changes
+        },
 
         prevArrow: <PrevArrow isDisabled={currentSlide.main === 0} val={2} />,
-        nextArrow: <Arrow isDisabled={currentSlide.main >= totalSlides - getSlidesToShow()} val={-20} />,
+        nextArrow: <Arrow isDisabled={currentSlide.main >= totalSlides - 4} val={-20} />,
         responsive: [
             {
                 breakpoint: 1280,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.main >= totalSlides - 3} val={-20} />,
                 },
             },
             {
@@ -116,6 +111,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.main >= totalSlides - 2} val={-20} />,
                 },
             },
             {
@@ -123,6 +119,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.main >= totalSlides - 1} val={-20} />,
                 },
             },
             {
@@ -130,6 +127,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.main >= totalSlides - 1} val={-20} />,
                 },
             },
         ],
@@ -145,13 +143,14 @@ const Homepage = () => {
         beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, classroom: newIndex })),
 
         prevArrow: <PrevArrow isDisabled={currentSlide.classroom === 0} val={2} />,
-        nextArrow: <Arrow isDisabled={currentSlide.classroom >= totalSlides - getSlidesToShow()} val={2} />,
+        nextArrow: <Arrow isDisabled={currentSlide.classroom >= totalSlides - 3} val={2} />,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 2.30,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.classroom >= totalSlides - 2.30} val={-20} />,
                 },
             },
             {
@@ -159,6 +158,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 2.30,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.classroom >= totalSlides - 2.30} val={-20} />,
                 },
             },
             {
@@ -166,6 +166,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.classroom >= totalSlides - 2} val={-20} />,
                 },
             },
             {
@@ -173,6 +174,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.classroom >= totalSlides - 1} val={-20} />,
                 },
             },
             {
@@ -180,6 +182,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.classroom >= totalSlides - 1} val={-20} />,
                 },
             },
         ],
@@ -193,13 +196,14 @@ const Homepage = () => {
         arrows: true,
         beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, instructor: newIndex })),
         prevArrow: <PrevArrow isDisabled={currentSlide.instructor === 0} val={-14} />,
-        nextArrow: <Arrow isDisabled={currentSlide.instructor >= totalSlides - getSlidesToShow()} val={-14} />,
+        nextArrow: <Arrow isDisabled={currentSlide.instructor >= totalSlides - 4.20} val={-14} />,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 2.75,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.instructor >= totalSlides - 2.75} val={-20} />,
                 },
             },
             {
@@ -207,6 +211,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 2.75,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.instructor >= totalSlides - 2.75} val={-20} />,
                 },
             },
             {
@@ -214,6 +219,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.instructor >= totalSlides - 2} val={-20} />,
                 },
             },
             {
@@ -221,6 +227,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 1.30,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.instructor >= totalSlides - 1.30} val={-20} />,
                 },
             },
         ],
@@ -235,13 +242,14 @@ const Homepage = () => {
         arrows: true,
         beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, video: newIndex })),
         prevArrow: <PrevArrow isDisabled={currentSlide.video === 0} />,
-        nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - getSlidesToShow()} />,
+        nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 3} />,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 2} val={-20} />,
                 },
             },
             {
@@ -249,6 +257,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 2} val={-20} />,
                 },
             },
             {
@@ -256,6 +265,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.mvideoain >= totalSlides - 1} val={-20} />,
                 },
             },
             {
@@ -263,6 +273,7 @@ const Homepage = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 1} val={-20} />,
                 },
             },
         ],
