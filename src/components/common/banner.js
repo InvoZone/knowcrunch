@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Box, Container, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import styles from "./banner.module.scss";
 
 export default function Banner() {
@@ -9,10 +9,9 @@ export default function Banner() {
 
     return (
         <Box className={styles.main} sx={{ padding: "48px" }}>
-            <Container
+            <Box
                 maxWidth="xl"
                 sx={{ padding: 0 }}
-                className={styles.mainconatiner}
             >
                 <Box className={styles.typo}>
                     <Typography variant="h1" sx={{ color: base2.light6 }}>
@@ -60,7 +59,7 @@ export default function Banner() {
                     </Box>
                 </Box>
                 <Box></Box>
-            </Container>
+            </Box>
         </Box>
     );
 }
