@@ -32,6 +32,7 @@ const LogoAnimate = () => {
             onMouseLeave={handleMouseLeave}
             maxWidth="lg"
             sx={{ padding: 0, position: "relative" }}
+            style={{padding:"0 !important"}}
             className={styles.mainconatiner}
         >
             <Box

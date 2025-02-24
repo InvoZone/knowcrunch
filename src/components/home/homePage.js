@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -27,39 +27,6 @@ import Diploma from "../common/diploma";
 import WhykowCrunch from "../common/whykowcrunch";
 import Banner from "../common/banner";
 
-function Arrow(props) {
-    const { onClick } = props;
-    return (
-        <Box
-            sx={{ right: { xs: props?.val || -20, sm: -20 },
-                    display: props.isDisabled ? "none !important" : "block !important",
-             }}
-            className={styles.arrowStyle}
-        >
-            <div onClick={onClick}>
-                <Image src="/icons/nextArrow.svg" height={40} width={40} alt="nextArrow" />
-            </div>
-        </Box>
-    );
-}
-function PrevArrow(props) {
-    const { onClick } = props;
-    return (
-        <Box
-            sx={{ left: { xs: props?.val || -24, sm: -24 }, display: props.isDisabled ? "none !important" : "block !important", }}
-            className={styles.arrowStyle}
-        >
-            <div onClick={onClick}>
-                <Image
-                    src="/icons/previousArrow.svg"
-                    height={40}
-                    width={40}
-                    alt="previousArrow"
-                />
-            </div>
-        </Box>
-    );
-}
 
 const Homepage = () => {
     
@@ -73,33 +40,74 @@ const Homepage = () => {
 
     const theme = useTheme();
     const { primary, base1, link, neutral } = theme.palette;
-    const isLg = useMediaQuery(theme.breakpoints.up("md"));
-    const ismed = useMediaQuery(theme.breakpoints.down("md"));
-    const isTab = useMediaQuery("(max-width:991px)");
-    const isTablet = useMediaQuery(theme.breakpoints.between("md", "lg"));
+    const isTab = useMediaQuery("(max-width:1200px)");
+
+    const Arrow = React.memo((props) => {
+        const { onClick } = props;
+        return (
+            <Box
+                sx={{ right: { xs: props?.val || -20, sm: -20 },
+                        display: props.isDisabled ? "none !important" : "block !important",
+                 }}
+                className={styles.arrowStyle}
+            >
+                <div onClick={onClick}>
+                    <Image src="/icons/nextArrow.svg" height={40} width={40} alt="nextArrow" />
+                </div>
+            </Box>
+        );
+    });
+    Arrow.displayName = "Arrow";
+    
+    const PrevArrow = React.memo((props) => {
+        const { onClick } = props;
+        return (
+            <Box
+                sx={{ left: { xs: props?.val || -24, sm: -24 }, display: props.isDisabled ? "none !important" : "block !important", }}
+                className={styles.arrowStyle}
+            >
+                <div onClick={onClick}>
+                    <Image
+                        src="/icons/previousArrow.svg"
+                        height={40}
+                        width={40}
+                        alt="previousArrow"
+                    />
+                </div>
+            </Box>
+        );
+    });
+    PrevArrow.displayName = "PrevArrow";
 
     // const cardWidth = isTablet ? "298px" : "100%";
     const cardWidth = "auto";
     const totalSlides = 6;
 
     // Slider settings
-    const settings = {
+    const settings = useMemo(() => ({
         dots: false,
         infinite: false,
         speed: 500,
         centerMode: false,
-        slidesToShow: 4, // Dynamically set slidesToShow
+        slidesToShow: 4,
         slidesToScroll: 1,
         arrows: true,
         beforeChange: (oldIndex, newIndex) => {
-            setCurrentSlide((prev) => ({ ...prev, main: newIndex })); // Track slide changes
+            setCurrentSlide((prev) => ({ ...prev, main: newIndex }));
         },
-
         prevArrow: <PrevArrow isDisabled={currentSlide.main === 0} val={2} />,
         nextArrow: <Arrow isDisabled={currentSlide.main >= totalSlides - 4} val={-20} />,
         responsive: [
             {
-                breakpoint: 1280,
+                breakpoint: 1281,
+                settings: {
+                    slidesToShow: 3.72,
+                    slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.main >= totalSlides - 3.72} val={-20} />,
+                },
+            },
+            {
+                breakpoint: 1220,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1,
@@ -115,7 +123,7 @@ const Homepage = () => {
                 },
             },
             {
-                breakpoint: 700,
+                breakpoint: 730,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -131,9 +139,9 @@ const Homepage = () => {
                 },
             },
         ],
-    };
+    }), [currentSlide.main]);
 
-    const classroomSettigs = {
+    const classroomSettigs = useMemo(() => ({
         dots: false,
         speed: 500,
         infinite: false,
@@ -186,8 +194,10 @@ const Homepage = () => {
                 },
             },
         ],
-    };
-    const instructorSettigs = {
+
+    }), [currentSlide.classroom]);
+
+    const instructorSettigs = useMemo(() => ({
         dots: false,
         infinite: false,
         speed: 500,
@@ -231,9 +241,9 @@ const Homepage = () => {
                 },
             },
         ],
-    };
+    }), [currentSlide.instructor]);
 
-    const videoSettigs = {
+    const videoSettigs = useMemo(() => ({
         dots: false,
         infinite: false,
         speed: 500,
@@ -277,7 +287,7 @@ const Homepage = () => {
                 },
             },
         ],
-    };
+    }), [currentSlide?.video]);
 
     return (
         <Box sx={{ padding: 0 }} className={styles.mainconatiner}>
@@ -300,17 +310,15 @@ const Homepage = () => {
                         variant="h2"
                     >
                         Popular E-learning Courses
-
-
                     </Typography>
                     <Slider {...settings} className="sliderContaierCard"
                     >
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={2}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
                     </Slider>
                     <Typography
                         variant="h6"
@@ -674,4 +682,4 @@ const Homepage = () => {
     );
 };
 
-export default Homepage;
+export default React.memo(Homepage);
