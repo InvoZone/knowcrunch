@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Box, Container, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import styles from "./banner.module.scss";
 
 export default function Banner() {
