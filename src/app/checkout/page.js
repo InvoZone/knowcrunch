@@ -1,5 +1,5 @@
 import PageContainer from "@/components/common/pageContainer";
-import Checkout from "@/components/checkout";
+import { CheckoutMainComponent } from "@/components/checkout";
 
 export const metadata = {
     title: "Checkout",
@@ -31,7 +31,7 @@ export const metadata = {
 export default function CheckoutPage() {
     return (
         <PageContainer>
-            <Checkout />
+            <CheckoutMainComponent />
         </PageContainer>
     );
 }

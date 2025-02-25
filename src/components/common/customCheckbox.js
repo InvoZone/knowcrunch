@@ -21,8 +21,8 @@ const CustomCheckbox = ({ label, checked, onChange, name }) => {
                     color: "neutral.neutral1",
                     fontSize: 16,
                     fontWeight: 400,
-                    lineHeight: 3,
-                    letterSpacing: 0.016,
+                    letterSpacing: "0.016px",
+                    lineHeight: "24px",
                 },
             }}
             control={

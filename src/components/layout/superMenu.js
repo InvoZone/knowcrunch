@@ -55,13 +55,14 @@ const SuperMenu = ({
                 onClose={handleCloseSuperMenu}
                 autoFocus={false}
                 closeAfterTransition={false}
+                disableScrollLock={true}
                 MenuListProps={{ onMouseLeave: handleCloseSuperMenu }}
                 aria-hidden={"false"}
             >
                 <Container maxWidth={"xl"} sx={{ py: 4 }}>
                     <Grid2 container spacing={2}>
                         {/* First level menu items */}
-                        <Grid2 size={{ md: 4, lg: 4 }}>
+                        <Grid2 size={{ md: 4, lg: 4, xl: 3 }}>
                             {menu?.menu?.map((menu) => (
                                 <MenuItem
                                     key={menu?.id}
@@ -103,7 +104,7 @@ const SuperMenu = ({
                         {/* Second level submenu items with left border */}
                         {subMenu?.subMenu && (
                             <Grid2
-                                size={{ md: 5, lg: 5 }}
+                                size={{ md: 6, lg: 5, xl: 6 }}
                                 sx={{
                                     borderLeft: `2px solid ${base1.dark2}`,
                                     px: 2,

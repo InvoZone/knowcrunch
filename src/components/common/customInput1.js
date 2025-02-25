@@ -6,23 +6,22 @@ import { InputLabel, Stack, Typography } from "@mui/material";
  * CustomInput component provides a styled text input field with label
  * @param {string} label - Label text for the input field
  * @param {string} name - Name attribute for the input field
- * @param {Object} formik - Formik instance for form handling
  * @param {number} mb - Margin bottom spacing (default: 0)
  * @param {string} type - Input type attribute (default: "text")
  */
-export default function CustomInput({
+export default function CustomInput1({
     label,
     name,
-    formik,
     mb = 0,
     type = "text",
     placeholder,
-    InputProps, // Accept InputProps as a prop
+    value,
+    onChange
 }) {
     return (
         <Stack>
             {/* Input label */}
-            {label && <InputLabel>
+            {label && < InputLabel >
                 <Typography
                     color={"neutral.neutral1"}
                     variant="body2"
@@ -38,13 +37,10 @@ export default function CustomInput({
                 variant="outlined"
                 name={name}
                 type={type}
-                value={formik.values?.[name]}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched?.[name] && Boolean(formik.errors?.[name])}
+                value={value}
+                onChange={onChange}
                 autoComplete={name}
                 placeholder={placeholder}
-                InputProps={{ ...InputProps }} // Change to InputProps
                 sx={{
                     mb,
                     // Input field styling
@@ -54,16 +50,10 @@ export default function CustomInput({
                         fontSize: 16,
                         fontWeight: 400,
                         padding: "8px 10px",
-                        // Add error background when field is touched and has error
-                        background:
-                            formik.touched?.[name] &&
-                            Boolean(formik.errors?.[name]) &&
-                            "#EF978F54",
                     },
                     // Outline styling for different states
                     "& .MuiOutlinedInput-root": {
                         borderRadius: 2,
-                        overflow: "hidden",
                         "& fieldset": {
                             border: "1px solid",
                             borderColor: "neutral.neutral7",
@@ -79,6 +69,6 @@ export default function CustomInput({
                     },
                 }}
             />
-        </Stack>
+        </Stack >
     );
 }
