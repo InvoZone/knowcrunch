@@ -62,6 +62,7 @@ export default function CustomInput({
                     },
                     // Outline styling for different states
                     "& .MuiOutlinedInput-root": {
+                        borderRadius: 2,
                         "& fieldset": {
                             border: "1px solid",
                             borderColor: "neutral.neutral7",
