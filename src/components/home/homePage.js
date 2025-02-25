@@ -330,7 +330,7 @@ const Homepage = () => {
                             cursor: "pointer",
                         }}
                     >
-                        View courses
+                        View all courses
                     </Typography>
                 </Box>
                 {/* career path */}
@@ -646,7 +646,7 @@ const Homepage = () => {
                             cursor: "pointer",
                         }}
                     >
-                        View courses
+                        View all instructors
                     </Typography>
                 </Box>
                 {/* Video testimonials */}

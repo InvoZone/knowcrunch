@@ -8,7 +8,7 @@ function About() {
         setShowMore(!showMore); // Toggle the state
     };
     return (
-        <Box sx={{ marginTop: "32px", mb: 3 }}>
+        <Box sx={{ mb: 3 }}>
             <Typography variant="h4" sx={{ color: "base1.dark4", mb: 2 }}>
                 About
             </Typography>

@@ -28,18 +28,18 @@ function Learn() {
                             sx={{
                                 display: "flex",
                                 gap: "4px",
-                                alignItems: "center",
+                                alignItems: "flex-start",
                             }}
                         >
                             <Image
                                 loading="lazy"
                                 src="/icons/tick.svg"
-                                width={18}
-                                height={18}
+                                width={24}
+                                height={24}
                                 alt={"Tick"}
                             />
                             <Typography
-                                variant="titleMd"
+                                variant="body"
                                 sx={{ color: "neutral.neutral1" }}
                             >
                                 Unlock the secrets of SEO, social media, and
@@ -51,22 +51,21 @@ function Learn() {
                             sx={{
                                 display: "flex",
                                 gap: "4px",
-                                alignItems: "center",
+                                alignItems: "flex-start",
                             }}
                         >
                             <Image
                                 loading="lazy"
                                 src="/icons/tick.svg"
-                                width={18}
-                                height={18}
+                                width={24}
+                                height={24}
                                 alt={"Tick"}
                             />
                             <Typography
-                                variant="titleMd"
+                                variant="body"
                                 sx={{ color: "neutral.neutral1" }}
                             >
-                                Learn to create impactful digital campaigns that
-                                deliver real results.{" "}
+                                Boost engagement, and drive measurable results.
                             </Typography>
                         </Box>
                     </Box>
@@ -86,39 +85,39 @@ function Learn() {
                             sx={{
                                 display: "flex",
                                 gap: "4px",
-                                alignItems: "center",
+                                alignItems: "flex-start",
                             }}
                         >
                             <Image
                                 loading="lazy"
                                 src="/icons/tick.svg"
-                                width={18}
-                                height={18}
+                                width={24}
+                                height={24}
                                 alt={"Tick"}
                             />
                             <Typography
-                                variant="titleMd"
+                                variant="body"
                                 sx={{ color: "neutral.neutral1" }}
                             >
-                                Boost engagement, and drive measurable results.{" "}
+                                Learn to create impactful digital campaigns that deliver real results.
                             </Typography>
                         </Box>
                         <Box
                             sx={{
                                 display: "flex",
                                 gap: "4px",
-                                alignItems: "center",
+                                alignItems: "flex-start",
                             }}
                         >
                             <Image
                                 loading="lazy"
                                 src="/icons/tick.svg"
-                                width={18}
-                                height={18}
+                                width={24}
+                                height={24}
                                 alt={"Tick"}
                             />
                             <Typography
-                                variant="titleMd"
+                                variant="body"
                                 sx={{ color: "neutral.neutral1" }}
                             >
                                 Gain hands-on experience with cutting-edge

@@ -29,8 +29,6 @@ export const metadata = {
 
 export default function CoursesPage() {
     return (
-        <PageContainer>
             <Course />
-        </PageContainer>
     );
 }

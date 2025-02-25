@@ -29,7 +29,7 @@ const CourseDetail = () => {
     };
 
     return (
-        <Container>
+        <Box>
             <Box
                 sx={{
                     padding: 2,
@@ -375,7 +375,7 @@ const CourseDetail = () => {
                     mt: 2,
                 }}
             />
-        </Container>
+        </Box>
     );
 };
 
