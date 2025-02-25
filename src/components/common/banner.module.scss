@@ -14,10 +14,15 @@
     // @media (max-width: 1360) {
     //     max-width: 100%;
     // }
-    @media (max-width: 575px) {
+    @media (min-width: 1700px) {
+        background-image: url("../../assets/header/heropro.webp") !important;
+    }
+
+    @media (max-width: 600px) {
         background-image: url("../../../public/icons/Hero.webp") !important;
-        padding-left: 32px !important;
+        padding-left: 24px !important;
         padding-top: 125px !important;
+        padding-right: 24px !important;
     }
 }
 .typo {

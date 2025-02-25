@@ -14,10 +14,10 @@ export default function Banner() {
                 sx={{ padding: 0 }}
             >
                 <Box className={styles.typo}>
-                    <Typography variant="h1" sx={{ color: base2.light6 }}>
+                    <Typography variant="h1" sx={{ color: base2.light6, marginBottom:"8px" }}>
                         Professional educational courses & training
                     </Typography>
-                    <Typography variant="h4" sx={{ color: base2.light6 }}>
+                    <Typography variant="h4" sx={{ color: base2.light6, marginBottom:"32px" }}>
                         Knowcrunch helps you learn, transform and thrive.
                     </Typography>
                     <Box
@@ -25,10 +25,9 @@ export default function Banner() {
                             display: "flex",
                             justifyContent: "flex-start",
                             alignItems: "center",
-                            gap: "8px",
                         }}
                     >
-                        <Typography variant="h6" sx={{ color: "white" }}>4.8</Typography>{" "}
+                        <Typography variant="h6" sx={{ color: "white", mr:0.5 }}>4.8</Typography>{" "}
                         <Image
                             loading="lazy"
                             src="/icons/bannerstar.svg"
@@ -36,7 +35,7 @@ export default function Banner() {
                             height={24}
                             alt={"bannerstar"}
                         />{" "}
-                        <Typography variant="h6" sx={{ color: "white" }}>
+                        <Typography variant="h6" sx={{ color: "white", ml:0.5 , marginRight:"32px"}}>
                             Trustpilot
                         </Typography>{" "}
                         <Image
