@@ -9,28 +9,32 @@ const LogoAnimate = () => {
     const { base1, neutral } = theme.palette;
 
     const [play, setPlay] = useState(false);
-    const [direction, setDirection] = useState("left");
+    const [direction, setDirection] = useState("");
 
     const handleMouseEnter = () => {
-        setDirection("left");
-        setPlay(true);
-    };
-
-    const handleMouseLeave = () => {
-        setDirection("right");
-        setPlay(true);
+            if(direction === "" || direction === "right"){
+                setDirection("left");
+                setPlay(true);
+            }
     };
 
     const onCycleComplete = () => {
-        setPlay(false);
+        if(direction === "left"){
+            setDirection("right");
+            setPlay(true);
+        }
+        else{
+            setDirection("");
+            setPlay(false);
+        }
+
     };
 
     return (
         <Container
             onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
             maxWidth="lg"
-            sx={{ padding: "0 !important", position: "relative" }}
+            sx={{ padding: "0 !important", position: "relative", maxWidth:"1360px !important" }}
         >
             <Box
                 sx={{
@@ -53,8 +57,8 @@ const LogoAnimate = () => {
                 }}
             >
                 <Typography
-                    variant="body"
-                    sx={{ width: "90px", color: base1.dark4 }}
+                    variant="titleMd"
+                    sx={{ width: "90px", color: base1.dark4, lineHeight:"20px" }}
                 >
                     Trusted by
                 </Typography>
@@ -62,10 +66,11 @@ const LogoAnimate = () => {
             <Box
                 sx={{
                     padding: {
-                        xs: "4px 8px 4px 48px",
-                        sm: "4px 24px",
-                        md: "4px 48px",
-                        lg: "4px 48px",
+                        xs: "4px 8px 4px 16px",
+                        sm: "4px 48px",
+                        md: "4px 48px 4px 60px",
+                        lg: "4px 48px 4px 60px",
+                        xl: "4px 48px 4px 75px",
                     },
                     display: "flex",
                     background: "white",
@@ -79,7 +84,7 @@ const LogoAnimate = () => {
                     play={play}
                     speed={130}
                     direction={direction}
-                    style={{ paddingLeft: "24px", marginLeft: "40px" }}
+                    style={{ paddingLeft: "40px", marginLeft: "40px", marginRight:"10px" }}
                     onCycleComplete={onCycleComplete}
                     // loop={1} // Stop after reaching the end
                 >
@@ -94,17 +99,18 @@ const LogoAnimate = () => {
                         "/icons/pepsilogo.svg",
                         "/icons/sarantislogo.svg",
                         "/icons/trainedlogo.svg",
+                        "/icons/volklogo.svg",
+                        "/icons/ddlogo.svg",
                     ].map((item, index) => (
                         <Box
                             key={index}
                             sx={{
                                 padding: {
-                                    xs: "0 4px",
-                                    sm: "0 8px",
-                                    md: "0 16px",
-                                    lg: "0 16px",
+                                    xs: "0 6px",
+                                    sm: "0 16px",
+                                    md: "0 20px",
+                                    lg: "0 24px",
                                 },
-                                ml: 2,
                             }}
                         >
                             <Image
