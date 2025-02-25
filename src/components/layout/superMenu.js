@@ -32,7 +32,7 @@ const SuperMenu = ({
                 sx={{
                     mt: "46px",
                     minHeight: 100,
-                    position: "absolute",
+                    position: "fixed",
                     "& .MuiMenu-paper": {
                         width: "100%",
                         maxWidth: "100% !important",

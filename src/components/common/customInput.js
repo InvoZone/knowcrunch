@@ -16,6 +16,7 @@ export default function CustomInput({
     formik,
     mb = 0,
     type = "text",
+    placeholder,
     InputProps, // Accept InputProps as a prop
 }) {
     return (
@@ -42,6 +43,7 @@ export default function CustomInput({
                 onBlur={formik.handleBlur}
                 error={formik.touched?.[name] && Boolean(formik.errors?.[name])}
                 autoComplete={name}
+                placeholder={placeholder}
                 InputProps={{ ...InputProps }} // Change to InputProps
                 sx={{
                     mb,

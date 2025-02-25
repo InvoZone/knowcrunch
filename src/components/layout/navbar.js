@@ -24,6 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/store/slices/auth";
 import Login from "../auth/login";
 import Signup from "../auth/signup";
+import stripeLogo from "@/assets/header/stripeLogo.webp";
 
 function Navbar() {
     // Initialize theme and translations
@@ -113,6 +114,9 @@ function Navbar() {
         };
     }, []);
 
+
+    const isCheckout = pathname === "/checkout";
+
     return (
         <AppBar
             component={"div"}
@@ -135,12 +139,12 @@ function Navbar() {
                     }}
                 >
                     {/* Conditional rendering of search field or main content */}
-                    {searchActive && !isLg ? (
+                    {(searchActive && !isLg && !isCheckout) ? (
                         <SearchField handleClose={handleSearchField} />
                     ) : (
                         <>
                             {/* Mobile menu button and menu */}
-                            <Box sx={{ display: { xs: "flex", lg: "none" } }}>
+                            <Box sx={{ display: { xs: isCheckout ? "none" : "flex", lg: "none" } }}>
                                 <IconButton onClick={handleOpenMobileMenu}>
                                     <Image
                                         src={"/icons/menu.svg"}
@@ -150,7 +154,7 @@ function Navbar() {
                                         priority
                                     />
                                 </IconButton>
-                                {!isLg && (
+                                {(!isLg && !isCheckout) && (
                                     <SuperMenuMobile
                                         handleOpenSuperMenu={
                                             handleOpenSuperMenu
@@ -178,7 +182,7 @@ function Navbar() {
                             </Box>
 
                             {/* Logo */}
-                            <Box component={"div"} flexGrow={{ xs: 1, lg: 0 }}>
+                            <Box component={"div"} flexGrow={{ xs: 1, lg: isCheckout ? 1 : 0 }}>
                                 <Link href="/" passHref>
                                     <Image
                                         src={"/logo.svg"}
@@ -195,7 +199,7 @@ function Navbar() {
                             <Box
                                 sx={{
                                     flexGrow: 1,
-                                    display: { xs: "none", lg: "flex" },
+                                    display: { xs: "none", lg: isCheckout ? "none" : "flex" },
                                     pl: 3,
                                 }}
                             >
@@ -252,7 +256,7 @@ function Navbar() {
                             </Box>
 
                             {/* Right side icons and buttons */}
-                            {!searchActive && (
+                            {!searchActive && !isCheckout && (
                                 <Box sx={{ flexGrow: 0 }}>
                                     <IconButton>
                                         <Image
@@ -320,7 +324,7 @@ function Navbar() {
                                         </>
                                     )}
                                     {/* // Login/Join buttons */}
-                                    {isLg && !isLoggedIn && (
+                                    {(isLg && !isLoggedIn && !isCheckout) && (
                                         <>
                                             <Login />
                                             <Signup />
@@ -328,6 +332,23 @@ function Navbar() {
                                     )}
                                 </Box>
                             )}
+
+                            {isCheckout && <Box component={"div"} sx={{ flexGrow: 0, display: "flex", gap: 2 }}>
+                                <Image
+                                    src={"/icons/secured.svg"}
+                                    width={32}
+                                    height={32}
+                                    alt={"personIcon"}
+                                    loading="lazy"
+                                />
+                                <Image
+                                    src={stripeLogo}
+                                    width={146}
+                                    height={32}
+                                    alt={"stripeLogo"}
+                                    loading="lazy"
+                                />
+                            </Box>}
                         </>
                     )}
                 </Toolbar>

@@ -37,7 +37,7 @@ const SuperMenuMobile = ({
             {/* Main Menu Component */}
             <Menu
                 sx={{
-                    position: "absolute",
+                    position: "fixed",
                     "& .MuiMenu-paper": {
                         width: "100%",
                         maxWidth: "100% !important",
@@ -50,7 +50,7 @@ const SuperMenuMobile = ({
                     zIndex: 1310,
                 }}
                 id="menu-appbar-mobile"
-                disableScrollLock
+                disableScrollLock={false}
                 anchorOrigin={{
                     vertical: "top",
                     horizontal: "right",

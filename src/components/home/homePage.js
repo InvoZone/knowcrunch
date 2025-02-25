@@ -29,7 +29,7 @@ import Banner from "../common/banner";
 
 
 const Homepage = () => {
-    
+
     // Separate state for each slider
     const [currentSlide, setCurrentSlide] = useState({
         main: 0,
@@ -46,9 +46,10 @@ const Homepage = () => {
         const { onClick } = props;
         return (
             <Box
-                sx={{ right: { xs: props?.val || -20, sm: -20 },
-                        display: props.isDisabled ? "none !important" : "block !important",
-                 }}
+                sx={{
+                    right: { xs: props?.val || -20, sm: -20 },
+                    display: props.isDisabled ? "none !important" : "block !important",
+                }}
                 className={styles.arrowStyle}
             >
                 <div onClick={onClick}>
@@ -58,7 +59,7 @@ const Homepage = () => {
         );
     });
     Arrow.displayName = "Arrow";
-    
+
     const PrevArrow = React.memo((props) => {
         const { onClick } = props;
         return (
@@ -313,12 +314,12 @@ const Homepage = () => {
                     </Typography>
                     <Slider {...settings} className="sliderContaierCard"
                     >
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3}/>
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
+                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
                     </Slider>
                     <Typography
                         variant="h6"
