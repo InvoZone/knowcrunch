@@ -52,18 +52,21 @@ Runs ESLint to check for and fix code style and syntax issues.
 
 ```
 /project-root
-│-- public/          # Static assets
-│-- src/             # Source files
-│   │-- app/         # Next.js App Router pages
-│   │-- components/  # Reusable UI components
-│   │-- styles/      # Global styles
-│   │-- lib/         # Utility functions
-│   │-- hooks/       # Custom hooks
-│   │-- context/     # React context providers
-│-- .eslintrc.js     # ESLint configuration
-│-- next.config.js   # Next.js configuration
-│-- package.json     # Project dependencies and scripts
-│-- README.md        # Project documentation
+│-- public/              # Static assets
+│-- src/                 # Source files
+│   │-- app/             # Next.js App Router pages
+│   │-- assets/          # Manage Assets
+│   │-- components/      # Reusable UI components
+│   │-- styles/          # Global styles
+│   │-- lib/             # Utility functions
+│   │-- store/           # Global state management
+│   │-- utils/           # Utility functions
+│   │-- theme/           # App style theme
+│-- .prettierrc.json     # Prettier configuration
+│-- .eslint.config.mjs   # ESLint configuration
+│-- next.config.js       # Next.js configuration
+│-- package.json         # Project dependencies and scripts
+│-- README.md            # Project documentation
 ```
 
 ## Technologies Used
