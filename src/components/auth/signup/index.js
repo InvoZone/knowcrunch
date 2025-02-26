@@ -65,12 +65,14 @@ const Signup = () => {
                     minWidth: 100,
                 }}
                 onClick={handleOpen}
+                aria-label="Open Signup Dialog"
             />
 
             {/* Signup dialog containing the form */}
             <CustomDialog
                 open={signupPopup}
                 handleClose={handleClose}
+                aria-label="Signup Dialog"
             >
                 {/* Dialog heading */}
                 <Typography variant="h4" color="tertiary" pb={3}>
@@ -97,6 +99,7 @@ const Signup = () => {
                                     component={"span"}
                                     sx={{ cursor: "pointer" }}
                                     onClick={handleOpenLogin}
+                                    aria-label="Open Login Dialog"
                                 >
                                     {t("signin")}
                                 </Typography>

@@ -128,6 +128,7 @@ function Navbar() {
                         : "primary"
             }
             sx={{ zIndex: 1310, boxShadow: "none" }}
+            aria-label="Navigation Bar"
         >
             <Container maxWidth="xl">
                 <Toolbar
@@ -140,18 +141,19 @@ function Navbar() {
                 >
                     {/* Conditional rendering of search field or main content */}
                     {(searchActive && !isLg && !isCheckout) ? (
-                        <SearchField handleClose={handleSearchField} />
+                        <SearchField handleClose={handleSearchField} aria-label="Search Field" />
                     ) : (
                         <>
                             {/* Mobile menu button and menu */}
                             <Box sx={{ display: { xs: isCheckout ? "none" : "flex", lg: "none" } }}>
-                                <IconButton onClick={handleOpenMobileMenu}>
+                                <IconButton onClick={handleOpenMobileMenu} aria-label="Mobile Menu Toggle">
                                     <Image
                                         src={"/icons/menu.svg"}
                                         width={24}
                                         height={24}
                                         alt={"menuIcon"}
                                         priority
+                                        aria-label="Menu Icon"
                                     />
                                 </IconButton>
                                 {(!isLg && !isCheckout) && (
@@ -177,12 +179,13 @@ function Navbar() {
                                         goBack={goBack}
                                         router={router}
                                         handleLogout={handleLogout}
+                                        aria-label="Mobile Navigation Menu"
                                     />
                                 )}
                             </Box>
 
                             {/* Logo */}
-                            <Box component={"div"} flexGrow={{ xs: 1, lg: isCheckout ? 1 : 0 }}>
+                            <Box component={"div"} flexGrow={{ xs: 1, lg: isCheckout ? 1 : 0 }} aria-label="Logo">
                                 <Link href="/" passHref>
                                     <Image
                                         src={"/logo.svg"}
@@ -191,6 +194,7 @@ function Navbar() {
                                         height={40}
                                         priority
                                         unoptimized={100}
+                                        aria-label="Website Logo"
                                     />
                                 </Link>
                             </Box>
@@ -226,6 +230,7 @@ function Navbar() {
                                                             ? 80
                                                             : 45,
                                                 }}
+                                                aria-label={`Navigation Button: ${el?.title}`}
                                             />
                                         ))}
 
@@ -244,6 +249,7 @@ function Navbar() {
                                             subMenu={subMenu}
                                             subMenu1={subMenu1}
                                             t={t}
+                                            aria-label="Desktop Navigation Menu"
                                         />
                                     )}
                                 </Box>
@@ -251,6 +257,7 @@ function Navbar() {
                                 {searchActive && (
                                     <SearchField
                                         handleClose={handleSearchField}
+                                        aria-label="Search Field"
                                     />
                                 )}
                             </Box>
@@ -258,14 +265,14 @@ function Navbar() {
                             {/* Right side icons and buttons */}
                             {!searchActive && !isCheckout && (
                                 <Box sx={{ flexGrow: 0 }}>
-                                    <IconButton>
+                                    <IconButton onClick={handleSearchField} aria-label="Search Icon">
                                         <Image
                                             loading="lazy"
                                             src={"/icons/search.svg"}
                                             width={24}
                                             height={24}
                                             alt={"searchIcon"}
-                                            onClick={handleSearchField}
+                                            aria-label="Search Icon"
                                         />
                                     </IconButton>
 
@@ -277,6 +284,7 @@ function Navbar() {
                                                     xs: "none",
                                                     md: "flex",
                                                 }}
+                                                aria-label="Cart Icon"
                                             >
                                                 <Badge
                                                     sx={{
@@ -294,10 +302,11 @@ function Navbar() {
                                                         height={24}
                                                         alt={"cartIcon"}
                                                         loading="lazy"
+                                                        aria-label="Cart Icon"
                                                     />
                                                 </Badge>
                                             </IconButton>
-                                            <IconButton>
+                                            <IconButton aria-label="Notification Icon">
                                                 <Badge
                                                     color="error"
                                                     variant="dot"
@@ -309,10 +318,11 @@ function Navbar() {
                                                         height={24}
                                                         alt={"notificationIcon"}
                                                         loading="lazy"
+                                                        aria-label="Notification Icon"
                                                     />
                                                 </Badge>
                                             </IconButton>
-                                            <IconButton onClick={handleLogout}>
+                                            <IconButton onClick={handleLogout} aria-label="Logout Icon">
                                                 <Image
                                                     src={"/icons/person.svg"}
                                                     width={24}
@@ -326,20 +336,21 @@ function Navbar() {
                                     {/* // Login/Join buttons */}
                                     {(isLg && !isLoggedIn && !isCheckout) && (
                                         <>
-                                            <Login />
-                                            <Signup />
+                                            <Login aria-label="Login Button" />
+                                            <Signup aria-label="Join Button" />
                                         </>
                                     )}
                                 </Box>
                             )}
 
-                            {isCheckout && <Box component={"div"} sx={{ flexGrow: 0, display: "flex", gap: 2 }}>
+                            {isCheckout && <Box component={"div"} sx={{ flexGrow: 0, display: "flex", gap: 2 }} aria-label="Checkout Icons">
                                 <Image
                                     src={"/icons/secured.svg"}
                                     width={32}
                                     height={32}
                                     alt={"personIcon"}
                                     loading="lazy"
+                                    aria-label="Secure Icon"
                                 />
                                 <Image
                                     src={stripeLogo}
@@ -347,6 +358,7 @@ function Navbar() {
                                     height={32}
                                     alt={"stripeLogo"}
                                     loading="lazy"
+                                    aria-label="Stripe Logo"
                                 />
                             </Box>}
                         </>

@@ -14,16 +14,16 @@ const ResetPassword = () => {
 
 
     return (
-        <Container maxWidth="lg">
-            <Grid2 container justifyContent={"center"}>
-                <Grid2 size={{ xs: 12, sm: 12, md: 6, lg: 5 }}>
+        <Container maxWidth="lg" aria-label="Reset password container">
+            <Grid2 container justifyContent={"center"} aria-label="Reset password grid">
+                <Grid2 size={{ xs: 12, sm: 12, md: 6, lg: 5 }} aria-label="Reset password grid item">
                     {/* heading */}
-                    <Typography variant="h4" color="tertiary" pb={1}>
+                    <Typography variant="h4" color="tertiary" pb={1} aria-label="Reset password heading">
                         {t("resetAccountPassword")}
                     </Typography>
 
                     {/* sub heading */}
-                    <Typography variant="body1" color="secondary.dark" pb={3}>
+                    <Typography variant="body1" color="secondary.dark" pb={3} aria-label="Reset password subheading">
                         {t("resetPasswordInstruction")}
                     </Typography>
 

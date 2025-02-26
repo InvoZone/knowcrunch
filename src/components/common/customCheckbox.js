@@ -38,9 +38,11 @@ const CustomCheckbox = ({ label, checked, onChange, name }) => {
                             color: "base1.default", // Checked color
                         },
                     }}
+                    aria-label={`Toggle ${label}`}
                 />
             }
             label={label}
+            aria-label={`Checkbox for ${label}`}
         />
     );
 };

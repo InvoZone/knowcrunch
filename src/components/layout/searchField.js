@@ -9,7 +9,7 @@ const SearchField = ({ handleClose }) => {
             slotProps={{
                 input: {
                     startAdornment: (
-                        <InputAdornment position="start">
+                        <InputAdornment position="start" aria-label="Search Icon">
                             <Image
                                 src={"/icons/search.svg"}
                                 width={24}
@@ -23,6 +23,7 @@ const SearchField = ({ handleClose }) => {
                         <InputAdornment
                             position="end"
                             sx={{ cursor: "pointer" }}
+                            aria-label="Cancel Icon"
                         >
                             <Image
                                 src={"/icons/cross.svg"}
@@ -61,6 +62,7 @@ const SearchField = ({ handleClose }) => {
                 },
             }}
             variant="outlined"
+            aria-label="Search Field"
         />
     );
 };

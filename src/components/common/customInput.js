@@ -22,7 +22,7 @@ export default function CustomInput({
     return (
         <Stack>
             {/* Input label */}
-            {label && <InputLabel>
+            {label && <InputLabel aria-label={`Label for ${name}`}>
                 <Typography
                     color={"neutral.neutral1"}
                     variant="body2"
@@ -45,6 +45,7 @@ export default function CustomInput({
                 autoComplete={name}
                 placeholder={placeholder}
                 InputProps={{ ...InputProps }} // Change to InputProps
+                aria-label={`Input field for ${name}`}
                 sx={{
                     mb,
                     // Input field styling

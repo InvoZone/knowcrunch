@@ -42,6 +42,7 @@ const CustomBtn = ({
             startIcon={startIcon}
             endIcon={endIcon}
             name={name}
+            aria-label={title}
         >
             <Typography
                 variant={txtVariant}

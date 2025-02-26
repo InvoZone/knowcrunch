@@ -8,17 +8,17 @@ import ForgotPassword from "../auth/forgotPassword";
 // Provides consistent structure with navigation and main content area
 const Layout = ({ children }) => {
     return (
-        <Box>
+        <Box aria-label="Application Layout">
             {/* Navigation bar component */}
-            <Navbar />
+            <Navbar aria-label="Navigation Bar" />
             {/* Main content wrapper */}
-            <Box component={"main"}>
+            <Box component={"main"} aria-label="Main Content">
                 {children}
                 {/* Popups  component */}
-                <ForgotPassword />
+                <ForgotPassword aria-label="Forgot Password" />
             </Box>
             {/* Footer  component */}
-            <Footer />
+            <Footer aria-label="Footer" />
         </Box>
     );
 };

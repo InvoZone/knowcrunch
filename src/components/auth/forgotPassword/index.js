@@ -31,6 +31,7 @@ const ForgotPassword = () => {
             <CustomDialog
                 open={forgotPopup}
                 handleClose={handleClose}
+                aria-label="Forgot Password Dialog"
             >
                 {/* Dialog heading */}
                 <Typography variant="h4" color="tertiary" pb={1}>

@@ -57,7 +57,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
     const handleLogin = useGoogleLogin({});
 
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} aria-label="Login form">
             {/* Email input field */}
             <CustomInput
                 name={"email"}
@@ -65,6 +65,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                 formik={formik}
                 mb={1}
                 autoComplete="email"
+                aria-label="Email input"
             />
 
             {/* Password input field */}
@@ -84,12 +85,13 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                                 edge="end"
                                 color="primary"
                                 sx={{ visibility: "visible" }}
+                                aria-label="Toggle password visibility"
                             >
                                 {showPassword ? (
                                     <Visibility />
                                 ) : (
                                     <VisibilityOff />
-                                    
+
                                 )}
                             </IconButton>
                         </InputAdornment>
@@ -103,6 +105,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                     checked={formik.values.rememberMe}
                     onChange={formik.handleChange}
                     name={"rememberMe"}
+                    aria-label="Remember me checkbox"
                 />
 
                 <Typography
@@ -111,6 +114,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                     variant="body"
                     color="link.light"
                     sx={{ cursor: "pointer" }}
+                    aria-label="Forgot password link"
                 >
                     {t("forgotPassword")}
                 </Typography>
@@ -132,6 +136,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                             ? 0.5
                             : 1,
                 }}
+                aria-label="Sign in button"
             />
 
 
@@ -151,6 +156,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                         height={24}
                         loading="lazy"
                         alt="google"
+                        aria-label="Google icon"
                     />
                 }
                 sx={{
@@ -159,6 +165,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                     width: "100%",
                     mb: 2,
                 }}
+                aria-label="Continue with Google button"
             />
         </form>
     );

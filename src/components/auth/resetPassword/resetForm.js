@@ -42,7 +42,7 @@ const ResetPasswordForm = ({ t }) => {
     });
 
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} aria-label="Reset password form">
             {/* Password input field */}
             <CustomInput
                 name={"password"}
@@ -60,12 +60,13 @@ const ResetPasswordForm = ({ t }) => {
                                 edge="end"
                                 color="primary"
                                 sx={{ visibility: "visible" }}
+                                aria-label="Toggle password visibility"
                             >
                                 {showPassword ? (
                                     <Visibility />
                                 ) : (
                                     <VisibilityOff />
-                                    
+
                                 )}
                             </IconButton>
                         </InputAdornment>
@@ -91,12 +92,13 @@ const ResetPasswordForm = ({ t }) => {
                                 }
                                 edge="end"
                                 color="primary"
+                                aria-label="Toggle confirm password visibility"
                             >
                                 {showConfirmPassword ? (
                                     <Visibility />
                                 ) : (
                                     <VisibilityOff />
-                                    
+
                                 )}
                             </IconButton>
                         </InputAdornment>
@@ -116,6 +118,7 @@ const ResetPasswordForm = ({ t }) => {
                     width: "100%",
                     mt: 3
                 }}
+                aria-label="Reset password button"
             />
         </form>
     );

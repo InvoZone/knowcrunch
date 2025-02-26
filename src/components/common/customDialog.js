@@ -11,6 +11,9 @@ import { CloseOutlined } from "@mui/icons-material";
  * @param {Function} props.handleClose - Function to handle dialog close
  * @param {React.ReactNode} props.children - Content to render inside dialog
  * @param {boolean} props.shouldCloseOutside - Whether clicking outside closes dialog
+ * @param {Object} props.width - Responsive width based on screen size
+ * @param {number} props.py - Responsive padding on the y-axis
+ * @param {number} props.px - Responsive padding on the x-axis
  */
 export default function CustomDialog({
     open,

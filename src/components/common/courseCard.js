@@ -19,7 +19,7 @@ export default function CourseCard({
     mx = 0,
     discountTag = false,
     width = "100%",
-    minWidth= 100
+    minWidth = 100
 }) {
     return (
         <Box
@@ -35,6 +35,7 @@ export default function CourseCard({
             p={1}
             mx={mx}
             component={"div"}
+            aria-label="Course Card"
         >
             {/* Course thumbnail section with play button overlay */}
             <Box
@@ -45,6 +46,7 @@ export default function CourseCard({
                     borderRadius: 2,
                     position: "relative",
                 }}
+                aria-label="Course Thumbnail"
             >
                 {/* Play button overlay */}
                 <Box
@@ -52,6 +54,7 @@ export default function CourseCard({
                     position={"absolute"}
                     top={"40%"}
                     left={"43%"}
+                    aria-label="Play Button"
                 >
                     <Image
                         src={"/icons/playBtn.webp"}
@@ -72,6 +75,7 @@ export default function CourseCard({
                         width: "100%",
                         p: 1,
                     }}
+                    aria-label="Best Seller Badge and Heart Icon"
                 >
                     <CustomBtn
                         txtVariant={"body2"}
@@ -83,6 +87,7 @@ export default function CourseCard({
                             borderRadius: 1,
                             px: "5px"
                         }}
+                        aria-label="Best Seller Badge"
                     />
                     <Image
                         src="/icons/heart.svg"
@@ -90,6 +95,7 @@ export default function CourseCard({
                         width={24}
                         alt="heart"
                         priority
+                        aria-label="Heart Icon"
                     />
                 </Box>
                 <Image
@@ -97,6 +103,7 @@ export default function CourseCard({
                     className="imgWidth"
                     alt="course thumb"
                     priority
+                    aria-label="Course Thumbnail"
                 />
             </Box>
 
@@ -107,6 +114,7 @@ export default function CourseCard({
                 component={"div"}
                 pt={1}
                 color="tertiary"
+                aria-label="Course Title"
             >
                 Masterclass in Google Advertising
             </Typography>
@@ -118,6 +126,7 @@ export default function CourseCard({
                 fontWeight={400}
                 component={"div"}
                 color="secondary.dark"
+                aria-label="Course Description"
             >
                 An exceedingly advanced training program that provides
                 comprehensive lectures
@@ -138,34 +147,38 @@ export default function CourseCard({
                 }}
                 txtVariant="body2"
                 color="neutral.neutral2"
+                aria-label="Course Type Badge"
             />
 
             {/* Course metadata: language, rating, and duration */}
-            <Box component={"div"} display={"flex"} gap={0.5}>
+            <Box component={"div"} display={"flex"} gap={0.5} aria-label="Course Metadata">
                 {/* Language indicator */}
-                <Box component={"div"} display={"flex"} alignItems={"center"}>
-                    <Image src="/icons/glob.svg" alt="glob" width={20} height={20} />
+                <Box component={"div"} display={"flex"} alignItems={"center"} aria-label="Language Indicator">
+                    <Image src="/icons/glob.svg" alt="glob" width={20} height={20} aria-label="Globe Icon" />
                     <Typography
                         variant="body"
                         color="neutral.neutral2"
                         pl={0.5}
+                        aria-label="Language"
                     >
                         EN •
                     </Typography>
                 </Box>
                 {/* Rating display */}
-                <Box component={"div"} display={"flex"} alignItems={"center"}>
+                <Box component={"div"} display={"flex"} alignItems={"center"} aria-label="Rating Display">
                     <Image
                         src="/icons/star.svg"
                         alt="starIcon"
                         width={20}
                         height={20}
                         priority
+                        aria-label="Star Icon"
                     />
                     <Typography
                         variant="body"
                         color="neutral.neutral2"
                         pl={0.5}
+                        aria-label="Rating"
                     >
                         4.5{" "}
                         <Typography
@@ -173,6 +186,7 @@ export default function CourseCard({
                             fontWeight={400}
                             component={"span"}
                             color="neutral.neutral2"
+                            aria-label="Rating Count"
                         >
                             (544)
                         </Typography>{" "}
@@ -180,18 +194,20 @@ export default function CourseCard({
                     </Typography>
                 </Box>
                 {/* Duration display */}
-                <Box component={"div"} display={"flex"} alignItems={"center"}>
+                <Box component={"div"} display={"flex"} alignItems={"center"} aria-label="Duration Display">
                     <Image
                         src="/icons/clock.svg"
                         alt="clockIcon"
                         width={20}
                         height={20}
                         priority
+                        aria-label="Clock Icon"
                     />
                     <Typography
                         variant="body"
                         color="neutral.neutral2"
                         pl={0.5}
+                        aria-label="Duration"
                     >
                         25h
                     </Typography>
@@ -200,13 +216,14 @@ export default function CourseCard({
 
             {/* Enrollment section with price and button */}
             {enrollButton && (
-                <Box component={"div"} pt={5}>
+                <Box component={"div"} pt={5} aria-label="Enrollment Section">
                     {discountTag && (
                         <Typography
                             variant="body2"
                             color="error.main"
                             pl={0.5}
                             pb={0.5}
+                            aria-label="Discount Tag"
                         >
                             50% off 100 €
                         </Typography>
@@ -217,6 +234,7 @@ export default function CourseCard({
                         sx={{ backgroundColor: "base1.default", width: "100%" }}
                         txtVariant="h6"
                         color="secondary"
+                        aria-label="Enroll Button"
                     />
                 </Box>
             )}

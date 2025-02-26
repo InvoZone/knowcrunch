@@ -64,6 +64,7 @@ const SuperMenuMobile = ({
                 open={Boolean(anchorElSuperMenu)}
                 onClose={handleCloseSuperMenu}
                 anchorEl={anchorElSuperMenu}
+                aria-label="Super Menu"
             >
                 <Container maxWidth={"xl"} sx={{ py: 4, minHeight: 500 }}>
                     <Grid2 container>

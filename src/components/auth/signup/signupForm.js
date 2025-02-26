@@ -63,13 +63,14 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
     }
 
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} aria-label="Signup form">
             {/* Email input field */}
             <CustomInput
                 name={"email"}
                 label={t("email")}
                 formik={formik}
                 mb={1}
+                aria-label="Email input"
             />
 
             {/* Password input field */}
@@ -89,12 +90,13 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                                 edge="end"
                                 color="primary"
                                 sx={{ visibility: "visible" }}
+                                aria-label="Toggle password visibility"
                             >
                                 {showPassword ? (
                                     <Visibility />
                                 ) : (
                                     <VisibilityOff />
-                                    
+
                                 )}
                             </IconButton>
                         </InputAdornment>
@@ -120,12 +122,13 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                                 }
                                 edge="end"
                                 color="primary"
+                                aria-label="Toggle confirm password visibility"
                             >
                                 {showConfirmPassword ? (
                                     <Visibility />
                                 ) : (
                                     <VisibilityOff />
-                                    
+
                                 )}
                             </IconButton>
                         </InputAdornment>
@@ -150,6 +153,7 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                             ? 0.5
                             : 1,
                 }}
+                aria-label="Continue with email/password"
             />
 
             {/* Divider between signup methods */}
@@ -176,6 +180,7 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                     width: "100%",
                     mb: 2,
                 }}
+                aria-label="Continue with Google"
             />
         </form>
     );

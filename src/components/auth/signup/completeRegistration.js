@@ -55,7 +55,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
     });
 
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} aria-label="Registration form">
             {/* Name input field */}
             <CustomInput
                 name={"name"}
@@ -63,6 +63,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
                 formik={formik}
                 mb={1}
                 inputProps={{ autoComplete: "name" }}
+                aria-label="Name input"
             />
 
             {/* Surname input field */}
@@ -72,12 +73,14 @@ const CompleteRegistration = ({ t, handleClose }) => {
                 formik={formik}
                 mb={1}
                 inputProps={{ autoComplete: "sur-name" }}
+                aria-label="Surname input"
             />
 
             {/* Mobile phone input field */}
             <Box sx={{ mb: 0.8 }}>
                 <Typography
                     sx={{ mb: 0.5, fontSize: "12px", color: neutral.neutral1 }}
+                    aria-label="Mobile phone label"
                 >
                     Mobile phone
                 </Typography>
@@ -92,6 +95,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
                         borderRadius: "8px",
                     }}
                     inputProps={{ autoComplete: "tel" }}
+                    aria-label="Mobile phone input"
                 />
             </Box>
 
@@ -102,6 +106,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
                 formik={formik}
                 mb={1}
                 inputProps={{ autoComplete: "job-title" }}
+                aria-label="Work title input"
             />
 
             {/* Company input field */}
@@ -111,6 +116,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
                 formik={formik}
                 mb={1}
                 inputProps={{ autoComplete: "organization" }}
+                aria-label="Company input"
             />
 
             {/* City input field */}
@@ -120,6 +126,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
                 formik={formik}
                 mb={3}
                 inputProps={{ autoComplete: "address-level2" }}
+                aria-label="City input"
             />
 
             {/* Terms and conditions checkbox */}
@@ -136,6 +143,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
                         borderRadius: "4px",
                         cursor: "pointer",
                     }}
+                    aria-label="Terms and conditions checkbox"
                 />
                 <label>
                     {" "}
@@ -163,6 +171,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
                         borderRadius: "4px",
                         cursor: "pointer",
                     }}
+                    aria-label="Marketing emails checkbox"
                 />
                 <label>
                     <Typography variant="body">
@@ -182,15 +191,16 @@ const CompleteRegistration = ({ t, handleClose }) => {
                     width: "100%",
                     opacity:
                         !formik?.values?.name ||
-                        !formik?.values?.surname ||
-                        !formik?.values?.mobile ||
-                        !formik?.values?.workTitle ||
-                        !formik?.values?.company ||
-                        !formik?.values?.city ||
-                        !formik?.values?.terms
+                            !formik?.values?.surname ||
+                            !formik?.values?.mobile ||
+                            !formik?.values?.workTitle ||
+                            !formik?.values?.company ||
+                            !formik?.values?.city ||
+                            !formik?.values?.terms
                             ? 0.5
                             : 1,
                 }}
+                aria-label="Register button"
             />
         </form>
     );

@@ -8,6 +8,9 @@ import { InputLabel, Stack, Typography } from "@mui/material";
  * @param {string} name - Name attribute for the input field
  * @param {number} mb - Margin bottom spacing (default: 0)
  * @param {string} type - Input type attribute (default: "text")
+ * @param {string} placeholder - Placeholder text for the input field
+ * @param {string} value - Value of the input field
+ * @param {function} onChange - Handler function for input field changes
  */
 export default function CustomInput1({
     label,
@@ -68,6 +71,7 @@ export default function CustomInput1({
                         },
                     },
                 }}
+                aria-label={`Input field for ${label}`}
             />
         </Stack >
     );

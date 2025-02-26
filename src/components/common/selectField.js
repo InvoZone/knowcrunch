@@ -28,7 +28,7 @@ export default function TransitionsPopper({ options }) {
     const id = canBeOpen ? "transition-popper" : undefined;
 
     return (
-        <div>
+        <div aria-label="Sort Options">
             <CustomBtn
                 variant="outlined"
                 onClick={handleClick}
@@ -49,6 +49,7 @@ export default function TransitionsPopper({ options }) {
                 txtVariant={"titleLg"}
                 fontWeight="400"
                 color={open ? "secondary" : "neutral.neutral1"}
+                aria-label={`Sort by ${t(sort)}`}
             />
             <Popover
                 id={id}
@@ -73,6 +74,7 @@ export default function TransitionsPopper({ options }) {
                         borderRadius: 2,
                     },
                 }}
+                aria-label="Sort Options Popover"
             >
                 <Box
                     sx={{
@@ -81,6 +83,7 @@ export default function TransitionsPopper({ options }) {
                         bgcolor: "secondary",
                     }}
                     component={"div"}
+                    aria-label="Sort Options List"
                 >
                     {options?.map((el) => (
                         <Box
@@ -94,6 +97,7 @@ export default function TransitionsPopper({ options }) {
                             height={40}
                             minWidth={200}
                             onClick={() => onSelect(el?.value)}
+                            aria-label={`Select ${el?.value}`}
                         >
                             <Typography
                                 variant="titleLg"

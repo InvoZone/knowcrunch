@@ -33,7 +33,7 @@ const ForgotPasswordForm = ({ t, handleClose }) => {
 
 
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} aria-label="Forgot Password Form">
             {/* Email input field */}
             <CustomInput
                 name={"email"}
@@ -41,6 +41,7 @@ const ForgotPasswordForm = ({ t, handleClose }) => {
                 formik={formik}
                 mb={1}
                 autoComplete="email"
+                aria-label="Email input"
             />
 
             {/* Submit button for email/password login */}
@@ -58,6 +59,7 @@ const ForgotPasswordForm = ({ t, handleClose }) => {
                             ? 0.5
                             : 1,
                 }}
+                aria-label="Send Reset Link"
             />
 
 

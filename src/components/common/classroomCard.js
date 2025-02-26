@@ -28,6 +28,7 @@ export default function ClassroomCard({
             p={2}
             mx={homepage ? 1 : 0}
             component={"div"}
+            aria-label="Classroom Card"
         >
             <Image
                 src={cardThumb}
@@ -36,6 +37,7 @@ export default function ClassroomCard({
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                 className="imgFitBG"
                 priority
+                aria-label="Classroom Thumbnail"
             />
             {/* Course thumbnail section with play button overlay */}
             <Box
@@ -46,6 +48,7 @@ export default function ClassroomCard({
                     borderRadius: 1,
                     position: "relative",
                 }}
+                aria-label="Course Thumbnail"
             >
                 {/* Best seller badge and heart icon */}
                 <Box
@@ -56,6 +59,7 @@ export default function ClassroomCard({
                         justifyContent: "space-between",
                         width: "100%",
                     }}
+                    aria-label="Best Seller Badge and Heart Icon"
                 >
                     <CustomBtn
                         txtVariant={"body2"}
@@ -66,6 +70,7 @@ export default function ClassroomCard({
                             backgroundColor: "accents.bubble1",
                             borderRadius: 0.5,
                         }}
+                        aria-label="Best Seller Badge"
                     />
                     <Image src="/icons/heart.svg" height={24} width={24} alt="heart" loading="lazy" />
                 </Box>
@@ -122,6 +127,7 @@ export default function ClassroomCard({
                 }}
                 txtVariant="body2"
                 color="secondary.main"
+                aria-label="Course Type Badge"
             />
 
             {/* Course metadata: language, rating, and duration */}
@@ -195,6 +201,7 @@ export default function ClassroomCard({
                     sx={{ backgroundColor: "base1.default", width: "100%" }}
                     txtVariant="h6"
                     color="secondary"
+                    aria-label="Enrollment Button"
                 />
             </Box>
         </Box>

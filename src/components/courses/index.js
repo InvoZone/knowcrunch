@@ -73,7 +73,7 @@ const Courses = () => {
     };
 
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" aria-label="Course Listings Container">
             {/* Filter drawer component */}
             <FilterDrawer
                 open={filterOpen}
@@ -82,8 +82,9 @@ const Courses = () => {
                 selectedFilters={selectedFilters}
                 handleChange={handleFilterChange}
                 closeFilterBar={closeFilterBar}
+                aria-label="Filter Drawer"
             >
-                <PageHeadingDesc heading={t1("allCourses")} />
+                <PageHeadingDesc heading={t1("allCourses")} aria-label="All Courses Heading" />
 
                 {/* Filter and sort controls */}
                 <Box
@@ -91,6 +92,7 @@ const Courses = () => {
                     py={3}
                     justifyContent={"space-between"}
                     display={"flex"}
+                    aria-label="Filter and Sort Controls"
                 >
                     <CustomBtn
                         variant="outlined"
@@ -113,8 +115,9 @@ const Courses = () => {
                         fontWeight="400"
                         color={filterOpen ? "secondary" : "neutral.neutral1"}
                         onClick={handleOpen}
+                        aria-label="Toggle Filter Button"
                     />
-                    <SelectField options={courseSortFilters} />
+                    <SelectField options={courseSortFilters} aria-label="Sort Courses Select" />
                 </Box>
 
                 {/* Active filters display */}
@@ -125,6 +128,7 @@ const Courses = () => {
                         gap={2}
                         display={"flex"}
                         flexWrap={"wrap"}
+                        aria-label="Active Filters Display"
                     >
                         {/* Display selected filter buttons */}
                         {selectedFilters?.map((el) => (
@@ -146,6 +150,7 @@ const Courses = () => {
                                 color="base1.default"
                                 name={t(el)}
                                 onClick={() => removeFilter(el)}
+                                aria-label={`Remove ${t(el)} Filter Button`}
                             />
                         ))}
                         {/* Clear all filters button */}
@@ -159,12 +164,13 @@ const Courses = () => {
                             txtVariant={"h6"}
                             color="base1.default"
                             onClick={handleClearFilters}
+                            aria-label="Clear All Filters Button"
                         />
                     </Box>
                 )}
 
                 {/* Course grid layout */}
-                <Grid2 container justifyContent={"center"}>
+                <Grid2 container justifyContent={"center"} aria-label="Course Grid Layout">
                     <Grid2
                         container
                         size={{
@@ -180,6 +186,7 @@ const Courses = () => {
                             <Grid2
                                 key={`course_${ind}`}
                                 size={{ xs: 12, sm: 12, md: 6, lg: 4 }}
+                                aria-label={`Course ${ind + 1}`}
                             >
                                 <CourseCard discountTag={true} />
                             </Grid2>
@@ -189,6 +196,7 @@ const Courses = () => {
                             size={12}
                             justifyContent={"center"}
                             display={"flex"}
+                            aria-label="Pagination Controls"
                         >
                             <CustomPagination />
                         </Grid2>

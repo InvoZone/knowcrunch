@@ -64,12 +64,14 @@ const Login = () => {
                 color="secondary"
                 sx={{ minWidth: 100 }}
                 onClick={handleOpen}
+                aria-label="Login button"
             />
 
             {/* Login dialog containing the form */}
             <CustomDialog
                 open={loginPopup}
                 handleClose={handleClose}
+                aria-label="Login dialog"
             >
                 {/* Dialog heading */}
                 <Typography variant="h4" color="tertiary" pb={3}>
@@ -91,6 +93,7 @@ const Login = () => {
                                 color="link.light"
                                 component={"span"}
                                 sx={{ cursor: "pointer" }}
+                                aria-label="Sign up link"
                             >
                                 {t("signup")}
                             </Typography>

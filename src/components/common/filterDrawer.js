@@ -44,7 +44,7 @@ function FilterDrawer(props) {
 
     // Drawer content component
     const drawer = (
-        <div>
+        <div aria-label="Filter options">
             {/* Header section with title and close button */}
             <Box
                 component={"div"}
@@ -52,7 +52,7 @@ function FilterDrawer(props) {
                 justifyContent={"space-between"}
                 alignItems={"center"}
             >
-                <Typography variant="h4" pb={1} color="base1.dark4">
+                <Typography variant="h4" pb={1} color="base1.dark4" aria-label="Filter by">
                     {t("filterBy")}
                 </Typography>
                 <CloseOutlined
@@ -61,12 +61,13 @@ function FilterDrawer(props) {
                         display: { xs: "block", lg: "none" },
                     }}
                     onClick={handleClose}
+                    aria-label="Close filter drawer"
                 />
             </Box>
             {/* Filter options mapping */}
             {filters?.map((el) => (
                 <Box component={"div"} key={el?.id} pb={1}>
-                    <Typography variant="h6" py={0.5} color="base1.dark4">
+                    <Typography variant="h6" py={0.5} color="base1.dark4" aria-label={`Filter option: ${el?.value}`}>
                         {t(el?.value)}
                     </Typography>
                     <FormGroup pb={1}>
@@ -77,11 +78,12 @@ function FilterDrawer(props) {
                                 label={t(`${e?.value}`)}
                                 onChange={(event) => handleChange(event, e)}
                                 name={e?.value}
+                                aria-label={`Filter option: ${e?.value}`}
                             />
                         ))}
                     </FormGroup>
                     {el?.filters?.length > 5 && (
-                        <Typography pt={1} variant="h6" color="base1.default">
+                        <Typography pt={1} variant="h6" color="base1.default" aria-label="Show more options">
                             Show more
                         </Typography>
                     )}
@@ -127,6 +129,7 @@ function FilterDrawer(props) {
                             pt: "128px",
                         },
                     }}
+                    aria-label="Mobile filter drawer"
                 >
                     {drawer}
                 </Drawer>
@@ -148,6 +151,7 @@ function FilterDrawer(props) {
                         },
                     }}
                     open={open}
+                    aria-label="Desktop filter drawer"
                 >
                     {drawer}
                 </Drawer>

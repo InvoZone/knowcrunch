@@ -10,6 +10,7 @@ export default function CustomPagination() {
                 hideNextButton={true}
                 hidePrevButton={true}
                 size="large"
+                aria-label="Custom pagination"
                 sx={{
                     "& .MuiPagination-text": {
                         color: "base1.dark4",
