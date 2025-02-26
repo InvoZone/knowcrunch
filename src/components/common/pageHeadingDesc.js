@@ -4,10 +4,10 @@ const PageHeadingDesc = ({ heading, subHeading }) => {
     return (
         <>
             {/* Main content header */}
-            <Typography variant="h2" color="base1.dark4" aria-label="Page heading">
+            <Typography variant="h2" color="base1.dark4">
                 {heading}
             </Typography>
-            <Typography variant="titleMd" color="base1.dark4" aria-label="Page subheading">
+            <Typography variant="titleMd" color="base1.dark4">
                 {subHeading}
             </Typography>
         </>
