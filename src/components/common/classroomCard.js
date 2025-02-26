@@ -139,6 +139,7 @@ export default function ClassroomCard({
                 display={"flex"}
                 gap={0.5}
                 sx={{ flexWrap: "wrap" }}
+                aria-label="Course Metadata"
             >
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image
@@ -182,7 +183,7 @@ export default function ClassroomCard({
                     </Typography>
                 </Box>
                 {/* Duration display */}
-                <Box component={"div"} display={"flex"} alignItems={"center"}>
+                <Box component={"div"} display={"flex"} alignItems={"center"} aria-label="Course Duration">
                     <Image
                         src="/icons/clockhour.svg"
                         alt="clockIcon"

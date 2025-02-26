@@ -54,7 +54,7 @@ const Homepage = () => {
                 }}
                 className={styles.arrowStyle}
             >
-                <div onClick={onClick}>
+                <div onClick={onClick} aria-label="Next slide">
                     <Image src="/icons/nextArrow.svg" height={40} width={40} alt="nextArrow" />
                 </div>
             </Box>
@@ -69,7 +69,7 @@ const Homepage = () => {
                 sx={{top: props?.top !== undefined ? `${props.top} !important` : "47% !important", left: { xs: props?.val || -24, sm: -24 }, display: props.isDisabled ? "none !important" : "block !important", }}
                 className={styles.arrowStyle}
             >
-                <div onClick={onClick}>
+                <div onClick={onClick} aria-label="Previous slide">
                     <Image
                         src="/icons/previousArrow.svg"
                         height={40}
@@ -339,6 +339,7 @@ const Homepage = () => {
                             marginRight:"20px",
                             cursor: "pointer",
                         }}
+                        aria-label="View all courses"
                     >
                         View all courses
                     </Typography>
@@ -570,6 +571,7 @@ const Homepage = () => {
                                                         marginRight:"20px",
                                                         cursor: "pointer",
                                                     }}
+                                                    aria-label="View courses"
                                                 >
                                                     View courses
                                                 </Typography>
@@ -614,6 +616,7 @@ const Homepage = () => {
                             marginRight:"20px",
                             cursor: "pointer",
                         }}
+                        aria-label="View courses"
                     >
                         View courses
                     </Typography>
@@ -678,6 +681,7 @@ const Homepage = () => {
                             marginRight:"20px",
                             cursor: "pointer",
                         }}
+                        aria-label="View all instructors"
                     >
                         View all instructors
                     </Typography>

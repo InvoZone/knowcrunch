@@ -38,9 +38,9 @@ export default function ProfileCard({ profileImage, name, title, company, mx = 0
                     style={{
                         width: "100%",
                         height: "100%",
-                        objectFit: "conver",
                     }}
                     loading="lazy"
+                    aria-label="Profile image"
                 />
             </Box>
 

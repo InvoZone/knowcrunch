@@ -27,6 +27,7 @@ const FooterAccordion = ({ title, links }) => {
             <Accordion
                 expanded={expanded}
                 onChange={handleChange}
+                aria-label={`Accordion for ${title}`}
                 sx={{
                     backgroundColor: "transparent",
                     border: "none",
@@ -46,6 +47,7 @@ const FooterAccordion = ({ title, links }) => {
                     expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
+                    aria-label={`Expand ${title}`}
                     sx={{
                         borderBottom: "1px solid #244891",
                         padding: 0,
@@ -64,6 +66,7 @@ const FooterAccordion = ({ title, links }) => {
                     </Typography>
                     </AccordionSummary>
                     <AccordionDetails
+                    aria-label={`Details for ${title}`}
                     sx={{
                         backgroundColor: "transparent",
                         padding: "8px 0",

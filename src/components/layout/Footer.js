@@ -115,6 +115,7 @@ const Footer = () => {
                                         label="First name"
                                         variant="footerInput"
                                         margin="normal"
+                                        aria-label="First name"
                                     />
                                 </Box>
                                 <Box>
@@ -123,6 +124,7 @@ const Footer = () => {
                                         placeholder="Surname"
                                         label="Surname"
                                         margin="normal"
+                                        aria-label="Surname"
                                     />
                                 </Box>
                                 <Box>
@@ -131,12 +133,14 @@ const Footer = () => {
                                         placeholder="E-mail"
                                         label="E-mail"
                                         margin="normal"
+                                        aria-label="Email"
                                     />
                                 </Box>
                                 <Box className="input_style">
                                     <PhoneInput
                                         placeholder="Mobile number"
                                         country={"us"}
+                                        aria-label="Mobile number"
                                     />
                                 </Box>
                             </Box>
@@ -149,6 +153,7 @@ const Footer = () => {
                                     color: "white",
                                     borderRadius: "8px",
                                 }}
+                                aria-label="Subscribe"
                             >
                                 <Typography variant="h6">Subscribe</Typography>
                             </Button>

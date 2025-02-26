@@ -15,6 +15,7 @@ export default function Whyknow() {
                     src={whyknowcrunch}
                     alt="diploma"
                     priority
+                    aria-label="Diploma image"
                 />
             </Box>    
             <Box className={styles.typo}>
@@ -31,6 +32,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -39,7 +41,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Expertise You Can Trust">
                                 Expertise You Can Trust
                             </Typography>
                             <Typography
@@ -58,6 +60,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -66,7 +69,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Learn What Matters Most">
                                 Learn What Matters Most
                             </Typography>
                             <Typography
@@ -85,6 +88,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -93,7 +97,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Certifications That Add Value">
                                 Certifications That Add Value
                             </Typography>
                             <Typography
@@ -112,6 +116,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -120,7 +125,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Always Up-to-Date">
                                 Always Up-to-Date{" "}
                             </Typography>
                             <Typography
@@ -139,6 +144,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -147,7 +153,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Real Results">
                                 Real Results{" "}
                             </Typography>
                             <Typography

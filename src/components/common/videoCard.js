@@ -24,10 +24,17 @@ export default function VideoCard() {
                     width={50}
                     alt="playBtnIcon"
                     loading="lazy"
+                    aria-label="Play button"
                 />
             </Box>
             <Box component={"div"} borderRadius={4} className={styles.img}>
-                <Image src={videoThumb} alt='video img' height={228} className="radius-16" />
+                <Image 
+                    src={videoThumb} 
+                    alt='video img' 
+                    height={228} 
+                    className="radius-16" 
+                    aria-label="Video thumbnail"
+                />
             </Box>
             {/* <iframe
                 width="100%"

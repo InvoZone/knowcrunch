@@ -39,6 +39,7 @@ const links = () => {
                         key={index}
                         className={`${styles.logoItem} ${index == selected ? styles.selected : ""}`}
                         onClick={() => handleSelect(index)}
+                        aria-label={`Select ${item}`}
                     >
                         <Typography sx={{ width: "max-content" }}>
                             {item}
