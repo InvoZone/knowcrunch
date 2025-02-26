@@ -41,6 +41,7 @@ const Homepage = () => {
     const theme = useTheme();
     const { primary, base1, link, neutral } = theme.palette;
     const isTab = useMediaQuery("(max-width:1200px)");
+    const isMob = useMediaQuery("(max-width:730px)");
 
     const Arrow = React.memo((props) => {
         const { onClick } = props;
@@ -249,15 +250,31 @@ const Homepage = () => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 3, // Dynamically set slidesToShow
+        slidesToShow: 3.40, // Dynamically set slidesToShow
         slidesToScroll: 1,
         arrows: true,
         beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, video: newIndex })),
         prevArrow: <PrevArrow isDisabled={currentSlide.video === 0} top={"42%"}/>,
-        nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 3} top={"42%"}/>,
+        nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 3.40} top={"42%"}/>,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1728,
+                settings: {
+                    slidesToShow: 3.40,
+                    slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 3.40} val={-20} />,
+                },
+            },
+            {
+                breakpoint: 1280,
+                settings: {
+                    slidesToShow: 3.10,
+                    slidesToScroll: 1,
+                    nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 3.10} val={-20} />,
+                },
+            },
+            {
+                breakpoint: 1200,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
@@ -265,7 +282,7 @@ const Homepage = () => {
                 },
             },
             {
-                breakpoint: 991,
+                breakpoint: 900,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
@@ -280,19 +297,11 @@ const Homepage = () => {
                     nextArrow: <Arrow isDisabled={currentSlide.mvideoain >= totalSlides - 1} val={-20} />,
                 },
             },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 1} val={-20} />,
-                },
-            },
         ],
     }), [currentSlide?.video]);
 
     return (
-        <Box sx={{ padding: 0 }} className={styles.mainconatiner}>
+        <Box sx={{ padding: "0 !important" }} className={styles.mainconatiner}>
             {/* Bannner section */}
             <Box>
                 <Banner />
@@ -302,8 +311,7 @@ const Homepage = () => {
             </Box>
             {/* popular e-learning */}
             <Container
-                maxWidth="lg"
-                sx={{ padding: 0 }}
+                sx={{ padding: 0, maxWidth:"1360px !important" }}
                 className={styles.mainconatiner}
             >
                 <Box className={styles.conatiner} sx={{ padding: "24px 48px 48px 48px" }}>
@@ -313,14 +321,13 @@ const Homepage = () => {
                     >
                         Popular E-learning Courses
                     </Typography>
-                    <Slider {...settings} className="sliderContaierCard"
+                    <Slider {...settings} className="sliderContaier"
                     >
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
-                        <CourseCard customClass={true} width='auto' minWidth={cardWidth} mx={1.3} />
+                        {[...Array(6)].map((_, index) => (
+                            <Box key={index}>
+                                <CourseCard customClass={true} width= "100%" minWidth={cardWidth}/>
+                            </Box>
+                        ))}
                     </Slider>
                     <Typography
                         variant="h6"
@@ -328,7 +335,8 @@ const Homepage = () => {
                             color: link.main,
                             display: "flex",
                             justifyContent: "flex-end",
-                            marginTop: "24px",
+                            marginTop: "20px",
+                            marginRight:"20px",
                             cursor: "pointer",
                         }}
                     >
@@ -398,7 +406,7 @@ const Homepage = () => {
                                                     borderRadius: "8px",
                                                     display: "flex",
                                                     flexDirection: "column",
-                                                    gap: "16px",
+                                                    // gap: "16px",
                                                     mb: 1,
                                                 }}
                                             >
@@ -406,6 +414,7 @@ const Homepage = () => {
                                                     variant="h3"
                                                     sx={{
                                                         color: base1.dark4,
+                                                        marginBottom:"8px"
                                                     }}
                                                 >
                                                     Content Marketing
@@ -414,7 +423,7 @@ const Homepage = () => {
                                                     variant="body"
                                                     sx={{
                                                         color: "neutral.neutral1",
-                                                        mt: -1.5,
+                                                        marginBottom:"16px"
                                                     }}
                                                 >
                                                     Define and develop digital
@@ -423,7 +432,7 @@ const Homepage = () => {
                                                 </Typography>
                                                 <Box
                                                     className={styles.markValue}
-                                                    sx={{ mb: 1, mt: -1 }}
+                                                    sx={{ mt: -1 }}
                                                 >
                                                     <Typography
                                                         variant="h5"
@@ -433,7 +442,7 @@ const Homepage = () => {
                                                     </Typography>
                                                     <Typography
                                                         variant="body"
-                                                        sx={{ color: neutral.neutral1 }}
+                                                        sx={{ color: neutral.neutral1, marginBottom:"12px" }}
                                                     >
                                                         median salary in Greece, for
                                                         this career path in 2023
@@ -441,7 +450,7 @@ const Homepage = () => {
                                                 </Box>
                                                 <Box
                                                     className={styles.markValue}
-                                                    sx={{ mb: 1 }}
+                                                    sx={{ marginTop: "12px" }}
                                                 >
                                                     <Typography
                                                         variant="h5"
@@ -461,7 +470,11 @@ const Homepage = () => {
                                                     className={styles.basicTypo}
                                                     sx={{
                                                         color: "neutral.neutral1",
-                                                        mt: 1,
+                                                        display:"flex",
+                                                        flexDirection:"column",
+                                                        gap:"16px",
+                                                        marginTop:"16px"
+                                                        // marginBottom:"16px"
                                                     }}
                                                 >
                                                     <Box className={styles.tickMark}>
@@ -535,10 +548,12 @@ const Homepage = () => {
                                             >
                                                 <CourseCard
                                                     customClass={true}
+                                                    newtag={true}
                                                     discountTag={true}
                                                 />
                                                 {!isTab && (
                                                     <CourseCard
+                                                        CustomButton={false}
                                                         customClass={true}
                                                         discountTag={true}
                                                     />
@@ -551,7 +566,8 @@ const Homepage = () => {
                                                         color: link.main,
                                                         display: "flex",
                                                         justifyContent: "flex-end",
-                                                        marginTop: "24px",
+                                                        marginTop: "20px",
+                                                        marginRight:"20px",
                                                         cursor: "pointer",
                                                     }}
                                                 >
@@ -567,8 +583,7 @@ const Homepage = () => {
                 </Box>
                 {/* classroom courses */}
             <Container
-                maxWidth="lg"
-                sx={{ padding: 0 }}
+                sx={{ padding: 0, maxWidth:"1360px !important" }}
                 className={styles.mainconatiner}
             >
                 <Box className={styles.conatiner} sx={{ padding: "48px" }}>
@@ -580,7 +595,7 @@ const Homepage = () => {
                     </Typography>
                     <Slider
                         {...classroomSettigs}
-                        className={styles.sliderContaier}
+                        className={"sliderContaier"}
                     >
                         <ClassroomCard homepage={true} />
                         <ClassroomCard homepage={true} />
@@ -595,7 +610,8 @@ const Homepage = () => {
                             color: link.main,
                             display: "flex",
                             justifyContent: "flex-end",
-                            marginTop: "24px",
+                            marginTop: "20px",
+                            marginRight:"20px",
                             cursor: "pointer",
                         }}
                     >
@@ -658,7 +674,8 @@ const Homepage = () => {
                             color: link.main,
                             display: "flex",
                             justifyContent: "flex-end",
-                            marginTop: "24px",
+                            marginTop: "20px",
+                            marginRight:"20px",
                             cursor: "pointer",
                         }}
                     >
@@ -673,7 +690,7 @@ const Homepage = () => {
                     >
                         Video testimonials
                     </Typography>
-                    <Slider {...videoSettigs} className={"sliderContaier"}>
+                    <Slider {...videoSettigs}>
                         <VideoCard />
                         <VideoCard />
                         <VideoCard />
@@ -688,8 +705,7 @@ const Homepage = () => {
                 sx={{ backgroundColor: neutral.neutral10 }}
             >    
                 <Container
-                    maxWidth="lg"
-                    sx={{ padding: 0 }}
+                    sx={{ padding: 0, maxWidth:"1360px !important" }}
                     className={styles.mainconatiner}
                 >
                     <Box
@@ -702,8 +718,7 @@ const Homepage = () => {
             </Box>    
                 {/* WhykowCrunch */}
             <Container
-                maxWidth="lg"
-                sx={{ padding: 0 }}
+                sx={{ padding: 0,  maxWidth:"1360px !important" }}
                 className={styles.mainconatiner}
             >
                 <Box className={styles.conatiner} sx={{ padding: "48px" }}>

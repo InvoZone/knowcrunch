@@ -9,19 +9,20 @@ export default function Whyknow() {
 
     return (
         <Box className={styles.main}>
-            <Image
-                className={styles.img}
-                src={whyknowcrunch}
-                alt="diploma"
-                priority
-            />
+            <Box className={styles.imgBox}>
+                <Image
+                    className={styles.img}
+                    src={whyknowcrunch}
+                    alt="diploma"
+                    priority
+                />
+            </Box>    
             <Box className={styles.typo}>
                 <Typography variant="h2" sx={{ color: base1.dark4 }}>
                     Why Knowcrunch?
                 </Typography>
                 <Box
-                    className={styles.basicTypo}
-                    sx={{ color: neutral.neutral1 }}
+                    sx={{ color: neutral.neutral1, display:"flex", flexDirection:"column", gap:"16px" }}
                 >
                     <Box className={styles.tickMark}>
                         <Image

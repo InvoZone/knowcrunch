@@ -1,9 +1,9 @@
 .main {
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    gap: 48px;
     align-items: center;
-
+    padding: 0 48px;
     .img {
         width: 354px !important;
         height: 249px !important;
@@ -14,8 +14,13 @@
     }
     @media (max-width: 899px) {
         flex-direction: column;
+        padding: 0;
         // justify-content: center;
         // text-align: center;
+    }
+    @media (max-width: 600px) {
+        padding: 0;
+        gap: 24px;
     }
 }
 .typo {

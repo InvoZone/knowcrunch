@@ -14,7 +14,7 @@ import FooterLinksMobile from "../Footer/Getnews/mobileFooterLinks";
 
 const Footer = () => {
     const theme = useTheme();
-    const isMed = useMediaQuery(theme.breakpoints.down("md"));
+    const isMed = useMediaQuery("(max-width: 1090px)");
 
     return (
         <Box
