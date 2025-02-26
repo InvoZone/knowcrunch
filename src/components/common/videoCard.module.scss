@@ -1,0 +1,15 @@
+.img{
+    width: 98% !important;
+    img{
+        width: 98% !important;
+        
+        @media (max-width: 835px) {
+            padding-left: 1px !important;
+            width: 98% !important;
+        }
+        @media (max-width: 600px) {
+            padding-left: -1px !important;
+            width: 102% !important;
+        }
+    }
+}

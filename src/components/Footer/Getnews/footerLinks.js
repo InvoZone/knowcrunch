@@ -7,12 +7,13 @@ const FooterLinks = ({ title, links }) => {
             item="true"
             lg={4}
             sx={{ display: "flex", flexDirection: "column", gap: "7px" }}
+            aria-label="Footer links section"
         >
-            <Typography variant="titleLg" sx={{ mb: 1.5 }}>
+            <Typography variant="titleLg" sx={{ mb: 1.5 }} aria-label="Section title">
                 {title}
             </Typography>
             {links.map((link, index) => (
-                <Typography key={link?.id || index} variant="titleMd">
+                <Typography key={link?.id || index} variant="titleMd" aria-label={`Link to ${link}`}>
                     {link}
                 </Typography>
             ))}

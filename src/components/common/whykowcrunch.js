@@ -9,19 +9,21 @@ export default function Whyknow() {
 
     return (
         <Box className={styles.main}>
-            <Image
-                className={styles.img}
-                src={whyknowcrunch}
-                alt="diploma"
-                priority
-            />
+            <Box className={styles.imgBox}>
+                <Image
+                    className={styles.img}
+                    src={whyknowcrunch}
+                    alt="diploma"
+                    priority
+                    aria-label="Diploma image"
+                />
+            </Box>    
             <Box className={styles.typo}>
                 <Typography variant="h2" sx={{ color: base1.dark4 }}>
                     Why Knowcrunch?
                 </Typography>
                 <Box
-                    className={styles.basicTypo}
-                    sx={{ color: neutral.neutral1 }}
+                    sx={{ color: neutral.neutral1, display:"flex", flexDirection:"column", gap:"16px" }}
                 >
                     <Box className={styles.tickMark}>
                         <Image
@@ -30,6 +32,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -38,7 +41,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Expertise You Can Trust">
                                 Expertise You Can Trust
                             </Typography>
                             <Typography
@@ -57,6 +60,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -65,7 +69,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Learn What Matters Most">
                                 Learn What Matters Most
                             </Typography>
                             <Typography
@@ -84,6 +88,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -92,7 +97,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Certifications That Add Value">
                                 Certifications That Add Value
                             </Typography>
                             <Typography
@@ -111,6 +116,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -119,7 +125,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Always Up-to-Date">
                                 Always Up-to-Date{" "}
                             </Typography>
                             <Typography
@@ -138,6 +144,7 @@ export default function Whyknow() {
                             width={24}
                             height={24}
                             alt={"Tick"}
+                            aria-label="Tick icon"
                         />
                         <Box
                             sx={{
@@ -146,7 +153,7 @@ export default function Whyknow() {
                                 gap: "9px",
                             }}
                         >
-                            <Typography variant="titleLg" color="#000000">
+                            <Typography variant="titleLg" color="#000000" aria-label="Real Results">
                                 Real Results{" "}
                             </Typography>
                             <Typography

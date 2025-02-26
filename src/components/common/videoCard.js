@@ -2,6 +2,7 @@
 import { Box } from "@mui/material";
 import videoThumb from "@/assets/home/videoThumb.webp";
 import Image from "next/image";
+import * as styles from "./videoCard.module.scss";
 
 export default function VideoCard() {
     return (
@@ -23,10 +24,17 @@ export default function VideoCard() {
                     width={50}
                     alt="playBtnIcon"
                     loading="lazy"
+                    aria-label="Play button"
                 />
             </Box>
-            <Box component={"div"} borderRadius={4}>
-                <Image src={videoThumb} alt='video img' height={228} className="radius-16" />
+            <Box component={"div"} borderRadius={4} className={styles.img}>
+                <Image 
+                    src={videoThumb} 
+                    alt='video img' 
+                    height={228} 
+                    className="radius-16" 
+                    aria-label="Video thumbnail"
+                />
             </Box>
             {/* <iframe
                 width="100%"

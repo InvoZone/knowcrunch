@@ -14,7 +14,7 @@ import CustomBtn from "./customBtn";
  * language, rating, duration and enrollment button
  * 
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
- * @param {number} mx - Margin on the x-axis
+ *  * @param {number} mx - Margin on the x-axis
  * @param {boolean} discountTag - Indicates if a discount tag should be displayed
  * @param {string} width - Width of the card
  * @param {number} minWidth - Minimum width of the card
@@ -24,7 +24,9 @@ export default function CourseCard({
     mx = 0,
     discountTag = false,
     width = "100%",
-    minWidth = 100
+    minWidth = 100,
+    newtag =  false,
+    CustomButton = true
 }) {
     return (
         <Box
@@ -76,21 +78,25 @@ export default function CourseCard({
                     sx={{
                         position: "absolute",
                         display: "flex",
-                        justifyContent: "space-between",
+                        justifyContent: CustomButton ? "space-between" : "flex-end",
                         width: "100%",
-                        p: 1,
+                        p: 2,
                     }}
                     aria-label="Best Seller Badge and Heart Icon"
                 >
                     <CustomBtn
                         txtVariant={"body2"}
-                        title={"BEST SELLER"}
+                        title={newtag ? "New" :"BEST SELLER"}
                         variant="contained"
+                        color={newtag ? "secondary.main" : "tertiary.main"}
                         sx={{
                             height: 24,
-                            backgroundColor: "accents.bubble1",
+                            backgroundColor: newtag ? "base1.default": "accents.bubble1",
                             borderRadius: 1,
-                            px: "5px"
+                            color:"white",
+                            px: "5px",
+                            minWidth:"36px",
+                            display: CustomButton ? "flex" : "none", 
                         }}
                         aria-label="Best Seller Badge"
                     />
@@ -147,6 +153,7 @@ export default function CourseCard({
                     backgroundColor: "tertiary",
                     borderColor: "neutral.neutral9",
                     borderRadius: "4px",
+                    padding: "0 5px",
                     mb: 1,
                     mt: 0.5,
                 }}
@@ -185,7 +192,7 @@ export default function CourseCard({
                         pl={0.5}
                         aria-label="Rating"
                     >
-                        4.5{" "}
+                        4,5{" "}
                         <Typography
                             variant="body2"
                             fontWeight={400}
@@ -223,6 +230,7 @@ export default function CourseCard({
             {enrollButton && (
                 <Box component={"div"} pt={5} aria-label="Enrollment Section">
                     {discountTag && (
+                        <Box sx={{display:"flex"}}>
                         <Typography
                             variant="body2"
                             color="error.main"
@@ -230,8 +238,10 @@ export default function CourseCard({
                             pb={0.5}
                             aria-label="Discount Tag"
                         >
-                            50% off 100 €
+                            50%&nbsp; off &nbsp;
                         </Typography>
+                        <Typography color="error.main" variant="body2" sx={{ textDecoration: "line-through" }}> 100 €</Typography>
+                        </Box>
                     )}
                     <CustomBtn
                         title="Enrol 100€"

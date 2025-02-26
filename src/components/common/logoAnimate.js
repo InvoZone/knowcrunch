@@ -35,6 +35,7 @@ const LogoAnimate = () => {
             onMouseEnter={handleMouseEnter}
             maxWidth="lg"
             sx={{ padding: "0 !important", position: "relative", maxWidth:"1360px !important" }}
+            aria-label="Logo animation container"
         >
             <Box
                 sx={{
@@ -119,6 +120,7 @@ const LogoAnimate = () => {
                                 loading="lazy"
                                 src={item}
                                 alt={`logo-${index}`}
+                                aria-label={`Logo for ${item}`}
                             />
                         </Box>
                     ))}
