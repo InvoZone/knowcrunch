@@ -12,7 +12,12 @@ import CustomBtn from "./customBtn";
  * CourseCard Component
  * Displays a card with course information including thumbnail, title, description,
  * language, rating, duration and enrollment button
+ * 
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
+ * @param {number} mx - Margin on the x-axis
+ * @param {boolean} discountTag - Indicates if a discount tag should be displayed
+ * @param {string} width - Width of the card
+ * @param {number} minWidth - Minimum width of the card
  */
 export default function CourseCard({
     enrollButton = true,

@@ -1,6 +1,11 @@
 import PageContainer from "@/components/common/pageContainer";
 import CareerPath from "@/components/careerPath";
 
+/**
+ * Metadata for the Career Path page.
+ * This object contains metadata for the Career Path page, including title, description, Open Graph, and Twitter metadata.
+ * @type {Object}
+ */
 export const metadata = {
     title: "Career Path",
     description: "Explore your career path",
@@ -27,7 +32,11 @@ export const metadata = {
     },
 };
 
-
+/**
+ * CareerPathPage component.
+ * This component renders the Career Path page within a PageContainer.
+ * @returns {JSX.Element} The Career Path page component.
+ */
 export default function CareerPathPage() {
     return (
         <PageContainer>
