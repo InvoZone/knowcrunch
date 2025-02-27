@@ -97,6 +97,13 @@ theme.typography = {
     lineHeight: "20px",
     letterSpacing: "0.001em",
   },
+  titleSmall: {
+    fontFamily: "Foco",
+    fontSize: 18,
+    fontWeight: 400,
+    lineHeight: "24px",
+    letterSpacing: "0.0017em",
+  },
   titleSm: {
     fontFamily: "Foco",
     fontSize: 14,
@@ -139,6 +146,7 @@ theme.typography = {
     lineHeight: "16px",
     letterSpacing: "0.005em",
   },
+  
 };
 
 export default theme;

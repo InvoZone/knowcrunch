@@ -43,6 +43,48 @@ const Homepage = () => {
     const { primary, base1, link, neutral } = theme.palette;
     const isTab = useMediaQuery("(max-width:1200px)");
     const isMob = useMediaQuery("(max-width:730px)");
+    const isMed = useMediaQuery("(max-width:991px)");
+    const Home = useMediaQuery("(max-width:1281px)");
+
+    const instructors = [
+        {
+            "profileImage": img1,
+            "title": "CEO",
+            "company": "@KnowCrunch",
+            "name": "Tolis Aivalis"
+        },
+        {
+            "profileImage": img2,
+            "title": "Managing Director",
+            "company": "Olive Creative Marketing House",
+            "name": "Elia Balta"
+        },
+        {
+            "profileImage": img3,
+            "title": "Founder",
+            "company": "@Content Studio",
+            "name": "Christina Dehola"
+        },
+        {
+            "profileImage": img2,
+            "title": "Managing Director",
+            "company": "Olive Creative Marketing House",
+            "name": "Elia Balta"
+        },
+        {
+            "profileImage": img1,
+            "title": "CEO",
+            "company": "@KnowCrunch",
+            "name": "Tolis Aivalis"
+        },
+        {
+            "profileImage": img3,
+            "title": "Founder",
+            "company": "@Content Studio",
+            "name": "Christina Dehola"
+        }
+    ];
+    
 
     const Arrow = React.memo((props) => {
         const { onClick } = props;
@@ -310,39 +352,31 @@ const Homepage = () => {
                     <LogoAnimate />
                 </Box>
             </Box>
-            <ScrollSection >
-                {[...Array(12)].map((_, ind) => (
-                    <CourseCard discountTag={true} width={298} key={`course_${ind}`} />
-                ))}
-            </ScrollSection>
             {/* popular e-learning */}
             <Container
                 sx={{ padding: 0, maxWidth: "1360px !important" }}
                 className={styles.mainconatiner}
             >
-                <Box className={styles.conatiner} sx={{ padding: "24px 48px 48px 48px" }}>
+                <Box className={styles.courseContainer} >
                     <Typography
                         sx={{ color: primary.main, marginBottom: "32px" }}
                         variant="h2"
                     >
                         Popular E-learning Courses
                     </Typography>
-                    <Slider {...settings} className="sliderContaier"
-                    >
-                        {[...Array(6)].map((_, index) => (
-                            <Box key={index}>
-                                <CourseCard customClass={true} width="298px" minWidth={cardWidth} />
-                            </Box>
+                    <ScrollSection >
+                        {[...Array(12)].map((_, ind) => (
+                            <CourseCard discountTag={true} width={298} key={`course_${ind}`} />
                         ))}
-                    </Slider>
+                    </ScrollSection>
                     <Typography
                         variant="h6"
                         sx={{
                             color: link.main,
                             display: "flex",
                             justifyContent: "flex-end",
-                            marginTop: "20px",
-                            marginRight: "20px",
+                            marginTop: "16.5px",
+                            marginRight:isMob ? "60px" : isMed ? "88px" : Home ? "32px" : "30px",
                             cursor: "pointer",
                         }}
                         aria-label="View all courses"
@@ -356,8 +390,7 @@ const Homepage = () => {
                 sx={{ background: neutral.neutral10 }}
             >
                 <Container
-                    maxWidth="lg"
-                    sx={{ padding: 0 }}
+                    sx={{ padding: 0, maxWidth:"1360px !important", }}
                     className={styles.mainconatiner}
                 >
                     <Box
@@ -370,7 +403,7 @@ const Homepage = () => {
                                 flexDirection: "column",
                             }}
                         >
-                            <Grid2 sx={{ marginBottom: "24px" }}>
+                            <Grid2 sx={{marginBottom: "24px" }}>
                                 <Typography variant="h2" color={base1.dark4}>
                                     Find your career path
                                 </Typography>
@@ -386,12 +419,12 @@ const Homepage = () => {
                                 <Grid2
                                     sx={{
                                         display: "flex",
-                                        gap: "16px",
                                         justifyContent: "space-between",
                                     }}
                                     className={styles.career}
                                 >
                                     <Grid2
+                                        className={styles.content}
                                         sx={{
                                             display: "flex",
                                             width: "100%",
@@ -467,7 +500,7 @@ const Homepage = () => {
                                                 </Typography>
                                                 <Typography
                                                     variant="body"
-                                                    sx={{ color: neutral.neutral1 }}
+                                                    sx={{ color: neutral.neutral1, marginBottom:"16px" }}
                                                 >
                                                     of course graduates report
                                                     positive career impact
@@ -532,8 +565,9 @@ const Homepage = () => {
                                         </Box>
                                     </Grid2>
                                     <Grid2
+                                        className={styles.course}
                                         sx={{
-                                            padding: "16px 8px",
+                                            
                                             display: "flex",
                                             flexDirection: "column",
                                             width: "100%",
@@ -544,12 +578,12 @@ const Homepage = () => {
                                         sm={12}
                                     >
                                         <Grid2
+                                            className={styles.coursecard}
                                             sx={{
                                                 display: "flex",
                                                 gap: "16px",
                                                 width: "100%",
                                                 // padding: "16px 8px",
-                                                justifyContent: "center",
                                                 alignItems: "center",
                                             }}
                                         >
@@ -557,12 +591,16 @@ const Homepage = () => {
                                                 customClass={true}
                                                 newtag={true}
                                                 discountTag={true}
+                                                width={"298px"}
+                                                minWidth={"298px"}
                                             />
                                             {!isTab && (
                                                 <CourseCard
                                                     CustomButton={false}
                                                     customClass={true}
                                                     discountTag={true}
+                                                    width={"298px"}
+                                                    minWidth={"298px"}
                                                 />
                                             )}
                                         </Grid2>
@@ -601,17 +639,11 @@ const Homepage = () => {
                     >
                         Classroom courses
                     </Typography>
-                    <Slider
-                        {...classroomSettigs}
-                        className={"sliderContaier"}
-                    >
-                        <ClassroomCard homepage={true} />
-                        <ClassroomCard homepage={true} />
-                        <ClassroomCard homepage={true} />
-                        <ClassroomCard homepage={true} />
-                        <ClassroomCard homepage={true} />
-                        <ClassroomCard homepage={true} />
-                    </Slider>
+                    <ScrollSection >
+                        {[...Array(12)].map((_, ind) => (
+                            <ClassroomCard width={isMed ? "298px" : Home ? "378px" : "405px"} homepage={true} key={`course_${ind}`} />
+                        ))}
+                    </ScrollSection>
                     <Typography
                         variant="h6"
                         sx={{
@@ -636,47 +668,19 @@ const Homepage = () => {
                     >
                         Our instructors
                     </Typography>
-                    <Slider
-                        {...instructorSettigs}
-                        className={"sliderContaier"}
-                    >
-                        <InstructorCard
-                            profileImage={img1}
-                            title="CEO"
-                            company="@KnowCrunch"
-                            name="Tolis Aivalis"
-                        />
-                        <InstructorCard
-                            profileImage={img2}
-                            title="Managing Director"
-                            company="Olive Creative Marketing House"
-                            name="Elia Balta"
-                        />
-                        <InstructorCard
-                            profileImage={img3}
-                            title="Founder"
-                            company="@Content Studio"
-                            name="Christina Dehola"
-                        />
-                        <InstructorCard
-                            profileImage={img2}
-                            title="Managing Director"
-                            company="Olive Creative Marketing House"
-                            name="Elia Balta"
-                        />
-                        <InstructorCard
-                            profileImage={img1}
-                            title="CEO"
-                            company="@KnowCrunch"
-                            name="Tolis Aivalis"
-                        />
-                        <InstructorCard
-                            profileImage={img3}
-                            title="Founder"
-                            company="@Content Studio"
-                            name="Christina Dehola"
-                        />
-                    </Slider>
+                    <ScrollSection >
+                    {instructors.map((instructor, index) => (
+                            <InstructorCard
+                                key={`instructor_${index}`}
+                                height={366}
+                                width={260}
+                                profileImage={instructor.profileImage}
+                                title={instructor.title}
+                                company={instructor.company}
+                                name={instructor.name}
+                            />
+                        ))}
+                    </ScrollSection>
                     <Typography
                         variant="h6"
                         sx={{
@@ -700,20 +704,18 @@ const Homepage = () => {
                     >
                         Video testimonials
                     </Typography>
-                    <Slider {...videoSettigs}>
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                    </Slider>
+                    <ScrollSection >
+                        {[...Array(12)].map((_, ind) => (
+                            <VideoCard key={`course_${ind}`} width={368} height={228} /> 
+                            
+                        ))}
+                    </ScrollSection>
                 </Box>
             </Container>
-            {/* Diploma */}
+                {/* Diploma */}
             <Box
                 sx={{ backgroundColor: neutral.neutral10 }}
-            >
+            >    
                 <Container
                     sx={{ padding: 0, maxWidth: "1360px !important" }}
                     className={styles.mainconatiner}
@@ -725,8 +727,8 @@ const Homepage = () => {
                         <Diploma />
                     </Box>
                 </Container>
-            </Box>
-            {/* WhykowCrunch */}
+            </Box>    
+                {/* WhykowCrunch */}
             <Container
                 sx={{ padding: 0, maxWidth: "1360px !important" }}
                 className={styles.mainconatiner}

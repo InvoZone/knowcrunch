@@ -2,14 +2,15 @@
 import { Box } from "@mui/material";
 import videoThumb from "@/assets/home/videoThumb.webp";
 import Image from "next/image";
-import * as styles from "./videoCard.module.scss";
-
-export default function VideoCard() {
+export default function VideoCard({width="100%" , height = "100%"}) {
     return (
         <Box
             sx={{
                 position: "relative",
-
+                flexShrink: 0,
+                width:{width},
+                height:{height},
+                minWidth:{width}
             }}
         >
             <Box
@@ -27,7 +28,7 @@ export default function VideoCard() {
                     aria-label="Play button"
                 />
             </Box>
-            <Box component={"div"} borderRadius={4} className={styles.img}>
+            <Box component={"div"} borderRadius={4}>
                 <Image 
                     src={videoThumb} 
                     alt='video img' 

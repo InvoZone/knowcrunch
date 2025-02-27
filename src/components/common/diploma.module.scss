@@ -12,6 +12,9 @@
             height: 237px !important;
         }
     }
+    @media (max-width: 1728px) {
+        padding: 0 96px;
+    }
     @media (max-width: 899px) {
         flex-direction: column;
         padding: 0;
