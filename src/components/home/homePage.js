@@ -26,6 +26,7 @@ import VideoCard from "../common/videoCard";
 import Diploma from "../common/diploma";
 import WhykowCrunch from "../common/whykowcrunch";
 import Banner from "../common/banner";
+import ScrollSection from "./scrollSection";
 
 
 const Homepage = () => {
@@ -66,7 +67,7 @@ const Homepage = () => {
         const { onClick } = props;
         return (
             <Box
-                sx={{top: props?.top !== undefined ? `${props.top} !important` : "47% !important", left: { xs: props?.val || -24, sm: -24 }, display: props.isDisabled ? "none !important" : "block !important", }}
+                sx={{ top: props?.top !== undefined ? `${props.top} !important` : "47% !important", left: { xs: props?.val || -24, sm: -24 }, display: props.isDisabled ? "none !important" : "block !important", }}
                 className={styles.arrowStyle}
             >
                 <div onClick={onClick} aria-label="Previous slide">
@@ -208,8 +209,8 @@ const Homepage = () => {
         slidesToScroll: 1,
         arrows: true,
         beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, instructor: newIndex })),
-        prevArrow: <PrevArrow isDisabled={currentSlide.instructor === 0} val={-14} top={"45%"}/>,
-        nextArrow: <Arrow isDisabled={currentSlide.instructor >= totalSlides - 4.20} val={-14} top={"45%"}/>,
+        prevArrow: <PrevArrow isDisabled={currentSlide.instructor === 0} val={-14} top={"45%"} />,
+        nextArrow: <Arrow isDisabled={currentSlide.instructor >= totalSlides - 4.20} val={-14} top={"45%"} />,
         responsive: [
             {
                 breakpoint: 1024,
@@ -254,8 +255,8 @@ const Homepage = () => {
         slidesToScroll: 1,
         arrows: true,
         beforeChange: (oldIndex, newIndex) => setCurrentSlide(prev => ({ ...prev, video: newIndex })),
-        prevArrow: <PrevArrow isDisabled={currentSlide.video === 0} top={"42%"}/>,
-        nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 3.40} top={"42%"}/>,
+        prevArrow: <PrevArrow isDisabled={currentSlide.video === 0} top={"42%"} />,
+        nextArrow: <Arrow isDisabled={currentSlide.video >= totalSlides - 3.40} top={"42%"} />,
         responsive: [
             {
                 breakpoint: 1728,
@@ -309,9 +310,14 @@ const Homepage = () => {
                     <LogoAnimate />
                 </Box>
             </Box>
+            <ScrollSection >
+                {[...Array(12)].map((_, ind) => (
+                    <CourseCard discountTag={true} width={298} key={`course_${ind}`} />
+                ))}
+            </ScrollSection>
             {/* popular e-learning */}
             <Container
-                sx={{ padding: 0, maxWidth:"1360px !important" }}
+                sx={{ padding: 0, maxWidth: "1360px !important" }}
                 className={styles.mainconatiner}
             >
                 <Box className={styles.conatiner} sx={{ padding: "24px 48px 48px 48px" }}>
@@ -325,7 +331,7 @@ const Homepage = () => {
                     >
                         {[...Array(6)].map((_, index) => (
                             <Box key={index}>
-                                <CourseCard customClass={true} width= "100%" minWidth={cardWidth}/>
+                                <CourseCard customClass={true} width="298px" minWidth={cardWidth} />
                             </Box>
                         ))}
                     </Slider>
@@ -336,7 +342,7 @@ const Homepage = () => {
                             display: "flex",
                             justifyContent: "flex-end",
                             marginTop: "20px",
-                            marginRight:"20px",
+                            marginRight: "20px",
                             cursor: "pointer",
                         }}
                         aria-label="View all courses"
@@ -345,247 +351,247 @@ const Homepage = () => {
                     </Typography>
                 </Box>
             </Container>
-                {/* career path */}
-                <Box
-                    sx={{ background: neutral.neutral10 }}
+            {/* career path */}
+            <Box
+                sx={{ background: neutral.neutral10 }}
+            >
+                <Container
+                    maxWidth="lg"
+                    sx={{ padding: 0 }}
+                    className={styles.mainconatiner}
                 >
-                    <Container
-                        maxWidth="lg"
-                        sx={{ padding: 0 }}
-                        className={styles.mainconatiner}
+                    <Box
+                        className={styles.conatiner}
+                        sx={{ background: neutral.neutral10, padding: "48px" }}
                     >
-                        <Box
-                            className={styles.conatiner}
-                            sx={{ background: neutral.neutral10, padding: "48px" }}
+                        <Grid2
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                            }}
                         >
+                            <Grid2 sx={{ marginBottom: "24px" }}>
+                                <Typography variant="h2" color={base1.dark4}>
+                                    Find your career path
+                                </Typography>
+                            </Grid2>
                             <Grid2
                                 sx={{
                                     display: "flex",
                                     flexDirection: "column",
+                                    gap: "16px",
                                 }}
                             >
-                                <Grid2 sx={{marginBottom:"24px"}}>
-                                    <Typography variant="h2" color={base1.dark4}>
-                                        Find your career path
-                                    </Typography>
-                                </Grid2>
+                                <SelectAbleLinks />
                                 <Grid2
                                     sx={{
                                         display: "flex",
-                                        flexDirection: "column",
                                         gap: "16px",
+                                        justifyContent: "space-between",
                                     }}
+                                    className={styles.career}
                                 >
-                                    <SelectAbleLinks />
                                     <Grid2
                                         sx={{
                                             display: "flex",
-                                            gap: "16px",
-                                            justifyContent: "space-between",
+                                            width: "100%",
+                                            padding: "16px 8px",
+                                            gap: "8px",
                                         }}
-                                        className={styles.career}
+                                        item="true"
+                                        md={12}
+                                        lg={7.5}
+                                        sm={12}
+                                    >
+                                        {/* Content Marketing Section */}
+                                        <Box
+                                            sx={{
+                                                // marginTop: "40px",
+                                                // padding: "24px",
+
+                                                backgroundColor: "#f5f5f5",
+                                                borderRadius: "8px",
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                // gap: "16px",
+                                                mb: 1,
+                                            }}
+                                        >
+                                            <Typography
+                                                variant="h3"
+                                                sx={{
+                                                    color: base1.dark4,
+                                                    marginBottom: "8px"
+                                                }}
+                                            >
+                                                Content Marketing
+                                            </Typography>
+                                            <Typography
+                                                variant="body"
+                                                sx={{
+                                                    color: "neutral.neutral1",
+                                                    marginBottom: "16px"
+                                                }}
+                                            >
+                                                Define and develop digital
+                                                strategies to deliver business
+                                                growth through online channels.
+                                            </Typography>
+                                            <Box
+                                                className={styles.markValue}
+                                                sx={{ mt: -1 }}
+                                            >
+                                                <Typography
+                                                    variant="h5"
+                                                    sx={{ color: link.main }}
+                                                >
+                                                    37.000€
+                                                </Typography>
+                                                <Typography
+                                                    variant="body"
+                                                    sx={{ color: neutral.neutral1, marginBottom: "12px" }}
+                                                >
+                                                    median salary in Greece, for
+                                                    this career path in 2023
+                                                </Typography>
+                                            </Box>
+                                            <Box
+                                                className={styles.markValue}
+                                                sx={{ marginTop: "12px" }}
+                                            >
+                                                <Typography
+                                                    variant="h5"
+                                                    sx={{ color: link.main }}
+                                                >
+                                                    85%
+                                                </Typography>
+                                                <Typography
+                                                    variant="body"
+                                                    sx={{ color: neutral.neutral1 }}
+                                                >
+                                                    of course graduates report
+                                                    positive career impact
+                                                </Typography>
+                                            </Box>
+                                            <Box
+                                                className={styles.basicTypo}
+                                                sx={{
+                                                    color: "neutral.neutral1",
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    gap: "16px",
+                                                    marginTop: "16px"
+                                                    // marginBottom:"16px"
+                                                }}
+                                            >
+                                                <Box className={styles.tickMark}>
+                                                    <Image
+                                                        loading="lazy"
+                                                        src="/icons/tick.svg"
+                                                        width={18}
+                                                        height={18}
+                                                        alt={"Tick"}
+                                                    />
+                                                    <Typography variant="body">
+                                                        Design and manage influencer
+                                                        campaigns to enhance brand
+                                                        visibility and engagement.
+                                                    </Typography>
+                                                </Box>
+                                                <Box className={styles.tickMark}>
+                                                    <Image
+                                                        loading="lazy"
+                                                        src="/icons/tick.svg"
+                                                        width={18}
+                                                        height={18}
+                                                        alt={"Tick"}
+                                                    />
+                                                    <Typography variant="body">
+                                                        Expertise in social media,
+                                                        content trends, analytics,
+                                                        and influencer
+                                                        relationship-building.
+                                                    </Typography>
+                                                </Box>
+                                                <Box className={styles.tickMark}>
+                                                    <Image
+                                                        loading="lazy"
+                                                        src="/icons/tick.svg"
+                                                        width={18}
+                                                        height={18}
+                                                        alt={"Tick"}
+                                                    />
+                                                    <Typography variant="body">
+                                                        High demand across
+                                                        industries as brands
+                                                        prioritise influencer
+                                                        partnerships.
+                                                    </Typography>
+                                                </Box>
+                                            </Box>
+                                        </Box>
+                                    </Grid2>
+                                    <Grid2
+                                        sx={{
+                                            padding: "16px 8px",
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            width: "100%",
+                                        }}
+                                        item="true"
+                                        md={12}
+                                        lg={4.5}
+                                        sm={12}
                                     >
                                         <Grid2
                                             sx={{
                                                 display: "flex",
+                                                gap: "16px",
                                                 width: "100%",
-                                                padding: "16px 8px",
-                                                gap: "8px",
+                                                // padding: "16px 8px",
+                                                justifyContent: "center",
+                                                alignItems: "center",
                                             }}
-                                            item="true"
-                                            md={12}
-                                            lg={7.5}
-                                            sm={12}
                                         >
-                                            {/* Content Marketing Section */}
-                                            <Box
-                                                sx={{
-                                                    // marginTop: "40px",
-                                                    // padding: "24px",
-
-                                                    backgroundColor: "#f5f5f5",
-                                                    borderRadius: "8px",
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    // gap: "16px",
-                                                    mb: 1,
-                                                }}
-                                            >
-                                                <Typography
-                                                    variant="h3"
-                                                    sx={{
-                                                        color: base1.dark4,
-                                                        marginBottom:"8px"
-                                                    }}
-                                                >
-                                                    Content Marketing
-                                                </Typography>
-                                                <Typography
-                                                    variant="body"
-                                                    sx={{
-                                                        color: "neutral.neutral1",
-                                                        marginBottom:"16px"
-                                                    }}
-                                                >
-                                                    Define and develop digital
-                                                    strategies to deliver business
-                                                    growth through online channels.
-                                                </Typography>
-                                                <Box
-                                                    className={styles.markValue}
-                                                    sx={{ mt: -1 }}
-                                                >
-                                                    <Typography
-                                                        variant="h5"
-                                                        sx={{ color: link.main }}
-                                                    >
-                                                        37.000€
-                                                    </Typography>
-                                                    <Typography
-                                                        variant="body"
-                                                        sx={{ color: neutral.neutral1, marginBottom:"12px" }}
-                                                    >
-                                                        median salary in Greece, for
-                                                        this career path in 2023
-                                                    </Typography>
-                                                </Box>
-                                                <Box
-                                                    className={styles.markValue}
-                                                    sx={{ marginTop: "12px" }}
-                                                >
-                                                    <Typography
-                                                        variant="h5"
-                                                        sx={{ color: link.main }}
-                                                    >
-                                                        85%
-                                                    </Typography>
-                                                    <Typography
-                                                        variant="body"
-                                                        sx={{ color: neutral.neutral1 }}
-                                                    >
-                                                        of course graduates report
-                                                        positive career impact
-                                                    </Typography>
-                                                </Box>
-                                                <Box
-                                                    className={styles.basicTypo}
-                                                    sx={{
-                                                        color: "neutral.neutral1",
-                                                        display:"flex",
-                                                        flexDirection:"column",
-                                                        gap:"16px",
-                                                        marginTop:"16px"
-                                                        // marginBottom:"16px"
-                                                    }}
-                                                >
-                                                    <Box className={styles.tickMark}>
-                                                        <Image
-                                                            loading="lazy"
-                                                            src="/icons/tick.svg"
-                                                            width={18}
-                                                            height={18}
-                                                            alt={"Tick"}
-                                                        />
-                                                        <Typography variant="body">
-                                                            Design and manage influencer
-                                                            campaigns to enhance brand
-                                                            visibility and engagement.
-                                                        </Typography>
-                                                    </Box>
-                                                    <Box className={styles.tickMark}>
-                                                        <Image
-                                                            loading="lazy"
-                                                            src="/icons/tick.svg"
-                                                            width={18}
-                                                            height={18}
-                                                            alt={"Tick"}
-                                                        />
-                                                        <Typography variant="body">
-                                                            Expertise in social media,
-                                                            content trends, analytics,
-                                                            and influencer
-                                                            relationship-building.
-                                                        </Typography>
-                                                    </Box>
-                                                    <Box className={styles.tickMark}>
-                                                        <Image
-                                                            loading="lazy"
-                                                            src="/icons/tick.svg"
-                                                            width={18}
-                                                            height={18}
-                                                            alt={"Tick"}
-                                                        />
-                                                        <Typography variant="body">
-                                                            High demand across
-                                                            industries as brands
-                                                            prioritise influencer
-                                                            partnerships.
-                                                        </Typography>
-                                                    </Box>
-                                                </Box>
-                                            </Box>
-                                        </Grid2>
-                                        <Grid2
-                                            sx={{
-                                                padding: "16px 8px",
-                                                display: "flex",
-                                                flexDirection: "column",
-                                                width: "100%",
-                                            }}
-                                            item="true"
-                                            md={12}
-                                            lg={4.5}
-                                            sm={12}
-                                        >
-                                            <Grid2
-                                                sx={{
-                                                    display: "flex",
-                                                    gap: "16px",
-                                                    width: "100%",
-                                                    // padding: "16px 8px",
-                                                    justifyContent: "center",
-                                                    alignItems: "center",
-                                                }}
-                                            >
+                                            <CourseCard
+                                                customClass={true}
+                                                newtag={true}
+                                                discountTag={true}
+                                            />
+                                            {!isTab && (
                                                 <CourseCard
+                                                    CustomButton={false}
                                                     customClass={true}
-                                                    newtag={true}
                                                     discountTag={true}
                                                 />
-                                                {!isTab && (
-                                                    <CourseCard
-                                                        CustomButton={false}
-                                                        customClass={true}
-                                                        discountTag={true}
-                                                    />
-                                                )}
-                                            </Grid2>
-                                            <Grid2>
-                                                <Typography
-                                                    variant="h6"
-                                                    sx={{
-                                                        color: link.main,
-                                                        display: "flex",
-                                                        justifyContent: "flex-end",
-                                                        marginTop: "20px",
-                                                        marginRight:"20px",
-                                                        cursor: "pointer",
-                                                    }}
-                                                    aria-label="View courses"
-                                                >
-                                                    View courses
-                                                </Typography>
-                                            </Grid2>
+                                            )}
+                                        </Grid2>
+                                        <Grid2>
+                                            <Typography
+                                                variant="h6"
+                                                sx={{
+                                                    color: link.main,
+                                                    display: "flex",
+                                                    justifyContent: "flex-end",
+                                                    marginTop: "20px",
+                                                    marginRight: "20px",
+                                                    cursor: "pointer",
+                                                }}
+                                                aria-label="View courses"
+                                            >
+                                                View courses
+                                            </Typography>
                                         </Grid2>
                                     </Grid2>
                                 </Grid2>
                             </Grid2>
-                        </Box>
-                    </Container>
-                </Box>
-                {/* classroom courses */}
+                        </Grid2>
+                    </Box>
+                </Container>
+            </Box>
+            {/* classroom courses */}
             <Container
-                sx={{ padding: 0, maxWidth:"1360px !important" }}
+                sx={{ padding: 0, maxWidth: "1360px !important" }}
                 className={styles.mainconatiner}
             >
                 <Box className={styles.conatiner} sx={{ padding: "48px" }}>
@@ -613,7 +619,7 @@ const Homepage = () => {
                             display: "flex",
                             justifyContent: "flex-end",
                             marginTop: "20px",
-                            marginRight:"20px",
+                            marginRight: "20px",
                             cursor: "pointer",
                         }}
                         aria-label="View courses"
@@ -678,7 +684,7 @@ const Homepage = () => {
                             display: "flex",
                             justifyContent: "flex-end",
                             marginTop: "20px",
-                            marginRight:"20px",
+                            marginRight: "20px",
                             cursor: "pointer",
                         }}
                         aria-label="View all instructors"
@@ -704,12 +710,12 @@ const Homepage = () => {
                     </Slider>
                 </Box>
             </Container>
-                {/* Diploma */}
+            {/* Diploma */}
             <Box
                 sx={{ backgroundColor: neutral.neutral10 }}
-            >    
+            >
                 <Container
-                    sx={{ padding: 0, maxWidth:"1360px !important" }}
+                    sx={{ padding: 0, maxWidth: "1360px !important" }}
                     className={styles.mainconatiner}
                 >
                     <Box
@@ -719,10 +725,10 @@ const Homepage = () => {
                         <Diploma />
                     </Box>
                 </Container>
-            </Box>    
-                {/* WhykowCrunch */}
+            </Box>
+            {/* WhykowCrunch */}
             <Container
-                sx={{ padding: 0,  maxWidth:"1360px !important" }}
+                sx={{ padding: 0, maxWidth: "1360px !important" }}
                 className={styles.mainconatiner}
             >
                 <Box className={styles.conatiner} sx={{ padding: "48px" }}>

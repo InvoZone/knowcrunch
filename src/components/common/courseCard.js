@@ -24,7 +24,7 @@ export default function CourseCard({
     mx = 0,
     discountTag = false,
     width = "100%",
-    minWidth = 100,
+    // minWidth = 100,
     newtag = false,
     CustomButton = true
 }) {
@@ -37,7 +37,8 @@ export default function CourseCard({
                 borderColor: "neutral.neutral9",
                 minHeight: 400,
                 width: width,
-                minWidth: minWidth
+                flexShrink: 0
+                // minWidth: minWidth
             }}
             p={1}
             mx={mx}
@@ -138,6 +139,7 @@ export default function CourseCard({
                 component={"p"}
                 color="secondary.dark"
                 aria-label="Course Description"
+                sx={{ whiteSpace: "normal" }}
             >
                 An exceedingly advanced training program that provides
                 comprehensive lectures
