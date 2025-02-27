@@ -13,7 +13,6 @@ import FilterDrawer from "../common/filterDrawer";
 import { useDispatch, useSelector } from "react-redux";
 import { filterStatus, selectFilter } from "@/store/slices/course";
 import PageHeadingDesc from "../common/pageHeadingDesc";
-import NoDataFound from "../common/noDataFound";
 
 /**
  * Courses Component
