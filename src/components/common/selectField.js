@@ -56,6 +56,7 @@ export default function TransitionsPopper({ options }) {
                 open={open}
                 anchorEl={anchorElSelect}
                 onClose={handleClick}
+                disableScrollLock={true}
                 anchorOrigin={{
                     vertical: "bottom",
                     horizontal: "center",

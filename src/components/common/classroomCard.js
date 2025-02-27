@@ -7,7 +7,6 @@ import Image from "next/image";
 import { Box } from "@mui/material";
 import CustomBtn from "./customBtn";
 import cardThumb from "@/assets/course/Classroomcourse.webp";
-import { Padding } from "@mui/icons-material";
 
 /**
  * ClassroomCard Component
@@ -25,7 +24,7 @@ export default function ClassroomCard({
                 borderColor: "neutral.neutral9",
                 minHeight: 400,
                 overflow: "hidden",
-                width:"100%"
+                width: "100%"
             }}
             p={2}
             mx={homepage ? 1 : 0}

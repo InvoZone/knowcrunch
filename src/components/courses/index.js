@@ -1,7 +1,7 @@
 "use client";
 
 // Import necessary dependencies
-import { Box, Container, Grid2 } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import CustomBtn from "../common/customBtn";
 import { useTranslations } from "next-intl";
 import CourseCard from "../common/courseCard";
@@ -13,6 +13,7 @@ import FilterDrawer from "../common/filterDrawer";
 import { useDispatch, useSelector } from "react-redux";
 import { filterStatus, selectFilter } from "@/store/slices/course";
 import PageHeadingDesc from "../common/pageHeadingDesc";
+import NoDataFound from "../common/noDataFound";
 
 /**
  * Courses Component
@@ -82,6 +83,7 @@ const Courses = () => {
                 selectedFilters={selectedFilters}
                 handleChange={handleFilterChange}
                 closeFilterBar={closeFilterBar}
+                mobileWidth={215}
                 aria-label="Filter Drawer"
             >
                 <PageHeadingDesc heading={t1("allCourses")} aria-label="All Courses Heading" />
@@ -170,47 +172,26 @@ const Courses = () => {
                 )}
 
                 {/* Course grid layout */}
-                <Grid2 container justifyContent={"center"} aria-label="Course Grid Layout">
-                    <Grid2
-                        container
-                        size={{
-                            xs: 12,
-                            sm: 12,
-                            md: 10,
-                            lg: filterOpen ? 12 : 10,
-                        }}
-                        spacing={2}
-                    >
-                        {/* Display course cards */}
-                        {[...new Array(12).fill()]?.map((el, ind) => (
-                            <Grid2
-                                key={`course_${ind}`}
-                                size={{ xs: 12, sm: 12, md: 6, lg: 4 }}
-                                aria-label={`Course ${ind + 1}`}
-                            >
-                                <CourseCard discountTag={true} />
-                            </Grid2>
-                        ))}
-                        {/* Pagination */}
-                        <Grid2
-                            size={12}
-                            justifyContent={"center"}
-                            display={"flex"}
-                            aria-label="Pagination Controls"
-                        >
-                            <CustomPagination />
-                        </Grid2>
 
-                        {/* Not fond any course */}
-                        {/* <Grid2
-                            size={12}
-                            justifyContent={"center"}
-                            display={"flex"}
-                        >
-                            <NoDataFound />
-                        </Grid2> */}
-                    </Grid2>
-                </Grid2>
+                <Box component={"div"} sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: "center" }}>
+                    {[...new Array(12).fill()]?.map((el, ind) => (
+
+                        <CourseCard discountTag={true} width={298}
+                            key={`course_${ind}`}
+                        />
+                    ))}
+                </Box>
+
+                {/* Custom Pagination component for navigating through pages */}
+                <Box component={"div"} display={"flex"} justifyContent={"center"} pt={3}>
+                    <CustomPagination />
+                </Box>
+
+                {/* Component to display when no data is found */}
+                {/* <Box component={"div"} display={"flex"} justifyContent={"center"}>
+                    <NoDataFound />
+                </Box> */}
+
             </FilterDrawer>
         </Container>
     );

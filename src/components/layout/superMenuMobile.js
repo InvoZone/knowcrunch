@@ -129,6 +129,7 @@ const SuperMenuMobile = ({
                                         <Typography
                                             variant="h6"
                                             color={"secondary"}
+                                            component={"p"}
                                         >
                                             {t("myProfile")}{" "}
                                         </Typography>
@@ -146,6 +147,7 @@ const SuperMenuMobile = ({
                                         <Typography
                                             variant="h6"
                                             color={"secondary"}
+                                            component={"p"}
                                         >
                                             {t(menu?.title)}
                                         </Typography>

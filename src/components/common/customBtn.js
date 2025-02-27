@@ -51,6 +51,7 @@ const CustomBtn = ({
                 display={"flex"}
                 alignItems="center"
                 gap={0.5}
+                component={"p"}
             >
                 {loading && <CircleLoader />}{" "}
                 {loading ? "Please wait..." : title}

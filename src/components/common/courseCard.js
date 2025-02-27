@@ -25,7 +25,7 @@ export default function CourseCard({
     discountTag = false,
     width = "100%",
     minWidth = 100,
-    newtag =  false,
+    newtag = false,
     CustomButton = true
 }) {
     return (
@@ -86,17 +86,17 @@ export default function CourseCard({
                 >
                     <CustomBtn
                         txtVariant={"body2"}
-                        title={newtag ? "New" :"BEST SELLER"}
+                        title={newtag ? "New" : "BEST SELLER"}
                         variant="contained"
                         color={newtag ? "secondary.main" : "tertiary.main"}
                         sx={{
                             height: 24,
-                            backgroundColor: newtag ? "base1.default": "accents.bubble1",
+                            backgroundColor: newtag ? "base1.default" : "accents.bubble1",
                             borderRadius: 1,
-                            color:"white",
+                            color: "white",
                             px: "5px",
-                            minWidth:"36px",
-                            display: CustomButton ? "flex" : "none", 
+                            minWidth: "36px",
+                            display: CustomButton ? "flex" : "none",
                         }}
                         aria-label="Best Seller Badge"
                     />
@@ -122,7 +122,7 @@ export default function CourseCard({
             <Typography
                 gutterBottom
                 variant="titleLg"
-                component={"div"}
+                component={"p"}
                 pt={1}
                 color="tertiary"
                 aria-label="Course Title"
@@ -135,7 +135,7 @@ export default function CourseCard({
                 gutterBottom
                 variant="body2"
                 fontWeight={400}
-                component={"div"}
+                component={"p"}
                 color="secondary.dark"
                 aria-label="Course Description"
             >
@@ -230,17 +230,17 @@ export default function CourseCard({
             {enrollButton && (
                 <Box component={"div"} pt={5} aria-label="Enrollment Section">
                     {discountTag && (
-                        <Box sx={{display:"flex"}}>
-                        <Typography
-                            variant="body2"
-                            color="error.main"
-                            pl={0.5}
-                            pb={0.5}
-                            aria-label="Discount Tag"
-                        >
-                            50%&nbsp; off &nbsp;
-                        </Typography>
-                        <Typography color="error.main" variant="body2" sx={{ textDecoration: "line-through" }}> 100 €</Typography>
+                        <Box sx={{ display: "flex" }}>
+                            <Typography
+                                variant="body2"
+                                color="error.main"
+                                pl={0.5}
+                                pb={0.5}
+                                aria-label="Discount Tag"
+                            >
+                                50%&nbsp; off &nbsp;
+                            </Typography>
+                            <Typography color="error.main" variant="body2" sx={{ textDecoration: "line-through" }}> 100 €</Typography>
                         </Box>
                     )}
                     <CustomBtn

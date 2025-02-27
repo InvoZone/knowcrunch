@@ -30,6 +30,7 @@ export default function CustomDialog({
             onClose={shouldCloseOutside && handleClose}
             closeAfterTransition={false}
             maxWidth={"xl"}
+            disableScrollLock
             sx={{
                 "& .MuiDialog-paper": {
                     borderRadius: 2,

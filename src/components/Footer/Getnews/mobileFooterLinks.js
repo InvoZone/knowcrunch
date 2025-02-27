@@ -41,9 +41,9 @@ const FooterAccordion = ({ title, links }) => {
                     "&.Mui-expanded:last-of-type": {
                         backgroundColor: "transparent",
                     },
-                    }}
-                >
-                    <AccordionSummary
+                }}
+            >
+                <AccordionSummary
                     expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
@@ -53,36 +53,31 @@ const FooterAccordion = ({ title, links }) => {
                         padding: 0,
                         backgroundColor: "transparent",
                     }}
-                    >
+                >
                     <Typography
                         variant="h6"
                         sx={{
-                        color: "white",
-                        fontWeight: "bold",
-                        backgroundColor: "transparent",
+                            color: "white",
+                            fontWeight: "bold",
+                            backgroundColor: "transparent",
                         }}
+                        component={"p"}
                     >
                         {title}
                     </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails
+                </AccordionSummary>
+                <AccordionDetails
                     aria-label={`Details for ${title}`}
                     sx={{
                         backgroundColor: "transparent",
                         padding: "8px 0",
-                        border: "1px solid #yourBorderColor",
-                        "& div": {
-                        fontSize: "16px",
-                        fontWeight: 800,
-                        padding: "4px",
-                        lineHeight: "20px",
-                        },
+                        border: "1px solid #yourBorderColor"
                     }}
-                    >
+                >
                     {links.map((link, index) => (
-                        <div key={link?.id || index} style={{ color: "white" }}>
+                        <Typography key={link?.id || index} variant="titleMd" color="secondary" component={"p"} pb={1}>
                             {link}
-                        </div>
+                        </Typography>
                     ))}
                 </AccordionDetails>
             </Accordion>

@@ -99,7 +99,7 @@ const Footer = () => {
                     )}
                     <Box item="true" lg={12} className="mainFooter">
                         <Grid2 item="true" lg={3} className="mainFooterForm">
-                            <Typography variant="h6">Get our news</Typography>
+                            <Typography variant="h6" component={"p"}>Get our news</Typography>
                             <Box
                                 sx={{
                                     display: "flex",
@@ -155,7 +155,7 @@ const Footer = () => {
                                 }}
                                 aria-label="Subscribe"
                             >
-                                <Typography variant="h6">Subscribe</Typography>
+                                <Typography variant="h6" component={"p"}>Subscribe</Typography>
                             </Button>
                             <Typography
                                 variant="body1"
@@ -164,14 +164,13 @@ const Footer = () => {
                                 We respect your personal data. By subscribing,
                                 you agree that we can contact you to share our
                                 news or for marketing purposes according to our
-                                <span
-                                    style={{
-                                        color: "#3366CC",
-                                        marginLeft: "3px",
-                                    }}
+                                <Typography
+                                    variant="body1"
+                                    component={"span"}
+                                    sx={{ color: "accents.bubble1", pl: "3px" }}
                                 >
                                     Data Privacy Policy
-                                </span>
+                                </Typography>
                                 .
                             </Typography>
                         </Grid2>

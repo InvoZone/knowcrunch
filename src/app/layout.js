@@ -33,9 +33,7 @@ export default async function RootLayout({ children }) {
                 <Script
                     id="breadcrumb-json-ld"
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(breadcrumbJsonLd),
-                    }}
+                    innerHTML={JSON.stringify(breadcrumbJsonLd)}
                 />
             </body>
         </html>

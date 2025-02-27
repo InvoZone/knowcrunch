@@ -33,7 +33,7 @@ function FilterDrawer(props) {
         filters,
         handleChange,
         selectedFilters,
-        drawerWidth = 311,
+        drawerWidth = 233,
         closeFilterBar
     } = props;
 
@@ -44,7 +44,7 @@ function FilterDrawer(props) {
 
     // Drawer content component
     const drawer = (
-        <div aria-label="Filter options">
+        <div>
             {/* Header section with title and close button */}
             <Box
                 component={"div"}
@@ -52,7 +52,7 @@ function FilterDrawer(props) {
                 justifyContent={"space-between"}
                 alignItems={"center"}
             >
-                <Typography variant="h4" pb={1} color="base1.dark4" aria-label="Filter by">
+                <Typography variant="h4" pb={1} color="base1.dark4">
                     {t("filterBy")}
                 </Typography>
                 <CloseOutlined
@@ -61,13 +61,12 @@ function FilterDrawer(props) {
                         display: { xs: "block", lg: "none" },
                     }}
                     onClick={handleClose}
-                    aria-label="Close filter drawer"
                 />
             </Box>
             {/* Filter options mapping */}
             {filters?.map((el) => (
                 <Box component={"div"} key={el?.id} pb={1}>
-                    <Typography variant="h6" py={0.5} color="base1.dark4" aria-label={`Filter option: ${el?.value}`}>
+                    <Typography variant="h6" py={0.5} color="base1.dark4">
                         {t(el?.value)}
                     </Typography>
                     <FormGroup pb={1}>
@@ -78,12 +77,11 @@ function FilterDrawer(props) {
                                 label={t(`${e?.value}`)}
                                 onChange={(event) => handleChange(event, e)}
                                 name={e?.value}
-                                aria-label={`Filter option: ${e?.value}`}
                             />
                         ))}
                     </FormGroup>
                     {el?.filters?.length > 5 && (
-                        <Typography pt={1} variant="h6" color="base1.default" aria-label="Show more options">
+                        <Typography pt={1} variant="h6" color="base1.default">
                             Show more
                         </Typography>
                     )}
@@ -97,7 +95,7 @@ function FilterDrawer(props) {
         typeof window !== "undefined" ? () => window.document.body : undefined;
 
     return (
-        <Box sx={{ display: "flex", columnGap: 2 }}>
+        <Box sx={{ display: "flex", columnGap: { md: 0, lg: 2 } }}>
             {/* Drawer wrapper */}
             <Box
                 component="div"
@@ -124,12 +122,11 @@ function FilterDrawer(props) {
                         },
                         "& .MuiDrawer-paper": {
                             boxSizing: "border-box",
-                            width: drawerWidth,
+                            width: 311,
                             px: 6,
                             pt: "128px",
                         },
                     }}
-                    aria-label="Mobile filter drawer"
                 >
                     {drawer}
                 </Drawer>
@@ -151,7 +148,6 @@ function FilterDrawer(props) {
                         },
                     }}
                     open={open}
-                    aria-label="Desktop filter drawer"
                 >
                     {drawer}
                 </Drawer>

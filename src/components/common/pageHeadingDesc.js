@@ -4,7 +4,7 @@ const PageHeadingDesc = ({ heading, subHeading }) => {
     return (
         <>
             {/* Main content header */}
-            <Typography variant="h2" color="base1.dark4">
+            <Typography variant="h2" color="base1.dark4" component={"h1"}>
                 {heading}
             </Typography>
             <Typography variant="titleMd" color="base1.dark4">
