@@ -30,8 +30,6 @@ const Homepage = () => {
 
     const isTab = useMediaQuery("(max-width:1200px)");
     const isMob = useMediaQuery("(max-width:500px)");
-    const isMed = useMediaQuery("(max-width:991px)");
-    const Home = useMediaQuery("(max-width:1281px)");
 
     const instructors = [
         {
@@ -111,7 +109,7 @@ const Homepage = () => {
                             display: "flex",
                             justifyContent: "flex-end",
                             marginTop: "16.5px",
-                            marginRight:"20px",
+                            marginRight: "20px",
                             // marginRight: isMob ? "50px" : isMed ? "88px" : Home ? "32px" : "30px",
                             cursor: "pointer",
                         }}
