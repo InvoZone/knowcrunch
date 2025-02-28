@@ -17,13 +17,13 @@ export default function Whyknow() {
                     priority
                     aria-label="Diploma image"
                 />
-            </Box>    
+            </Box>
             <Box className={styles.typo}>
-                <Typography variant="h2" sx={{ color: base1.dark4 }}>
+                <Typography variant="h2" sx={{ color: base1.dark4 }} component={"h4"}>
                     Why Knowcrunch?
                 </Typography>
                 <Box
-                    sx={{ color: neutral.neutral1, display:"flex", flexDirection:"column", gap:"16px" }}
+                    sx={{ color: neutral.neutral1, display: "flex", flexDirection: "column", gap: "16px" }}
                 >
                     <Box className={styles.tickMark}>
                         <Image

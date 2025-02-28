@@ -1,8 +1,8 @@
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import { useRef, useState, useEffect } from "react";
 import ScrollBtn from "./scrollBtn";
 
-const ScrollSection = ({ children }) => {
+const ScrollSection = ({ children, width, leftArrowPosition = { top: "44%", left: 10 }, rightArrowPosition = { top: "44%", right: 10 } }) => {
     const scrollRef = useRef(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(true);
@@ -37,9 +37,14 @@ const ScrollSection = ({ children }) => {
     }, []);
 
     return (
-        <Box sx={{ position: "relative", display: "flex", justifyContent: "center", maxWidth:"1360px !important" }}>
+        <Box sx={{ position: "relative", display: "flex", justifyContent: "center", maxWidth: "1360px !important" }}>
             {showLeftArrow && (
-                <ScrollBtn onClick={() => handleScroll("left")} src={"/icons/leftArrow.svg"} alt={"left scroll button"} />
+                <ScrollBtn
+                    onClick={() => handleScroll("left")}
+                    src={"/icons/leftArrow.svg"}
+                    alt={"left scroll button"}
+                    leftArrowPosition={leftArrowPosition}
+                />
             )}
 
             <Box
@@ -51,14 +56,20 @@ const ScrollSection = ({ children }) => {
                     scrollBehavior: "smooth", // Enables smooth scrolling
                     whiteSpace: "nowrap",
                     "&::-webkit-scrollbar": { display: "none" }, // Hide scrollbar
-                    width: { xs: "calc(100% - 60px)", md: "calc(100% - 150px)", lg: "calc(100% - 40px)" },
+                    width: width || { xs: "calc(100% - 60px)", md: "calc(100% - 150px)", lg: "calc(100% - 40px)" },
                 }}
             >
                 {children}
             </Box>
 
             {showRightArrow && (
-                <ScrollBtn onClick={() => handleScroll("right")} src={"/icons/rightArrow.svg"} alt={"right scroll button"} isRight={true} />
+                <ScrollBtn
+                    onClick={() => handleScroll("right")}
+                    src={"/icons/rightArrow.svg"}
+                    alt={"right scroll button"}
+                    rightArrowPosition={rightArrowPosition}
+                    isRight={true}
+                />
             )}
         </Box>
     );

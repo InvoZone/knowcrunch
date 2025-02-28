@@ -84,7 +84,7 @@ const Homepage = () => {
             "name": "Christina Dehola"
         }
     ];
-    
+
 
     const Arrow = React.memo((props) => {
         const { onClick } = props;
@@ -361,6 +361,7 @@ const Homepage = () => {
                     <Typography
                         sx={{ color: primary.main, marginBottom: "32px" }}
                         variant="h2"
+                        component={"h3"}
                     >
                         Popular E-learning Courses
                     </Typography>
@@ -376,10 +377,11 @@ const Homepage = () => {
                             display: "flex",
                             justifyContent: "flex-end",
                             marginTop: "16.5px",
-                            marginRight:isMob ? "60px" : isMed ? "88px" : Home ? "32px" : "30px",
+                            marginRight: isMob ? "60px" : isMed ? "88px" : Home ? "32px" : "30px",
                             cursor: "pointer",
                         }}
                         aria-label="View all courses"
+                        component={"p"}
                     >
                         View all courses
                     </Typography>
@@ -390,7 +392,7 @@ const Homepage = () => {
                 sx={{ background: neutral.neutral10 }}
             >
                 <Container
-                    sx={{ padding: 0, maxWidth:"1360px !important", }}
+                    sx={{ padding: 0, maxWidth: "1360px !important", }}
                     className={styles.mainconatiner}
                 >
                     <Box
@@ -403,8 +405,8 @@ const Homepage = () => {
                                 flexDirection: "column",
                             }}
                         >
-                            <Grid2 sx={{marginBottom: "24px" }}>
-                                <Typography variant="h2" color={base1.dark4}>
+                            <Grid2 sx={{ marginBottom: "24px" }}>
+                                <Typography variant="h2" color={base1.dark4} component={"h3"}>
                                     Find your career path
                                 </Typography>
                             </Grid2>
@@ -456,6 +458,7 @@ const Homepage = () => {
                                                     color: base1.dark4,
                                                     marginBottom: "8px"
                                                 }}
+                                                component={"h4"}
                                             >
                                                 Content Marketing
                                             </Typography>
@@ -500,7 +503,7 @@ const Homepage = () => {
                                                 </Typography>
                                                 <Typography
                                                     variant="body"
-                                                    sx={{ color: neutral.neutral1, marginBottom:"16px" }}
+                                                    sx={{ color: neutral.neutral1, marginBottom: "16px" }}
                                                 >
                                                     of course graduates report
                                                     positive career impact
@@ -567,7 +570,7 @@ const Homepage = () => {
                                     <Grid2
                                         className={styles.course}
                                         sx={{
-                                            
+
                                             display: "flex",
                                             flexDirection: "column",
                                             width: "100%",
@@ -636,12 +639,13 @@ const Homepage = () => {
                     <Typography
                         sx={{ color: primary.main, marginBottom: "24px" }}
                         variant="h2"
+                        component={"h3"}
                     >
                         Classroom courses
                     </Typography>
                     <ScrollSection >
                         {[...Array(12)].map((_, ind) => (
-                            <ClassroomCard width={isMed ? "298px" : Home ? "378px" : "405px"} homepage={true} key={`course_${ind}`} />
+                            <ClassroomCard width={378.66} key={`course_${ind}`} />
                         ))}
                     </ScrollSection>
                     <Typography
@@ -654,6 +658,7 @@ const Homepage = () => {
                             marginRight: "20px",
                             cursor: "pointer",
                         }}
+                        component={"p"}
                         aria-label="View courses"
                     >
                         View courses
@@ -665,11 +670,12 @@ const Homepage = () => {
                     <Typography
                         sx={{ color: primary.main, marginBottom: "24px" }}
                         variant="h2"
+                        component={"h3"}
                     >
                         Our instructors
                     </Typography>
                     <ScrollSection >
-                    {instructors.map((instructor, index) => (
+                        {instructors.map((instructor, index) => (
                             <InstructorCard
                                 key={`instructor_${index}`}
                                 height={366}
@@ -691,31 +697,45 @@ const Homepage = () => {
                             marginRight: "20px",
                             cursor: "pointer",
                         }}
+                        component={"p"}
                         aria-label="View all instructors"
                     >
                         View all instructors
                     </Typography>
                 </Box>
-                {/* Video testimonials */}
-                <Box className={styles.conatiner} sx={{ padding: "48px" }}>
+            </Container>
+
+
+            {/* Video testimonials */}
+            <Box px={{ xs: 0, sm: 0, md: 3, lg: 3 }} pb={4}>
+
+                <Container maxWidth={"lg"}>
+
                     <Typography
-                        sx={{ color: primary.main, marginBottom: "24px" }}
+                        color="primary.main"
+                        pb={3}
                         variant="h2"
+                        component={"h3"}
                     >
                         Video testimonials
                     </Typography>
-                    <ScrollSection >
+                    <ScrollSection
+                        width={"100%"}
+                        leftArrowPosition={{ top: "94px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                        rightArrowPosition={{ top: "94px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                    >
                         {[...Array(12)].map((_, ind) => (
-                            <VideoCard key={`course_${ind}`} width={368} height={228} /> 
-                            
+                            <VideoCard key={`course_${ind}`} width={368} />
+
                         ))}
                     </ScrollSection>
-                </Box>
-            </Container>
-                {/* Diploma */}
+                </Container>
+            </Box>
+
+            {/* Diploma */}
             <Box
                 sx={{ backgroundColor: neutral.neutral10 }}
-            >    
+            >
                 <Container
                     sx={{ padding: 0, maxWidth: "1360px !important" }}
                     className={styles.mainconatiner}
@@ -727,8 +747,8 @@ const Homepage = () => {
                         <Diploma />
                     </Box>
                 </Container>
-            </Box>    
-                {/* WhykowCrunch */}
+            </Box>
+            {/* WhykowCrunch */}
             <Container
                 sx={{ padding: 0, maxWidth: "1360px !important" }}
                 className={styles.mainconatiner}

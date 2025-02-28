@@ -121,7 +121,7 @@ function Navbar() {
         <AppBar
             component={"div"}
             color={
-                scrollY >= 10 || menu?.id !== undefined
+                scrollY >= 10
                     ? "primary"
                     : pathname === "/"
                         ? "transparent"

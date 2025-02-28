@@ -19,7 +19,7 @@ export default function ProfileCard({ profileImage, name, title, company, mx = 0
                 flexDirection: "column",
                 alignItems: "start",
                 width: width,
-                height:height,
+                height: height,
                 flexShrink: 0,
             }}
             p={1}
@@ -49,7 +49,7 @@ export default function ProfileCard({ profileImage, name, title, company, mx = 0
             <Typography
                 sx={{ color: "#000000" }}
                 variant="titleLg"
-                component="div"
+                component="p"
                 pt={1}
             >
                 {name}

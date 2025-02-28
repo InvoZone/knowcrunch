@@ -2,15 +2,15 @@
 import { Box } from "@mui/material";
 import videoThumb from "@/assets/home/videoThumb.webp";
 import Image from "next/image";
-export default function VideoCard({width="100%" , height = "100%"}) {
+export default function VideoCard({ width = "100%", height = "100%" }) {
     return (
         <Box
             sx={{
                 position: "relative",
                 flexShrink: 0,
-                width:{width},
-                height:{height},
-                minWidth:{width}
+                width: { width },
+                height: { height },
+                minWidth: { width }
             }}
         >
             <Box
@@ -29,11 +29,12 @@ export default function VideoCard({width="100%" , height = "100%"}) {
                 />
             </Box>
             <Box component={"div"} borderRadius={4}>
-                <Image 
-                    src={videoThumb} 
-                    alt='video img' 
-                    height={228} 
-                    className="radius-16" 
+                <Image
+                    src={videoThumb}
+                    alt='video img'
+                    height={228}
+                    width={368}
+                    className="radius-16"
                     aria-label="Video thumbnail"
                 />
             </Box>

@@ -13,7 +13,6 @@ import cardThumb from "@/assets/course/Classroomcourse.webp";
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
  */
 export default function ClassroomCard({
-    homepage = false,
     width = "100%",
 }) {
     return (
@@ -23,15 +22,12 @@ export default function ClassroomCard({
                 borderRadius: 2,
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
-                minHeight: 400,
-                maxWidth:405,
                 overflow: "hidden",
                 width: width,
                 flexShrink: 0,
-                height:"450px"
+                height: "450px"
             }}
             p={2}
-            mx={homepage ? 1 : 0}
             component={"div"}
             aria-label="Classroom Card"
         >
@@ -97,9 +93,10 @@ export default function ClassroomCard({
             <Typography
                 gutterBottom
                 variant="h5"
-                component={"div"}
+                component={"p"}
                 pt={1}
                 color="secondary.main"
+                sx={{ whiteSpace: "normal" }}
             >
                 Masterclass in Digital Marketing, Athens
             </Typography>
@@ -109,8 +106,9 @@ export default function ClassroomCard({
                 gutterBottom
                 variant="body2"
                 fontWeight={400}
-                component={"div"}
+                component={"p"}
                 color="secondary.main"
+                sx={{ whiteSpace: "normal" }}
             >
                 An exceedingly advanced training program that provides
                 comprehensive lectures

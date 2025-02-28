@@ -2,14 +2,11 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
-const ScrollBtn = ({ onClick, src, alt, isRight, isCustomLeft = "", isCustomTop = "", isCustomRight = "" }) => {
+const ScrollBtn = ({ onClick, src, alt, leftArrowPosition, rightArrowPosition }) => {
     return (
         <Box component={"div"}
             sx={{
                 position: "absolute",
-                top: isCustomTop ? isCustomTop : "44%",
-                right:isCustomRight ? isCustomRight : isRight ? { xs: 8, md: 20 } : "unset",
-                left: isCustomLeft ? isCustomLeft : isRight ? "unset" : { xs: 8, md: 20 },
                 zIndex: 1,
                 border: "1px solid",
                 borderColor: "neutral.neutral2",
@@ -18,7 +15,9 @@ const ScrollBtn = ({ onClick, src, alt, isRight, isCustomLeft = "", isCustomTop 
                 height: 40,
                 boxShadow: "0px 4px 10px 0px rgba(0, 0, 0, 0.15)",
                 backgroundColor: "secondary.main",
-                cursor: "pointer"
+                cursor: "pointer",
+                ...leftArrowPosition,
+                ...rightArrowPosition
             }}
             className="center"
             onClick={onClick}

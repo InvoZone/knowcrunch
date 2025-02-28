@@ -12,7 +12,7 @@ export default function Diploma() {
         <Box className={styles.main}>
             <Image className={styles.img} src={diploma} alt="diploma" />
             <Box className={styles.typo}>
-                <Typography variant="h2" sx={{ color: base1.dark4 }}>
+                <Typography variant="h2" sx={{ color: base1.dark4 }} component={"h4"}>
                     Earn your professional certification or diploma
                 </Typography>
                 <Typography variant="body" sx={{ color: neutral.neutral1 }}>

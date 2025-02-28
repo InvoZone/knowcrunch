@@ -14,10 +14,10 @@ export default function Banner() {
                 sx={{ padding: 0 }}
             >
                 <Box className={styles.typo}>
-                    <Typography variant="h1" sx={{ color: base2.light6, marginBottom:"8px" }}>
+                    <Typography variant="h1" sx={{ color: base2.light6, marginBottom: "8px" }}>
                         Professional educational courses & training
                     </Typography>
-                    <Typography variant="h4" sx={{ color: base2.light6, marginBottom:"32px" }}>
+                    <Typography variant="h4" sx={{ color: base2.light6, marginBottom: "32px" }} component={"h2"}>
                         Knowcrunch helps you learn, transform and thrive.
                     </Typography>
                     <Box
@@ -27,7 +27,7 @@ export default function Banner() {
                             alignItems: "center",
                         }}
                     >
-                        <Typography variant="h6" sx={{ color: "white", mr:0.5 }}>4.8</Typography>{" "}
+                        <Typography variant="h6" sx={{ color: "white", mr: 0.5 }} component={"p"}>4.8</Typography>{" "}
                         <Image
                             loading="lazy"
                             src="/icons/bannerstar.svg"
@@ -35,7 +35,7 @@ export default function Banner() {
                             height={24}
                             alt={"bannerstar"}
                         />{" "}
-                        <Typography variant="h6" sx={{ color: "white", ml:0.5 , marginRight:"32px"}}>
+                        <Typography variant="h6" sx={{ color: "white", ml: 0.5, marginRight: "32px" }} component={"p"}>
                             Trustpilot
                         </Typography>{" "}
                         <Image
@@ -45,7 +45,7 @@ export default function Banner() {
                             height={52}
                             alt={"leftaward"}
                         />{" "}
-                        <Typography variant="h6" sx={{ color: "white" }}>
+                        <Typography variant="h6" sx={{ color: "white" }} component={"p"}>
                             23 Awards
                         </Typography>{" "}
                         <Image
