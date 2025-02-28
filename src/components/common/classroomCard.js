@@ -19,7 +19,7 @@ export default function ClassroomCard({
         <Box
             sx={{
                 position: "relative",
-                borderRadius: 2,
+                borderRadius: 4,
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
                 overflow: "hidden",
@@ -45,7 +45,7 @@ export default function ClassroomCard({
                 component={"div"}
                 sx={{
                     width: "100%",
-                    height: 191,
+                    height: { xs: 140, xl: 169 },
                     borderRadius: 1,
                     position: "relative",
                 }}
@@ -66,14 +66,26 @@ export default function ClassroomCard({
                         txtVariant={"body2"}
                         title={"BEST SELLER"}
                         variant="contained"
+                        color={"tertiary.main"}
                         sx={{
                             height: 24,
                             backgroundColor: "accents.bubble1",
-                            borderRadius: 0.5,
+                            borderRadius: 1,
+                            color: "white",
+                            px: "5px",
+                            minWidth: "36px",
+                            display: "flex"
                         }}
                         aria-label="Best Seller Badge"
                     />
-                    <Image src="/icons/heart.svg" height={24} width={24} alt="heart" loading="lazy" />
+                    <Image
+                        src="/icons/heart.svg"
+                        height={24}
+                        width={24}
+                        alt="heart"
+                        priority
+                        aria-label="Heart Icon"
+                    />
                 </Box>
             </Box>
 
@@ -91,10 +103,8 @@ export default function ClassroomCard({
                 </Typography>
             </Box>
             <Typography
-                gutterBottom
                 variant="h5"
                 component={"p"}
-                pt={1}
                 color="secondary.main"
                 sx={{ whiteSpace: "normal" }}
             >
@@ -103,12 +113,12 @@ export default function ClassroomCard({
 
             {/* Course description */}
             <Typography
-                gutterBottom
                 variant="body2"
                 fontWeight={400}
                 component={"p"}
                 color="secondary.main"
                 sx={{ whiteSpace: "normal" }}
+                pb={1}
             >
                 An exceedingly advanced training program that provides
                 comprehensive lectures
@@ -125,9 +135,7 @@ export default function ClassroomCard({
                     borderColor: "neutral.neutral9",
                     borderRadius: "4px",
                     padding: "0 5px",
-                    color: "secondary.main",
-                    mb: 1,
-                    mt: 0.5,
+                    color: "secondary.main"
                 }}
                 txtVariant="body2"
                 color="secondary.main"
@@ -140,6 +148,7 @@ export default function ClassroomCard({
                 display={"flex"}
                 gap={0.5}
                 sx={{ flexWrap: "wrap" }}
+                py={"13px"}
                 aria-label="Course Metadata"
             >
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
@@ -199,7 +208,7 @@ export default function ClassroomCard({
             </Box>
 
             {/* Enrollment section with price and button */}
-            <Box component={"div"} pt={2}>
+            <Box component={"div"}>
                 <CustomBtn
                     title="Enrol 100€"
                     variant="filled"

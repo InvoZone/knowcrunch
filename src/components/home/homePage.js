@@ -631,40 +631,43 @@ const Homepage = () => {
                 </Container>
             </Box>
             {/* classroom courses */}
-            <Container
-                sx={{ padding: 0, maxWidth: "1360px !important" }}
-                className={styles.mainconatiner}
-            >
-                <Box className={styles.conatiner} sx={{ padding: "48px" }}>
+            <Box px={{ xs: 0, sm: 0, md: 3, lg: 3 }} py={{ xs: 4, md: 6 }}>
+
+                <Container maxWidth={"lg"}>
                     <Typography
-                        sx={{ color: primary.main, marginBottom: "24px" }}
+                        color="primary.main"
+                        pb={3}
                         variant="h2"
                         component={"h3"}
                     >
                         Classroom courses
                     </Typography>
-                    <ScrollSection >
+                    <ScrollSection
+                        width={"100%"}
+                        leftArrowPosition={{ top: "213px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                        rightArrowPosition={{ top: "213px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                    >
                         {[...Array(12)].map((_, ind) => (
-                            <ClassroomCard width={378.66} key={`course_${ind}`} />
+                            <ClassroomCard width={{ xs: 298, lg: 378.66, xl: 405 }} key={`course_${ind}`} />
                         ))}
                     </ScrollSection>
                     <Typography
                         variant="h6"
+                        color="link.main"
+                        pt={2}
+                        px={"20px"}
                         sx={{
-                            color: link.main,
                             display: "flex",
                             justifyContent: "flex-end",
-                            marginTop: "20px",
-                            marginRight: "20px",
                             cursor: "pointer",
                         }}
                         component={"p"}
-                        aria-label="View courses"
+                        aria-label="View all instructors"
                     >
                         View courses
                     </Typography>
-                </Box>
-            </Container>
+                </Container>
+            </Box>
 
             {/* Our instructors */}
             <Box px={{ xs: 0, sm: 0, md: 3, lg: 3 }} py={6}>
