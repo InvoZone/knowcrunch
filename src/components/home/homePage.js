@@ -376,6 +376,7 @@ const Homepage = () => {
                         Classroom courses
                     </Typography>
                     <ScrollSection
+                        scrolAmount={isMob ? 298 : null}
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
                         leftArrowPosition={{ top: "213px", left: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "213px", right: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
