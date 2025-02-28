@@ -443,8 +443,6 @@ const Homepage = () => {
                         sx={{
                             display: "flex",
                             justifyContent: "flex-end",
-                            marginTop: "16.5px",
-                            marginRight: "20px",
                             cursor: "pointer",
                         }}
                         component={"p"}
