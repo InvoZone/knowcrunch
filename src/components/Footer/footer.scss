@@ -12,3 +12,9 @@
         align-items: center;
     }
 }
+.footerLinkSection{
+    width: 160px;
+    @media (max-width: 1250px) {
+        width: auto;
+    }
+}

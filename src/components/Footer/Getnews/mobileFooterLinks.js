@@ -7,7 +7,7 @@ import {
     Typography,
     Grid2,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Image from "next/image";
 import "../footer.scss";
 
 const FooterAccordion = ({ title, links }) => {
@@ -44,20 +44,22 @@ const FooterAccordion = ({ title, links }) => {
                 }}
             >
                 <AccordionSummary
-                    expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+                    expandIcon={<Image loading="lazy" src={"/icons/expandmore.svg"} width={24} height={24} alt={"expandmore"} sx={{ color: "secondary.main" }}/>}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                     aria-label={`Expand ${title}`}
                     sx={{
-                        borderBottom: "1px solid #244891",
+                        borderBottom: "1px solid",
+                        borderColor:"base1.dark2",
                         padding: 0,
                         backgroundColor: "transparent",
+                        minHeight:"40px !important"
                     }}
                 >
                     <Typography
                         variant="h6"
                         sx={{
-                            color: "white",
+                            color: "secondary.main",
                             fontWeight: "bold",
                             backgroundColor: "transparent",
                         }}
@@ -71,11 +73,10 @@ const FooterAccordion = ({ title, links }) => {
                     sx={{
                         backgroundColor: "transparent",
                         padding: "8px 0",
-                        border: "1px solid #yourBorderColor"
                     }}
                 >
                     {links.map((link, index) => (
-                        <Typography key={link?.id || index} variant="titleMd" color="secondary" component={"p"} pb={1}>
+                        <Typography key={link?.id || index} variant="titleMd" color="secondary.main" component={"p"} pb={1}>
                             {link}
                         </Typography>
                     ))}

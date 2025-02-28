@@ -14,7 +14,7 @@ export default function Banner() {
                 sx={{ padding: 0 }}
             >
                 <Box className={styles.typo}>
-                    <Typography variant="h1" sx={{ color: base2.light6, marginBottom: "8px" }}>
+                    <Typography variant="h1" sx={{ color: base2.light6, marginBottom: "8px", letterSpacing:0 }}>
                         Professional educational courses & training
                     </Typography>
                     <Typography variant="h4" sx={{ color: base2.light6, marginBottom: "32px" }} component={"h2"}>
