@@ -14,6 +14,7 @@ import cardThumb from "@/assets/course/Classroomcourse.webp";
  */
 export default function ClassroomCard({
     homepage = false,
+    width = "100%",
 }) {
     return (
         <Box
@@ -23,8 +24,11 @@ export default function ClassroomCard({
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
                 minHeight: 400,
+                maxWidth:405,
                 overflow: "hidden",
-                width: "100%"
+                width: width,
+                flexShrink: 0,
+                height:"450px"
             }}
             p={2}
             mx={homepage ? 1 : 0}

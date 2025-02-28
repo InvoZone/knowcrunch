@@ -37,7 +37,7 @@ const ScrollSection = ({ children }) => {
     }, []);
 
     return (
-        <Container maxWidth="lg" sx={{ position: "relative", display: "flex", justifyContent: "center" }}>
+        <Box sx={{ position: "relative", display: "flex", justifyContent: "center", maxWidth:"1360px !important" }}>
             {showLeftArrow && (
                 <ScrollBtn onClick={() => handleScroll("left")} src={"/icons/leftArrow.svg"} alt={"left scroll button"} />
             )}
@@ -60,7 +60,7 @@ const ScrollSection = ({ children }) => {
             {showRightArrow && (
                 <ScrollBtn onClick={() => handleScroll("right")} src={"/icons/rightArrow.svg"} alt={"right scroll button"} isRight={true} />
             )}
-        </Container>
+        </Box>
     );
 };
 
