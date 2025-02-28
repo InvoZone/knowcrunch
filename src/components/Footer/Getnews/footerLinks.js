@@ -1,10 +1,12 @@
 import React from "react";
 import { Typography, Grid2 } from "@mui/material";
+import "../footer.scss";
 
 const FooterLinks = ({ title, links }) => {
     return (
         <Grid2
             item="true"
+            className="footerLinkSection"
             lg={4}
             sx={{ display: "flex", flexDirection: "column", gap: "7px" }}
             aria-label="Footer links section"

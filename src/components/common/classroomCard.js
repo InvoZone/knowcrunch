@@ -24,8 +24,7 @@ export default function ClassroomCard({
                 borderColor: "neutral.neutral9",
                 overflow: "hidden",
                 width: width,
-                flexShrink: 0,
-                height: "450px"
+                flexShrink: 0
             }}
             p={2}
             component={"div"}

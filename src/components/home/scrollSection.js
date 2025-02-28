@@ -2,13 +2,13 @@ import { Box } from "@mui/material";
 import { useRef, useState, useEffect } from "react";
 import ScrollBtn from "./scrollBtn";
 
-const ScrollSection = ({ children, width, leftArrowPosition = { top: "44%", left: 10 }, rightArrowPosition = { top: "44%", right: 10 } }) => {
+const ScrollSection = ({scrolAmount = null ,children, width, leftArrowPosition = { top: "44%", left: 10 }, rightArrowPosition = { top: "44%", right: 10 } }) => {
     const scrollRef = useRef(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(true);
 
     const handleScroll = (direction) => {
-        const scrollAmount = 644; // Adjust based on card width
+        const scrollAmount = scrolAmount ? (scrolAmount+20) : 644; // Adjust based on card width
         if (scrollRef.current) {
             if (direction === "left") {
                 scrollRef.current.scrollLeft -= scrollAmount;

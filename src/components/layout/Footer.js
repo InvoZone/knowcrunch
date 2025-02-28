@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Box, Typography, Button, useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import Grid2 from "@mui/material/Grid2";
 import Image from "next/image";
 import "./footer.scss";
@@ -13,21 +12,51 @@ import FooterLinks from "../Footer/Getnews/footerLinks";
 import FooterLinksMobile from "../Footer/Getnews/mobileFooterLinks";
 
 const Footer = () => {
-    const theme = useTheme();
     const isMed = useMediaQuery("(max-width: 1090px)");
+    const footerData = [
+        {
+          title: "About Us",
+          links: [
+            "E- Learning Courses",
+            "Classroom Courses",
+            "Corporate Training",
+            "Brands that Trust Us",
+            "Instructors",
+            "Blog",
+          ],
+        },
+        {
+          title: "Our Students",
+          links: [
+            "Questions & Answers",
+            "Official Alumni Group",
+            "Digital Nation Group",
+          ],
+        },
+        {
+          title: "Legal",
+          links: [
+            "Terms & Conditions",
+            "Cookies Policy",
+            "Data Privacy Policy",
+            "Contact Us",
+          ],
+        },
+      ];
 
     return (
         <Box
             sx={{
-                backgroundColor: theme.palette.primary.main,
-                color: theme.palette.secondary.main,
-                padding: "48px 35px 16px",
+                backgroundColor: "primary.main",
+                color: "secondary.main",
+                padding: {xs:"32px 24px  24px 24px", md:"32px 48px  16px 48px", lg:"48px 48px 16px 48px"},
                 borderTopLeftRadius: "32px",
                 borderTopRightRadius: "32px",
             }}
         >
             <Box className="globalCotainer">
                 <Grid2
+                    className="SectionCotainer"
                     container
                     sx={{
                         display: "flex",
@@ -37,69 +66,23 @@ const Footer = () => {
                 >
                     {isMed && (
                         <>
-                            <Grid2
-                                item="true"
-                                md={12}
-                                lg={12}
-                                sm={12}
-                                sx={{
-                                    width: "100%",
-                                }}
-                            >
-                                <FooterLinksMobile
-                                    title="About Us"
-                                    links={[
-                                        "E- Learning Courses",
-                                        "Classroom Courses",
-                                        "Corporate Training",
-                                        "Brands that Trust Us",
-                                        "Instructors",
-                                        "Blog",
-                                    ]}
-                                />
-                            </Grid2>
-                            <Grid2
-                                item="true"
-                                md={12}
-                                lg={12}
-                                sm={12}
-                                sx={{
-                                    width: "100%",
-                                }}
-                            >
-                                <FooterLinksMobile
-                                    title="Our Students"
-                                    links={[
-                                        "Questions & Answers",
-                                        "Official Alumni Group",
-                                        "Digital Nation Group",
-                                    ]}
-                                />
-                            </Grid2>
-                            <Grid2
-                                item="true"
-                                md={12}
-                                lg={12}
-                                sm={12}
-                                sx={{
-                                    width: "100%",
-                                }}
-                            >
-                                <FooterLinksMobile
-                                    title="Legal"
-                                    links={[
-                                        "Terms & Conditions",
-                                        "Cookies Policy",
-                                        "Data Privacy Policy",
-                                        "Contact Us",
-                                    ]}
-                                />
-                            </Grid2>
+                            {footerData.map((section, index) => (
+                                <Grid2
+                                    key={`link_${index}`}
+                                    item="true"
+                                    md={12}
+                                    lg={12}
+                                    sm={12}
+                                    sx={{ width: "100%" }}
+                                >
+                                    <FooterLinksMobile title={section.title} links={section.links} />
+                                </Grid2>
+                                ))}
                         </>
                     )}
                     <Box item="true" lg={12} className="mainFooter">
                         <Grid2 item="true" lg={3} className="mainFooterForm">
-                            <Typography variant="h6" component={"p"}>Get our news</Typography>
+                            <Typography variant="titleLg" component={"p"}>Get our news</Typography>
                             <Box
                                 sx={{
                                     display: "flex",
@@ -149,8 +132,8 @@ const Footer = () => {
                                 variant="contained"
                                 sx={{
                                     marginTop: "10px",
-                                    backgroundColor: "#3366CC",
-                                    color: "white",
+                                    backgroundColor: "base1.default",
+                                    color: "secondary.main",
                                     borderRadius: "8px",
                                 }}
                                 aria-label="Subscribe"
@@ -181,40 +164,15 @@ const Footer = () => {
                             sx={{
                                 display: "flex",
                                 justifyContent: "space-between",
-                                gap: "30px",
+                                gap: "32px",
                             }}
                         >
-                            <FooterLinks
-                                title="About Us"
-                                links={[
-                                    "E- Learning Courses",
-                                    "Classroom Courses",
-                                    "Corporate Training",
-                                    "Brands that Trust Us",
-                                    "Instructors",
-                                    "Blog",
-                                ]}
-                            />
-                            <FooterLinks
-                                title="Our Students"
-                                links={[
-                                    "Questions & Answers",
-                                    "Official Alumni Group",
-                                    "Digital Nation Group",
-                                ]}
-                            />
-                            <FooterLinks
-                                title="Legal"
-                                links={[
-                                    "Terms & Conditions",
-                                    "Cookies Policy",
-                                    "Data Privacy Policy",
-                                    "Contact Us",
-                                ]}
-                            />
+                                {footerData.map((section, index) => (
+                                    <FooterLinks key={`footer_${index}`} title={section.title} links={section.links} />
+                                ))}
                         </Grid2>
 
-                        <Grid2 item="true" lg={3}>
+                        <Grid2 item="true" lg={3} className="downloadKnow">
                             <CrunchCard />
                         </Grid2>
                     </Box>
