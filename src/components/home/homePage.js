@@ -643,9 +643,9 @@ const Homepage = () => {
                         Classroom courses
                     </Typography>
                     <ScrollSection
-                        width={"100%"}
-                        leftArrowPosition={{ top: "213px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
-                        rightArrowPosition={{ top: "213px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                        width={{ xs: "calc(100% - 32px)", md: "100%" }}
+                        leftArrowPosition={{ top: "213px", left: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                        rightArrowPosition={{ top: "213px", right: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                     >
                         {[...Array(12)].map((_, ind) => (
                             <ClassroomCard width={{ xs: 298, lg: 378.66, xl: 405 }} key={`course_${ind}`} />
