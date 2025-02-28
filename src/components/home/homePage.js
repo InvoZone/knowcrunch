@@ -13,6 +13,7 @@ import {
     Grid2,
     Typography,
     useMediaQuery,
+    useTheme
 } from "@mui/material";
 import SelectAbleLinks from "../common/selectableLinks";
 import LogoAnimate from "../common/logoAnimate";
@@ -27,9 +28,13 @@ import ScrollSection from "./scrollSection";
 
 
 const Homepage = () => {
+    const theme = useTheme();
 
     const isTab = useMediaQuery("(max-width:1200px)");
-    const isMob = useMediaQuery("(max-width:500px)");
+    const isSmall = useMediaQuery(theme.breakpoints.down("md"));
+    const isMed = useMediaQuery(theme.breakpoints.down("lg"));
+    const isLg = useMediaQuery(theme.breakpoints.between("lg", "xl"));
+    const xlg = useMediaQuery(theme.breakpoints.up("xl"));
 
     const instructors = [
         {
@@ -93,8 +98,8 @@ const Homepage = () => {
                         Popular E-learning Courses
                     </Typography>
                     <ScrollSection
-                        width={"100%"}
-                        scrolAmount={isMob ? 298 : null}
+                        width={{ xs: "calc(100% - 32px)", md: "100%" }}
+                        scrolAmount= { isSmall? 322  : isMed ? 544 : isLg ? 966 : xlg ? 966 : null  }
                         leftArrowPosition={{ top: "44%", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "44%", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                     >
@@ -122,7 +127,7 @@ const Homepage = () => {
             </Container>
             {/* career path */}
             <Box
-                sx={{ background: "neutral.neutral10" }}
+                sx={{ backgroundColor: "neutral.neutral10" }}
             >
                 <Container
                     sx={{ padding: 0, maxWidth: "1360px !important", }}
@@ -130,7 +135,7 @@ const Homepage = () => {
                 >
                     <Box
                         className={styles.conatiner}
-                        sx={{ background: "neutral.neutral10", padding: "48px" }}
+                        sx={{ backgroundColor: "neutral.neutral10", padding: "48px" }}
                     >
                         <Grid2
                             sx={{
@@ -174,10 +179,6 @@ const Homepage = () => {
                                         {/* Content Marketing Section */}
                                         <Box
                                             sx={{
-                                                // marginTop: "40px",
-                                                // padding: "24px",
-
-                                                backgroundColor: "#f5f5f5",
                                                 borderRadius: "8px",
                                                 display: "flex",
                                                 flexDirection: "column",
@@ -376,7 +377,7 @@ const Homepage = () => {
                         Classroom courses
                     </Typography>
                     <ScrollSection
-                        scrolAmount={isMob ? 298 : null}
+                        scrolAmount={isSmall ? 322 : null}
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
                         leftArrowPosition={{ top: "213px", left: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "213px", right: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
@@ -416,10 +417,10 @@ const Homepage = () => {
                         Our instructors
                     </Typography>
                     <ScrollSection
-                        scrolAmount={isMob ? 260 : null}
-                        width={"100%"}
-                        leftArrowPosition={{ top: "44%", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
-                        rightArrowPosition={{ top: "44%", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                        scrolAmount={isSmall ? 284 : null}
+                        width={{ xs: "calc(100% - 32px)", md: "100%" }}
+                        leftArrowPosition={{ top: "163px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                        rightArrowPosition={{ top: "163px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                     >
                         {instructors.map((instructor, index) => (
                             <InstructorCard
@@ -441,8 +442,6 @@ const Homepage = () => {
                         sx={{
                             display: "flex",
                             justifyContent: "flex-end",
-                            marginTop: "16.5px",
-                            marginRight: "20px",
                             cursor: "pointer",
                         }}
                         component={"p"}
@@ -468,8 +467,8 @@ const Homepage = () => {
                         Video testimonials
                     </Typography>
                     <ScrollSection
-                        scrolAmount={isMob ? 368 : null}
-                        width={"100%"}
+                        scrolAmount={isSmall ? 392 : null}
+                        width={{ xs: "calc(100% - 32px)", md: "100%" }}
                         leftArrowPosition={{ top: "94px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "94px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                     >
