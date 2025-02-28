@@ -136,7 +136,7 @@ function Navbar() {
                     sx={{
                         height: 80,
                         display: "flex",
-                        padding: pathname === "/" ? "0 16px" : "",
+                        gap: "10px"
                     }}
                 >
                     {/* Conditional rendering of search field or main content */}

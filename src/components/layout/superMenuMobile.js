@@ -66,7 +66,7 @@ const SuperMenuMobile = ({
                 anchorEl={anchorElSuperMenu}
                 aria-label="Super Menu"
             >
-                <Container maxWidth={"xl"} sx={{ py: 4, minHeight: 500 }}>
+                <Container maxWidth={"xl"} sx={{ py: 4, minHeight: 569 }}>
                     <Grid2 container>
                         {/* Header with back button and close icon */}
                         <Grid2 size={12}>
@@ -160,7 +160,8 @@ const SuperMenuMobile = ({
                                     sx={{
                                         position: "absolute",
                                         bottom: 40,
-                                        width: "calc(100% - 32px)",
+                                        width: "100%",
+                                        right: { xs: 0, md: 32 }
                                     }}
                                 >
                                     <Box
@@ -171,6 +172,7 @@ const SuperMenuMobile = ({
                                             sm: "center",
                                             md: "flex-end",
                                         }}
+                                        gap={3}
                                     >
                                         {isLoggedIn ? (
                                             <CustomBtn
@@ -181,8 +183,8 @@ const SuperMenuMobile = ({
                                             />
                                         ) : (
                                             <>
-                                                <Login />
-                                                <Signup />
+                                                <Login onClick={handleOpenMobileMenu} />
+                                                <Signup onClick={handleOpenMobileMenu} />
                                             </>
                                         )}
                                     </Box>

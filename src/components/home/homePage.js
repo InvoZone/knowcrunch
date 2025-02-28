@@ -664,17 +664,25 @@ const Homepage = () => {
                         View courses
                     </Typography>
                 </Box>
+            </Container>
 
-                {/* Our instructors */}
-                <Box className={styles.conatiner} sx={{ padding: "48px" }}>
+            {/* Our instructors */}
+            <Box px={{ xs: 0, sm: 0, md: 3, lg: 3 }} py={6}>
+
+                <Container maxWidth={"lg"}>
                     <Typography
-                        sx={{ color: primary.main, marginBottom: "24px" }}
+                        color="primary.main"
+                        pb={3}
                         variant="h2"
                         component={"h3"}
                     >
                         Our instructors
                     </Typography>
-                    <ScrollSection >
+                    <ScrollSection
+                        width={"100%"}
+                        leftArrowPosition={{ top: "163px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                        rightArrowPosition={{ top: "163px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                    >
                         {instructors.map((instructor, index) => (
                             <InstructorCard
                                 key={`instructor_${index}`}
@@ -689,12 +697,12 @@ const Homepage = () => {
                     </ScrollSection>
                     <Typography
                         variant="h6"
+                        color="link.main"
+                        pt={2}
+                        px={"20px"}
                         sx={{
-                            color: link.main,
                             display: "flex",
                             justifyContent: "flex-end",
-                            marginTop: "20px",
-                            marginRight: "20px",
                             cursor: "pointer",
                         }}
                         component={"p"}
@@ -702,12 +710,12 @@ const Homepage = () => {
                     >
                         View all instructors
                     </Typography>
-                </Box>
-            </Container>
+                </Container>
+            </Box>
 
 
             {/* Video testimonials */}
-            <Box px={{ xs: 0, sm: 0, md: 3, lg: 3 }} pb={4}>
+            <Box px={{ xs: 0, sm: 0, md: 3, lg: 3 }} py={4}>
 
                 <Container maxWidth={"lg"}>
 
@@ -734,18 +742,11 @@ const Homepage = () => {
 
             {/* Diploma */}
             <Box
-                sx={{ backgroundColor: neutral.neutral10 }}
+                backgroundColor={"neutral.neutral10"}
+                py={6}
             >
-                <Container
-                    sx={{ padding: 0, maxWidth: "1360px !important" }}
-                    className={styles.mainconatiner}
-                >
-                    <Box
-                        className={styles.conatiner}
-                        sx={{ padding: "48px", backgroundColor: neutral.neutral10 }}
-                    >
-                        <Diploma />
-                    </Box>
+                <Container maxWidth={"lg"} sx={{ display: "flex", justifyContent: "center" }}>
+                    <Diploma />
                 </Container>
             </Box>
             {/* WhykowCrunch */}
@@ -757,7 +758,7 @@ const Homepage = () => {
                     <WhykowCrunch />
                 </Box>
             </Container>
-        </Box>
+        </Box >
     );
 };
 

@@ -15,7 +15,7 @@ import { useState } from "react";
  * Signup component that handles the Signup dialog and button
  * Provides Google OAuth functionality and Signup form
  */
-const Signup = () => {
+const Signup = ({ onClick = () => "" }) => {
     const [registerText, setRegisterText] = useState("signupHeading");
     const dispatch = useDispatch();
     // Get translations for account-related text
@@ -23,6 +23,7 @@ const Signup = () => {
     const { signupPopup } = useSelector((state) => state.auth);
 
     const handleOpen = () => {
+        onClick();
         setRegisterText("signupHeading");
         dispatch(
             openLoginSignUpPopup({

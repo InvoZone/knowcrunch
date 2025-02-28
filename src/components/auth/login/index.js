@@ -14,13 +14,14 @@ import { openForgotPopup, openLoginSignUpPopup } from "@/store/slices/auth";
  * Login component that handles the login dialog and button
  * Provides Google OAuth functionality and login form
  */
-const Login = () => {
+const Login = ({ onClick = () => "" }) => {
     const dispatch = useDispatch();
     // Get translations for account-related text
     const t = useTranslations("account");
     const { loginPopup } = useSelector((state) => state.auth);
 
     const handleOpen = () => {
+        onClick();
         dispatch(
             openLoginSignUpPopup({
                 loginPopup: true,
