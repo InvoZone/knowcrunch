@@ -8,7 +8,7 @@ const ScrollSection = ({scrolAmount = null ,children, width, leftArrowPosition =
     const [showRightArrow, setShowRightArrow] = useState(true);
 
     const handleScroll = (direction) => {
-        const scrollAmount = scrolAmount ? (scrolAmount+20) : 644; // Adjust based on card width
+        const scrollAmount = scrolAmount ? (scrolAmount) : 644; // Adjust based on card width
         if (scrollRef.current) {
             if (direction === "left") {
                 scrollRef.current.scrollLeft -= scrollAmount;
