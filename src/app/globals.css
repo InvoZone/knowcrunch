@@ -76,11 +76,3 @@ a {
 .radius-16 {
     border-radius: 16px;
 }
-
-.sliderContaier .slick-track {
-    display: flex !important;
-    gap: 18px !important;
-}
-.sliderContaier .slick-slide:first-child {
-    margin-left: -16px !important;
-}

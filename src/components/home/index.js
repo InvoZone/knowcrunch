@@ -3,20 +3,19 @@ import * as React from "react";
 import CourseCard from "../common/courseCard";
 import ClassroomCard from "../common/classroomCard";
 import InstructorCard from "../common/istructors";
-import * as styles from "./style.module.scss";
 import {
     Box,
     useMediaQuery,
     useTheme
 } from "@mui/material";
-import LogoAnimate from "../common/logoAnimate";
+import LogoAnimate from "./logoAnimate";
 import img1 from "@/assets/course/instructor1.webp";
 import img2 from "@/assets/course/instructor2.webp";
 import img3 from "@/assets/course/instructor3.webp";
 import VideoCard from "../common/videoCard";
 import Diploma from "./diploma";
 import WhykowCrunch from "./whykowcrunch";
-import Banner from "../common/banner";
+import Banner from "./banner";
 import ScrollSection from "./scrollSection";
 import CareerPath from "./careerPath";
 
@@ -70,19 +69,19 @@ const Homepage = () => {
     ];
 
     return (
-        <Box sx={{ padding: "0 !important" }} className={styles.mainconatiner}>
+        <Box component={"div"}>
             {/* Bannner section */}
             <Banner />
-            <Box component={"div"} className={styles.LogoAnimate}>
+            <Box component={"div"} sx={{ marginTop: "-30px", px: { xs: 3, md: 6 } }}>
                 <LogoAnimate />
             </Box>
 
             {/* popular e-learning */}
             <ScrollSection
-                width={{ xs: "calc(100% - 32px)", md: "100%" }}
+                width={{ xs: "calc(100% - 60px)", md: "100%" }}
                 scrolAmount={isSmall ? 322 : isMed ? 644 : isLg ? 966 : xlg ? 1288 : 322}
-                leftArrowPosition={{ top: "44%", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
-                rightArrowPosition={{ top: "44%", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                leftArrowPosition={{ top: "44%", left: { xs: "-4px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                rightArrowPosition={{ top: "44%", right: { xs: "-4px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 heading={"Popular E-learning Courses"}
                 linkProps={{ title: "View all courses", pt: 1, pb: 3 }}
                 py={3}
@@ -99,9 +98,9 @@ const Homepage = () => {
             {/* classroom courses */}
             <ScrollSection
                 scrolAmount={isSmall ? 322 : isMed ? 644 : isLg ? 804 : xlg ? 858 : 322}
-                width={{ xs: "calc(100% - 32px)", md: "100%" }}
-                leftArrowPosition={{ top: "213px", left: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
-                rightArrowPosition={{ top: "213px", right: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                width={{ xs: "calc(100% - 60px)", md: "100%" }}
+                leftArrowPosition={{ top: "213px", left: { xs: "-4px", md: "-30px", lg: "-30px", xl: "-30px" } }}
+                rightArrowPosition={{ top: "213px", right: { xs: "-4px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 heading={"Classroom courses"}
                 linkProps={{ title: "View courses", pt: 2 }}
             >

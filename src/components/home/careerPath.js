@@ -1,6 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
 import CourseCard from "../common/courseCard";
-import * as styles from "./style.module.scss";
 import TickMark from "../common/TickMark";
 import SelectableLinks from "./selectableLinks";
 import CustomBtn from "../common/customBtn";
@@ -62,20 +61,16 @@ const CareerPath = () => {
                                 >
                                     <Typography
                                         variant="h3"
-                                        sx={{
-                                            color: "base1.dark4",
-                                            marginBottom: "8px"
-                                        }}
+                                        color="base1.dark4"
+                                        pb={"4px"}
                                         component={"h4"}
                                     >
                                         Content Marketing
                                     </Typography>
                                     <Typography
                                         variant="body"
-                                        sx={{
-                                            color: "neutral.neutral1",
-                                            marginBottom: "16px"
-                                        }}
+                                        color="neutral.neutral1"
+                                        pb={2}
                                     >
                                         Define and develop digital
                                         strategies to deliver business
@@ -83,18 +78,18 @@ const CareerPath = () => {
                                     </Typography>
                                     <Box
                                         component={"div"}
-                                        className={styles.markValue}
-                                        sx={{ mt: -1 }}
                                     >
                                         <Typography
                                             variant="h5"
-                                            sx={{ color: "link.main" }}
+                                            sx={{ color: "link.main", pb: "4px" }}
                                         >
                                             37.000€
                                         </Typography>
                                         <Typography
                                             variant="body"
-                                            sx={{ color: "neutral.neutral1", marginBottom: "12px" }}
+                                            component={"p"}
+                                            color="neutral.neutral1"
+                                            pb={"12px"}
                                         >
                                             median salary in Greece, for
                                             this career path in 2023
@@ -102,18 +97,18 @@ const CareerPath = () => {
                                     </Box>
                                     <Box
                                         component={"div"}
-                                        className={styles.markValue}
-                                        sx={{ marginTop: "12px" }}
+                                        pb={"4px"}
                                     >
                                         <Typography
                                             variant="h5"
-                                            sx={{ color: "link.main" }}
+                                            color="link.main"
                                         >
                                             85%
                                         </Typography>
                                         <Typography
                                             variant="body"
-                                            sx={{ color: "neutral.neutral1", marginBottom: "16px" }}
+                                            color="neutral.neutral1"
+                                            pb={2}
                                         >
                                             of course graduates report
                                             positive career impact
@@ -121,7 +116,6 @@ const CareerPath = () => {
                                     </Box>
                                     <Box
                                         component={"div"}
-                                        className={styles.basicTypo}
                                         sx={{
                                             color: "neutral.neutral1",
                                             display: "flex",
