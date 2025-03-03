@@ -78,7 +78,7 @@ const Homepage = () => {
 
             {/* popular e-learning */}
             <ScrollSection
-                width={{ xs: "calc(100% - 60px)", md: "100%" }}
+                width={{ xs: "calc(100% - 44px)", md: "100%" }}
                 scrolAmount={isSmall ? 322 : isMed ? 644 : isLg ? 966 : xlg ? 1288 : 322}
                 leftArrowPosition={{ top: "44%", left: { xs: "-4px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 rightArrowPosition={{ top: "44%", right: { xs: "-4px", md: "-30px", lg: "-30px", xl: "-30px" } }}
@@ -98,7 +98,7 @@ const Homepage = () => {
             {/* classroom courses */}
             <ScrollSection
                 scrolAmount={isSmall ? 322 : isMed ? 644 : isLg ? 804 : xlg ? 858 : 322}
-                width={{ xs: "calc(100% - 60px)", md: "100%" }}
+                width={{ xs: "calc(100% - 44px)", md: "100%" }}
                 leftArrowPosition={{ top: "213px", left: { xs: "-4px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 rightArrowPosition={{ top: "213px", right: { xs: "-4px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 heading={"Classroom courses"}
