@@ -86,7 +86,6 @@ const LogoAnimate = () => {
                     direction={direction}
                     style={{ paddingLeft: "40px", marginLeft: "40px", marginRight:"10px" }}
                     onCycleComplete={onCycleComplete}
-                    // loop={1} // Stop after reaching the end
                 >
                     {[
                         "/icons/skodalogo.svg",

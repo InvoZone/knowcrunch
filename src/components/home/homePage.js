@@ -113,7 +113,6 @@ const Homepage = () => {
                             justifyContent: "flex-end",
                             marginTop: "16.5px",
                             marginRight: "20px",
-                            // marginRight: isMob ? "50px" : isMed ? "88px" : Home ? "32px" : "30px",
                             cursor: "pointer",
                         }}
                         aria-label="View all courses"
@@ -249,7 +248,6 @@ const Homepage = () => {
                                                     flexDirection: "column",
                                                     gap: "16px",
                                                     marginTop: "16px"
-                                                    // marginBottom:"16px"
                                                 }}
                                             >
                                                 <Box className={styles.tickMark}>
@@ -318,7 +316,6 @@ const Homepage = () => {
                                                 display: "flex",
                                                 gap: "16px",
                                                 width: "100%",
-                                                // padding: "16px 8px",
                                                 alignItems: "center",
                                             }}
                                         >
