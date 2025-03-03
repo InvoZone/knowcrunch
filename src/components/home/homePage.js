@@ -179,7 +179,6 @@ const Homepage = () => {
                                                 borderRadius: "8px",
                                                 display: "flex",
                                                 flexDirection: "column",
-                                                // gap: "16px",
                                                 mb: 1,
                                             }}
                                         >
