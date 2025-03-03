@@ -24,7 +24,7 @@ export default function CourseCard({
     mx = 0,
     discountTag = false,
     width = "100%",
-    // minWidth = 100,
+    shadow = false,
     newtag = false,
     CustomButton = true
 }) {
@@ -37,7 +37,9 @@ export default function CourseCard({
                 borderColor: "neutral.neutral9",
                 minHeight: 400,
                 width: width,
-                flexShrink: 0
+                flexShrink: 0,
+                boxShadow: shadow && "0px 4px 4px 0px rgba(0, 0, 0, 0.15)",
+                mb: 1
                 // minWidth: minWidth
             }}
             p={1}

@@ -23,6 +23,7 @@ import Diploma from "../common/diploma";
 import WhykowCrunch from "../common/whykowcrunch";
 import Banner from "../common/banner";
 import ScrollSection from "./scrollSection";
+import CustomBtn from "../common/customBtn";
 
 
 const Homepage = () => {
@@ -97,29 +98,22 @@ const Homepage = () => {
                     </Typography>
                     <ScrollSection
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
-                        scrolAmount= { isSmall? 322  : isMed ? 644 : isLg ? 966 : xlg ? 1288 : 322  }
+                        scrolAmount={isSmall ? 322 : isMed ? 644 : isLg ? 966 : xlg ? 1288 : 322}
                         leftArrowPosition={{ top: "44%", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "44%", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                     >
                         {[...Array(12)].map((_, ind) => (
-                            <CourseCard discountTag={true} width={298} key={`course_${ind}`} />
+                            <CourseCard discountTag={true} width={298} key={`course_${ind}`} shadow={true} />
                         ))}
                     </ScrollSection>
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            color: "link.main",
-                            display: "flex",
-                            justifyContent: "flex-end",
-                            marginTop: "16.5px",
-                            marginRight: "20px",
-                            cursor: "pointer",
-                        }}
-                        aria-label="View all courses"
-                        component={"p"}
-                    >
-                        View all courses
-                    </Typography>
+                    <Box pt={1} sx={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        cursor: "pointer",
+                    }}>
+                        <CustomBtn color="link.main" title={"View all courses"} txtVariant="h6" sx={{ px: "20px" }} variant="text" />
+                    </Box>
+
                 </Box>
             </Container>
             {/* career path */}
@@ -371,7 +365,7 @@ const Homepage = () => {
                         Classroom courses
                     </Typography>
                     <ScrollSection
-                        scrolAmount= { isSmall? 322  : isMed ? 644 : isLg ? 804 : xlg ? 858 : 322  }
+                        scrolAmount={isSmall ? 322 : isMed ? 644 : isLg ? 804 : xlg ? 858 : 322}
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
                         leftArrowPosition={{ top: "213px", left: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "213px", right: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
@@ -411,7 +405,7 @@ const Homepage = () => {
                         Our instructors
                     </Typography>
                     <ScrollSection
-                        scrolAmount= { isSmall? 284  : isMed ? 568 : isLg ? 1136 : xlg ? 1136 : 284  }
+                        scrolAmount={isSmall ? 284 : isMed ? 568 : isLg ? 1136 : xlg ? 1136 : 284}
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
                         leftArrowPosition={{ top: "163px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "163px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
@@ -461,7 +455,7 @@ const Homepage = () => {
                         Video testimonials
                     </Typography>
                     <ScrollSection
-                        scrolAmount= { isSmall? 392  : isMed ? 392 : isLg ? 784 : xlg ? 1176 : 392  }
+                        scrolAmount={isSmall ? 392 : isMed ? 392 : isLg ? 784 : xlg ? 1176 : 392}
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
                         leftArrowPosition={{ top: "94px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "94px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}

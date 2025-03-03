@@ -10,18 +10,18 @@ const LogoAnimate = () => {
     const [direction, setDirection] = useState("");
 
     const handleMouseEnter = () => {
-            if(direction === "" || direction === "right"){
-                setDirection("left");
-                setPlay(true);
-            }
+        if (direction === "" || direction === "right") {
+            setDirection("left");
+            setPlay(true);
+        }
     };
 
     const onCycleComplete = () => {
-        if(direction === "left"){
+        if (direction === "left") {
             setDirection("right");
             setPlay(true);
         }
-        else{
+        else {
             setDirection("");
             setPlay(false);
         }
@@ -32,7 +32,7 @@ const LogoAnimate = () => {
         <Container
             onMouseEnter={handleMouseEnter}
             maxWidth="lg"
-            sx={{ padding: "0 !important", position: "relative", maxWidth:"1360px !important" }}
+            sx={{ padding: "0 !important", position: "relative", maxWidth: "1360px !important" }}
             aria-label="Logo animation container"
         >
             <Box
@@ -57,7 +57,7 @@ const LogoAnimate = () => {
             >
                 <Typography
                     variant="titleMd"
-                    sx={{ width: "90px", color: "base1.dark4", lineHeight:"20px" }}
+                    sx={{ width: "90px", color: "base1.dark4", lineHeight: "20px" }}
                 >
                     Trusted by
                 </Typography>
@@ -76,15 +76,16 @@ const LogoAnimate = () => {
                     alignItems: "center",
                     justifyContent: "start",
                     border: "1px solid",
-                    borderColor:"neutral.neutral9",
+                    borderColor: "neutral.neutral9",
                     borderRadius: "48px",
+                    height: "58px"
                 }}
             >
                 <Marquee
                     play={play}
                     speed={130}
                     direction={direction}
-                    style={{ paddingLeft: "40px", marginLeft: "40px", marginRight:"10px" }}
+                    style={{ paddingLeft: "40px", marginLeft: "40px", marginRight: "10px" }}
                     onCycleComplete={onCycleComplete}
                 >
                     {[
