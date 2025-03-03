@@ -1,10 +1,8 @@
 "use client";
 import Image from "next/image";
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function ProfileCard({ profileImage, name, title, company, mx = 0, width, height }) {
-    const theme = useTheme();
-    const { neutral } = theme.palette;
 
     return (
         <Box
@@ -47,7 +45,7 @@ export default function ProfileCard({ profileImage, name, title, company, mx = 0
             </Box>
 
             <Typography
-                sx={{ color: "#000000" }}
+                sx={{ color: "tertiary.main" }}
                 variant="titleLg"
                 component="p"
                 pt={1}
@@ -55,16 +53,15 @@ export default function ProfileCard({ profileImage, name, title, company, mx = 0
                 {name}
             </Typography>
             <Typography
-                sx={{ color: neutral.neutral1 }}
+                sx={{ color: "neutral.neutral1" }}
                 variant="body"
                 color="text.secondary"
             >
                 {title}
             </Typography>
             <Typography
-                sx={{ color: "#000000" }}
+                sx={{ color: "tertiary.main" }}
                 variant="body"
-                color="text.secondary"
                 pb={1}
             >
                 {company}

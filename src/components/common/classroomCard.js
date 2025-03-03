@@ -70,7 +70,7 @@ export default function ClassroomCard({
                             height: 24,
                             backgroundColor: "accents.bubble1",
                             borderRadius: 1,
-                            color: "white",
+                            color: "secondary.main",
                             px: "5px",
                             minWidth: "36px",
                             display: "flex"

@@ -2,11 +2,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import { Box, Typography, useTheme, Container } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 
 const LogoAnimate = () => {
-    const theme = useTheme();
-    const { base1, neutral } = theme.palette;
 
     const [play, setPlay] = useState(false);
     const [direction, setDirection] = useState("");
@@ -59,7 +57,7 @@ const LogoAnimate = () => {
             >
                 <Typography
                     variant="titleMd"
-                    sx={{ width: "90px", color: base1.dark4, lineHeight:"20px" }}
+                    sx={{ width: "90px", color: "base1.dark4", lineHeight:"20px" }}
                 >
                     Trusted by
                 </Typography>
@@ -74,10 +72,11 @@ const LogoAnimate = () => {
                         xl: "4px 48px 4px 75px",
                     },
                     display: "flex",
-                    background: "white",
+                    backgroundColor: "secondary.main",
                     alignItems: "center",
                     justifyContent: "start",
-                    border: `1px solid ${neutral.neutral9}`,
+                    border: "1px solid",
+                    borderColor:"neutral.neutral9",
                     borderRadius: "48px",
                 }}
             >
@@ -87,7 +86,6 @@ const LogoAnimate = () => {
                     direction={direction}
                     style={{ paddingLeft: "40px", marginLeft: "40px", marginRight:"10px" }}
                     onCycleComplete={onCycleComplete}
-                    // loop={1} // Stop after reaching the end
                 >
                     {[
                         "/icons/skodalogo.svg",
