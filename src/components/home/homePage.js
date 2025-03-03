@@ -1,6 +1,5 @@
 "use client";
 import * as React from "react";
-import Image from "next/image";
 import CourseCard from "../common/courseCard";
 import ClassroomCard from "../common/classroomCard";
 import InstructorCard from "../common/istructors";
@@ -23,7 +22,14 @@ import Diploma from "../common/diploma";
 import WhykowCrunch from "../common/whykowcrunch";
 import Banner from "../common/banner";
 import ScrollSection from "./scrollSection";
+import TickMark from "../common/TickMark";
 
+// Define the data for TickMarks
+const tickMarkData = [
+    {id:"1", text: "Design and manage influencer campaigns to enhance brand visibility and engagement." },
+    {id:"2", text: "Expertise in social media, content trends, analytics, and influencer relationship-building." },
+    {id:"3", text: "High demand across industries as brands prioritise influencer partnerships." }
+];
 
 const Homepage = () => {
     const theme = useTheme();
@@ -249,50 +255,9 @@ const Homepage = () => {
                                                     marginTop: "16px"
                                                 }}
                                             >
-                                                <Box className={styles.tickMark}>
-                                                    <Image
-                                                        loading="lazy"
-                                                        src="/icons/tick.svg"
-                                                        width={18}
-                                                        height={18}
-                                                        alt={"Tick"}
-                                                    />
-                                                    <Typography variant="body">
-                                                        Design and manage influencer
-                                                        campaigns to enhance brand
-                                                        visibility and engagement.
-                                                    </Typography>
-                                                </Box>
-                                                <Box className={styles.tickMark}>
-                                                    <Image
-                                                        loading="lazy"
-                                                        src="/icons/tick.svg"
-                                                        width={18}
-                                                        height={18}
-                                                        alt={"Tick"}
-                                                    />
-                                                    <Typography variant="body">
-                                                        Expertise in social media,
-                                                        content trends, analytics,
-                                                        and influencer
-                                                        relationship-building.
-                                                    </Typography>
-                                                </Box>
-                                                <Box className={styles.tickMark}>
-                                                    <Image
-                                                        loading="lazy"
-                                                        src="/icons/tick.svg"
-                                                        width={18}
-                                                        height={18}
-                                                        alt={"Tick"}
-                                                    />
-                                                    <Typography variant="body">
-                                                        High demand across
-                                                        industries as brands
-                                                        prioritise influencer
-                                                        partnerships.
-                                                    </Typography>
-                                                </Box>
+                                                {tickMarkData.map((item) => (
+                                                    <TickMark key={item.id} text={item.text} />
+                                                ))}
                                             </Box>
                                         </Box>
                                     </Grid2>

@@ -11,6 +11,18 @@ import CrunchCard from "../Footer/downloadCrunch/downloadcruch";
 import FooterLinks from "../Footer/Getnews/footerLinks";
 import FooterLinksMobile from "../Footer/Getnews/mobileFooterLinks";
 
+const socialIcons = [
+    { src: "/icons/Facebook.svg", alt: "Facebook" },
+    { src: "/icons/Instagram.svg", alt: "Instagram" },
+    { src: "/icons/Linkedin.svg", alt: "Linkedin" },
+    { src: "/icons/Youtube.svg", alt: "Youtube" },
+    { src: "/icons/TikTok.svg", alt: "TikTok" },
+    { src: "/icons/Medium.svg", alt: "Medium" },
+    { src: "/icons/Pinterest.svg", alt: "Pinterest" },
+    { src: "/icons/Spotify.svg", alt: "Spotify" },
+    { src: "/icons/X.svg", alt: "X" },
+];
+
 const Footer = () => {
     const isMed = useMediaQuery("(max-width: 1090px)");
     const footerData = [
@@ -96,8 +108,6 @@ const Footer = () => {
                                         className="input_style"
                                         placeholder="First name"
                                         label="First name"
-                                        variant="footerInput"
-                                        margin="normal"
                                         aria-label="First name"
                                     />
                                 </Box>
@@ -106,7 +116,6 @@ const Footer = () => {
                                         className="input_style"
                                         placeholder="Surname"
                                         label="Surname"
-                                        margin="normal"
                                         aria-label="Surname"
                                     />
                                 </Box>
@@ -115,7 +124,6 @@ const Footer = () => {
                                         className="input_style"
                                         placeholder="E-mail"
                                         label="E-mail"
-                                        margin="normal"
                                         aria-label="Email"
                                     />
                                 </Box>
@@ -195,69 +203,16 @@ const Footer = () => {
                             Knowcrunch Inc. © 2024 All Rights Reserved
                         </Typography>
                         <Box sx={{ display: "flex", gap: "17px" }}>
-                            <Image
-                                loading="lazy"
-                                src={"/icons/Facebook.svg"}
-                                width={24}
-                                height={24}
-                                alt={"Facebook"}
-                            />
-                            <Image
-                                loading="lazy"
-                                src={"/icons/Instagram.svg"}
-                                width={24}
-                                height={24}
-                                alt={"Instagram"}
-                            />
-                            <Image
-                                loading="lazy"
-                                src={"/icons/Linkedin.svg"}
-                                width={24}
-                                height={24}
-                                alt={"Linkedin"}
-                            />
-                            <Image
-                                loading="lazy"
-                                src={"/icons/Youtube.svg"}
-                                width={24}
-                                height={24}
-                                alt={"Youtube"}
-                            />
-                            <Image
-                                loading="lazy"
-                                src={"/icons/TikTok.svg"}
-                                width={24}
-                                height={24}
-                                alt={"TikTok"}
-                            />
-                            <Image
-                                loading="lazy"
-                                src={"/icons/Medium.svg"}
-                                width={24}
-                                height={24}
-                                alt={"Medium"}
-                            />
-                            <Image
-                                loading="lazy"
-                                src={"/icons/Pinterest.svg"}
-                                width={24}
-                                height={24}
-                                alt={"Pinterest"}
-                            />
-                            <Image
-                                loading="lazy"
-                                src={"/icons/Spotify.svg"}
-                                width={24}
-                                height={24}
-                                alt={"Spotify"}
-                            />
-                            <Image
-                                loading="lazy"
-                                src={"/icons/X.svg"}
-                                width={24}
-                                height={24}
-                                alt={"X"}
-                            />
+                            {socialIcons.map((icon, index) => (
+                                <Image
+                                    key={`img_${index}`}
+                                    loading="lazy"
+                                    src={icon.src}
+                                    width={24}
+                                    height={24}
+                                    alt={icon.alt}
+                                />
+                            ))}
                         </Box>
                     </Box>
                 </Box>
