@@ -1,4 +1,3 @@
-// src/components/layout/FooterAccordion.js
 import React, { useState } from "react";
 import {
     Accordion,
