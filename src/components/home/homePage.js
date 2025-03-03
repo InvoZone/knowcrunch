@@ -1,8 +1,6 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import CourseCard from "../common/courseCard";
 import ClassroomCard from "../common/classroomCard";
 import InstructorCard from "../common/istructors";
@@ -99,7 +97,7 @@ const Homepage = () => {
                     </Typography>
                     <ScrollSection
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
-                        scrolAmount= { isSmall? 322  : isMed ? 544 : isLg ? 966 : xlg ? 966 : null  }
+                        scrolAmount= { isSmall? 322  : isMed ? 644 : isLg ? 966 : xlg ? 1288 : 322  }
                         leftArrowPosition={{ top: "44%", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "44%", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                     >
@@ -377,7 +375,7 @@ const Homepage = () => {
                         Classroom courses
                     </Typography>
                     <ScrollSection
-                        scrolAmount={isSmall ? 322 : null}
+                        scrolAmount= { isSmall? 322  : isMed ? 644 : isLg ? 804 : xlg ? 858 : 322  }
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
                         leftArrowPosition={{ top: "213px", left: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "213px", right: { xs: "-6px", md: "-30px", lg: "-30px", xl: "-30px" } }}
@@ -417,7 +415,7 @@ const Homepage = () => {
                         Our instructors
                     </Typography>
                     <ScrollSection
-                        scrolAmount={isSmall ? 284 : null}
+                        scrolAmount= { isSmall? 284  : isMed ? 568 : isLg ? 1136 : xlg ? 1136 : 284  }
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
                         leftArrowPosition={{ top: "163px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "163px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
@@ -467,7 +465,7 @@ const Homepage = () => {
                         Video testimonials
                     </Typography>
                     <ScrollSection
-                        scrolAmount={isSmall ? 392 : null}
+                        scrolAmount= { isSmall? 392  : isMed ? 392 : isLg ? 784 : xlg ? 1176 : 392  }
                         width={{ xs: "calc(100% - 32px)", md: "100%" }}
                         leftArrowPosition={{ top: "94px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                         rightArrowPosition={{ top: "94px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
