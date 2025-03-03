@@ -73,6 +73,7 @@ const Login = ({ onClick = () => "" }) => {
                 open={loginPopup}
                 handleClose={handleClose}
                 aria-label="Login dialog"
+                py={4}
             >
                 {/* Dialog heading */}
                 <Typography variant="h4" color="tertiary" pb={3}>
@@ -93,7 +94,7 @@ const Login = ({ onClick = () => "" }) => {
                                 variant="body"
                                 color="link.light"
                                 component={"span"}
-                                sx={{ cursor: "pointer" }}
+                                sx={{ cursor: "pointer", pl: "10px" }}
                                 aria-label="Sign up link"
                             >
                                 {t("signup")}

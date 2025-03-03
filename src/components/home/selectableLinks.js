@@ -16,8 +16,8 @@ const marketingOptions = [
 ];
 
 const SelectableLinks = () => {
-    const [selected, setSelected] = useState(0);
     const scrollRef = useRef(null); // Reference for scrolling
+    const [selected, setSelected] = useState(0);
     const [isAtStart, setIsAtStart] = useState(true);
 
     const handleSelect = (index) => {
@@ -49,8 +49,12 @@ const SelectableLinks = () => {
                 ref={scrollRef}
                 display="flex"
                 flexDirection="row"
-                overflow="hidden"
-                sx={{ gap: "8px" }}
+                sx={{
+                    gap: "8px",
+                    overflowX: "auto",
+                    scrollBehavior: "smooth", // Enables smooth scrolling
+                    "&::-webkit-scrollbar": { display: "none" }
+                }}
             >
                 {marketingOptions.map((item, index) => (
                     <Box

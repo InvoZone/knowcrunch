@@ -33,7 +33,8 @@ const CustomCheckbox = ({ label, checked, onChange, name }) => {
                     checked={checked}
                     onChange={onChange}
                     sx={{
-                        color: "base1.dark4", // Unchecked color
+                        // color: "base1.dark4", // Unchecked color
+                        color: "neutral.neutral5", // Unchecked color
                         "&.Mui-checked": {
                             color: "base1.default", // Checked color
                         },

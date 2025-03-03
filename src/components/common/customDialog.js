@@ -34,6 +34,7 @@ export default function CustomDialog({
             sx={{
                 "& .MuiDialog-paper": {
                     borderRadius: 2,
+                    margin: "16.5px",
                     width, // Responsive width based on screen size
                 },
             }}
@@ -51,8 +52,8 @@ export default function CustomDialog({
                 <CloseOutlined
                     sx={{
                         color: "neutral.neutral1",
-                        height: 18,
-                        width: 18,
+                        height: 32,
+                        width: 31,
                         position: "absolute",
                         right: 16,
                         top: 16,

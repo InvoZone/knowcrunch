@@ -43,16 +43,19 @@ const FooterAccordion = ({ title, links }) => {
                 }}
             >
                 <AccordionSummary
-                    expandIcon={<Image loading="lazy" src={"/icons/expandmore.svg"} width={24} height={24} alt={"expandmore"} sx={{ color: "secondary.main" }}/>}
+                    expandIcon={<Image loading="lazy" src={"/icons/expandmore.svg"} width={24} height={24} alt={"expandmore"} sx={{ color: "secondary.main" }} />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                     aria-label={`Expand ${title}`}
                     sx={{
                         borderBottom: "1px solid",
-                        borderColor:"base1.dark2",
+                        borderColor: "base1.dark2",
                         padding: 0,
                         backgroundColor: "transparent",
-                        minHeight:"40px !important"
+                        minHeight: "40px !important",
+                        "& .MuiAccordionSummary-content": {
+                            margin: "8px 0 !important",
+                        },
                     }}
                 >
                     <Typography

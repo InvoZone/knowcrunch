@@ -4,16 +4,13 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import CustomBtn from "@/components/common/customBtn";
 import CustomInput from "@/components/common/customInput";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography, InputAdornment, IconButton } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { login } from "@/store/slices/auth";
 import CustomCheckbox from "@/components/common/customCheckbox";
-import { InputAdornment, IconButton } from "@mui/material";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
 
 // Define validation schema for the login form
@@ -88,9 +85,9 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                                 aria-label="Toggle password visibility"
                             >
                                 {showPassword ? (
-                                    <Visibility />
+                                    <Image src={"/icons/eye.svg"} alt='eye_icon' aria-label="show password" loading='lazy' height={20} width={20} />
                                 ) : (
-                                    <VisibilityOff />
+                                    <Image src={"/icons/eyeClose.svg"} alt='eye_close_icon' aria-label="hide password" loading='lazy' height={20} width={20} />
 
                                 )}
                             </IconButton>
@@ -99,7 +96,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                 }}
             />
 
-            <Box component='div' display={"flex"} justifyContent={"space-between"}>
+            <Box component='div' display={"flex"} justifyContent={"space-between"} height={24}>
                 <CustomCheckbox
                     label={t("rememberMe")}
                     checked={formik.values.rememberMe}
@@ -141,7 +138,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
 
 
             {/* Divider between login methods */}
-            <Divider sx={{ py: 2 }}>{t("or")}</Divider>
+            <Divider sx={{ py: 2, "&::before, &::after": { borderTop: "1px solid", borderColor: "neutral.neutral4" } }}>{t("or")}</Divider>
 
             {/* Google OAuth login button */}
             <CustomBtn

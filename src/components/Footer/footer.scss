@@ -2,17 +2,14 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    img{
+    img {
         cursor: pointer;
-    }
-    Typography {
-        margin-bottom: 8px;
     }
     @media (max-width: 575px) {
         align-items: center;
     }
 }
-.footerLinkSection{
+.footerLinkSection {
     width: 160px;
     @media (max-width: 1250px) {
         width: auto;

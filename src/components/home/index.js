@@ -113,7 +113,7 @@ const Homepage = () => {
             {/* Our instructors */}
             <ScrollSection
                 scrolAmount={isSmall ? 284 : isMed ? 568 : isLg ? 1136 : xlg ? 1136 : 284}
-                width={{ xs: "calc(100% - 32px)", md: "100%" }}
+                width={{ xs: "100%", md: "100%" }}
                 leftArrowPosition={{ top: "163px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 rightArrowPosition={{ top: "163px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 heading={"Our instructors"}
@@ -135,7 +135,7 @@ const Homepage = () => {
             {/* Video testimonials */}
             <ScrollSection
                 scrolAmount={isSmall ? 392 : isMed ? 392 : isLg ? 784 : xlg ? 1176 : 392}
-                width={{ xs: "calc(100% - 32px)", md: "100%" }}
+                width={{ xs: "100%", md: "100%" }}
                 leftArrowPosition={{ top: "94px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 rightArrowPosition={{ top: "94px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 heading={"Video testimonials"}

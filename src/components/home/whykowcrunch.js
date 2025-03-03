@@ -42,7 +42,7 @@ export default function Whyknow() {
                     />
                 </Box>
                 <Box className={styles.typo}>
-                    <Typography variant="h2" sx={{ color: "base1.dark4" }} component="h4">
+                    <Typography variant="h2" sx={{ color: "base1.dark4", fontSize: "40px !important" }} component="h4">
                         Why Knowcrunch?
                     </Typography>
                     <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>

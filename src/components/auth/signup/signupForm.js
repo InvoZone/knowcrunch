@@ -157,7 +157,7 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
             />
 
             {/* Divider between signup methods */}
-            <Divider sx={{ py: 2 }}>{t("or")}</Divider>
+            <Divider sx={{ py: 2, "&::before, &::after": { borderTop: "1px solid", borderColor: "neutral.neutral4" } }}>{t("or")}</Divider>
 
             {/* Google OAuth signup button */}
             <CustomBtn

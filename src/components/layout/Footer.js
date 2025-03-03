@@ -27,41 +27,41 @@ const Footer = () => {
     const isMed = useMediaQuery("(max-width: 1090px)");
     const footerData = [
         {
-          title: "About Us",
-          links: [
-            "E- Learning Courses",
-            "Classroom Courses",
-            "Corporate Training",
-            "Brands that Trust Us",
-            "Instructors",
-            "Blog",
-          ],
+            title: "About Us",
+            links: [
+                "E- Learning Courses",
+                "Classroom Courses",
+                "Corporate Training",
+                "Brands that Trust Us",
+                "Instructors",
+                "Blog",
+            ],
         },
         {
-          title: "Our Students",
-          links: [
-            "Questions & Answers",
-            "Official Alumni Group",
-            "Digital Nation Group",
-          ],
+            title: "Our Students",
+            links: [
+                "Questions & Answers",
+                "Official Alumni Group",
+                "Digital Nation Group",
+            ],
         },
         {
-          title: "Legal",
-          links: [
-            "Terms & Conditions",
-            "Cookies Policy",
-            "Data Privacy Policy",
-            "Contact Us",
-          ],
+            title: "Legal",
+            links: [
+                "Terms & Conditions",
+                "Cookies Policy",
+                "Data Privacy Policy",
+                "Contact Us",
+            ],
         },
-      ];
+    ];
 
     return (
         <Box
             sx={{
                 backgroundColor: "primary.main",
                 color: "secondary.main",
-                padding: {xs:"32px 24px  24px 24px", md:"32px 48px  16px 48px", lg:"48px 48px 16px 48px"},
+                padding: { xs: "32px 24px  24px 24px", md: "32px 48px  16px 48px", lg: "48px 48px 16px 48px" },
                 borderTopLeftRadius: "32px",
                 borderTopRightRadius: "32px",
             }}
@@ -89,7 +89,7 @@ const Footer = () => {
                                 >
                                     <FooterLinksMobile title={section.title} links={section.links} />
                                 </Grid2>
-                                ))}
+                            ))}
                         </>
                     )}
                     <Box item="true" lg={12} className="mainFooter">
@@ -175,9 +175,9 @@ const Footer = () => {
                                 gap: "32px",
                             }}
                         >
-                                {footerData.map((section, index) => (
-                                    <FooterLinks key={`footer_${index}`} title={section.title} links={section.links} />
-                                ))}
+                            {footerData.map((section, index) => (
+                                <FooterLinks key={`footer_${index}`} title={section.title} links={section.links} />
+                            ))}
                         </Grid2>
 
                         <Grid2 item="true" lg={3} className="downloadKnow">
@@ -202,7 +202,7 @@ const Footer = () => {
                         <Typography variant="body1">
                             Knowcrunch Inc. © 2024 All Rights Reserved
                         </Typography>
-                        <Box sx={{ display: "flex", gap: "17px" }}>
+                        <Box sx={{ display: "flex", gap: "24px" }}>
                             {socialIcons.map((icon, index) => (
                                 <Image
                                     key={`img_${index}`}

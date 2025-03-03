@@ -98,7 +98,7 @@ const Signup = ({ onClick = () => "" }) => {
                                     variant="body"
                                     color="link.light"
                                     component={"span"}
-                                    sx={{ cursor: "pointer" }}
+                                    sx={{ cursor: "pointer", pl: "10px" }}
                                     onClick={handleOpenLogin}
                                     aria-label="Open Login Dialog"
                                 >
