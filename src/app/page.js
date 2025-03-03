@@ -1,5 +1,5 @@
-// Import the HomeCom component from the homePage directory
-import HomeCom from "@/components/home/homePage";
+// Import the HomeComponent component from the homePage directory
+import HomeComponent from "@/components/home";
 
 // Define the viewport settings for the page
 export const viewport = "width=device-width, initial-scale=1";
@@ -51,8 +51,8 @@ export const metadata = {
 
 // Define the Home component
 export default function Home() {
-  // Return the HomeCom component
+  // Return the HomeComponent component
   return (
-    <HomeCom />
+    <HomeComponent />
   );
 }

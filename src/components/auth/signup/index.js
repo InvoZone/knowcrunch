@@ -60,7 +60,7 @@ const Signup = ({ onClick = () => "" }) => {
             {/* Signup button that triggers the dialog */}
             <CustomBtn
                 variant="contained"
-                title={"join Us"}
+                title={"Join Us"}
                 sx={{
                     backgroundColor: "accents.bubble1",
                     minWidth: 100,

@@ -38,7 +38,7 @@ const LogoAnimate = () => {
             <Box
                 sx={{
                     width: "82px",
-                    height: "36px",
+                    height: "50px",
                     background:
                         "linear-gradient(90deg, rgb(255 255 255) 87%, rgba(255, 255, 255, 0.563484768907563) 100%)",
                     position: "absolute",
@@ -48,7 +48,7 @@ const LogoAnimate = () => {
                         md: "50px",
                         lg: "60px",
                     },
-                    top: "12px",
+                    top: "4px",
                     zIndex: 2,
                     display: "flex",
                     justifyContent: "center",

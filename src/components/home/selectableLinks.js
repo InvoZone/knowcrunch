@@ -2,9 +2,20 @@
 import React, { useState, useRef } from "react";
 import * as styles from "./selectableLinks.module.scss"; // Import CSS for styling
 import { Box, Typography } from "@mui/material";
-import ScrollBtn from "../home/scrollBtn";
+import ScrollBtn from "./scrollBtn";
 
-const links = () => {
+const marketingOptions = [
+    { id: "content-marketing", name: "Content marketing" },
+    { id: "social-media-marketing", name: "Social media marketing" },
+    { id: "social-engine-optimization", name: "Social engine optimization" },
+    { id: "influencer-marketing", name: "Influencer marketing" },
+    { id: "performance-marketing", name: "Performance marketing" },
+    { id: "email-mobile-marketing", name: "Email & mobile marketing" },
+    { id: "social-engine-optimization-2", name: "Social engine optimization" },
+    { id: "marketing", name: "Markeeting" },
+];
+
+const SelectableLinks = () => {
     const [selected, setSelected] = useState(0);
     const scrollRef = useRef(null); // Reference for scrolling
     const [isAtStart, setIsAtStart] = useState(true);
@@ -31,7 +42,7 @@ const links = () => {
     return (
         <Box position="relative">
             {!isAtStart && (
-                <ScrollBtn leftArrowPosition = {{ top: "3px", left: "-15px" }} onClick={() => scrollToStart()} src={"/icons/leftArrow.svg"} alt={"left scroll button"} />
+                <ScrollBtn leftArrowPosition={{ top: "3px", left: "-15px" }} onClick={() => scrollToStart()} src={"/icons/leftArrow.svg"} alt={"left scroll button"} />
             )}
 
             <Box
@@ -41,16 +52,7 @@ const links = () => {
                 overflow="hidden"
                 sx={{ gap: "8px" }}
             >
-                {[
-                    "Content marketing",
-                    "Social media marketing",
-                    "Social engine optimization",
-                    "Influencer marketing",
-                    "Performance marketing",
-                    "Email & mobile marketing",
-                    "Social engine optimization",
-                    "Markeeting",
-                ].map((item, index) => (
+                {marketingOptions.map((item, index) => (
                     <Box
                         sx={{
                             color:
@@ -58,25 +60,25 @@ const links = () => {
                                     ? "base2.light6"
                                     : "neutral.neutral1",
                             border: "1px solid",
-                            borderColor:"neutral.neutral1",
-                            display:"flex"
+                            borderColor: "neutral.neutral1",
+                            display: "flex"
                         }}
-                        key={index}
+                        key={item?.id}
                         className={`${styles.logoItem} ${index === selected ? styles.selected : ""}`}
                         onClick={() => handleSelect(index)}
-                        aria-label={`Select ${item}`}
+                        aria-label={`Select ${item?.name}`}
                     >
                         <Typography variant="titleSmall" sx={{ width: "max-content" }}>
-                            {item}
+                            {item?.name}
                         </Typography>
                     </Box>
                 ))}
             </Box>
             {isAtStart && (
-                <ScrollBtn  rightArrowPosition={{ top: "3px", right: "-25px" }} onClick={() => scrollToEnd()} src={"/icons/rightArrow.svg"} alt={"right scroll button"} isRight={true} />
+                <ScrollBtn rightArrowPosition={{ top: "3px", right: "-25px" }} onClick={() => scrollToEnd()} src={"/icons/rightArrow.svg"} alt={"right scroll button"} isRight={true} />
             )}
         </Box>
     );
 };
 
-export default links;
+export default SelectableLinks;

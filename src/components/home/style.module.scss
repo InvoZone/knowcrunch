@@ -9,7 +9,7 @@
         padding: 32px 16px !important;
     }
 }
-.courseContainer{
+.courseContainer {
     padding: 24px 48px 48px 48px;
 
     @media (max-width: 600px) {
@@ -21,9 +21,6 @@
     margin-top: -30px;
     padding: 0 48px;
 
-    // @media (max-width: 991px) {
-    //     padding: 0 16px;
-    // }
     @media (max-width: 600px) {
         padding: 0 24px;
     }
@@ -34,19 +31,20 @@
     top: 40%;
     z-index: 10;
     cursor: pointer;
-    // left: -24px;
 }
 
 .career {
     gap: 48px;
-    width:100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     @media (max-width: 991px) {
         gap: 8px;
     }
     @media (max-width: 800px) {
         flex-direction: column;
     }
-    .content{
+    .content {
         width: 604px;
         @media (max-width: 1728px) {
             width: 604px;
@@ -61,7 +59,7 @@
             width: 100%;
         }
     }
-    .course{
+    .course {
         width: 612px;
         padding: "24px 0px";
         @media (max-width: 1728px) {
@@ -76,13 +74,12 @@
         @media (max-width: 600px) {
             padding: "16px 0px";
         }
-        .coursecard{
+        .coursecard {
             justify-content: flex-end;
             @media (max-width: 800px) {
                 justify-content: center;
             }
         }
-  
     }
 }
 
@@ -130,6 +127,3 @@
 .sliderContainer .slick-slide {
     margin: 0 10px; // Adjust the margin as needed for the gap
 }
-// .sliderContaier .slick-track .slick-slide{
-//     width: 298px !important;
-// }
