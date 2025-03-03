@@ -42,7 +42,7 @@ const SelectableLinks = () => {
     return (
         <Box position="relative">
             {!isAtStart && (
-                <ScrollBtn leftArrowPosition={{ top: "3px", left: "-15px" }} onClick={() => scrollToStart()} src={"/icons/leftArrow.svg"} alt={"left scroll button"} />
+                <ScrollBtn leftArrowPosition={{ top: "3px", left: { xs: "-15px", md: "-15px", lg: "-25px" } }} onClick={() => scrollToStart()} src={"/icons/leftArrow.svg"} alt={"left scroll button"} />
             )}
 
             <Box
@@ -75,7 +75,7 @@ const SelectableLinks = () => {
                 ))}
             </Box>
             {isAtStart && (
-                <ScrollBtn rightArrowPosition={{ top: "3px", right: "-25px" }} onClick={() => scrollToEnd()} src={"/icons/rightArrow.svg"} alt={"right scroll button"} isRight={true} />
+                <ScrollBtn rightArrowPosition={{ top: "3px", right: { xs: "-15px", md: "-15px", lg: "-25px" } }} onClick={() => scrollToEnd()} src={"/icons/rightArrow.svg"} alt={"right scroll button"} isRight={true} />
             )}
         </Box>
     );

@@ -1,4 +1,4 @@
-import { Box, Container, Grid2, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import CourseCard from "../common/courseCard";
 import * as styles from "./style.module.scss";
 import TickMark from "../common/TickMark";
@@ -22,9 +22,10 @@ const CareerPath = () => {
                 maxWidth={"lg"}
             >
                 <Box
-                    className={styles.conatiner}
+                    component={"div"}
                     backgroundColor="neutral.neutral10"
-                    py={6}
+                    py={{ xs: 4, md: 6 }}
+                    px={{ xs: 0, sm: 0, md: 3 }}
                 >
                     <Typography variant="h2" color={"base1.dark4"} component={"h3"} pb={3}>
                         Find your career path
@@ -32,16 +33,16 @@ const CareerPath = () => {
                     <Box component={"div"} pb={2}>
                         <SelectableLinks />
                     </Box>
-                    <Grid2
-                        container
-                        spacing={6}
+                    <Box
+                        component={"div"}
+                        sx={{ display: { xs: "block", md: "flex" }, gap: { xs: 1, md: 1, lg: 6 } }}
                     >
 
-                        <Grid2
-                            size={{ xs: 12, md: 5 }}
+                        <Box
+                            sx={{ width: { lg: 547 } }}
                         >
                             <Box
-                                className={styles.content}
+                                component={"div"}
                                 sx={{
                                     display: "flex",
                                     width: "100%",
@@ -50,6 +51,7 @@ const CareerPath = () => {
                             >
                                 {/* Content Marketing Section */}
                                 <Box
+                                    component={"div"}
                                     sx={{
                                         borderRadius: "8px",
                                         display: "flex",
@@ -80,6 +82,7 @@ const CareerPath = () => {
                                         growth through online channels.
                                     </Typography>
                                     <Box
+                                        component={"div"}
                                         className={styles.markValue}
                                         sx={{ mt: -1 }}
                                     >
@@ -98,6 +101,7 @@ const CareerPath = () => {
                                         </Typography>
                                     </Box>
                                     <Box
+                                        component={"div"}
                                         className={styles.markValue}
                                         sx={{ marginTop: "12px" }}
                                     >
@@ -116,6 +120,7 @@ const CareerPath = () => {
                                         </Typography>
                                     </Box>
                                     <Box
+                                        component={"div"}
                                         className={styles.basicTypo}
                                         sx={{
                                             color: "neutral.neutral1",
@@ -131,27 +136,19 @@ const CareerPath = () => {
                                     </Box>
                                 </Box>
                             </Box>
-                        </Grid2>
-                        <Grid2
-                            container
-                            py={{ xs: 1, lg: 3 }}
-                            size={{ xs: 12, md: 7 }}
-                            spacing={2}
+                        </Box>
+                        <Box
+                            component={"div"}
+                            sx={{ width: { lg: 612 } }}
                         >
-                            <Grid2
-                                size={{ xs: 12, lg: 6 }}
-                            >
+                            <Box component={"div"} sx={{ display: "flex", gap: 2, py: { xs: 3, lg: 3 }, justifyContent: "center" }}>
                                 <CourseCard
                                     customClass={true}
                                     newtag={true}
                                     discountTag={true}
                                     width={"298px"}
                                 />
-                            </Grid2>
-                            <Grid2
-                                size={{ xs: 12, lg: 6 }}
-                            >
-                                <Box display={{ xs: "none", lg: "block" }}>
+                                <Box component={"div"} display={{ xs: "none", lg: "block" }}>
                                     <CourseCard
                                         CustomButton={false}
                                         customClass={true}
@@ -159,11 +156,9 @@ const CareerPath = () => {
                                         width={"298px"}
                                     />
                                 </Box>
-                            </Grid2>
-
-                        </Grid2>
-                        {/* <Grid2 item size={12}>
+                            </Box>
                             <Box
+                                component={"div"}
                                 sx={{
                                     display: "flex",
                                     justifyContent: "flex-end",
@@ -171,8 +166,8 @@ const CareerPath = () => {
                                 }}>
                                 <CustomBtn color="link.main" title={"View courses"} txtVariant="h6" sx={{ px: "20px" }} variant="text" />
                             </Box>
-                        </Grid2> */}
-                    </Grid2>
+                        </Box>
+                    </Box>
                 </Box>
             </Container >
         </Box >

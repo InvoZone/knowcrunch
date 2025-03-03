@@ -26,7 +26,7 @@ export default function CourseCard({
     width = "100%",
     shadow = false,
     newtag = false,
-    CustomButton = true
+    CustomButton = true,
 }) {
     return (
         <Box
@@ -39,7 +39,7 @@ export default function CourseCard({
                 width: width,
                 flexShrink: 0,
                 boxShadow: shadow && "0px 4px 4px 0px rgba(0, 0, 0, 0.15)",
-                mb: 1
+                mb: shadow ? 1 : 0
                 // minWidth: minWidth
             }}
             p={1}
