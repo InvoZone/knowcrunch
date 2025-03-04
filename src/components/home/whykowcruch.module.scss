@@ -4,13 +4,7 @@
 
     .img {
         width: 100% !important;
-        height: 471px !important;
-        @media (max-width: 991px) {
-            height: 472px !important;
-        }
-        @media (max-width: 400px) {
-            height: 328px !important;
-        }
+        height: auto !important;
     }
     .imgBox {
         width: 50%;

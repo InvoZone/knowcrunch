@@ -25,6 +25,7 @@ const validationSchema = yup.object({
         .required("Work title is required"),
     company: yup.string("Enter your company").required("Company is required"),
     city: yup.string("Enter your city").required("City is required"),
+    marketing: yup.bool(),
     terms: yup.bool().oneOf([true], "You must accept the terms and conditions"),
 });
 
@@ -35,7 +36,7 @@ const validationSchema = yup.object({
  */
 const CompleteRegistration = ({ t, handleClose }) => {
     const theme = useTheme();
-    const { base1, neutral } = theme.palette;
+    const { neutral } = theme.palette;
     const dispatch = useDispatch();
     // Initialize formik for form handling and validation
     const formik = useFormik({
@@ -47,6 +48,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
             company: "",
             city: "",
             terms: false,
+            marketing: false,
         },
         validationSchema,
         onSubmit: () => {
@@ -134,7 +136,7 @@ const CompleteRegistration = ({ t, handleClose }) => {
             <Box pb={1} className='centerY'>
                 <CustomCheckbox
                     label={`${t("I agree to the")}`}
-                    checked={formik.values.marketing}
+                    checked={formik.values.terms}
                     onChange={formik.handleChange}
                     name={"terms"}
                     colors={{ unchecked: "base1.dark4" }}
