@@ -7,15 +7,15 @@ export const viewport = "width=device-width, initial-scale=1";
 // Define metadata for the page
 export const metadata = {
   // Title of the page
-  title: "Home Page",
+  title: "Knowcrunch - Professional digital marketing courses & training",
   // Description of the page
-  description: "Professional educational courses & training",
+  description: "Knowcrunch is offering high-level professional digital & social media marketing training & education in a class or via video-on-demand e-learning. Enroll now.",
   // Open Graph metadata
   openGraph: {
     // Title for Open Graph
     title: "Home Page",
     // Description for Open Graph
-    description: "Professional educational courses & training",
+    description: "Knowcrunch is offering high-level professional digital & social media marketing training & education in a class or via video-on-demand e-learning. Enroll now.",
     // URL of the page
     url: `${process.env.NEXT_PUBLIC_SITE_LINK}/`,
     // Site name
@@ -41,9 +41,9 @@ export const metadata = {
     // Card type for Twitter
     card: "summary_large_image",
     // Title for Twitter
-    title: "Professional educational courses & training",
+    title: "Knowcrunch is offering high-level professional digital & social media marketing training & education in a class or via video-on-demand e-learning. Enroll now.",
     // Description for Twitter
-    description: "Knowcrunch helps you learn, transform and thrive.",
+    description: "Knowcrunch is offering high-level professional digital & social media marketing training & education in a class or via video-on-demand e-learning. Enroll now.",
     // Image URL for Twitter
     images: [`${process.env.NEXT_PUBLIC_SITE_LINK}/twitter-image.jpg`],
   },
