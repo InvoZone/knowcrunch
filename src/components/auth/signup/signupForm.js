@@ -10,8 +10,6 @@ import * as yup from "yup";
 import Image from "next/image";
 import { useState } from "react";
 import CompleteRegistration from "./completeRegistration";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 // Define validation schema for the signup form
 const validationSchema = yup.object({
@@ -92,10 +90,11 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                                 sx={{ visibility: "visible" }}
                                 aria-label="Toggle password visibility"
                             >
+
                                 {showPassword ? (
-                                    <Visibility />
+                                    <Image src={"/icons/eye.svg"} alt='eye_icon' aria-label="show password" loading='lazy' height={20} width={20} />
                                 ) : (
-                                    <VisibilityOff />
+                                    <Image src={"/icons/eyeClose.svg"} alt='eye_close_icon' aria-label="hide password" loading='lazy' height={20} width={20} />
 
                                 )}
                             </IconButton>
@@ -125,9 +124,9 @@ const SignupForm = ({ t, handleClose, handleSubmitForm }) => {
                                 aria-label="Toggle confirm password visibility"
                             >
                                 {showConfirmPassword ? (
-                                    <Visibility />
+                                    <Image src={"/icons/eye.svg"} alt='eye_icon' aria-label="show confirm password" loading='lazy' height={20} width={20} />
                                 ) : (
-                                    <VisibilityOff />
+                                    <Image src={"/icons/eyeClose.svg"} alt='eye_close_icon' aria-label="hide confirm password" loading='lazy' height={20} width={20} />
 
                                 )}
                             </IconButton>
