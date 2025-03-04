@@ -34,7 +34,7 @@ export default function CustomDialog({
             sx={{
                 "& .MuiDialog-paper": {
                     borderRadius: 2,
-                    margin: "16.5px",
+                    margin: "0px",
                     width, // Responsive width based on screen size
                 },
             }}
