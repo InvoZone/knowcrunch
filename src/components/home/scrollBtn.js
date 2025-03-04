@@ -21,11 +21,11 @@ const ScrollBtn = ({ onClick, src, alt, leftArrowPosition, rightArrowPosition })
             }}
             className="center"
             onClick={onClick}
+            aria-label={alt}
         >
-            <Image src={src} alt={alt} height={24} width={24} loading="lazy" aria-label={alt} />
+            <Image src={src} alt={alt} height={24} width={24} loading="lazy" />
         </Box>
     );
 };
 
 export default ScrollBtn;
-
