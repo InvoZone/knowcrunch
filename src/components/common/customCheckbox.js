@@ -10,7 +10,7 @@ import { Checkbox, FormControlLabel } from "@mui/material";
  * @param {boolean} checked - The checked state of the checkbox
  * @param {function} onChange - Handler function for checkbox state changes
  */
-const CustomCheckbox = ({ label, checked, onChange, name }) => {
+const CustomCheckbox = ({ label, checked, onChange, name, colors }) => {
     return (
         <FormControlLabel
             sx={{
@@ -33,10 +33,9 @@ const CustomCheckbox = ({ label, checked, onChange, name }) => {
                     checked={checked}
                     onChange={onChange}
                     sx={{
-                        // color: "base1.dark4", // Unchecked color
-                        color: "neutral.neutral5", // Unchecked color
+                        color: colors?.unchecked || "base1.dark4", // Unchecked color
                         "&.Mui-checked": {
-                            color: "base1.default", // Checked color
+                            color: colors?.checked || "base1.default", // Checked color
                         },
                     }}
                     aria-label={`Toggle ${label}`}

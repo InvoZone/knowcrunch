@@ -102,6 +102,7 @@ const LoginForm = ({ t, handleClose, handleOpenForgotPopup }) => {
                     checked={formik.values.rememberMe}
                     onChange={formik.handleChange}
                     name={"rememberMe"}
+                    colors={{ unchecked: "neutral.neutral5" }}
                     aria-label="Remember me checkbox"
                 />
 

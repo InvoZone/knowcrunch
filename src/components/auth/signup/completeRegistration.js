@@ -11,6 +11,7 @@ import PhoneInput from "react-phone-input-2";
 
 import { useDispatch } from "react-redux";
 import { login } from "@/store/slices/auth";
+import CustomCheckbox from "@/components/common/customCheckbox";
 
 // Define validation schema for the registration form
 const validationSchema = yup.object({
@@ -130,55 +131,34 @@ const CompleteRegistration = ({ t, handleClose }) => {
             />
 
             {/* Terms and conditions checkbox */}
-            <Box sx={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
-                <input
-                    type="checkbox"
-                    name="terms"
+            <Box pb={1} className='centerY'>
+                <CustomCheckbox
+                    label={`${t("I agree to the")}`}
+                    checked={formik.values.marketing}
                     onChange={formik.handleChange}
-                    checked={formik.values.terms}
-                    style={{
-                        width: "21px",
-                        height: "21px",
-                        border: `2px solid ${base1.dark4}`,
-                        borderRadius: "4px",
-                        cursor: "pointer",
-                    }}
-                    aria-label="Terms and conditions checkbox"
+                    name={"terms"}
+                    colors={{ unchecked: "base1.dark4" }}
+                    aria-label="terms checkbox"
                 />
-                <label>
-                    {" "}
-                    <Typography variant="body">
-                        {t("I agree to the")}
-                    </Typography>{" "}
-                    <a href="#" style={{ color: base1.default }}>
-                        <Typography variant="titleMd">
-                            {t("Terms & Conditions")}
-                        </Typography>
-                    </a>
-                </label>
+                <Typography variant="titleMd" color="base1.default" component={"a"} pl={1}>
+                    {t("Terms & Conditions")}
+                </Typography>
             </Box>
 
             {/* Marketing emails checkbox */}
-            <Box sx={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
-                <input
-                    type="checkbox"
-                    name="marketing"
+            <Box pb={1}>
+
+                <CustomCheckbox
+                    label={t("I want to receive marketing emails")}
+                    checked={formik.values.marketing}
                     onChange={formik.handleChange}
-                    style={{
-                        width: "21px",
-                        height: "21px",
-                        border: `2px solid ${base1.dark4}`,
-                        borderRadius: "4px",
-                        cursor: "pointer",
-                    }}
-                    aria-label="Marketing emails checkbox"
+                    name={"marketing"}
+                    colors={{ unchecked: "base1.dark4" }}
+                    aria-label="marketing email checkbox"
                 />
-                <label>
-                    <Typography variant="body">
-                        {t("I want to receive marketing emails")}
-                    </Typography>
-                </label>
             </Box>
+
+
 
             {/* Submit button for registration */}
             <CustomBtn
