@@ -32,6 +32,7 @@ export default function CustomDialog({
             maxWidth={"xl"}
             disableScrollLock
             sx={{
+                zIndex: 1500,
                 "& .MuiDialog-paper": {
                     borderRadius: 2,
                     margin: "0px",
