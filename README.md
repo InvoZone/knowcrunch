@@ -1,4 +1,4 @@
-# KnowCrunch
+# Knowcrunch
 
 ## Description
 
