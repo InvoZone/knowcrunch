@@ -13,7 +13,7 @@ export const metadata = {
   // Open Graph metadata
   openGraph: {
     // Title for Open Graph
-    title: "Home Page",
+    title: "Knowcrunch - Professional digital marketing courses & training",
     // Description for Open Graph
     description: "Knowcrunch is offering high-level professional digital & social media marketing training & education in a class or via video-on-demand e-learning. Enroll now.",
     // URL of the page
