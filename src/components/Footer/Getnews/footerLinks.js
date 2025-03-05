@@ -7,7 +7,7 @@ const FooterLinks = ({ title, links }) => {
         <Grid2
             item="true"
             className="footerLinkSection"
-            lg={4}
+            size={4}
             sx={{ display: "flex", flexDirection: "column", gap: "7px" }}
             aria-label="Footer links section"
         >

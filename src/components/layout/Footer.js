@@ -78,13 +78,10 @@ const Footer = () => {
                 >
                     {isMed && (
                         <>
-                            {footerData.map((section, index) => (
+                            {footerData.map((section) => (
                                 <Grid2
-                                    key={`link_${index}`}
-                                    item="true"
-                                    md={12}
-                                    lg={12}
-                                    sm={12}
+                                    key={`link_${title}`}
+                                    size={12}
                                     sx={{ width: "100%" }}
                                 >
                                     <FooterLinksMobile title={section.title} links={section.links} />
@@ -92,8 +89,8 @@ const Footer = () => {
                             ))}
                         </>
                     )}
-                    <Box item="true" lg={12} className="mainFooter">
-                        <Grid2 item="true" lg={3} className="mainFooterForm">
+                    <Box className="mainFooter">
+                        <Grid2 size={3} className="mainFooterForm">
                             <Typography variant="titleLg" component={"p"}>Get our news</Typography>
                             <Box
                                 sx={{
@@ -167,20 +164,19 @@ const Footer = () => {
                         </Grid2>
                         <Grid2
                             className="FooterLinks"
-                            item="true"
-                            lg={6}
+                            size={6}
                             sx={{
                                 display: "flex",
                                 justifyContent: "space-between",
                                 gap: "32px",
                             }}
                         >
-                            {footerData.map((section, index) => (
-                                <FooterLinks key={`footer_${index}`} title={section.title} links={section.links} />
+                            {footerData.map((section) => (
+                                <FooterLinks key={`footer_${section?.title}`} title={section.title} links={section.links} />
                             ))}
                         </Grid2>
 
-                        <Grid2 item="true" lg={3} className="downloadKnow">
+                        <Grid2 size={3} className="downloadKnow">
                             <CrunchCard />
                         </Grid2>
                     </Box>
@@ -203,9 +199,9 @@ const Footer = () => {
                             Knowcrunch Inc. © 2024 All Rights Reserved
                         </Typography>
                         <Box sx={{ display: "flex", gap: "24px" }}>
-                            {socialIcons.map((icon, index) => (
+                            {socialIcons.map((icon) => (
                                 <Image
-                                    key={`img_${index}`}
+                                    key={`img_${icon?.alt}`}
                                     loading="lazy"
                                     src={icon.src}
                                     width={24}

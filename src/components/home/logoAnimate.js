@@ -4,6 +4,21 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { Box, Typography, Container } from "@mui/material";
 
+const logos = [
+    { id: "skoda", src: "/icons/skodalogo.svg" },
+    { id: "emirate", src: "/icons/emiratelogo.svg" },
+    { id: "audi", src: "/icons/audilogo.svg" },
+    { id: "ingroup", src: "/icons/ingrouplogo.svg" },
+    { id: "volk", src: "/icons/volklogo.svg" },
+    { id: "dd", src: "/icons/ddlogo.svg" },
+    { id: "knowcrunch", src: "/icons/knowcrunchlogo.svg" },
+    { id: "pepsi", src: "/icons/pepsilogo.svg" },
+    { id: "sarantis", src: "/icons/sarantislogo.svg" },
+    { id: "trained", src: "/icons/trainedlogo.svg" },
+    { id: "volk2", src: "/icons/volklogo.svg" },
+    { id: "dd2", src: "/icons/ddlogo.svg" },
+];
+
 const LogoAnimate = () => {
 
     return (
@@ -60,28 +75,15 @@ const LogoAnimate = () => {
             >
                 <Marquee
                     play={true}
-                    speed={130}
+                    speed={100}
                     direction={"left"}
                     loop={0}
                     style={{ paddingLeft: "40px", marginLeft: "40px", marginRight: "10px" }}
                 // onCycleComplete={onCycleComplete}
                 >
-                    {[
-                        "/icons/skodalogo.svg",
-                        "/icons/emiratelogo.svg",
-                        "/icons/audilogo.svg",
-                        "/icons/ingrouplogo.svg",
-                        "/icons/volklogo.svg",
-                        "/icons/ddlogo.svg",
-                        "/icons/knowcrunchlogo.svg",
-                        "/icons/pepsilogo.svg",
-                        "/icons/sarantislogo.svg",
-                        "/icons/trainedlogo.svg",
-                        "/icons/volklogo.svg",
-                        "/icons/ddlogo.svg",
-                    ].map((item, index) => (
+                    {logos?.map((item) => (
                         <Box
-                            key={index}
+                            key={item?.id}
                             sx={{
                                 padding: {
                                     xs: "0 6px",
@@ -95,9 +97,9 @@ const LogoAnimate = () => {
                                 width={50}
                                 height={50}
                                 loading="lazy"
-                                src={item}
-                                alt={`logo-${index}`}
-                                aria-label={`Logo for ${item}`}
+                                src={item?.src}
+                                alt={`logo-${item?.name}`}
+                                aria-label={`Logo for ${item?.name}`}
                             />
                         </Box>
                     ))}

@@ -18,8 +18,7 @@ const FooterAccordion = ({ title, links }) => {
 
     return (
         <Grid2
-            item="true"
-            lg={12}
+            size={12}
             sx={{ display: "flex", flexDirection: "column", gap: "7px" }}
             className="accordLinks"
         >
@@ -65,7 +64,7 @@ const FooterAccordion = ({ title, links }) => {
                             fontWeight: "bold",
                             backgroundColor: "transparent",
                         }}
-                        component={"p"}
+                        component={"span"}
                     >
                         {title}
                     </Typography>
