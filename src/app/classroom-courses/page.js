@@ -17,7 +17,7 @@ export const metadata = {
         // URL of the page
         url: `${process.env.NEXT_PUBLIC_SITE_LINK}/page`,
         // Site name
-        siteName: "KnowCrunch",
+        siteName: "Knowcrunch",
         // Images for Open Graph
         images: [
             {

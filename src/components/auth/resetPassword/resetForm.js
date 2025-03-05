@@ -6,9 +6,8 @@ import CustomInput from "@/components/common/customInput";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { InputAdornment, IconButton } from "@mui/material";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
+import Image from "next/image";
 
 // Define validation schema for the reset password form
 const validationSchema = yup.object({
@@ -62,12 +61,8 @@ const ResetPasswordForm = ({ t }) => {
                                 sx={{ visibility: "visible" }}
                                 aria-label="Toggle password visibility"
                             >
-                                {showPassword ? (
-                                    <Visibility />
-                                ) : (
-                                    <VisibilityOff />
+                                <Image src={showPassword ? "/icons/eye.svg" : "/icons/eyeClose.svg"} alt='eye_icon' aria-label="show password" loading='lazy' height={20} width={20} />
 
-                                )}
                             </IconButton>
                         </InputAdornment>
                     ),
@@ -94,12 +89,7 @@ const ResetPasswordForm = ({ t }) => {
                                 color="primary"
                                 aria-label="Toggle confirm password visibility"
                             >
-                                {showConfirmPassword ? (
-                                    <Visibility />
-                                ) : (
-                                    <VisibilityOff />
-
-                                )}
+                                <Image src={showConfirmPassword ? "/icons/eye.svg" : "/icons/eyeClose.svg"} alt='eye_icon' aria-label="show password" loading='lazy' height={20} width={20} />
                             </IconButton>
                         </InputAdornment>
                     ),

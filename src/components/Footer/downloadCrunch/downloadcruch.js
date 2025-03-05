@@ -8,9 +8,9 @@ export default function CrunchCard() {
     return (
         <Box className="downloadCruch">
             <Typography variant="titleLg" sx={{ mb: 1.2 }}>
-                Download KnowCrunch
+                Download Knowcrunch
             </Typography>
-            <Image width={134} height={45} loading="lazy" src={"/icons/appstore.svg"} alt={"appstore"} /> 
+            <Image width={134} height={45} loading="lazy" src={"/icons/appstore.svg"} alt={"appstore"} />
             <Image width={134} height={45} loading="lazy" src={"/icons/googleplay.svg"} alt={"googleplay"} />
         </Box>
     );

@@ -80,7 +80,7 @@ const Footer = () => {
                         <>
                             {footerData.map((section) => (
                                 <Grid2
-                                    key={`link_${title}`}
+                                    key={`link_${section?.title}`}
                                     size={12}
                                     sx={{ width: "100%" }}
                                 >
@@ -190,7 +190,7 @@ const Footer = () => {
                 >
                     <Box className="sunset">
                         <Typography variant="body1">
-                            KnowCrunch Inc., 2035 Sunset Lake Road, Delaware,
+                            Knowcrunch Inc., 2035 Sunset Lake Road, Delaware,
                             USA
                         </Typography>
                     </Box>

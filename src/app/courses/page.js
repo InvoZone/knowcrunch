@@ -10,7 +10,7 @@ export const metadata = {
         title: "E-learning courses", // Open Graph title
         description: "E-learning courses Description", // Open Graph description
         url: "https://yoursite.com/page", // URL of the page
-        siteName: "KnowCrunch", // Site name
+        siteName: "Knowcrunch", // Site name
         images: [
             {
                 url: "https://yoursite.com/og-image.jpg", // URL of the Open Graph image

@@ -78,6 +78,7 @@ const SuperMenu = ({
                                                 ? `${base2.light5} !important`
                                                 : "",
                                     }}
+                                    aria-label={`Menu item ${menu?.title}`}
                                 >
                                     <Typography
                                         variant="subtitleLg"
@@ -98,6 +99,7 @@ const SuperMenu = ({
                                         alt="chevRightIcon"
                                         width={24}
                                         height={24}
+                                        aria-label="Chevron right icon"
                                     />
                                 </MenuItem>
                             ))}
@@ -125,6 +127,7 @@ const SuperMenu = ({
                                                     ? `${base2.light4} !important`
                                                     : "",
                                         }}
+                                        aria-label={`Submenu item ${el?.title}`}
                                     >
                                         <Typography
                                             variant="subtitleLg"
@@ -143,7 +146,7 @@ const SuperMenu = ({
                         {/* Course card display when third level is selected */}
                         {subMenu1?.id && (
                             <Grid2 size={{ md: 3, lg: 3 }}>
-                                <CourseCard enrollButton={false} discountTag={true} />
+                                <CourseCard enrollButton={false} discountTag={true} width={298} aria-label="Course card" />
                             </Grid2>
                         )}
                     </Grid2>

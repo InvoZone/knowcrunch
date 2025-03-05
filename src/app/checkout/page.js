@@ -8,7 +8,7 @@ export const metadata = {
         title: "Checkout",
         description: "Complete your purchase Description",
         url: `${process.env.NEXT_PUBLIC_SITE_LINK}/checkout`,
-        siteName: "KnowCrunch",
+        siteName: "Knowcrunch",
         images: [
             {
                 url: `${process.env.NEXT_PUBLIC_SITE_LINK}/og-image.jpg`,

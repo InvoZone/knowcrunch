@@ -90,6 +90,7 @@ const SuperMenuMobile = ({
                                         alignItems={"center"}
                                         gap={1}
                                         onClick={goBack}
+                                        aria-label="Go back"
                                     >
                                         <Image
                                             src={"/icons/chevLeft.svg"}
@@ -112,6 +113,7 @@ const SuperMenuMobile = ({
                                     width={48}
                                     height={48}
                                     onClick={handleOpenMobileMenu}
+                                    aria-label="Close menu"
                                 />
                             </Box>
                         </Grid2>
@@ -125,6 +127,7 @@ const SuperMenuMobile = ({
                                             handleOpenSuperMenu(e, menu)
                                         }
                                         sx={{ height: 54, borderRadius: 1 }}
+                                        aria-label="My Profile"
                                     >
                                         <Typography
                                             variant="h6"
@@ -143,6 +146,7 @@ const SuperMenuMobile = ({
                                             handleOpenSuperMenu(e, menu);
                                         }}
                                         sx={{ height: 54, borderRadius: 1 }}
+                                        aria-label={`Menu item ${menu?.title}`}
                                     >
                                         <Typography
                                             variant="h6"
@@ -180,11 +184,12 @@ const SuperMenuMobile = ({
                                                 color="secondary"
                                                 sx={{ minWidth: 100 }}
                                                 onClick={handleLogout}
+                                                aria-label="Log out"
                                             />
                                         ) : (
                                             <>
-                                                <Login onClick={handleOpenMobileMenu} />
-                                                <Signup onClick={handleOpenMobileMenu} />
+                                                <Login onClick={handleOpenMobileMenu} aria-label="Login" />
+                                                <Signup onClick={handleOpenMobileMenu} aria-label="Sign up" />
                                             </>
                                         )}
                                     </Box>
@@ -206,6 +211,7 @@ const SuperMenuMobile = ({
                                             borderRadius: 1,
                                             p: 0,
                                         }}
+                                        aria-label={`Submenu item ${menu?.title}`}
                                     >
                                         <Typography
                                             variant="body"
@@ -236,6 +242,7 @@ const SuperMenuMobile = ({
                                             borderRadius: 1,
                                             p: 0,
                                         }}
+                                        aria-label={`Subsubmenu item ${el?.title}`}
                                     >
                                         <Typography
                                             variant="body"

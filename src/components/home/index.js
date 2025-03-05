@@ -33,7 +33,7 @@ const Homepage = () => {
         {
             "profileImage": img1,
             "title": "CEO",
-            "company": "@KnowCrunch",
+            "company": "@Knowcrunch",
             "name": "Tolis Aivalis"
         },
         {
@@ -57,7 +57,7 @@ const Homepage = () => {
         {
             "profileImage": img1,
             "title": "CEO",
-            "company": "@KnowCrunch",
+            "company": "@Knowcrunch",
             "name": "Tolis Aivalis"
         },
         {

@@ -8,7 +8,7 @@ export const metadata = {
         title: "Reset Password",
         description: "Reset your password Description",
         url: `${process.env.NEXT_PUBLIC_SITE_LINK}/reset-password`,
-        siteName: "KnowCrunch",
+        siteName: "Knowcrunch",
         images: [
             {
                 url: `${process.env.NEXT_PUBLIC_SITE_LINK}/og-image.jpg`,

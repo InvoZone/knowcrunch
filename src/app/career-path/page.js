@@ -13,7 +13,7 @@ export const metadata = {
         title: "Career Path",
         description: "Explore your career path Description",
         url: `${process.env.NEXT_PUBLIC_SITE_LINK}/career-path`,
-        siteName: "KnowCrunch",
+        siteName: "Knowcrunch",
         images: [
             {
                 url: `${process.env.NEXT_PUBLIC_SITE_LINK}/og-image.jpg`,

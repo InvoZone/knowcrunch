@@ -8,7 +8,7 @@ export const metadata = {
         title: "Terms and Conditions",
         description: "View our terms and conditions Description",
         url: `${process.env.NEXT_PUBLIC_SITE_LINK}/terms`,
-        siteName: "KnowCrunch",
+        siteName: "Knowcrunch",
         images: [
             {
                 url: `${process.env.NEXT_PUBLIC_SITE_LINK}/og-image.jpg`,

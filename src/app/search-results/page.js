@@ -8,7 +8,7 @@ export const metadata = {
         title: "Search Results",
         description: "Explore your Search Results Description",
         url: `${process.env.NEXT_PUBLIC_SITE_LINK}/career-path`,
-        siteName: "KnowCrunch",
+        siteName: "Knowcrunch",
         images: [
             {
                 url: `${process.env.NEXT_PUBLIC_SITE_LINK}/og-image.jpg`,
