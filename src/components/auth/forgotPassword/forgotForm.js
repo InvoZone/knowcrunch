@@ -50,14 +50,11 @@ const ForgotPasswordForm = ({ t, handleClose }) => {
                 title={t("sendResetLink")}
                 variant="contained"
                 loading={false}
+                color="base2.light6"
                 sx={{
-                    backgroundColor: "accents.bubble1",
+                    backgroundColor: "base1.default",
                     width: "100%",
-                    mt: 3,
-                    opacity:
-                        !formik?.values?.email
-                            ? 0.5
-                            : 1,
+                    mt: 3
                 }}
                 aria-label="Send Reset Link"
             />

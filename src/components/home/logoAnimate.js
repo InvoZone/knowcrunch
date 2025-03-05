@@ -1,36 +1,35 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { Box, Typography, Container } from "@mui/material";
 
 const LogoAnimate = () => {
 
-    const [play, setPlay] = useState(false);
-    const [direction, setDirection] = useState("");
+    // const [play, setPlay] = useState(false);
+    // const [direction, setDirection] = useState("");
 
-    const handleMouseEnter = () => {
-        if (direction === "" || direction === "right") {
-            setDirection("left");
-            setPlay(true);
-        }
-    };
+    // const handleMouseEnter = () => {
+    //     if (direction === "" || direction === "right") {
+    //         setDirection("left");
+    //         setPlay(true);
+    //     }
+    // };
 
-    const onCycleComplete = () => {
-        if (direction === "left") {
-            setDirection("right");
-            setPlay(true);
-        }
-        else {
-            setDirection("");
-            setPlay(false);
-        }
+    // const onCycleComplete = () => {
+    //     if (direction === "left") {
+    //         setDirection("right");
+    //         setPlay(true);
+    //     }
+    //     else {
+    //         setDirection("");
+    //         setPlay(false);
+    //     }
 
-    };
+    // };
 
     return (
         <Container
-            onMouseEnter={handleMouseEnter}
             maxWidth="lg"
             sx={{ padding: "0 !important", position: "relative", maxWidth: "1360px !important" }}
             aria-label="Logo animation container"
@@ -82,11 +81,12 @@ const LogoAnimate = () => {
                 }}
             >
                 <Marquee
-                    play={play}
+                    play={true}
                     speed={130}
-                    direction={direction}
+                    direction={"left"}
+                    loop={0}
                     style={{ paddingLeft: "40px", marginLeft: "40px", marginRight: "10px" }}
-                    onCycleComplete={onCycleComplete}
+                // onCycleComplete={onCycleComplete}
                 >
                     {[
                         "/icons/skodalogo.svg",

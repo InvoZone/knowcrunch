@@ -21,7 +21,8 @@ export default function CustomDialog({
     children,
     shouldCloseOutside = true,
     width = { xs: 360, sm: 480, lg: 480 },
-    py,
+    pt,
+    pb,
     px
 }) {
     return (
@@ -45,7 +46,8 @@ export default function CustomDialog({
                 component="div"
                 position={"relative"}
                 sx={{
-                    py: py || 3,
+                    pt: pt || 4,
+                    pb: pb || 3,
                     px: px || { xs: 3, lg: 4 }, // Responsive padding
                 }}
             >

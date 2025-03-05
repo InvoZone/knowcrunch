@@ -73,7 +73,6 @@ const Login = ({ onClick = () => "" }) => {
                 open={loginPopup}
                 handleClose={handleClose}
                 aria-label="Login dialog"
-                py={4}
             >
                 {/* Dialog heading */}
                 <Typography variant="h4" color="tertiary" pb={3}>
