@@ -6,28 +6,6 @@ import { Box, Typography, Container } from "@mui/material";
 
 const LogoAnimate = () => {
 
-    // const [play, setPlay] = useState(false);
-    // const [direction, setDirection] = useState("");
-
-    // const handleMouseEnter = () => {
-    //     if (direction === "" || direction === "right") {
-    //         setDirection("left");
-    //         setPlay(true);
-    //     }
-    // };
-
-    // const onCycleComplete = () => {
-    //     if (direction === "left") {
-    //         setDirection("right");
-    //         setPlay(true);
-    //     }
-    //     else {
-    //         setDirection("");
-    //         setPlay(false);
-    //     }
-
-    // };
-
     return (
         <Container
             maxWidth="lg"
