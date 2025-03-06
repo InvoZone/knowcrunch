@@ -8,7 +8,7 @@ import Layout from "@/components/layout";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import Script from "next/script";
-import { breadcrumbJsonLd } from "@/utils/jsonLd";
+import { breadcrumbJsonLd, organizationJsonLd, webpageJsonLd } from "@/utils/jsonLd";
 
 export const metadata = {
     title: "Knowcrunch",
@@ -35,6 +35,16 @@ export default async function RootLayout({ children }) {
                     id="breadcrumb-json-ld"
                     type="application/ld+json"
                     innerHTML={JSON.stringify(breadcrumbJsonLd)}
+                />
+                <Script
+                    id="organization-json-ld"
+                    type="application/ld+json"
+                    innerHTML={JSON.stringify(organizationJsonLd)}
+                />
+                <Script
+                    id="webpage-json-ld"
+                    type="application/ld+json"
+                    innerHTML={JSON.stringify(webpageJsonLd)}
                 />
             </body>
         </html>
