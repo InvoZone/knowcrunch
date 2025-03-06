@@ -12,9 +12,7 @@ import cardThumb from "@/assets/course/Classroomcourse.webp";
  * ClassroomCard Component
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
  */
-export default function ClassroomCard({
-    width = "100%",
-}) {
+export default function ClassroomCard({ width = "100%" }) {
     return (
         <Box
             sx={{
@@ -24,7 +22,7 @@ export default function ClassroomCard({
                 borderColor: "neutral.neutral9",
                 overflow: "hidden",
                 width: width,
-                flexShrink: 0
+                flexShrink: 0,
             }}
             p={2}
             component={"div"}
@@ -73,7 +71,7 @@ export default function ClassroomCard({
                             color: "secondary.main",
                             px: "5px",
                             minWidth: "36px",
-                            display: "flex"
+                            display: "flex",
                         }}
                         aria-label="Best Seller Badge"
                     />
@@ -103,7 +101,7 @@ export default function ClassroomCard({
             </Box>
             <Typography
                 variant="h5"
-                component={"p"}
+                component={"h3"}
                 color="secondary.main"
                 sx={{ whiteSpace: "normal" }}
             >
@@ -134,7 +132,7 @@ export default function ClassroomCard({
                     borderColor: "neutral.neutral9",
                     borderRadius: "4px",
                     padding: "0 5px",
-                    color: "secondary.main"
+                    color: "secondary.main",
                 }}
                 txtVariant="body2"
                 color="secondary.main"
@@ -164,7 +162,13 @@ export default function ClassroomCard({
                 </Box>
                 {/* Language indicator */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
-                    <Image src="/icons/globalicon.svg" alt="glob" width={20} height={20} loading="lazy" />
+                    <Image
+                        src="/icons/globalicon.svg"
+                        alt="glob"
+                        width={20}
+                        height={20}
+                        loading="lazy"
+                    />
                     <Typography variant="body" color="secondary.main" pl={1}>
                         EN •
                     </Typography>
@@ -192,7 +196,12 @@ export default function ClassroomCard({
                     </Typography>
                 </Box>
                 {/* Duration display */}
-                <Box component={"div"} display={"flex"} alignItems={"center"} aria-label="Course Duration">
+                <Box
+                    component={"div"}
+                    display={"flex"}
+                    alignItems={"center"}
+                    aria-label="Course Duration"
+                >
                     <Image
                         src="/icons/clockhour.svg"
                         alt="clockIcon"

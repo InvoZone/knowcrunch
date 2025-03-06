@@ -2,8 +2,15 @@
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 
-export default function ProfileCard({ profileImage, name, title, company, mx = 0, width, height }) {
-
+export default function ProfileCard({
+    profileImage,
+    name,
+    title,
+    company,
+    mx = 0,
+    width,
+    height,
+}) {
     return (
         <Box
             sx={{
@@ -47,7 +54,7 @@ export default function ProfileCard({ profileImage, name, title, company, mx = 0
             <Typography
                 sx={{ color: "tertiary.main" }}
                 variant="titleLg"
-                component="p"
+                component="h3"
                 pt={1}
             >
                 {name}
@@ -59,11 +66,7 @@ export default function ProfileCard({ profileImage, name, title, company, mx = 0
             >
                 {title}
             </Typography>
-            <Typography
-                sx={{ color: "tertiary.main" }}
-                variant="body"
-                pb={1}
-            >
+            <Typography sx={{ color: "tertiary.main" }} variant="body" pb={1}>
                 {company}
             </Typography>
         </Box>
