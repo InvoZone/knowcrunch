@@ -47,11 +47,6 @@ a {
     border-radius: 8px;
 }
 
-.globalCotainer {
-    max-width: 1360px;
-    margin: 0 auto;
-}
-
 .imgFitBG {
     object-fit: cover;
     z-index: -1;

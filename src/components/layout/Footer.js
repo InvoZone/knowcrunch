@@ -58,7 +58,7 @@ const Footer = () => {
 
     return (
         <Box>
-            <Box className="globalCotainer"
+            <Box
                 sx={{
                     borderTopLeftRadius: "32px",
                     borderTopRightRadius: "32px",
