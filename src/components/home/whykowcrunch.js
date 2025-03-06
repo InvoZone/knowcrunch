@@ -31,8 +31,8 @@ export default function Whyknow() {
 
     return (
         <Container maxWidth='lg'>
-            <Box className={styles.main} py={{ xs: 4, md: 6 }} px={{ xs: 0, md: 3 }}>
-                <Box className={styles.imgBox}>
+            <Box className={styles.main} py={{ xs: 4, md: 6 }} px={{ xs: 0, md: 0 }}>
+                <Box width={{ xs: "100%", lg: 568, xl: 608 }} height={{ xs: 328, md: 471 }}>
                     <Image
                         className={styles.img}
                         src={whyknowcrunch}
