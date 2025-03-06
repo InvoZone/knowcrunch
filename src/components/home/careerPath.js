@@ -18,12 +18,13 @@ const CareerPath = () => {
         >
             <Container
                 maxWidth={"xl"}
-                sx={{ backgroundColor: "neutral.neutral10" }}
+                sx={{ backgroundColor: "neutral.neutral10", justifyContent: "center", display: { xs: "block", xl: "flex" } }}
             >
                 <Box
                     component={"div"}
                     px={{ xs: 0, sm: 0, md: 3 }}
                     py={{ xs: 4, md: 6 }}
+                    sx={{ maxWidth: 1280 }}
                 >
                     <Typography variant="h2" color={"base1.dark4"} component={"h3"} pb={3}>
                         Find your career path
@@ -37,7 +38,7 @@ const CareerPath = () => {
                     >
 
                         <Box
-                            sx={{ width: { lg: 547 } }}
+                            sx={{ width: { lg: 547, xl: 604 } }}
                         >
                             <Box
                                 component={"div"}
