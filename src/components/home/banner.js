@@ -1,18 +1,18 @@
 "use client";
 import Image from "next/image";
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import styles from "./banner.module.scss";
 
 export default function Banner() {
 
     return (
-        <Box className={styles.main} sx={{ padding: "48px" }}>
-            <Box
+        <Box className={styles.main} sx={{ px: { xs: 6, md: 0 }, py: 6 }}>
+            <Container
                 maxWidth="xl"
-                sx={{ padding: 0 }}
+                sx={{ px: { xs: 0, md: 6 } }}
             >
                 <Box className={styles.typo}>
-                    <Typography variant="h1" sx={{ color: "base2.light6", marginBottom: "8px", letterSpacing:0 }}>
+                    <Typography variant="h1" sx={{ color: "base2.light6", marginBottom: "8px", letterSpacing: 0 }}>
                         Professional educational courses & training
                     </Typography>
                     <Typography variant="h4" sx={{ color: "base2.light6", marginBottom: "32px" }} component={"h2"}>
@@ -56,7 +56,7 @@ export default function Banner() {
                     </Box>
                 </Box>
                 <Box></Box>
-            </Box>
-        </Box>
+            </Container>
+        </Box >
     );
 }
