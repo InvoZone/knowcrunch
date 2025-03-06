@@ -18,7 +18,7 @@ const CareerPath = () => {
         >
             <Container
                 maxWidth={"xl"}
-                sx={{ backgroundColor: "neutral.neutral10", justifyContent: "center", display: { xs: "block", xl: "flex" } }}
+                sx={{ backgroundColor: "neutral.neutral10", justifyContent: "center", display: { xs: "block", lg: "flex" } }}
             >
                 <Box
                     component={"div"}
