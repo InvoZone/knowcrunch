@@ -1,7 +1,7 @@
 "use client"; // Indicate this is a client-side component
 
 // Import necessary components and hooks
-import { Box, Container, Grid2, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 import ResetForm from "./resetForm";
 
