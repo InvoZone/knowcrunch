@@ -8,8 +8,9 @@ export default function Diploma() {
 
     return (
         <Box
+            backgroundColor="neutral.neutral10"
         >
-            <Container maxWidth={"xl"} sx={{ display: "flex", justifyContent: "center", backgroundColor: "neutral.neutral10", py: 6 }}>
+            <Container maxWidth={"xl"} sx={{ display: "flex", justifyContent: "center", py: 6 }}>
                 <Box component={"div"}
                     sx={{
                         display: "flex", justifyContent: "center",
