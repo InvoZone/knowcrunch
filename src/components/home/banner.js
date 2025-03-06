@@ -6,10 +6,10 @@ import styles from "./banner.module.scss";
 export default function Banner() {
 
     return (
-        <Box className={styles.main} sx={{ px: { xs: 6, md: 0 }, py: 6 }}>
+        <Box className={styles.main}>
             <Container
                 maxWidth="xl"
-                sx={{ px: { xs: 0, md: 6 } }}
+                sx={{ py: 6, px: { xs: 0, md: 6 } }}
             >
                 <Box className={styles.typo}>
                     <Typography variant="h1" sx={{ color: "base2.light6", marginBottom: "8px", letterSpacing: 0 }}>
@@ -57,6 +57,6 @@ export default function Banner() {
                 </Box>
                 <Box></Box>
             </Container>
-        </Box >
+        </Box>
     );
 }

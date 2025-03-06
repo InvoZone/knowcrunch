@@ -57,13 +57,16 @@ const Footer = () => {
     ];
 
     return (
-        <Box className='centerX'>
+        <Box className='centerX'
+            sx={{
+                borderTopLeftRadius: "32px",
+                borderTopRightRadius: "32px",
+                backgroundColor: "primary.main",
+            }}
+        >
             <Container
                 maxWidth='xl'
                 sx={{
-                    borderTopLeftRadius: "32px",
-                    borderTopRightRadius: "32px",
-                    backgroundColor: "primary.main",
                     padding: { xs: "32px 24px 24px 24px", md: "32px 48px  16px 48px", lg: "48px 48px 16px 48px", xl: "48px 200px" },
                 }}>
                 <Grid2

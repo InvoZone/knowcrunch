@@ -47,7 +47,7 @@
     }
 }
 
-.SectionCotainer{
+.SectionCotainer {
     @media (min-width: 1300px) {
         display: flex !important;
         justify-content: flex-start !important;
@@ -64,10 +64,10 @@
             width: auto;
         }
     }
-    .mainFooterForm{
+    .mainFooterForm {
         width: 290px;
     }
-    .downloadKnow{
+    .downloadKnow {
         width: 266px;
         @media (max-width: 1200px) {
             width: auto;
@@ -95,8 +95,6 @@
             width: 100%;
         }
     }
-
-    // margin-top: 20px;
 }
 
 .widthBtn {
@@ -106,7 +104,6 @@
     @media (max-width: 1199px) {
         width: 100%;
     }
-
 }
 
 .footerRights {
