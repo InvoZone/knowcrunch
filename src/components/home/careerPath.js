@@ -15,16 +15,15 @@ const CareerPath = () => {
     return (
         <Box
             component={"div"}
-            backgroundColor="neutral.neutral10"
         >
             <Container
-                maxWidth={"lg"}
+                maxWidth={"xl"}
+                sx={{ backgroundColor: "neutral.neutral10" }}
             >
                 <Box
                     component={"div"}
-                    backgroundColor="neutral.neutral10"
-                    py={{ xs: 4, md: 6 }}
                     px={{ xs: 0, sm: 0, md: 3 }}
+                    py={{ xs: 4, md: 6 }}
                 >
                     <Typography variant="h2" color={"base1.dark4"} component={"h3"} pb={3}>
                         Find your career path

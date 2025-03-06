@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Typography, Button, useMediaQuery } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery, Container } from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
 import Image from "next/image";
 import "./footer.scss";
@@ -57,14 +57,14 @@ const Footer = () => {
     ];
 
     return (
-        <Box>
-            <Box
+        <Box className='centerX'>
+            <Container
+                maxWidth='xl'
                 sx={{
                     borderTopLeftRadius: "32px",
                     borderTopRightRadius: "32px",
                     backgroundColor: "primary.main",
-                    padding: { xs: "32px 24px  24px 24px", md: "32px 48px  16px 48px", lg: "48px 48px 16px 48px" },
-                    maxWidth: 1728
+                    padding: { xs: "32px 24px 24px 24px", md: "32px 48px  16px 48px", lg: "48px 48px 16px 48px", xl: "48px 200px" },
                 }}>
                 <Grid2
                     className="SectionCotainer"
@@ -211,8 +211,8 @@ const Footer = () => {
                         </Box>
                     </Box>
                 </Box>
-            </Box>
-        </Box>
+            </Container>
+        </Box >
     );
 };
 
