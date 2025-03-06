@@ -12,7 +12,7 @@ import CustomBtn from "./customBtn";
  * CourseCard Component
  * Displays a card with course information including thumbnail, title, description,
  * language, rating, duration and enrollment button
- * 
+ *
  * @param {boolean} enrollButton - Controls visibility of enrollment section (default: true)
  *  * @param {number} mx - Margin on the x-axis
  * @param {boolean} discountTag - Indicates if a discount tag should be displayed
@@ -39,7 +39,7 @@ export default function CourseCard({
                 width: width,
                 flexShrink: 0,
                 boxShadow: shadow && "0px 4px 4px 0px rgba(0, 0, 0, 0.15)",
-                mb: shadow ? 1 : 0
+                mb: shadow ? 1 : 0,
                 // minWidth: minWidth
             }}
             p={1}
@@ -81,7 +81,9 @@ export default function CourseCard({
                     sx={{
                         position: "absolute",
                         display: "flex",
-                        justifyContent: CustomButton ? "space-between" : "flex-end",
+                        justifyContent: CustomButton
+                            ? "space-between"
+                            : "flex-end",
                         width: "100%",
                         p: 2,
                     }}
@@ -94,7 +96,9 @@ export default function CourseCard({
                         color={newtag ? "secondary.main" : "tertiary.main"}
                         sx={{
                             height: 24,
-                            backgroundColor: newtag ? "base1.default" : "accents.bubble1",
+                            backgroundColor: newtag
+                                ? "base1.default"
+                                : "accents.bubble1",
                             borderRadius: 1,
                             color: "secondary.main",
                             px: "5px",
@@ -125,7 +129,7 @@ export default function CourseCard({
             <Typography
                 gutterBottom
                 variant="titleLg"
-                component={"p"}
+                component="h3"
                 pt={1}
                 color="tertiary"
                 aria-label="Course Title"
@@ -167,10 +171,26 @@ export default function CourseCard({
             />
 
             {/* Course metadata: language, rating, and duration */}
-            <Box component={"div"} display={"flex"} gap={0.5} aria-label="Course Metadata">
+            <Box
+                component={"div"}
+                display={"flex"}
+                gap={0.5}
+                aria-label="Course Metadata"
+            >
                 {/* Language indicator */}
-                <Box component={"div"} display={"flex"} alignItems={"center"} aria-label="Language Indicator">
-                    <Image src="/icons/glob.svg" alt="glob" width={20} height={20} aria-label="Globe Icon" />
+                <Box
+                    component={"div"}
+                    display={"flex"}
+                    alignItems={"center"}
+                    aria-label="Language Indicator"
+                >
+                    <Image
+                        src="/icons/glob.svg"
+                        alt="glob"
+                        width={20}
+                        height={20}
+                        aria-label="Globe Icon"
+                    />
                     <Typography
                         variant="body"
                         color="neutral.neutral2"
@@ -181,7 +201,12 @@ export default function CourseCard({
                     </Typography>
                 </Box>
                 {/* Rating display */}
-                <Box component={"div"} display={"flex"} alignItems={"center"} aria-label="Rating Display">
+                <Box
+                    component={"div"}
+                    display={"flex"}
+                    alignItems={"center"}
+                    aria-label="Rating Display"
+                >
                     <Image
                         src="/icons/star.svg"
                         alt="starIcon"
@@ -210,7 +235,12 @@ export default function CourseCard({
                     </Typography>
                 </Box>
                 {/* Duration display */}
-                <Box component={"div"} display={"flex"} alignItems={"center"} aria-label="Duration Display">
+                <Box
+                    component={"div"}
+                    display={"flex"}
+                    alignItems={"center"}
+                    aria-label="Duration Display"
+                >
                     <Image
                         src="/icons/clock.svg"
                         alt="clockIcon"
@@ -244,7 +274,14 @@ export default function CourseCard({
                             >
                                 50%&nbsp; off &nbsp;
                             </Typography>
-                            <Typography color="error.main" variant="body2" sx={{ textDecoration: "line-through" }}> 100 €</Typography>
+                            <Typography
+                                color="error.main"
+                                variant="body2"
+                                sx={{ textDecoration: "line-through" }}
+                            >
+                                {" "}
+                                100 €
+                            </Typography>
                         </Box>
                     )}
                     <CustomBtn
