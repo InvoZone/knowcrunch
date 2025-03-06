@@ -120,17 +120,19 @@ function Navbar() {
     return (
         <AppBar
             component={"div"}
-            color={
-                scrollY >= 10
-                    ? "primary"
-                    : pathname === "/"
-                        ? "transparent"
-                        : "primary"
-            }
-            sx={{ zIndex: 1310, boxShadow: "none" }}
+            sx={{ zIndex: 1310, boxShadow: "none", backgroundColor: "transparent" }}
             aria-label="Navigation Bar"
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="xl"
+                sx={{
+                    backgroundColor:
+                        scrollY >= 10
+                            ? "primary.main"
+                            : pathname === "/"
+                                ? "transparent"
+                                : "primary.main"
+                }}
+            >
                 <Toolbar
                     disableGutters
                     sx={{
@@ -365,7 +367,7 @@ function Navbar() {
                     )}
                 </Toolbar>
             </Container>
-        </AppBar>
+        </AppBar >
     );
 }
 

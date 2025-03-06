@@ -57,16 +57,15 @@ const Footer = () => {
     ];
 
     return (
-        <Box
-            sx={{
-                backgroundColor: "primary.main",
-                color: "secondary.main",
-                padding: { xs: "32px 24px  24px 24px", md: "32px 48px  16px 48px", lg: "48px 48px 16px 48px" },
-                borderTopLeftRadius: "32px",
-                borderTopRightRadius: "32px",
-            }}
-        >
-            <Box className="globalCotainer">
+        <Box>
+            <Box className="globalCotainer"
+                sx={{
+                    borderTopLeftRadius: "32px",
+                    borderTopRightRadius: "32px",
+                    backgroundColor: "primary.main",
+                    padding: { xs: "32px 24px  24px 24px", md: "32px 48px  16px 48px", lg: "48px 48px 16px 48px" },
+                    maxWidth: 1728
+                }}>
                 <Grid2
                     className="SectionCotainer"
                     container
