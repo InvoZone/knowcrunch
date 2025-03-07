@@ -10,12 +10,24 @@ const FooterLinks = ({ title, links }) => {
             size={4}
             sx={{ display: "flex", flexDirection: "column", gap: "7px" }}
             aria-label="Footer links section"
+            component={"ul"}
         >
-            <Typography variant="titleLg" sx={{ mb: 1.5 }} aria-label="Section title">
+            <Typography
+                variant="titleLg"
+                sx={{ mb: 1.5, listStyleType: "none" }}
+                aria-label="Section title"
+                component={"li"}
+            >
                 {title}
             </Typography>
             {links.map((link, index) => (
-                <Typography key={link?.id || index} variant="titleMd" aria-label={`Link to ${link}`}>
+                <Typography
+                    key={link?.id || index}
+                    sx={{ listStyleType: "none" }}
+                    variant="titleMd"
+                    aria-label={`Link to ${link}`}
+                    component={"li"}
+                >
                     {link}
                 </Typography>
             ))}
