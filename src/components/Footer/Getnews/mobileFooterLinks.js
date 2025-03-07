@@ -42,7 +42,16 @@ const FooterAccordion = ({ title, links }) => {
                 }}
             >
                 <AccordionSummary
-                    expandIcon={<Image loading="lazy" src={"/icons/expandmore.svg"} width={24} height={24} alt={"expandmore"} sx={{ color: "secondary.main" }} />}
+                    expandIcon={
+                        <Image
+                            loading="lazy"
+                            src={"/icons/expandmore.svg"}
+                            width={24}
+                            height={24}
+                            alt={"expandmore"}
+                            sx={{ color: "secondary.main" }}
+                        />
+                    }
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                     aria-label={`Expand ${title}`}
@@ -63,13 +72,15 @@ const FooterAccordion = ({ title, links }) => {
                             color: "secondary.main",
                             fontWeight: "bold",
                             backgroundColor: "transparent",
+                            listStyleType: "none",
                         }}
-                        component={"span"}
+                        component={"li"}
                     >
                         {title}
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails
+                    component={"ul"}
                     aria-label={`Details for ${title}`}
                     sx={{
                         backgroundColor: "transparent",
@@ -77,7 +88,14 @@ const FooterAccordion = ({ title, links }) => {
                     }}
                 >
                     {links.map((link, index) => (
-                        <Typography key={link?.id || index} variant="titleMd" color="secondary.main" component={"p"} pb={1}>
+                        <Typography
+                            key={link?.id || index}
+                            sx={{ listStyleType: "none" }}
+                            variant="titleMd"
+                            color="secondary.main"
+                            component={"li"}
+                            pb={1}
+                        >
                             {link}
                         </Typography>
                     ))}

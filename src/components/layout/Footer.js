@@ -1,6 +1,12 @@
 "use client";
 import React from "react";
-import { Box, Typography, Button, useMediaQuery, Container } from "@mui/material";
+import {
+    Box,
+    Typography,
+    Button,
+    useMediaQuery,
+    Container,
+} from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
 import Image from "next/image";
 import "./footer.scss";
@@ -57,18 +63,26 @@ const Footer = () => {
     ];
 
     return (
-        <Box className='centerX'
+        <Box
+            className="centerX"
             sx={{
                 borderTopLeftRadius: "32px",
                 borderTopRightRadius: "32px",
                 backgroundColor: "primary.main",
+                color: "secondary.main",
             }}
         >
             <Container
-                maxWidth='xl'
+                maxWidth="xl"
                 sx={{
-                    padding: { xs: "32px 24px 24px 24px", md: "32px 48px  16px 48px", lg: "48px 48px 16px 48px", xl: "48px 200px" },
-                }}>
+                    padding: {
+                        xs: "32px 24px 24px 24px",
+                        md: "32px 48px  16px 48px",
+                        lg: "48px 48px 16px 48px",
+                        xl: "48px 200px",
+                    },
+                }}
+            >
                 <Grid2
                     className="SectionCotainer"
                     container
@@ -86,14 +100,19 @@ const Footer = () => {
                                     size={12}
                                     sx={{ width: "100%" }}
                                 >
-                                    <FooterLinksMobile title={section.title} links={section.links} />
+                                    <FooterLinksMobile
+                                        title={section.title}
+                                        links={section.links}
+                                    />
                                 </Grid2>
                             ))}
                         </>
                     )}
                     <Box className="mainFooter">
                         <Grid2 size={3} className="mainFooterForm">
-                            <Typography variant="titleLg" component={"p"}>Get our news</Typography>
+                            <Typography variant="titleLg" component={"p"}>
+                                Get our news
+                            </Typography>
                             <Box
                                 sx={{
                                     display: "flex",
@@ -145,7 +164,9 @@ const Footer = () => {
                                 }}
                                 aria-label="Subscribe"
                             >
-                                <Typography variant="h6" component={"p"}>Subscribe</Typography>
+                                <Typography variant="h6" component={"p"}>
+                                    Subscribe
+                                </Typography>
                             </Button>
                             <Typography
                                 variant="body1"
@@ -174,7 +195,11 @@ const Footer = () => {
                             }}
                         >
                             {footerData.map((section) => (
-                                <FooterLinks key={`footer_${section?.title}`} title={section.title} links={section.links} />
+                                <FooterLinks
+                                    key={`footer_${section?.title}`}
+                                    title={section.title}
+                                    links={section.links}
+                                />
                             ))}
                         </Grid2>
 
@@ -215,7 +240,7 @@ const Footer = () => {
                     </Box>
                 </Box>
             </Container>
-        </Box >
+        </Box>
     );
 };
 

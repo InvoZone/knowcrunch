@@ -13,11 +13,28 @@ export default function FeatureItem({ title, description }) {
                 alt="Tick"
                 aria-label="Tick icon"
             />
-            <Box sx={{ display: "flex", flexDirection: "column", gap: "9px" }}>
-                <Typography variant="titleLg" color="tertiary.main" aria-label={title} component={"h3"}>
+            <Box
+                component="ul"
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "9px",
+                    listStyleType: "none",
+                }}
+            >
+                <Typography
+                    component="li"
+                    variant="titleLg"
+                    color="tertiary.main"
+                    aria-label={title}
+                >
                     {title}
                 </Typography>
-                <Typography variant="body" sx={{ color: "neutral.neutral1" }}>
+                <Typography
+                    component="li"
+                    variant="body"
+                    sx={{ color: "neutral.neutral1" }}
+                >
                     {description}
                 </Typography>
             </Box>
