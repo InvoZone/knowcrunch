@@ -22,11 +22,12 @@ const tickMarkData = [
 
 const CareerPath = () => {
     return (
-        <Box component={"div"}>
+        <Box component={"div"}
+            backgroundColor="neutral.neutral10"
+        >
             <Container
                 maxWidth={"xl"}
                 sx={{
-                    backgroundColor: "neutral.neutral10",
                     justifyContent: "center",
                     display: { xs: "block", lg: "flex" },
                 }}

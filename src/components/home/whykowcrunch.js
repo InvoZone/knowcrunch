@@ -32,17 +32,19 @@ export default function Whyknow() {
     return (
         <Container maxWidth='lg'>
             <Box className={styles.main} py={{ xs: 4, md: 6 }} px={{ xs: 0, md: 0 }}>
-                <Box width={{ xs: "100%", lg: 568, xl: 608 }} height={{ xs: 328, md: 471 }}>
+                <Box width={{ xs: "100%", lg: 568, xl: 608 }} height={{ xs: 328, md: 471 }} position={"relative"}>
                     <Image
                         className={styles.img}
                         src={whyknowcrunch}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                         alt="diploma"
-                        priority
+                        loading='lazy'
                         aria-label="Diploma image"
                     />
                 </Box>
                 <Box className={styles.typo}>
-                    <Typography variant="h2" sx={{ color: "base1.dark4", fontSize: "40px !important" }} component="h4">
+                    <Typography variant="h2" sx={{ color: "base1.dark4", fontSize: "40px !important" }}>
                         Why Knowcrunch?
                     </Typography>
                     <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>

@@ -68,11 +68,11 @@ export const organizationJsonLd = {
 export const webpageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "KnowCrunch - Professional Digital Marketing Courses & Training",
+    "name": "Knowcrunch - Professional Digital Marketing Courses & Training",
     "url": `${process.env.NEXT_PUBLIC_SITE_LINK}`,
     "mainContentOfPage": {
         "@type": "WebPageElement",
         "cssSelector": "#main-content",
-        "description": "KnowCrunch provides professional digital marketing courses and training for individuals and businesses."
+        "description": "Knowcrunch provides professional digital marketing courses and training for individuals and businesses."
     }
 };

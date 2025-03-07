@@ -19,12 +19,12 @@ export default function Diploma() {
                         flexWrap: { xs: "wrap", lg: "unset" },
                     }}
                 >
-                    <Image className={styles.img} src={diploma} alt="diploma" loading="lazy" />
+                    <Image className={styles.img} src={diploma} alt="diploma" loading="lazy" priority={false} />
                     <Box
                         component={"div"}
                         sx={{ display: "flex", justifyContent: "center", flexDirection: "column", textAlign: { xs: "center", lg: "start" } }}
                     >
-                        <Typography variant="h2" color="base1.dark4" component={"h4"} pb={2} pr={{ xs: 2, sm: 4 }} pl={{ xs: 2, sm: 0 }}>
+                        <Typography variant="h2" color="base1.dark4" pb={2} pr={{ xs: 2, sm: 4 }} pl={{ xs: 2, sm: 0 }}>
                             Earn your professional certification or diploma
                         </Typography>
                         <Typography variant="body" color="neutral.neutral1" pr={{ xs: 1, sm: 2 }} pl={{ xs: 1, sm: 0 }}>

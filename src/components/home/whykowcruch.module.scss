@@ -3,8 +3,8 @@
     gap: 48px;
 
     .img {
-        width: 100% !important;
-        height: 100% !important;
+        border-radius: 16px;
+        object-fit: cover;
     }
     .imgBox {
         width: 50%;
