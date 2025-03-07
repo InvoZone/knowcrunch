@@ -109,7 +109,7 @@ const ScrollSection = ({
                     pt={linkProps?.pt}
                     pb={linkProps?.pb}
                     sx={{
-                        display: "flex",
+                        display: linkProps?.title ? "flex" : "none",
                         justifyContent: "flex-end",
                         cursor: "pointer",
                     }}

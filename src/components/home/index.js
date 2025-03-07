@@ -139,7 +139,7 @@ const Homepage = () => {
                 leftArrowPosition={{ top: "94px", left: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 rightArrowPosition={{ top: "94px", right: { xs: "-16px", md: "-30px", lg: "-30px", xl: "-30px" } }}
                 heading={"Video testimonials"}
-                linkProps={{ title: "View all instructors", pt: 2 }}
+                linkProps={{ title: "", pt: 2 }}
                 py={{ xs: 4, md: 4 }}
             >
                 {[...Array(12)].map((_, ind) => (
