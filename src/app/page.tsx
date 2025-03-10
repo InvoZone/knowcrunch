@@ -1,9 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { decrement, increment } from "@/lib/slices/auth";
+import { useTranslations } from "next-intl";
 
-export default function Home() {
+const Home: React.FC = () => {
+  const t = useTranslations("general");
+  const dispatch = useAppDispatch();
+  const { count } = useAppSelector(state => state.auth);
+
   return (
     <div className={styles.page}>
+      <div className={styles.countContainer}>
+        <h1 style={{ color: "red" }}>{t("digitalMarketingStrategy")}</h1>;
+
+        <p>Count: <span>{count}</span></p>
+        <button onClick={() => dispatch(increment())}>Increment</button>
+        <button onClick={() => dispatch(decrement())}>Decrement</button>
+      </div>
       <main className={styles.main}>
         <Image
           className={styles.logo}
@@ -92,4 +108,6 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+};
+
+export default Home;
