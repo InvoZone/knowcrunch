@@ -5,6 +5,7 @@ import styles from "./page.module.css";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { decrement, increment } from "@/lib/slices/auth";
 import { useTranslations } from "next-intl";
+import { Typography } from "@mui/material";
 
 const Home: React.FC = () => {
   const t = useTranslations("general");
@@ -13,14 +14,14 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.countContainer}>
-        <h1 style={{ color: "red" }}>{t("digitalMarketingStrategy")}</h1>;
-
-        <p>Count: <span>{count}</span></p>
-        <button onClick={() => dispatch(increment())}>Increment</button>
-        <button onClick={() => dispatch(decrement())}>Decrement</button>
-      </div>
       <main className={styles.main}>
+        <div className={styles.countContainer}>
+          <Typography variant="titleSm" color="accents.bubble1">{t("digitalMarketingStrategy")}</Typography>;
+
+          <p>Count: <span>{count}</span></p>
+          <button onClick={() => dispatch(increment())}>Increment</button>
+          <button onClick={() => dispatch(decrement())}>Decrement</button>
+        </div>
         <Image
           className={styles.logo}
           src="/next.svg"
