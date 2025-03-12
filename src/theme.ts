@@ -1,6 +1,7 @@
 "use client";
 import { createTheme } from "@mui/material/styles";
-import { Base1, Base2, Neutral, Accents, colors } from "@/constants/colors";
+import type { Base1, Base2, Neutral, Accents } from "@/constants/colors";
+import { colors } from "@/constants/colors";
 
 // Extend the MUI theme to include custom palette and typography options
 declare module "@mui/material/styles" {

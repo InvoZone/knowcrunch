@@ -1,114 +1,19 @@
-"use client";
+import { generateMetadata } from "@/lib/metadata";
+import { Metadata } from "next";
+import Home from "@/components/Home";
+import React from "react";
 
-import Image from "next/image";
-import styles from "./page.module.css";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { decrement, increment } from "@/lib/slices/auth";
-import { useTranslations } from "next-intl";
-import { Typography } from "@mui/material";
+export const metadata: Metadata = generateMetadata({
+  title: "Knowcrunch - Professional digital marketing courses & training",
+  description: "Knowcrunch is offering high-level professional digital & social media marketing training & education in a class or via video-on-demand e-learning.",
+  canonical: `/`,
+  image: `icons/Hero.webp`,
 
-const Home: React.FC = () => {
-  const t = useTranslations("general");
-  const dispatch = useAppDispatch();
-  const { count } = useAppSelector(state => state.auth);
 
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <div className={styles.countContainer}>
-          <Typography variant="titleSm" color="accents.bubble1">{t("digitalMarketingStrategy")}</Typography>;
+})
 
-          <p>Count: <span>{count}</span></p>
-          <button onClick={() => dispatch(increment())}>Increment</button>
-          <button onClick={() => dispatch(decrement())}>Decrement</button>
-        </div>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const HomePage: React.FC = () => {
+  return (<Home />)
+}
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-};
-
-export default Home;
+export default HomePage;

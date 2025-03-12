@@ -1,7 +1,7 @@
 // Import necessary components from Material-UI and local components
 import { Box } from "@mui/material";
 // import Navbar from "./navbar";
-// import Footer from "./Footer";
+import Footer from "./Footer";
 // import ForgotPassword from "../auth/forgotPassword";
 
 // Layout component that wraps the entire application
@@ -18,7 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 {/* <ForgotPassword aria-label="Forgot Password" /> */}
             </Box>
             {/* Footer  component */}
-            {/* <Footer aria-label="Footer" /> */}
+            <Footer aria-label="Footer" />
         </Box>
     );
 };
