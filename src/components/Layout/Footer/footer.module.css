@@ -1,0 +1,24 @@
+.phone_input {
+    width: 100% !important;
+    background: transparent !important;
+    border: 0px !important;
+    color: #98c9ff;
+    font-size: 16px !important;
+    line-height: 16px;
+    font-weight: 400;
+    &::placeholder {
+        color: #98c9ff;
+    }
+}
+.phone_dropdown_button {
+    background: transparent !important;
+    border: 1px solid #1c3870 !important;
+}
+.phone_dropdown_button * {
+    border-top-color: #98c9ff !important;
+    border-bottom-color: #98c9ff !important;
+}
+
+.dropdown {
+    color: #98c9ff;
+}
