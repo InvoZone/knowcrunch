@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Box, Container, Typography } from "@mui/material";
-import diploma from "@/assets/course/professional-diploma.webp";
+import certification from "@/assets/course/professional-diploma.webp";
 
 const Certification: React.FC = () => {
     return (
@@ -27,7 +27,7 @@ const Certification: React.FC = () => {
                         className="centerX"
                     >
                         <Image
-                            src={diploma}
+                            src={certification}
                             alt="certification"
                             title='certification'
                             loading="lazy"
