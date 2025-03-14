@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { memo } from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import Certification from "./Certification";
@@ -101,10 +101,9 @@ const Home: React.FC = () => {
         <Box component="div">
             {/* Banner section */}
             <Banner />
-            <Box component={'section'} sx={{ marginTop: "-30px", px: { xs: 3, md: 6 } }}>
+            <Box component={"section"} sx={{ marginTop: "-30px", px: { xs: 3, md: 6 } }}>
                 <LogoAnimate />
             </Box>
-
 
             {/* E-learning courses section */}
             {renderScrollSection("Popular E-learning Courses",
@@ -125,7 +124,6 @@ const Home: React.FC = () => {
                 312, 644, 804, 858, "213px"
             )}
 
-
             {/* Instructors courses section */}
             {renderScrollSection("Our Instructors",
                 instructors.map((instructor, index) => (
@@ -133,7 +131,6 @@ const Home: React.FC = () => {
                 )),
                 284, 568, 1136, 1136, "163px"
             )}
-
 
             {/* Testimonials section */}
             {renderScrollSection("Video Testimonials",
@@ -143,10 +140,8 @@ const Home: React.FC = () => {
                 392, 392, 784, 1176, "94px"
             )}
 
-
             {/* Certification section */}
             <Certification />
-
 
             {/* Why Knowcrunch section */}
             <WhyKnowcrunch />
