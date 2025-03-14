@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Box, Container, Typography } from "@mui/material";
-import certification from "@/assets/course/professional-diploma.webp";
+import certification from "@/assets/home/professional-diploma.webp";
 
+// Certification component
 const Certification: React.FC = () => {
     return (
         <Box component={'section'} sx={{ backgroundColor: "neutral.neutral10" }}>
@@ -74,4 +75,5 @@ const Certification: React.FC = () => {
     );
 }
 
+// Exporting the Certification component
 export default Certification;
