@@ -54,91 +54,168 @@ const Footer: React.FC = () => {
         },
         {
             title: "Our Students",
-            links: [
-                "Questions & Answers",
-                "Official Alumni Group",
-                "Digital Nation Group",
-            ],
+            links: ["Questions & Answers", "Official Alumni Group", "Digital Nation Group"],
         },
         {
             title: "Legal",
-            links: [
-                "Terms & Conditions",
-                "Cookies Policy",
-                "Data Privacy Policy",
-                "Contact Us",
-            ],
+            links: ["Terms & Conditions", "Cookies Policy", "Data Privacy Policy", "Contact Us"],
         },
     ];
 
     return (
-        <Box component="footer" className="centerX" sx={{
-            borderTopLeftRadius: "32px",
-            borderTopRightRadius: "32px",
-            backgroundColor: "primary.main",
-            color: "secondary.main",
-        }}>
+        <Box
+            component="footer"
+            className="centerX"
+            sx={{
+                borderTopLeftRadius: "32px",
+                borderTopRightRadius: "32px",
+                backgroundColor: "primary.main",
+                color: "secondary.main",
+            }}
+        >
             <Container sx={{ maxWidth: "1408px !important" }}>
-                <Box
-                    component="div"
-                    pt={{ xs: 4, lg: 6 }}
-                    pb={2}
-                    px={{ xs: 0, md: 3 }}
-                >
+                <Box component="div" pt={{ xs: 4, lg: 6 }} pb={2} px={{ xs: 0, md: 3 }}>
                     {/* Mobile Navigation Links */}
-                    <Box component="nav" sx={{ display: { xs: "block", lg: "none" }, pb: { xs: 3, md: 5 } }}>
+                    <Box
+                        component="nav"
+                        sx={{ display: { xs: "block", lg: "none" }, pb: { xs: 3, md: 5 } }}
+                    >
                         {footerData.map((section) => (
-                            <FooterLinksMobile key={section.title} title={section.title} links={section.links} />
+                            <FooterLinksMobile
+                                key={section.title}
+                                title={section.title}
+                                links={section.links}
+                            />
                         ))}
                     </Box>
 
-                    <Box component="div" display="flex" justifyContent={{ xs: "center", md: "flex-start" }} gap={6} flexWrap="wrap">
+                    <Box
+                        component="div"
+                        display="flex"
+                        justifyContent={{ xs: "center", md: "flex-start" }}
+                        gap={6}
+                        flexWrap="wrap"
+                    >
                         {/* Newsletter Subscription Section */}
                         <Box component="div" sx={{ width: { xs: 352, md: 290 } }}>
-                            <Typography variant="titleLg" component={"p"} pb={3}>Get our news</Typography>
+                            <Typography variant="titleLg" component={"p"} pb={3}>
+                                Get our news
+                            </Typography>
                             <NewsletterForm />
                             <Typography variant="body1" pt={1}>
-                                We respect your personal data. By subscribing, you agree that we can contact you according to our <Typography variant="body1" component="span" sx={{ color: "accents.bubble1", pl: "3px" }}>Data Privacy Policy</Typography>.
+                                We respect your personal data. By subscribing, you agree that we can
+                                contact you according to our{" "}
+                                <Typography
+                                    variant="body1"
+                                    component="span"
+                                    sx={{ color: "accents.bubble1", pl: "3px" }}
+                                >
+                                    Data Privacy Policy
+                                </Typography>
+                                .
                             </Typography>
                         </Box>
 
                         {/* Footer Links for Desktop View */}
-                        <Box component="nav" sx={{ display: { xs: "none", lg: "flex" }, justifyContent: "space-between", gap: 4, width: 540 }}>
+                        <Box
+                            component="nav"
+                            sx={{
+                                display: { xs: "none", lg: "flex" },
+                                justifyContent: "space-between",
+                                gap: 4,
+                                width: 540,
+                            }}
+                        >
                             {footerData.map((section) => (
-                                <FooterLinks key={section.title} title={section.title} links={section.links} />
+                                <FooterLinks
+                                    key={section.title}
+                                    title={section.title}
+                                    links={section.links}
+                                />
                             ))}
                         </Box>
 
                         {/* App Download Section */}
-                        <Box component="div"
+                        <Box
+                            component="div"
                             sx={{
-                                display: "flex", flexDirection: "column", gap: 2, width: { xs: "100%", md: 181 }, alignItems: { xs: "center", md: "flex-start" }
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: 2,
+                                width: { xs: "100%", md: 181 },
+                                alignItems: { xs: "center", md: "flex-start" },
                             }}
                         >
-                            <Typography variant="titleLg" component={"p"} >Download Knowcrunch</Typography>
-                            <Image width={134} height={45} loading="lazy" src={appStore} alt="appstore" title={"appstore"} />
-                            <Image width={134} height={45} loading="lazy" src={googlePlay} alt="googleplay" title={"googleplay"} />
+                            <Typography variant="titleLg" component={"p"}>
+                                Download Knowcrunch
+                            </Typography>
+                            <Image
+                                width={134}
+                                height={45}
+                                loading="lazy"
+                                src={appStore}
+                                alt="appstore"
+                                title={"appstore"}
+                            />
+                            <Image
+                                width={134}
+                                height={45}
+                                loading="lazy"
+                                src={googlePlay}
+                                alt="googleplay"
+                                title={"googleplay"}
+                            />
                         </Box>
                     </Box>
 
                     {/* Footer Bottom Section */}
                     <Box
-                        sx={{ display: "flex", justifyContent: { xs: "center", lg: "flex-end" }, pt: 4, borderBottom: "2px solid", borderColor: "base1.default" }}
+                        sx={{
+                            display: "flex",
+                            justifyContent: { xs: "center", lg: "flex-end" },
+                            pt: 4,
+                            borderBottom: "2px solid",
+                            borderColor: "base1.default",
+                        }}
                     >
-                        <Typography variant="body1" pb={"14px"}>Knowcrunch Inc., 2035 Sunset Lake Road, Delaware, USA</Typography>
+                        <Typography variant="body1" pb={"14px"}>
+                            Knowcrunch Inc., 2035 Sunset Lake Road, Delaware, USA
+                        </Typography>
                     </Box>
 
                     <Box
-                        sx={{ display: { xs: "block", md: "flex" }, justifyContent: { xs: "center", md: "space-between" }, alignItems: "center", pt: "14px" }}
+                        sx={{
+                            display: { xs: "block", md: "flex" },
+                            justifyContent: { xs: "center", md: "space-between" },
+                            alignItems: "center",
+                            pt: "14px",
+                        }}
                     >
-                        <Typography variant="body1"
+                        <Typography
+                            variant="body1"
                             sx={{ textAlign: { xs: "center", md: "left" }, pb: { xs: 3, md: 0 } }}
                         >
                             Knowcrunch Inc. © 2024 All Rights Reserved
                         </Typography>
-                        <Box sx={{ display: "flex", gap: 3, justifyContent: "center", flexWrap: "wrap", px: { xs: 1, md: 0 } }}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                gap: 3,
+                                justifyContent: "center",
+                                flexWrap: "wrap",
+                                px: { xs: 1, md: 0 },
+                            }}
+                        >
                             {socialIcons.map((icon) => (
-                                <Image key={icon.alt} loading="lazy" src={icon.src} width={24} height={24} alt={icon.alt} title={icon.alt} />
+                                <Image
+                                    key={icon.alt}
+                                    loading="lazy"
+                                    src={icon.src}
+                                    width={24}
+                                    height={24}
+                                    alt={icon.alt}
+                                    title={icon.alt}
+                                />
                             ))}
                         </Box>
                     </Box>

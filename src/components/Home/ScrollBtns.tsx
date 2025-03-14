@@ -3,23 +3,30 @@ import Image from "next/image";
 import React from "react";
 
 interface ArrowPositionTypes {
-    left?: { [key: string]: number | string } | string | number,
-    top?: string | number,
-    right?: { [key: string]: number | string } | string | number,
-    bottom?: string | number
+    left?: { [key: string]: number | string } | string | number;
+    top?: string | number;
+    right?: { [key: string]: number | string } | string | number;
+    bottom?: string | number;
 }
 
 interface ScrollBtnProps {
-    onClick: () => void,
-    src: string,
-    alt: string,
-    leftArrowPosition?: ArrowPositionTypes,
-    rightArrowPosition?: ArrowPositionTypes
+    onClick: () => void;
+    src: string;
+    alt: string;
+    leftArrowPosition?: ArrowPositionTypes;
+    rightArrowPosition?: ArrowPositionTypes;
 }
 
-const ScrollBtn: React.FC<ScrollBtnProps> = ({ onClick, src, alt, leftArrowPosition, rightArrowPosition }) => {
+const ScrollBtn: React.FC<ScrollBtnProps> = ({
+    onClick,
+    src,
+    alt,
+    leftArrowPosition,
+    rightArrowPosition,
+}) => {
     return (
-        <Box component={"div"}
+        <Box
+            component={"div"}
             sx={{
                 position: "absolute",
                 zIndex: 1,
@@ -32,13 +39,13 @@ const ScrollBtn: React.FC<ScrollBtnProps> = ({ onClick, src, alt, leftArrowPosit
                 backgroundColor: "secondary.main",
                 cursor: "pointer",
                 ...leftArrowPosition,
-                ...rightArrowPosition
+                ...rightArrowPosition,
             }}
             className="center"
             onClick={onClick}
             aria-label={alt}
         >
-            <Image src={src} alt={alt} height={24} width={24} loading="lazy" title='arrow button' />
+            <Image src={src} alt={alt} height={24} width={24} loading="lazy" title="arrow button" />
         </Box>
     );
 };

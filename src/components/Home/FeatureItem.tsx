@@ -4,8 +4,8 @@ import { Box, Typography } from "@mui/material";
 
 // Define the interface for FeatureItemProps
 interface FeatureItemProps {
-    title: string,
-    description: string
+    title: string;
+    description: string;
 }
 
 // FeatureItem component
@@ -20,7 +20,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ title, description }) => {
                 height={24}
                 alt="Tick"
                 aria-label="Tick icon"
-                title='tick'
+                title="tick"
             />
             {/* Display the title and description in a list */}
             <Box
@@ -40,16 +40,12 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ title, description }) => {
                 >
                     {title}
                 </Typography>
-                <Typography
-                    component="li"
-                    variant="body"
-                    sx={{ color: "neutral.neutral1" }}
-                >
+                <Typography component="li" variant="body" sx={{ color: "neutral.neutral1" }}>
                     {description}
                 </Typography>
             </Box>
         </Box>
     );
-}
+};
 
 export default FeatureItem;

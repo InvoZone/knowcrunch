@@ -23,10 +23,7 @@ const tickMarkData: { id: string; text: string }[] = [
 // CareerPath component definition
 const CareerPath: React.FC = () => {
     return (
-        <Box
-            component={"section"}
-            sx={{ backgroundColor: "neutral.neutral10" }}
-        >
+        <Box component={"section"} sx={{ backgroundColor: "neutral.neutral10" }}>
             <Container
                 maxWidth={"xl"}
                 sx={{
@@ -40,12 +37,7 @@ const CareerPath: React.FC = () => {
                     py={{ xs: 4, md: 6 }}
                     sx={{ maxWidth: 1280 }}
                 >
-                    <Typography
-                        variant="h2"
-                        color={"base1.dark4"}
-                        component="h2"
-                        pb={3}
-                    >
+                    <Typography variant="h2" color={"base1.dark4"} component="h2" pb={3}>
                         Find your career path
                     </Typography>
                     <Box component={"div"} pb={2}>
@@ -86,14 +78,9 @@ const CareerPath: React.FC = () => {
                                     >
                                         Content Marketing
                                     </Typography>
-                                    <Typography
-                                        variant="body"
-                                        color="neutral.neutral1"
-                                        pb={2}
-                                    >
-                                        Define and develop digital strategies to
-                                        deliver business growth through online
-                                        channels.
+                                    <Typography variant="body" color="neutral.neutral1" pb={2}>
+                                        Define and develop digital strategies to deliver business
+                                        growth through online channels.
                                     </Typography>
                                     <Box component={"div"}>
                                         <Typography
@@ -111,24 +98,15 @@ const CareerPath: React.FC = () => {
                                             color="neutral.neutral1"
                                             pb={"12px"}
                                         >
-                                            median salary in Greece, for this
-                                            career path in 2023
+                                            median salary in Greece, for this career path in 2023
                                         </Typography>
                                     </Box>
                                     <Box component={"div"} pb={"4px"}>
-                                        <Typography
-                                            variant="h4"
-                                            color="link.main"
-                                        >
+                                        <Typography variant="h4" color="link.main">
                                             85%
                                         </Typography>
-                                        <Typography
-                                            variant="body"
-                                            color="neutral.neutral1"
-                                            pb={2}
-                                        >
-                                            of course graduates report positive
-                                            career impact
+                                        <Typography variant="body" color="neutral.neutral1" pb={2}>
+                                            of course graduates report positive career impact
                                         </Typography>
                                     </Box>
                                     <Box
@@ -142,10 +120,7 @@ const CareerPath: React.FC = () => {
                                         }}
                                     >
                                         {tickMarkData.map((item) => (
-                                            <TickMark
-                                                key={item.id}
-                                                text={item.text}
-                                            />
+                                            <TickMark key={item.id} text={item.text} />
                                         ))}
                                     </Box>
                                 </Box>
@@ -161,20 +136,9 @@ const CareerPath: React.FC = () => {
                                     justifyContent: "center",
                                 }}
                             >
-                                <CourseCard
-                                    tag={""}
-                                    discountTag={true}
-                                    width={"298px"}
-                                />
-                                <Box
-                                    component={"div"}
-                                    display={{ xs: "none", lg: "block" }}
-                                >
-                                    <CourseCard
-                                        tag={"NEW"}
-                                        discountTag={true}
-                                        width={"298px"}
-                                    />
+                                <CourseCard tag={""} discountTag={true} width={"298px"} />
+                                <Box component={"div"} display={{ xs: "none", lg: "block" }}>
+                                    <CourseCard tag={"NEW"} discountTag={true} width={"298px"} />
                                 </Box>
                             </Box>
                             <Box

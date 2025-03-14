@@ -20,7 +20,6 @@ const logos = [
 ];
 
 const LogoAnimate = () => {
-
     return (
         <Container
             maxWidth="lg"
@@ -70,7 +69,7 @@ const LogoAnimate = () => {
                     border: "1px solid",
                     borderColor: "neutral.neutral9",
                     borderRadius: "48px",
-                    height: "58px"
+                    height: "58px",
                 }}
             >
                 <Marquee
@@ -79,7 +78,7 @@ const LogoAnimate = () => {
                     direction={"left"}
                     loop={0}
                     style={{ paddingLeft: "40px", marginLeft: "40px", marginRight: "10px" }}
-                // onCycleComplete={onCycleComplete}
+                    // onCycleComplete={onCycleComplete}
                 >
                     {logos?.map((item) => (
                         <Box

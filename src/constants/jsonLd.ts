@@ -1,78 +1,78 @@
 type BreadcrumbItem = {
     "@type": "ListItem";
-    position: number;
-    name: string;
-    item: string;
+    "position": number;
+    "name": string;
+    "item": string;
 };
 
 type BreadcrumbList = {
     "@context": string;
     "@type": string;
-    itemListElement: BreadcrumbItem[];
+    "itemListElement": BreadcrumbItem[];
 };
 
 type Organization = {
     "@context": string;
     "@type": string;
-    name: string;
-    legalName: string;
-    url: string;
-    logo: string;
-    foundingDate: string;
-    founders: {
+    "name": string;
+    "legalName": string;
+    "url": string;
+    "logo": string;
+    "foundingDate": string;
+    "founders": {
         "@type": string;
-        name: string;
+        "name": string;
     }[];
-    address: {
+    "address": {
         "@type": string;
-        streetAddress: string;
-        addressLocality: string;
-        addressRegion: string;
-        postalCode: string;
-        addressCountry: string;
+        "streetAddress": string;
+        "addressLocality": string;
+        "addressRegion": string;
+        "postalCode": string;
+        "addressCountry": string;
     };
-    contactPoint: {
+    "contactPoint": {
         "@type": string;
-        contactType: string;
-        telephone: string;
-        email: string;
+        "contactType": string;
+        "telephone": string;
+        "email": string;
     };
-    sameAs: string[];
+    "sameAs": string[];
 };
 
 type WebPage = {
     "@context": string;
     "@type": string;
-    name: string;
-    url: string;
-    mainContentOfPage: {
+    "name": string;
+    "url": string;
+    "mainContentOfPage": {
         "@type": string;
-        cssSelector: string;
-        description: string;
+        "cssSelector": string;
+        "description": string;
     };
 };
 
 export const breadcrumbJsonLd: BreadcrumbList = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
+    "itemListElement": [
         {
             "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: `${process.env.NEXT_PUBLIC_SITE_LINK}`,
+            "position": 1,
+            "name": "Home",
+            "item": `${process.env.NEXT_PUBLIC_SITE_LINK}`,
         },
         {
             "@type": "ListItem",
-            position: 2,
-            name: "Courses",
-            item: `${process.env.NEXT_PUBLIC_SITE_LINK}/courses`,
+            "position": 2,
+            "name": "Courses",
+            "item": `${process.env.NEXT_PUBLIC_SITE_LINK}/courses`,
         },
         {
             "@type": "ListItem",
-            position: 3,
-            name: "Classroom Courses",
-            item: `${process.env.NEXT_PUBLIC_SITE_LINK}/classroom-courses`,
+            "position": 3,
+            "name": "Classroom Courses",
+            "item": `${process.env.NEXT_PUBLIC_SITE_LINK}/classroom-courses`,
         },
     ],
 };
@@ -80,32 +80,32 @@ export const breadcrumbJsonLd: BreadcrumbList = {
 export const organizationJsonLd: Organization = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Knowcrunch",
-    legalName: "Knowcrunch INC",
-    url: `${process.env.NEXT_PUBLIC_SITE_LINK}`,
-    logo: `${process.env.NEXT_PUBLIC_SITE_LINK}/logo.webp`,
-    foundingDate: "2013",
-    founders: [
+    "name": "Knowcrunch",
+    "legalName": "Knowcrunch INC",
+    "url": `${process.env.NEXT_PUBLIC_SITE_LINK}`,
+    "logo": `${process.env.NEXT_PUBLIC_SITE_LINK}/logo.webp`,
+    "foundingDate": "2013",
+    "founders": [
         {
             "@type": "Person",
-            name: "Apostolis Aivalis",
+            "name": "Apostolis Aivalis",
         },
     ],
-    address: {
+    "address": {
         "@type": "PostalAddress",
-        streetAddress: "2035 Sunset Lake Road",
-        addressLocality: "Suite B2 Newark",
-        addressRegion: "Delaware",
-        postalCode: "19702",
-        addressCountry: "USA",
+        "streetAddress": "2035 Sunset Lake Road",
+        "addressLocality": "Suite B2 Newark",
+        "addressRegion": "Delaware",
+        "postalCode": "19702",
+        "addressCountry": "USA",
     },
-    contactPoint: {
+    "contactPoint": {
         "@type": "ContactPoint",
-        contactType: "customer support",
-        telephone: "[+302103007214]",
-        email: "info@knowcrunch.com",
+        "contactType": "customer support",
+        "telephone": "[+302103007214]",
+        "email": "info@knowcrunch.com",
     },
-    sameAs: [
+    "sameAs": [
         "https://www.facebook.com/Knowcrunch",
         "https://twitter.com/knowcrunch",
         "https://www.instagram.com/knowcrunch/",
@@ -121,12 +121,12 @@ export const organizationJsonLd: Organization = {
 export const webpageJsonLd: WebPage = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Knowcrunch - Professional Digital Marketing Courses & Training",
-    url: `${process.env.NEXT_PUBLIC_SITE_LINK}`,
-    mainContentOfPage: {
+    "name": "Knowcrunch - Professional Digital Marketing Courses & Training",
+    "url": `${process.env.NEXT_PUBLIC_SITE_LINK}`,
+    "mainContentOfPage": {
         "@type": "WebPageElement",
-        cssSelector: "#main-content",
-        description:
+        "cssSelector": "#main-content",
+        "description":
             "Knowcrunch provides professional digital marketing courses and training for individuals and businesses.",
     },
 };

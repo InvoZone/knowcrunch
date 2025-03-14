@@ -14,17 +14,12 @@ const VideoCard: React.FC<VideoCardProps> = ({ width = "100%", height = "100%" }
             sx={{
                 position: "relative",
                 flexShrink: 0,
-                width: width,
-                height: height,
-                minWidth: width
+                width,
+                height,
+                minWidth: width,
             }}
         >
-            <Box
-                component={"div"}
-                position={"absolute"}
-                left={"42%"}
-                top={"40%"}
-            >
+            <Box component={"div"} position={"absolute"} left={"42%"} top={"40%"}>
                 <Image
                     src={"/icons/playBtn.webp"}
                     height={50}
@@ -38,7 +33,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ width = "100%", height = "100%" }
             <Box component={"div"} borderRadius={4}>
                 <Image
                     src={videoThumb}
-                    alt='video img'
+                    alt="video img"
                     height={228}
                     width={368}
                     className="radius-16"
@@ -48,6 +43,6 @@ const VideoCard: React.FC<VideoCardProps> = ({ width = "100%", height = "100%" }
             </Box>
         </Box>
     );
-}
+};
 
 export default VideoCard;

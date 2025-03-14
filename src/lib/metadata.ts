@@ -33,8 +33,8 @@ export function generateMetadata({
 
         // Open Graph metadata
         openGraph: {
-            title: title,
-            description: description,
+            title,
+            description,
             url: canonical ?? siteLink,
             siteName: "Knowcrunch",
             images: [
@@ -51,8 +51,8 @@ export function generateMetadata({
         // Twitter metadata
         twitter: {
             card: "summary_large_image",
-            title: title,
-            description: description,
+            title,
+            description,
             images: [imageUrl.toString()],
             creator: "@Knowcrunch",
         },

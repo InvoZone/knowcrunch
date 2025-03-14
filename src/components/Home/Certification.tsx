@@ -5,11 +5,8 @@ import certification from "@/assets/home/professional-diploma.webp";
 // Certification component
 const Certification: React.FC = () => {
     return (
-        <Box component={'section'} sx={{ backgroundColor: "neutral.neutral10" }}>
-            <Container
-                maxWidth={"xl"}
-                sx={{ display: "flex", justifyContent: "center", py: 6 }}
-            >
+        <Box component={"section"} sx={{ backgroundColor: "neutral.neutral10" }}>
+            <Container maxWidth={"xl"} sx={{ display: "flex", justifyContent: "center", py: 6 }}>
                 <Box
                     component={"div"}
                     sx={{
@@ -24,13 +21,17 @@ const Certification: React.FC = () => {
                 >
                     <Box
                         component={"div"}
-                        sx={{ width: { xs: 327, md: 358 }, height: { xs: 237, md: 249 }, position: 'relative' }}
+                        sx={{
+                            width: { xs: 327, md: 358 },
+                            height: { xs: 237, md: 249 },
+                            position: "relative",
+                        }}
                         className="centerX"
                     >
                         <Image
                             src={certification}
                             alt="certification"
-                            title='certification'
+                            title="certification"
                             loading="lazy"
                             priority={false}
                             height={249}
@@ -62,18 +63,17 @@ const Certification: React.FC = () => {
                             pr={{ xs: 1, sm: 2 }}
                             pl={{ xs: 1, sm: 0 }}
                         >
-                            Demonstrate your expertise with our professional
-                            certification options. Successfully pass exams to
-                            achieve a prestigious Professional Diploma or
-                            receive a Professional Certificate upon completing
-                            any of our other courses.
+                            Demonstrate your expertise with our professional certification options.
+                            Successfully pass exams to achieve a prestigious Professional Diploma or
+                            receive a Professional Certificate upon completing any of our other
+                            courses.
                         </Typography>
                     </Box>
                 </Box>
             </Container>
         </Box>
     );
-}
+};
 
 // Exporting the Certification component
 export default Certification;

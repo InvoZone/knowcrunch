@@ -29,7 +29,6 @@ const logos: Logo[] = [
 
 // LogoAnimate component
 const LogoAnimate: React.FC = () => {
-
     return (
         <Container
             maxWidth="lg"
@@ -79,7 +78,7 @@ const LogoAnimate: React.FC = () => {
                     border: "1px solid",
                     borderColor: "neutral.neutral9",
                     borderRadius: "48px",
-                    height: "58px"
+                    height: "58px",
                 }}
             >
                 <Marquee
@@ -88,7 +87,7 @@ const LogoAnimate: React.FC = () => {
                     direction={"left"}
                     loop={0}
                     style={{ paddingLeft: "40px", marginLeft: "40px", marginRight: "10px" }}
-                // onCycleComplete={onCycleComplete}
+                    // onCycleComplete={onCycleComplete}
                 >
                     {logos?.map((item) => (
                         <Box

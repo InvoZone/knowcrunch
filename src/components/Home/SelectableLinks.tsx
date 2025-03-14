@@ -47,8 +47,13 @@ const SelectableLinks: React.FC = () => {
         <Box position="relative">
             {!isAtStart && (
                 <ScrollBtn
-                    leftArrowPosition={{ top: "3px", left: { xs: "-15px", md: "-15px", lg: "-25px" } }}
-                    onClick={() => scrollToStart()} src={"/icons/home/leftArrow.svg"} alt={"left scroll button"}
+                    leftArrowPosition={{
+                        top: "3px",
+                        left: { xs: "-15px", md: "-15px", lg: "-25px" },
+                    }}
+                    onClick={() => scrollToStart()}
+                    src={"/icons/home/leftArrow.svg"}
+                    alt={"left scroll button"}
                 />
             )}
 
@@ -57,19 +62,16 @@ const SelectableLinks: React.FC = () => {
                 display="flex"
                 flexDirection="row"
                 sx={{
-                    gap: "8px",
-                    overflowX: "auto",
-                    scrollBehavior: "smooth", // Enables smooth scrolling
-                    "&::-webkit-scrollbar": { display: "none" }
+                    "gap": "8px",
+                    "overflowX": "auto",
+                    "scrollBehavior": "smooth", // Enables smooth scrolling
+                    "&::-webkit-scrollbar": { display: "none" },
                 }}
             >
                 {marketingOptions.map((item, index) => (
                     <Box
                         sx={{
-                            color:
-                                index === selected
-                                    ? "base2.light6"
-                                    : "neutral.neutral1",
+                            color: index === selected ? "base2.light6" : "neutral.neutral1",
                             border: "1px solid",
                             borderColor: "neutral.neutral1",
                             display: "flex",
@@ -78,7 +80,8 @@ const SelectableLinks: React.FC = () => {
                             borderRadius: 8,
                             width: "auto",
                             height: "45px",
-                            backgroundColor: index === selected ? "neutral.neutral1" : "transparent"
+                            backgroundColor:
+                                index === selected ? "neutral.neutral1" : "transparent",
                         }}
                         key={item?.id}
                         onClick={() => handleSelect(index)}
@@ -90,15 +93,18 @@ const SelectableLinks: React.FC = () => {
                     </Box>
                 ))}
             </Box>
-            {
-                isAtStart && (
-                    <ScrollBtn
-                        rightArrowPosition={{ top: "3px", right: { xs: "-15px", md: "-15px", lg: "-25px" } }}
-                        onClick={() => scrollToEnd()} src={"/icons/home/rightArrow.svg"} alt={"right scroll button"}
-                    />
-                )
-            }
-        </Box >
+            {isAtStart && (
+                <ScrollBtn
+                    rightArrowPosition={{
+                        top: "3px",
+                        right: { xs: "-15px", md: "-15px", lg: "-25px" },
+                    }}
+                    onClick={() => scrollToEnd()}
+                    src={"/icons/home/rightArrow.svg"}
+                    alt={"right scroll button"}
+                />
+            )}
+        </Box>
     );
 };
 

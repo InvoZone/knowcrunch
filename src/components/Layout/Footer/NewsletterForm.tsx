@@ -9,9 +9,7 @@ import CustomInput from "./CustomInput";
 
 // Define the validation schema using Yup
 const validationSchema = Yup.object({
-    email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required"),
+    email: Yup.string().email("Invalid email address").required("Email is required"),
 });
 
 // NewsletterForm component
@@ -21,7 +19,7 @@ const NewsletterForm: React.FC = () => {
         initialValues: {
             email: "",
             firstName: "",
-            surname: ""
+            surname: "",
         },
         validationSchema,
         onSubmit: (values) => {
@@ -33,7 +31,13 @@ const NewsletterForm: React.FC = () => {
     return (
         <form onSubmit={formik.handleSubmit}>
             <Box component={"div"} position={"relative"}>
-                <Typography component={"span"} color="error.light" sx={{ position: "absolute", left: 58, top: 14, zIndex: 1 }}>*</Typography>
+                <Typography
+                    component={"span"}
+                    color="error.light"
+                    sx={{ position: "absolute", left: 58, top: 14, zIndex: 1 }}
+                >
+                    *
+                </Typography>
                 <CustomInput
                     name="email"
                     value={formik?.values?.email}
@@ -59,8 +63,24 @@ const NewsletterForm: React.FC = () => {
                 placeholder="Surname"
                 aria-label="Surname"
             />
-            <Box className='centerY' sx={{ backgroundColor: "base1.dark3", px: "10px", height: 45, borderRadius: 2, width: { xs: 352, md: 290 } }}>
-                <PhoneInput placeholder="Mobile number" country="us" aria-label="Mobile number" inputClass={styles.phone_input} buttonClass={styles.phone_dropdown_button} dropdownClass={styles.dropdown} />
+            <Box
+                className="centerY"
+                sx={{
+                    backgroundColor: "base1.dark3",
+                    px: "10px",
+                    height: 45,
+                    borderRadius: 2,
+                    width: { xs: 352, md: 290 },
+                }}
+            >
+                <PhoneInput
+                    placeholder="Mobile number"
+                    country="us"
+                    aria-label="Mobile number"
+                    inputClass={styles.phone_input}
+                    buttonClass={styles.phone_dropdown_button}
+                    dropdownClass={styles.dropdown}
+                />
             </Box>
             <CustomBtn
                 sx={{
@@ -68,7 +88,7 @@ const NewsletterForm: React.FC = () => {
                     backgroundColor: "base1.default",
                     color: "secondary.main",
                     borderRadius: "8px",
-                    width: "100%"
+                    width: "100%",
                 }}
                 color="secondary"
                 title="Subscribe"

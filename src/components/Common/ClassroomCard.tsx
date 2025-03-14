@@ -21,7 +21,7 @@ const ClassroomCard: React.FC<ClassroomCardProps> = ({ width = "100%" }) => {
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
                 overflow: "hidden",
-                width: width,
+                width,
                 flexShrink: 0,
             }}
             p={2}
@@ -120,8 +120,7 @@ const ClassroomCard: React.FC<ClassroomCardProps> = ({ width = "100%" }) => {
                 sx={{ whiteSpace: "normal" }}
                 pb={1}
             >
-                An exceedingly advanced training program that provides
-                comprehensive lectures
+                An exceedingly advanced training program that provides comprehensive lectures
             </Typography>
 
             {/* Course type badge */}
@@ -235,6 +234,6 @@ const ClassroomCard: React.FC<ClassroomCardProps> = ({ width = "100%" }) => {
             </Box>
         </Box>
     );
-}
+};
 
 export default ClassroomCard;

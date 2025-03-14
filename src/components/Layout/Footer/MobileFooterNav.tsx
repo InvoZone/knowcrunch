@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    Typography,
-    Box,
-} from "@mui/material";
+import { Accordion, AccordionSummary, AccordionDetails, Typography, Box } from "@mui/material";
 import Image from "next/image";
 
 // Define the props for the FooterAccordion component
@@ -32,9 +26,9 @@ const FooterAccordion: React.FC<FooterAccordionProps> = ({ title, links }) => {
                 onChange={handleChange}
                 aria-label={`Accordion for ${title}`}
                 sx={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    boxShadow: "none",
+                    "backgroundColor": "transparent",
+                    "border": "none",
+                    "boxShadow": "none",
                     "&:last-of-type": {
                         backgroundColor: "transparent",
                         border: "none",
@@ -62,11 +56,11 @@ const FooterAccordion: React.FC<FooterAccordionProps> = ({ title, links }) => {
                     id="panel1a-header"
                     aria-label={`Expand ${title}`}
                     sx={{
-                        borderBottom: "1px solid",
-                        borderColor: "base1.dark2",
-                        padding: 0,
-                        backgroundColor: "transparent",
-                        minHeight: "40px !important",
+                        "borderBottom": "1px solid",
+                        "borderColor": "base1.dark2",
+                        "padding": 0,
+                        "backgroundColor": "transparent",
+                        "minHeight": "40px !important",
                         "& .MuiAccordionSummary-content": {
                             margin: "8px 0 !important",
                         },

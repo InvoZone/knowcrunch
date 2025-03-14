@@ -36,8 +36,8 @@ const InstructorCard: React.FC<InstructorCardProps> = ({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "start",
-                width: width,
-                height: height,
+                width,
+                height,
                 flexShrink: 0,
             }}
             p={1}
@@ -63,19 +63,10 @@ const InstructorCard: React.FC<InstructorCardProps> = ({
                 />
             </Box>
 
-            <Typography
-                sx={{ color: "tertiary.main" }}
-                variant="titleLg"
-                component="h3"
-                pt={1}
-            >
+            <Typography sx={{ color: "tertiary.main" }} variant="titleLg" component="h3" pt={1}>
                 {name}
             </Typography>
-            <Typography
-                sx={{ color: "neutral.neutral1" }}
-                variant="body"
-                color="text.secondary"
-            >
+            <Typography sx={{ color: "neutral.neutral1" }} variant="body" color="text.secondary">
                 {title}
             </Typography>
             <Typography sx={{ color: "tertiary.main" }} variant="body" pb={1}>
@@ -83,7 +74,7 @@ const InstructorCard: React.FC<InstructorCardProps> = ({
             </Typography>
         </Box>
     );
-}
+};
 
 // Export the InstructorCard component
 export default InstructorCard;

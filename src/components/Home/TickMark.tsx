@@ -19,9 +19,7 @@ const TickMark: React.FC<TickMarkProps> = ({ text }) => {
                 alt={"Tick"}
                 title="Tick Icon"
             />
-            <Typography variant="body">
-                {text}
-            </Typography>
+            <Typography variant="body">{text}</Typography>
         </Box>
     );
 };

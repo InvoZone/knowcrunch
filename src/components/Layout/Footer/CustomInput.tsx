@@ -9,9 +9,9 @@ interface CustomInputProps {
     // eslint-disable-next-line no-unused-vars
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     // eslint-disable-next-line no-unused-vars
-    handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void,
-    touched?: boolean,
-    errors?: string,
+    handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+    touched?: boolean;
+    errors?: string;
     mb?: number | string;
     type?: string;
     placeholder?: string;
@@ -44,23 +44,20 @@ export default function CustomInput({
                 sx={{
                     mb,
                     "& input": {
-                        height: 29,
-                        color: "base2.light4",
-                        fontSize: 16,
-                        fontWeight: 400,
-                        padding: "8px 10px",
-                        background:
-                            touched && Boolean(errors)
-                                ? "#EF978F54"
-                                : "#1C3870",
+                        "height": 29,
+                        "color": "base2.light4",
+                        "fontSize": 16,
+                        "fontWeight": 400,
+                        "padding": "8px 10px",
+                        "background": touched && Boolean(errors) ? "#EF978F54" : "#1C3870",
                         "&::placeholder": {
                             color: "#98C9FF",
-                            opacity: 1
+                            opacity: 1,
                         },
                     },
                     "& .MuiOutlinedInput-root": {
-                        borderRadius: 2,
-                        overflow: "hidden",
+                        "borderRadius": 2,
+                        "overflow": "hidden",
                         "& fieldset": {
                             border: "0px solid",
                         },

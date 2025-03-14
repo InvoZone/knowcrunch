@@ -6,7 +6,24 @@ import type { MouseEventHandler, ReactNode } from "react";
 type CustomBtnProps = {
     title: string | undefined;
     variant?: ButtonProps["variant"];
-    txtVariant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2" | "body1" | "body2" | "titleSmall" | "titleMd" | "titleLg" | "titleSm" | "subtitleLg" | "subtitleSm" | "body";
+    txtVariant?:
+        | "h1"
+        | "h2"
+        | "h3"
+        | "h4"
+        | "h5"
+        | "h6"
+        | "subtitle1"
+        | "subtitle2"
+        | "body1"
+        | "body2"
+        | "titleSmall"
+        | "titleMd"
+        | "titleLg"
+        | "titleSm"
+        | "subtitleLg"
+        | "subtitleSm"
+        | "body";
     color?: string;
     sx?: ButtonProps["sx"];
     onClick?: MouseEventHandler<HTMLButtonElement>;

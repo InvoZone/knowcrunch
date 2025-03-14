@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 "use client";
 import { memo } from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
@@ -28,41 +29,41 @@ interface Instructor {
 // Array of instructors
 const instructors: Instructor[] = [
     {
-        "img": instructorImg1 as unknown as string,
-        "title": "CEO",
-        "company": "@Knowcrunch",
-        "name": "Tolis Aivalis"
+        img: instructorImg1 as unknown as string,
+        title: "CEO",
+        company: "@Knowcrunch",
+        name: "Tolis Aivalis",
     },
     {
-        "img": instructorImg2 as unknown as string,
-        "title": "Managing Director",
-        "company": "Olive Creative Marketing House",
-        "name": "Elia Balta"
+        img: instructorImg2 as unknown as string,
+        title: "Managing Director",
+        company: "Olive Creative Marketing House",
+        name: "Elia Balta",
     },
     {
-        "img": instructorImg3 as unknown as string,
-        "title": "Founder",
-        "company": "@Content Studio",
-        "name": "Christina Dehola"
+        img: instructorImg3 as unknown as string,
+        title: "Founder",
+        company: "@Content Studio",
+        name: "Christina Dehola",
     },
     {
-        "img": instructorImg2 as unknown as string,
-        "title": "Managing Director",
-        "company": "Olive Creative Marketing House",
-        "name": "Elia Balta"
+        img: instructorImg2 as unknown as string,
+        title: "Managing Director",
+        company: "Olive Creative Marketing House",
+        name: "Elia Balta",
     },
     {
-        "img": instructorImg1 as unknown as string,
-        "title": "CEO",
-        "company": "@Knowcrunch",
-        "name": "Tolis Aivalis"
+        img: instructorImg1 as unknown as string,
+        title: "CEO",
+        company: "@Knowcrunch",
+        name: "Tolis Aivalis",
     },
     {
-        "img": instructorImg3 as unknown as string,
-        "title": "Founder",
-        "company": "@Content Studio",
-        "name": "Christina Dehola"
-    }
+        img: instructorImg3 as unknown as string,
+        title: "Founder",
+        company: "@Content Studio",
+        name: "Christina Dehola",
+    },
 ];
 
 // Home component
@@ -81,8 +82,11 @@ const Home: React.FC = () => {
     const renderScrollSection = (
         heading: string,
         children: React.ReactNode,
-        small: number, med: number, lg: number, xl: number,
-        top?: string,
+        small: number,
+        med: number,
+        lg: number,
+        xl: number,
+        top?: string
     ) => (
         <ScrollSection
             width={{ xs: "calc(100% - 44px)", md: "100%" }}
@@ -106,38 +110,61 @@ const Home: React.FC = () => {
             </Box>
 
             {/* E-learning courses section */}
-            {renderScrollSection("Popular E-learning Courses",
+            {renderScrollSection(
+                "Popular E-learning Courses",
                 [...Array(12)].map((_, ind) => (
-                    <CourseCard key={ind} discountTag={true} width={298} shadow={true} tag={ind % 2 === 0 ? "NEW" : "BEST SELLER"} />
+                    <CourseCard
+                        key={ind}
+                        discountTag={true}
+                        width={298}
+                        shadow={true}
+                        tag={ind % 2 === 0 ? "NEW" : "BEST SELLER"}
+                    />
                 )),
-                312, 644, 966, 1288
+                312,
+                644,
+                966,
+                1288
             )}
 
             {/* Career path section */}
             <CareerPath />
 
             {/* Classroom courses section */}
-            {renderScrollSection("Classroom Courses",
+            {renderScrollSection(
+                "Classroom Courses",
                 [...Array(12)].map((_, ind) => (
                     <ClassroomCard key={ind} width={{ xs: 298, lg: 378.66, xl: 405 }} />
                 )),
-                312, 644, 804, 858, "213px"
+                312,
+                644,
+                804,
+                858,
+                "213px"
             )}
 
             {/* Instructors courses section */}
-            {renderScrollSection("Our Instructors",
+            {renderScrollSection(
+                "Our Instructors",
                 instructors.map((instructor, index) => (
                     <InstructorCard key={index} height={366} width={260} {...instructor} />
                 )),
-                284, 568, 1136, 1136, "163px"
+                284,
+                568,
+                1136,
+                1136,
+                "163px"
             )}
 
             {/* Testimonials section */}
-            {renderScrollSection("Video Testimonials",
-                [...Array(12)].map((_, ind) => (
-                    <VideoCard key={ind} width={368} />
-                )),
-                392, 392, 784, 1176, "94px"
+            {renderScrollSection(
+                "Video Testimonials",
+                [...Array(12)].map((_, ind) => <VideoCard key={ind} width={368} />),
+                392,
+                392,
+                784,
+                1176,
+                "94px"
             )}
 
             {/* Certification section */}

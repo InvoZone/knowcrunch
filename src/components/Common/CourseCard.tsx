@@ -8,7 +8,6 @@ import courseThumb from "@/assets/course/courseThumb.webp";
 import { Box } from "@mui/material";
 import CustomBtn from "./CustomBtn";
 
-
 interface CourseCardProps {
     enrollButton?: boolean;
     mx?: number;
@@ -28,14 +27,14 @@ const CourseCard: React.FC<CourseCardProps> = ({
 }) => {
     return (
         <Box
-            component='div'
+            component="div"
             sx={{
                 backgroundColor: "secondary.main",
                 borderRadius: 4,
                 border: "1px solid",
                 borderColor: "neutral.neutral9",
                 minHeight: 400,
-                width: width,
+                width,
                 flexShrink: 0,
                 boxShadow: shadow ? "0px 4px 4px 0px rgba(0, 0, 0, 0.15)" : "none",
                 mb: shadow ? 1 : 0,
@@ -80,9 +79,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
                     sx={{
                         position: "absolute",
                         display: "flex",
-                        justifyContent: tag
-                            ? "space-between"
-                            : "flex-end",
+                        justifyContent: tag ? "space-between" : "flex-end",
                         width: "100%",
                         p: 2,
                     }}
@@ -92,12 +89,10 @@ const CourseCard: React.FC<CourseCardProps> = ({
                         txtVariant={"body2"}
                         title={tag}
                         variant="contained"
-                        color={tag === 'NEW' ? "secondary.main" : "tertiary.main"}
+                        color={tag === "NEW" ? "secondary.main" : "tertiary.main"}
                         sx={{
                             height: 24,
-                            backgroundColor: tag === 'NEW'
-                                ? "base1.default"
-                                : "accents.bubble1",
+                            backgroundColor: tag === "NEW" ? "base1.default" : "accents.bubble1",
                             borderRadius: 1,
                             color: "secondary.main",
                             px: "5px",
@@ -148,8 +143,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
                 aria-label="Course Description"
                 sx={{ whiteSpace: "normal" }}
             >
-                An exceedingly advanced training program that provides
-                comprehensive lectures
+                An exceedingly advanced training program that provides comprehensive lectures
             </Typography>
 
             {/* Course type badge */}
@@ -172,12 +166,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
             />
 
             {/* Course metadata: language, rating, and duration */}
-            <Box
-                component={"div"}
-                display={"flex"}
-                gap={0.5}
-                aria-label="Course Metadata"
-            >
+            <Box component={"div"} display={"flex"} gap={0.5} aria-label="Course Metadata">
                 {/* Language indicator */}
                 <Box
                     component={"div"}
@@ -299,6 +288,6 @@ const CourseCard: React.FC<CourseCardProps> = ({
             )}
         </Box>
     );
-}
+};
 
 export default CourseCard;

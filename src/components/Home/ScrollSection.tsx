@@ -4,10 +4,10 @@ import ScrollBtn from "./ScrollBtns";
 import CustomBtn from "../Common/CustomBtn";
 
 interface ArrowPositionTypes {
-    left?: { [key: string]: number | string } | string | number,
-    top?: string | number,
-    right?: { [key: string]: number | string } | string | number,
-    bottom?: string | number
+    left?: { [key: string]: number | string } | string | number;
+    top?: string | number;
+    right?: { [key: string]: number | string } | string | number;
+    bottom?: string | number;
 }
 
 interface ScrollSectionProps {
@@ -62,20 +62,14 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
             scrollContainer.addEventListener("scroll", updateArrows);
             updateArrows(); // Initial check
 
-            return () =>
-                scrollContainer.removeEventListener("scroll", updateArrows);
+            return () => scrollContainer.removeEventListener("scroll", updateArrows);
         }
     }, []);
 
     return (
-        <Box component='section' px={px} py={py}>
+        <Box component="section" px={px} py={py}>
             <Container maxWidth="lg">
-                <Typography
-                    color="primary.main"
-                    pb={3}
-                    variant={"h2"}
-                    component="h2"
-                >
+                <Typography color="primary.main" pb={3} variant={"h2"} component="h2">
                     {heading}
                 </Typography>
                 <Box
@@ -98,13 +92,13 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
                     <Box
                         ref={scrollRef}
                         sx={{
-                            overflowX: "auto",
-                            display: "flex",
-                            gap: 3,
-                            scrollBehavior: "smooth", // Enables smooth scrolling
-                            whiteSpace: "nowrap",
+                            "overflowX": "auto",
+                            "display": "flex",
+                            "gap": 3,
+                            "scrollBehavior": "smooth", // Enables smooth scrolling
+                            "whiteSpace": "nowrap",
                             "&::-webkit-scrollbar": { display: "none" }, // Hide scrollbar
-                            width: width || {
+                            "width": width || {
                                 xs: "calc(100% - 60px)",
                                 md: "calc(100% - 150px)",
                                 lg: "calc(100% - 40px)",

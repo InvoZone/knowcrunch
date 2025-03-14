@@ -5,15 +5,15 @@ import type { AppStore } from "../lib/store";
 import { makeStore } from "../lib/store";
 
 export default function StoreProvider({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode
+    children: React.ReactNode;
 }>) {
-  const storeRef = useRef<AppStore>(undefined);
-  if (!storeRef.current) {
-    // Create the store instance the first time this renders
-    storeRef.current = makeStore();
-  }
+    const storeRef = useRef<AppStore>(undefined);
+    if (!storeRef.current) {
+        // Create the store instance the first time this renders
+        storeRef.current = makeStore();
+    }
 
-  return <Provider store={storeRef.current}>{children}</Provider>;
+    return <Provider store={storeRef.current}>{children}</Provider>;
 }
