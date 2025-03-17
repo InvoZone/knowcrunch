@@ -23,7 +23,6 @@ const Login: React.FC<LoginProps> = ({ onClick = () => {} }) => {
     const dispatch = useAppDispatch();
     const t = useTranslations("account");
     const { loginPopup } = useAppSelector((state) => state.auth);
-    const { forgotPopup } = useAppSelector((state) => state.auth);
 
     const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
         onClick(event);
