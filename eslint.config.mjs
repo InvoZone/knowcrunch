@@ -16,7 +16,7 @@ const eslintConfig = [
             "linebreak-style": ["error", "unix"],
             "quotes": ["error", "double"],
             "semi": ["error"],
-            "no-unused-vars": ["error"],
+            "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
             "no-console": ["warn"],
             "eqeqeq": ["error", "always"],
             "react/prop-types": "off",

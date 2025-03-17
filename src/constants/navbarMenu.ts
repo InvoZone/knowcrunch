@@ -1,22 +1,22 @@
-type SubMenu = {
-    id: string;
+export type SubMenu = {
+    id?: string;
     title: string;
     link: string;
     card?: object;
 };
 
-type Menu = {
+export type Menu = {
     id: string;
     title: string;
     link: string;
-    subMenu: SubMenu[];
+    subMenu?: SubMenu[]; 
 };
 
-type NavbarMenu = {
+export type NavbarMenu = {
     id: string;
     title: string;
     link: string;
-    menu?: Menu[];
+    menu?: Menu[]; 
 };
 
 export const navbarMenu: NavbarMenu[] = [
