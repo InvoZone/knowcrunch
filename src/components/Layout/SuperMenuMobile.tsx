@@ -7,7 +7,7 @@ import Login from "../Auth/Login";
 import Signup from "../Auth/SignUp";
 import { useRouter } from "next/navigation";
 import type { MenuItem as MenuItemsType } from "./Navbar";
-import type { SubMenu } from "@/constants/navbarMenu";
+import type { SubMenu, NavbarMenu } from "@/constants/navbarMenu";
 
 interface MenuItemType {
     id?: string;
@@ -24,11 +24,10 @@ interface SuperMenuMobileProps {
     handleSubMenu1: () => void;
     menu: MenuItemType;
     subMenu: SubMenu | object;
-    subMenu1: MenuItemsType | object;
     t: (_key: string) => string;
     superMenu: MenuItemType[];
     isLoggedIn: boolean;
-    handleOpenSuperMenu: (_event: React.MouseEvent<HTMLElement>, _menu: MenuItemsType) => void;
+    handleOpenSuperMenu: (_event: React.MouseEvent<HTMLElement>, _menu: NavbarMenu | object) => void;
     handleOpenMobileMenu: (_event: React.MouseEvent<HTMLElement>) => void;
     goBack: () => void;
     handleLogout: () => void;
@@ -123,8 +122,8 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
                                         <Typography variant="titleLg" color={"secondary"}>
                                             {t(
                                                 (subMenu as SubMenu)?.title ||
-                                                    (menu as SubMenu)?.title ||
-                                                    ""
+                                                (menu as SubMenu)?.title ||
+                                                ""
                                             )}
                                         </Typography>
                                     </Box>
@@ -146,7 +145,7 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
                                 {isLoggedIn && (
                                     <MenuItem
                                         onClick={(e) =>
-                                            handleOpenSuperMenu(e, menu as MenuItemsType)
+                                            handleOpenSuperMenu(e, menu)
                                         }
                                         sx={{ height: 54, borderRadius: 1 }}
                                         aria-label="My Profile"
@@ -167,7 +166,7 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
                                             if (menu?.link) {
                                                 router.push(menu?.link);
                                             }
-                                            handleOpenSuperMenu(e, menu as MenuItemsType);
+                                            handleOpenSuperMenu(e, menu);
                                         }}
                                         sx={{ height: 54, borderRadius: 1 }}
                                         aria-label={`Menu item ${menu?.title}`}
@@ -177,7 +176,7 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
                                             color={"secondary"}
                                             component={"p"}
                                         >
-                                            {t(menu?.title || "")}
+                                            {t(menu?.title ?? "")}
                                         </Typography>
                                     </MenuItem>
                                 ))}
@@ -244,7 +243,7 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
                                         aria-label={`Submenu item ${menu?.title}`}
                                     >
                                         <Typography variant="body" color={"secondary"}>
-                                            {t(menu?.title || "")}{" "}
+                                            {t(menu?.title ?? "")}{" "}
                                         </Typography>{" "}
                                         <Image
                                             src={"/icons/header/chevRight.svg"}

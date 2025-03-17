@@ -56,7 +56,7 @@ function Navbar() {
         setAnchorElSuperMenu(!mobileMenu ? event.currentTarget : null);
     };
 
-    const handleOpenSuperMenu = (event: React.MouseEvent<HTMLElement>, page: MenuItem) => {
+    const handleOpenSuperMenu = (event: React.MouseEvent<HTMLElement>, page: NavbarMenu | object) => {
         if (!page) return;
 
         setMenus(page);
@@ -149,15 +149,14 @@ function Navbar() {
                                 </IconButton>
                                 {!isLg && !isCheckout && (
                                     <SuperMenuMobile
-                                        handleOpenSuperMenu={() => handleOpenSuperMenu}
-                                        handleSubMenu={() => handleSubMenu}
+                                        handleOpenSuperMenu={handleOpenSuperMenu}
+                                        handleSubMenu={handleSubMenu}
                                         handleSubMenu1={() => handleSubMenu1}
                                         anchorElSuperMenu={anchorElSuperMenu}
                                         handleCloseSuperMenu={handleCloseSuperMenu}
                                         superMenu={navbarMenu}
                                         menu={menu}
                                         subMenu={subMenu}
-                                        subMenu1={subMenu1}
                                         t={t}
                                         handleOpenMobileMenu={handleOpenMobileMenu}
                                         isLoggedIn={isLoggedIn}
