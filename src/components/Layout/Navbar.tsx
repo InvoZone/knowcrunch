@@ -12,12 +12,12 @@ import CustomBtn from "../Common/CustomBtn";
 import SearchField from "./SearchField";
 import Link from "next/link";
 import { navbarMenu } from "../../constants/navbarMenu";
-import type { Menu, SubMenu } from "../../constants/navbarMenu";
+import type { NavbarMenu, Menu, SubMenu } from "../../constants/navbarMenu";
 import { useTranslations } from "next-intl";
 import SuperMenu from "./SuperMenu";
 import SuperMenuMobile from "./SuperMenuMobile";
 import { useRouter, usePathname } from "next/navigation";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { logout } from "../../lib/slices/auth";
 import stripeLogo from "../../assets/Navbar/stripeLogo.webp";
 import Login from "../Auth/Login";
@@ -35,17 +35,17 @@ function Navbar() {
     const router = useRouter();
     const pathname = usePathname();
     const theme = useTheme();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const t = useTranslations("navbar");
-    const { isLoggedIn } = useSelector((state: any) => state.auth);
+    const { isLoggedIn } = useAppSelector((state) => state.auth);
     const isLg = useMediaQuery(theme.breakpoints.up("lg"));
 
     const [anchorElSuperMenu, setAnchorElSuperMenu] = React.useState<null | HTMLElement>(null);
     const [scrollY, setScrollY] = React.useState(0);
     const [searchActive, setSearchActive] = React.useState(false);
-    const [menu, setMenus] = React.useState<MenuItem | {}>({});
-    const [subMenu, setSubMenu] = React.useState<MenuItem | {}>({});
-    const [subMenu1, setSubMenu1] = React.useState<MenuItem | {}>({});
+    const [menu, setMenus] = React.useState<MenuItem | object>({});
+    const [subMenu, setSubMenu] = React.useState<MenuItem | object>({});
+    const [subMenu1, setSubMenu1] = React.useState<MenuItem | object>({});
     const [mobileMenu, setMobileMenu] = React.useState(false);
 
     const handleOpenMobileMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -57,11 +57,12 @@ function Navbar() {
     };
 
     const handleOpenSuperMenu = (event: React.MouseEvent<HTMLElement>, page: MenuItem) => {
-        console.log("🚀 ~ handleOpenSuperMenu ~ page:", page);
         if (!page) return;
 
         setMenus(page);
-        isLg && setAnchorElSuperMenu(event.currentTarget);
+        if (isLg) {
+            setAnchorElSuperMenu(event.currentTarget);
+        }
         setSubMenu({});
         setSubMenu1({});
     };
@@ -89,7 +90,11 @@ function Navbar() {
     };
 
     const goBack = () => {
-        (subMenu as MenuItem)?.id ? setSubMenu({}) : setMenus({});
+        if ((subMenu as MenuItem)?.id) {
+            setSubMenu({});
+        } else {
+            setMenus({});
+        }
     };
 
     const handleLogout = () => {
@@ -194,10 +199,12 @@ function Navbar() {
                                 <Box onMouseLeave={handleCloseSuperMenu}>
                                     {/* Main navigation buttons */}
                                     {!searchActive &&
-                                        navbarMenu.map((el: any) => (
+                                        navbarMenu.map((el: NavbarMenu) => (
                                             <CustomBtn
                                                 key={el?.id}
-                                                onMouseEnter={(e: any) =>
+                                                onMouseEnter={(
+                                                    e: React.MouseEvent<HTMLButtonElement>
+                                                ) =>
                                                     el?.menu
                                                         ? handleOpenSuperMenu(e, el)
                                                         : handleCloseSuperMenu()
@@ -207,7 +214,7 @@ function Navbar() {
                                                 color="secondary"
                                                 sx={{
                                                     minWidth: 100,
-                                                    height: (menu as any)?.id === el?.id ? 80 : 45,
+                                                    height: (menu as Menu)?.id === el?.id ? 80 : 45,
                                                 }}
                                                 aria-label={`Navigation Button: ${el?.title}`}
                                             />

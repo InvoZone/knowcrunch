@@ -9,14 +9,14 @@ export type Menu = {
     id: string;
     title: string;
     link: string;
-    subMenu?: SubMenu[]; 
+    subMenu?: SubMenu[];
 };
 
 export type NavbarMenu = {
     id: string;
     title: string;
     link: string;
-    menu?: Menu[]; 
+    menu?: Menu[];
 };
 
 export const navbarMenu: NavbarMenu[] = [

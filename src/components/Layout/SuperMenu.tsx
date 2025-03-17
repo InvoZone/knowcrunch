@@ -15,8 +15,8 @@ interface MenuItemType {
 interface SuperMenuProps {
     anchorElSuperMenu: HTMLElement | null;
     handleCloseSuperMenu: () => void;
-    handleSubMenu: (menu: MenuType) => void;
-    handleSubMenu1: (menu: MenuType) => void;
+    handleSubMenu: (_menu: MenuType) => void;
+    handleSubMenu1: (_menu: MenuType) => void;
     menu: MenuItemType;
     subMenu: MenuItemType;
     subMenu1: MenuItemType;

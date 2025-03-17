@@ -23,8 +23,8 @@ interface SuperMenuMobileProps {
     handleSubMenu: (_menu: MenuItemsType) => void;
     handleSubMenu1: () => void;
     menu: MenuItemType;
-    subMenu: SubMenu | {};
-    subMenu1: MenuItemsType | {};
+    subMenu: SubMenu | object;
+    subMenu1: MenuItemsType | object;
     t: (_key: string) => string;
     superMenu: MenuItemType[];
     isLoggedIn: boolean;
@@ -261,7 +261,7 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
                         {"subMenu" in subMenu && (
                             <Grid2 size={{ md: 5, lg: 5 }}>
                                 {Array.isArray(subMenu?.subMenu) &&
-                                    subMenu.subMenu.map((el: any) => (
+                                    subMenu.subMenu.map((el: SubMenu) => (
                                         <MenuItem
                                             key={el?.id}
                                             onMouseEnter={handleSubMenu1}
