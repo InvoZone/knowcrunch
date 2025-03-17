@@ -85,7 +85,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotP
                             >
                                 {showPassword ? (
                                     <Image
-                                        src="/icons/eye.svg"
+                                        src="/icons/header/eye.svg"
                                         alt="eye_icon"
                                         aria-label="show password"
                                         loading="lazy"
@@ -94,7 +94,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotP
                                     />
                                 ) : (
                                     <Image
-                                        src="/icons/eyeClose.svg"
+                                        src="/icons/header/eyeClose.svg"
                                         alt="eye_close_icon"
                                         aria-label="hide password"
                                         loading="lazy"
@@ -166,7 +166,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotP
                 onClick={() => handleLogin()}
                 startIcon={
                     <Image
-                        src="/icons/google.svg"
+                        src="/icons/header/google.svg"
                         width={24}
                         height={24}
                         loading="lazy"
