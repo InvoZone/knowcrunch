@@ -79,22 +79,32 @@ const Home: React.FC = () => {
         isSmall ? small : isMed ? med : isLg ? lg : xlg ? xl : small;
 
     // Function to render scroll sections dynamically
-    const renderScrollSection = (
-        heading: string,
-        children: React.ReactNode,
-        small: number,
-        med: number,
-        lg: number,
-        xl: number,
-        top?: string
-    ) => (
+    const renderScrollSection = ({
+        heading,
+        children,
+        small,
+        med,
+        lg,
+        xl,
+        top,
+        linkTitle = "View all",
+    }: {
+        heading: string;
+        children: React.ReactNode;
+        small: number;
+        med: number;
+        lg: number;
+        xl: number;
+        top?: string;
+        linkTitle?: string;
+    }) => (
         <ScrollSection
             width={{ xs: "calc(100% - 44px)", md: "100%" }}
             scrolAmount={getScrollAmount(small, med, lg, xl)}
             leftArrowPosition={{ top: top ?? "44%", left: { xs: "-6px", md: "-30px" } }}
             rightArrowPosition={{ top: top ?? "44%", right: { xs: "-6px", md: "-30px" } }}
             heading={heading}
-            linkProps={{ title: "View all", pt: 1, pb: 3 }}
+            linkProps={{ title: linkTitle, pt: 1, pb: 3 }}
             py={3}
         >
             {children}
@@ -110,9 +120,9 @@ const Home: React.FC = () => {
             </Box>
 
             {/* E-learning courses section */}
-            {renderScrollSection(
-                "Popular E-learning Courses",
-                [...Array(12)].map((_, ind) => (
+            {renderScrollSection({
+                heading: "Popular E-learning Courses",
+                children: [...Array(12)].map((_, ind) => (
                     <CourseCard
                         key={ind}
                         discountTag={true}
@@ -121,51 +131,55 @@ const Home: React.FC = () => {
                         tag={ind % 2 === 0 ? "NEW" : "BEST SELLER"}
                     />
                 )),
-                312,
-                644,
-                966,
-                1288
-            )}
+                small: 312,
+                med: 644,
+                lg: 966,
+                xl: 1288,
+                top: "44%",
+                linkTitle: "View all courses",
+            })}
 
             {/* Career path section */}
             <CareerPath />
 
             {/* Classroom courses section */}
-            {renderScrollSection(
-                "Classroom Courses",
-                [...Array(12)].map((_, ind) => (
+            {renderScrollSection({
+                heading: "Classroom Courses",
+                children: [...Array(12)].map((_, ind) => (
                     <ClassroomCard key={ind} width={{ xs: 298, lg: 378.66, xl: 405 }} />
                 )),
-                312,
-                644,
-                804,
-                858,
-                "213px"
-            )}
+                small: 312,
+                med: 644,
+                lg: 804,
+                xl: 858,
+                top: "213px",
+                linkTitle: "View courses",
+            })}
 
             {/* Instructors courses section */}
-            {renderScrollSection(
-                "Our Instructors",
-                instructors.map((instructor, index) => (
+            {renderScrollSection({
+                heading: "Our Instructors",
+                children: instructors.map((instructor, index) => (
                     <InstructorCard key={index} height={366} width={260} {...instructor} />
                 )),
-                284,
-                568,
-                1136,
-                1136,
-                "163px"
-            )}
+                small: 284,
+                med: 568,
+                lg: 1136,
+                xl: 1136,
+                top: "163px",
+                linkTitle: "View all instructors",
+            })}
 
             {/* Testimonials section */}
-            {renderScrollSection(
-                "Video Testimonials",
-                [...Array(12)].map((_, ind) => <VideoCard key={ind} width={368} />),
-                392,
-                392,
-                784,
-                1176,
-                "94px"
-            )}
+            {renderScrollSection({
+                heading: "Video Testimonials",
+                children: [...Array(12)].map((_, ind) => <VideoCard key={ind} width={368} />),
+                small: 392,
+                med: 392,
+                lg: 784,
+                xl: 1176,
+                top: "94px"
+            })}
 
             {/* Certification section */}
             <Certification />
