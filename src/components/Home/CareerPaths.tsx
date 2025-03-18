@@ -25,17 +25,12 @@ const CareerPath: React.FC = () => {
     return (
         <Box component={"section"} sx={{ backgroundColor: "neutral.neutral10" }}>
             <Container
-                maxWidth={"xl"}
-                sx={{
-                    justifyContent: "center",
-                    display: { xs: "block", lg: "flex" },
-                }}
+                maxWidth={"lg"}
             >
                 <Box
                     component={"div"}
                     px={{ xs: 0, sm: 0, md: 3 }}
                     py={{ xs: 4, md: 6 }}
-                    sx={{ maxWidth: 1280 }}
                 >
                     <Typography variant="h2" color={"base1.dark4"} component="h2" pb={3}>
                         Find your career path
