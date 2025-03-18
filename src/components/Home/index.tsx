@@ -178,7 +178,8 @@ const Home: React.FC = () => {
                 med: 392,
                 lg: 784,
                 xl: 1176,
-                top: "94px"
+                top: "94px",
+                linkTitle: ""
             })}
 
             {/* Certification section */}
