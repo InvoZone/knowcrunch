@@ -57,7 +57,10 @@ function Navbar() {
         setAnchorElSuperMenu(!mobileMenu ? event.currentTarget : null);
     };
 
-    const handleOpenSuperMenu = (event: React.MouseEvent<HTMLElement>, page: NavbarMenu | object) => {
+    const handleOpenSuperMenu = (
+        event: React.MouseEvent<HTMLElement>,
+        page: NavbarMenu | object
+    ) => {
         if (!page) return;
 
         setMenus(page);
@@ -194,7 +197,7 @@ function Navbar() {
                                     pl: 3,
                                 }}
                             >
-                                <Box onMouseLeave={handleCloseSuperMenu}>
+                                <Box onMouseLeave={handleCloseSuperMenu} component={"ul"}>
                                     {/* Main navigation buttons */}
                                     {navbarMenu.map((el: NavbarMenu) => (
                                         <CustomBtn
@@ -214,6 +217,7 @@ function Navbar() {
                                                 height: (menu as Menu)?.id === el?.id ? 80 : 45,
                                             }}
                                             aria-label={`Go to ${el?.title}`}
+                                            component={"li"}
                                         />
                                     ))}
 
@@ -232,27 +236,30 @@ function Navbar() {
                                         />
                                     )}
                                 </Box>
-
                             </Box>
 
                             {/* Right side icons and buttons */}
                             {!isCheckout && (
                                 <Box sx={{ flexGrow: 0, display: "flex" }}>
-                                    {!searchActive && <IconButton
-                                        onClick={handleSearchField}
-                                        aria-label="Open search"
-                                    >
-                                        <Image
-                                            loading="lazy"
-                                            src="/icons/header/search.svg"
-                                            width={24}
-                                            height={24}
-                                            alt="Search icon"
-                                        />
-                                    </IconButton>}
+                                    {!searchActive && (
+                                        <IconButton
+                                            onClick={handleSearchField}
+                                            aria-label="Open search"
+                                        >
+                                            <Image
+                                                loading="lazy"
+                                                src="/icons/header/search.svg"
+                                                width={24}
+                                                height={24}
+                                                alt="Search icon"
+                                            />
+                                        </IconButton>
+                                    )}
 
                                     {/* Search field */}
-                                    {searchActive && <SearchField handleClose={handleSearchField} />}
+                                    {searchActive && (
+                                        <SearchField handleClose={handleSearchField} />
+                                    )}
 
                                     {isLoggedIn && !searchActive ? (
                                         // Logged-in user icons
@@ -309,7 +316,8 @@ function Navbar() {
                                     ) : (
                                         // Login/Join buttons for guests
                                         isLg &&
-                                        !isCheckout && !searchActive && (
+                                        !isCheckout &&
+                                        !searchActive && (
                                             <>
                                                 <Login aria-label="Login to your account" />
                                                 <Signup aria-label="Sign up for an account" />
