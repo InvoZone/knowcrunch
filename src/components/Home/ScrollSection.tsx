@@ -69,7 +69,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
     return (
         <Box component="section" px={px} py={py}>
             <Container maxWidth="lg">
-                <Typography color="primary.main" pb={3} variant={"h2"} component="h2">
+                <Typography color="primary.main" pb={3} variant={"h2"} component="h2" sx={{ fontSize: { xs: heading === "Popular E-learning Courses" ? "28px" : "32px", sm: "40px" } }}>
                     {heading}
                 </Typography>
                 <Box
