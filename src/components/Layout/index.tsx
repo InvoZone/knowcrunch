@@ -2,6 +2,7 @@
 import { Box } from "@mui/material";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import ForgotPassword from "../Auth/ForgotPassword";
 
 // Layout component that wraps the entire application
 // Provides consistent structure with navigation and main content area
@@ -14,7 +15,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <Box component={"main"} aria-label="Main Content">
                 {children}
                 {/* Popups  component */}
-                {/* <ForgotPassword aria-label="Forgot Password" /> */}
+                <ForgotPassword aria-label="Forgot Password" />
             </Box>
             {/* Footer  component */}
             <Footer aria-label="Footer" />

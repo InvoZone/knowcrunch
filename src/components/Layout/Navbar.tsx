@@ -39,6 +39,7 @@ function Navbar() {
     const t = useTranslations("navbar");
     const { isLoggedIn } = useAppSelector((state) => state.auth);
     const isLg = useMediaQuery(theme.breakpoints.up("lg"));
+    const isSm = useMediaQuery(theme.breakpoints.down("sm"));
 
     const [anchorElSuperMenu, setAnchorElSuperMenu] = React.useState<null | HTMLElement>(null);
     const [scrollY, setScrollY] = React.useState(0);
@@ -129,7 +130,7 @@ function Navbar() {
                     disableGutters
                     sx={{ height: 80, display: "flex", gap: "10px" }}
                 >
-                    {searchActive && !isLg && !isCheckout ? (
+                    {searchActive && isSm && !isCheckout ? (
                         <SearchField handleClose={handleSearchField} aria-label="Search Field" />
                     ) : (
                         <>
@@ -174,7 +175,6 @@ function Navbar() {
                                 aria-label="Website Logo"
                             >
                                 <Link href="/" passHref>
-                                    <h1 style={{ display: "none" }}>Your Website Name</h1>
                                     <Image
                                         src="/icons/header/logo.svg"
                                         alt="Your Website Logo"
@@ -196,27 +196,26 @@ function Navbar() {
                             >
                                 <Box onMouseLeave={handleCloseSuperMenu}>
                                     {/* Main navigation buttons */}
-                                    {!searchActive &&
-                                        navbarMenu.map((el: NavbarMenu) => (
-                                            <CustomBtn
-                                                key={el?.id}
-                                                onMouseEnter={(
-                                                    e: React.MouseEvent<HTMLButtonElement>
-                                                ) =>
-                                                    el?.menu
-                                                        ? handleOpenSuperMenu(e, el)
-                                                        : handleCloseSuperMenu()
-                                                }
-                                                title={t(el?.title)}
-                                                onClick={() => router.push(el?.link)}
-                                                color="secondary"
-                                                sx={{
-                                                    minWidth: 100,
-                                                    height: (menu as Menu)?.id === el?.id ? 80 : 45,
-                                                }}
-                                                aria-label={`Go to ${el?.title}`}
-                                            />
-                                        ))}
+                                    {navbarMenu.map((el: NavbarMenu) => (
+                                        <CustomBtn
+                                            key={el?.id}
+                                            onMouseEnter={(
+                                                e: React.MouseEvent<HTMLButtonElement>
+                                            ) =>
+                                                el?.menu
+                                                    ? handleOpenSuperMenu(e, el)
+                                                    : handleCloseSuperMenu()
+                                            }
+                                            title={t(el?.title)}
+                                            onClick={() => router.push(el?.link)}
+                                            color="secondary"
+                                            sx={{
+                                                minWidth: 100,
+                                                height: (menu as Menu)?.id === el?.id ? 80 : 45,
+                                            }}
+                                            aria-label={`Go to ${el?.title}`}
+                                        />
+                                    ))}
 
                                     {/* Desktop super menu */}
                                     {isLg && (
@@ -233,14 +232,13 @@ function Navbar() {
                                         />
                                     )}
                                 </Box>
-                                {/* Search field */}
-                                {searchActive && <SearchField handleClose={handleSearchField} />}
+
                             </Box>
 
                             {/* Right side icons and buttons */}
-                            {!searchActive && !isCheckout && (
-                                <Box sx={{ flexGrow: 0 }}>
-                                    <IconButton
+                            {!isCheckout && (
+                                <Box sx={{ flexGrow: 0, display: "flex" }}>
+                                    {!searchActive && <IconButton
                                         onClick={handleSearchField}
                                         aria-label="Open search"
                                     >
@@ -251,9 +249,12 @@ function Navbar() {
                                             height={24}
                                             alt="Search icon"
                                         />
-                                    </IconButton>
+                                    </IconButton>}
 
-                                    {isLoggedIn ? (
+                                    {/* Search field */}
+                                    {searchActive && <SearchField handleClose={handleSearchField} />}
+
+                                    {isLoggedIn && !searchActive ? (
                                         // Logged-in user icons
                                         <>
                                             <IconButton
@@ -308,7 +309,7 @@ function Navbar() {
                                     ) : (
                                         // Login/Join buttons for guests
                                         isLg &&
-                                        !isCheckout && (
+                                        !isCheckout && !searchActive && (
                                             <>
                                                 <Login aria-label="Login to your account" />
                                                 <Signup aria-label="Sign up for an account" />

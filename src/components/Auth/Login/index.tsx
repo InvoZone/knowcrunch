@@ -19,7 +19,7 @@ interface LoginProps {
  * Login component that handles the login dialog and button
  * Provides Google OAuth functionality and login form
  */
-const Login: React.FC<LoginProps> = ({ onClick = () => {} }) => {
+const Login: React.FC<LoginProps> = ({ onClick = () => { } }) => {
     const dispatch = useAppDispatch();
     const t = useTranslations("account");
     const { loginPopup } = useAppSelector((state) => state.auth);
@@ -78,7 +78,7 @@ const Login: React.FC<LoginProps> = ({ onClick = () => {} }) => {
                     {t("loginHeading")}
                 </Typography>
                 {/* Wrap login form with Google OAuth provider */}
-                <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}>
+                <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? ""}>
                     <LoginForm
                         t={t}
                         handleClose={handleClose}

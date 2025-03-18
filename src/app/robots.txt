@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /
+Disallow: /__preview/
+Disallow: `/checkout/
+Disallow: /login/
+Disallow: /admin/
+Disallow: /mycertificate/
+
+
+sitemap: https://acme.com/sitemap.xml

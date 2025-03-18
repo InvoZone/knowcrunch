@@ -195,7 +195,7 @@ const Footer: React.FC = () => {
                             variant="body1"
                             sx={{ textAlign: { xs: "center", md: "left" }, pb: { xs: 3, md: 0 } }}
                         >
-                            Knowcrunch Inc. © 2024 All Rights Reserved
+                            Knowcrunch Inc. © 2025 All Rights Reserved
                         </Typography>
                         <Box
                             sx={{

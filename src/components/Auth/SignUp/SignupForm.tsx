@@ -98,7 +98,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ t, handleClose, handleSubmitFor
                             >
                                 {showPassword ? (
                                     <Image
-                                        src="/icons/eye.svg"
+                                        src="/icons/header/eye.svg"
                                         alt="eye_icon"
                                         aria-label="show password"
                                         loading="lazy"
@@ -107,7 +107,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ t, handleClose, handleSubmitFor
                                     />
                                 ) : (
                                     <Image
-                                        src="/icons/eyeClose.svg"
+                                        src="/icons/header/eyeClose.svg"
                                         alt="eye_close_icon"
                                         aria-label="hide password"
                                         loading="lazy"
@@ -175,8 +175,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ t, handleClose, handleSubmitFor
                     width: "100%",
                     opacity:
                         !formik.values.email ||
-                        !formik.values.password ||
-                        !formik.values.confirmPassword
+                            !formik.values.password ||
+                            !formik.values.confirmPassword
                             ? 0.5
                             : 1,
                 }}
