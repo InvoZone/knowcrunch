@@ -1,7 +1,7 @@
 import type { ButtonProps } from "@mui/material";
 import { Button, Typography } from "@mui/material";
 import CircleLoader from "./CircleLoader";
-import type { MouseEventHandler, ReactNode } from "react";
+import type { MouseEventHandler, ReactNode, ElementType } from "react";
 
 type CustomBtnProps = {
     title: string | undefined;
@@ -38,6 +38,7 @@ type CustomBtnProps = {
     disabled?: boolean;
     btnColor?: ButtonProps["color"];
     loading?: boolean;
+    component?: ElementType;
 };
 
 const CustomBtn: React.FC<CustomBtnProps> = ({
@@ -58,9 +59,11 @@ const CustomBtn: React.FC<CustomBtnProps> = ({
     disabled = false,
     btnColor,
     loading = false,
+    component = "button",
 }) => {
     return (
         <Button
+            component={component}
             type={type}
             variant={variant}
             onMouseOver={onMouseOver}
@@ -88,7 +91,7 @@ const CustomBtn: React.FC<CustomBtnProps> = ({
                 display="flex"
                 alignItems="center"
                 gap={0.5}
-                component="p"
+                component="a"
             >
                 {loading && <CircleLoader />} {loading ? "Please wait..." : title}
             </Typography>

@@ -108,7 +108,7 @@ theme.typography = {
         fontWeight: 800,
         lineHeight: "48px",
         [theme.breakpoints.down("sm")]: {
-            fontSize: 32,
+            fontSize: 28,
             lineHeight: "40px",
         },
     },
