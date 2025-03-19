@@ -6,7 +6,7 @@ import certification from "@/assets/home/professional-diploma.webp";
 const Certification: React.FC = () => {
     return (
         <Box component={"section"} sx={{ backgroundColor: "neutral.neutral10" }}>
-            <Container maxWidth={"xl"} sx={{ display: "flex", justifyContent: "center", py: 6 }}>
+            <Container maxWidth={"xl"} sx={{ display: "flex", justifyContent: "center", py: { xs: 4, md: 6 } }}>
                 <Box
                     component={"div"}
                     sx={{

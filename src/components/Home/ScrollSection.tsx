@@ -17,8 +17,7 @@ interface ScrollSectionProps {
     leftArrowPosition?: ArrowPositionTypes;
     rightArrowPosition?: ArrowPositionTypes;
     heading: string;
-    px?: { [key: string]: number };
-    py?: { [key: string]: number } | number;
+    sectionPadding?: { [key: string]: number | string };
     linkProps?: { title: string; pt?: number; pb?: number };
 }
 
@@ -29,8 +28,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
     leftArrowPosition = { top: "44%", left: 10 },
     rightArrowPosition = { top: "44%", right: 10 },
     heading,
-    px = { xs: 0, sm: 0, md: 3, lg: 3 },
-    py = { xs: 4, md: 6 },
+    sectionPadding = { xs: 4, md: 6 },
     linkProps = { title: "", pt: 2 },
 }) => {
     const scrollRef = useRef<HTMLElement>(null);
@@ -67,7 +65,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
     }, []);
 
     return (
-        <Box component="section" px={px} py={py}>
+        <Box component="section" p={sectionPadding}>
             <Container maxWidth="lg">
                 <Typography color="primary.main" pb={3} variant={"h2"} component="h2" sx={{ fontSize: { xs: heading === "Popular E-learning Courses" ? "28px" : "32px", sm: "40px" } }}>
                     {heading}

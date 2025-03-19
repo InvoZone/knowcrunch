@@ -88,6 +88,7 @@ const Home: React.FC = () => {
         xl,
         top,
         linkTitle = "View all",
+        sectionPadding,
     }: {
         heading: string;
         children: React.ReactNode;
@@ -97,6 +98,7 @@ const Home: React.FC = () => {
         xl: number;
         top?: string;
         linkTitle?: string;
+        sectionPadding?: { [key: string]: string };
     }) => (
         <ScrollSection
             width={{ xs: "calc(100% - 44px)", md: "100%" }}
@@ -105,7 +107,7 @@ const Home: React.FC = () => {
             rightArrowPosition={{ top: top ?? "44%", right: { xs: "-6px", md: "-30px" } }}
             heading={heading}
             linkProps={{ title: linkTitle, pt: 1, pb: 3 }}
-            py={3}
+            sectionPadding={sectionPadding}
         >
             {children}
         </ScrollSection>
@@ -137,6 +139,7 @@ const Home: React.FC = () => {
                 xl: 1288,
                 top: "44%",
                 linkTitle: "View all courses",
+                sectionPadding: { xs: "24px 0px 8px 0px", md: "24px 24px 24px 24px" },
             })}
 
             {/* Career path section */}
@@ -154,6 +157,7 @@ const Home: React.FC = () => {
                 xl: 858,
                 top: "213px",
                 linkTitle: "View courses",
+                sectionPadding: { xs: "32px 0px 8px 0px", md: "48px 24px 24px 24px" },
             })}
 
             {/* Instructors courses section */}
@@ -168,6 +172,7 @@ const Home: React.FC = () => {
                 xl: 1136,
                 top: "163px",
                 linkTitle: "View all instructors",
+                sectionPadding: { xs: "32px 0px 8px 0px", md: "48px 24px 24px 24px" },
             })}
 
             {/* Testimonials section */}
@@ -179,7 +184,8 @@ const Home: React.FC = () => {
                 lg: 784,
                 xl: 1176,
                 top: "94px",
-                linkTitle: ""
+                linkTitle: "",
+                sectionPadding: { xs: "32px 16px", md: "32px 24px" },
             })}
 
             {/* Certification section */}
