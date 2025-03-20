@@ -53,16 +53,19 @@ const SearchField: React.FC<SearchFieldProps> = ({ handleClose }) => {
                 "& .MuiOutlinedInput-root": {
                     "& fieldset": {
                         border: 0,
+                        borderRadius: 0,
                         borderBottomWidth: "1px",
                         borderColor: "base1.dark2", // Default border color
                     },
                     "&:hover fieldset": {
                         border: 0,
+                        borderRadius: 0,
                         borderBottomWidth: "1px",
                         borderColor: "base1.dark2", // Default border color
                     },
                     "&.Mui-focused fieldset": {
                         border: 0,
+                        borderRadius: 0,
                         borderBottomWidth: "1px",
                         borderColor: "base1.dark2", // Default border color
                     },
