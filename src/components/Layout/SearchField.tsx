@@ -43,7 +43,8 @@ const SearchField: React.FC<SearchFieldProps> = ({ handleClose }) => {
                 }
             }}
             sx={{
-                width: 352,
+                minWidth: 360,
+                width: { xs: "100%", md: 360 },
                 "& input": {
                     color: "secondary.main",
                     fontSize: 16,
