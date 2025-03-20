@@ -67,7 +67,18 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
     return (
         <Box component="section" p={sectionPadding}>
             <Container maxWidth="lg">
-                <Typography color="primary.main" pb={3} variant={"h2"} component="h2" sx={{ fontSize: { xs: heading === "Popular E-learning Courses" ? "28px" : "32px", sm: "40px" } }}>
+                <Typography
+                    color="primary.main"
+                    pb={3}
+                    variant={"h2"}
+                    component="h2"
+                    sx={{
+                        fontSize: {
+                            xs: heading === "Popular E-learning Courses" ? "28px" : "32px",
+                            sm: "40px",
+                        },
+                    }}
+                >
                     {heading}
                 </Typography>
                 <Box
@@ -128,8 +139,29 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
                         color="link.main"
                         title={linkProps?.title}
                         txtVariant="h6"
-                        sx={{ px: "20px" }}
+                        // sx={{ px: "20px" }}
                         variant="text"
+                        sx={{
+                            "backgroundColor": "transparent",
+                            "position": "relative",
+                            "textTransform": "none",
+                            "&::after": {
+                                // eslint-disable-next-line quotes
+                                content: '""',
+                                position: "absolute",
+                                left: 0,
+                                bottom: 0,
+                                width: "100%",
+                                height: "2px",
+                                backgroundColor: "#3366cc", // Use the button's text color
+                                transform: "scaleX(0)",
+                                transformOrigin: "left",
+                                transition: "transform 300ms ease-in-out",
+                            },
+                            "&:hover::after": {
+                                transform: "scaleX(1)",
+                            },
+                        }}
                     />
                 </Box>
             </Container>

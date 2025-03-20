@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
 import Link from "next/link";
+import "./Footer.css";
 
 // Define the props for the FooterLinks component
 interface FooterLinksProps {
@@ -18,7 +19,10 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ title, links }) => {
         >
             <Typography
                 variant="titleLg"
-                sx={{ mb: 1.5, listStyleType: "none" }}
+                sx={{
+                    mb: 1.5,
+                    listStyleType: "none",
+                }}
                 aria-label="Section title"
                 component={"li"}
             >
@@ -27,12 +31,25 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ title, links }) => {
             {links.map((link) => (
                 <Typography
                     key={link}
-                    sx={{ listStyleType: "none" }}
+                    sx={{
+                        listStyleType: "none",
+                    }}
                     variant="titleMd"
                     aria-label={`Link to ${link}`}
                     component={"li"}
                 >
-                    <Link href={"/"}> {link} </Link>
+                    <Link
+                        href="/"
+                        style={{
+                            position: "relative",
+                            textDecoration: "none",
+                            color: "white",
+                            paddingBottom: "2px",
+                        }}
+                        className="hover-underline"
+                    >
+                        {link}
+                    </Link>
                 </Typography>
             ))}
         </Box>
