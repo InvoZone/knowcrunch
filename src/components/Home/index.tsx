@@ -164,7 +164,7 @@ const Home: React.FC = () => {
                 med: 644,
                 lg: 804,
                 xl: 858,
-                top: "213px",
+                top: "190px",
                 left: { xs: "-6px", md: "-30px" },
                 right: { xs: "-6px", md: "-30px" },
                 linkTitle: "View courses",
