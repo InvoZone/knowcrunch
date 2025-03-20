@@ -1,7 +1,7 @@
 User-agent: *
 Disallow: /
 Disallow: /__preview/
-Disallow: `/checkout/
+Disallow: /checkout/
 Disallow: /login/
 Disallow: /admin/
 Disallow: /mycertificate/
