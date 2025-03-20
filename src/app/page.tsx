@@ -8,7 +8,7 @@ export const metadata: Metadata = generateMetadata({
     description:
         "Knowcrunch is offering high-level professional digital & social media marketing training & education in a class or via video-on-demand e-learning.",
     canonical: "/",
-    image: "icons/Hero.webp",
+    image: "/icons/Hero.webp",
 });
 
 const HomePage: React.FC = () => {

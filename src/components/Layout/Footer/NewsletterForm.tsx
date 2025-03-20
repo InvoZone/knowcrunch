@@ -3,8 +3,6 @@ import { Box, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import CustomBtn from "@/components/Common/CustomBtn";
-import styles from "./footer.module.css";
-import PhoneInput from "react-phone-input-2";
 import CustomInput from "./CustomInput";
 
 // Define the validation schema using Yup
@@ -63,28 +61,8 @@ const NewsletterForm: React.FC = () => {
                 placeholder="Surname"
                 aria-label="Surname"
             />
-            <Box
-                className="centerY"
-                sx={{
-                    backgroundColor: "base1.dark3",
-                    px: "10px",
-                    height: 45,
-                    borderRadius: 2,
-                    width: { xs: 352, md: 290 },
-                }}
-            >
-                <PhoneInput
-                    placeholder="Mobile number"
-                    country="us"
-                    aria-label="Mobile number"
-                    inputClass={styles.phone_input}
-                    buttonClass={styles.phone_dropdown_button}
-                    dropdownClass={styles.dropdown}
-                />
-            </Box>
             <CustomBtn
                 sx={{
-                    marginTop: "10px",
                     backgroundColor: "base1.default",
                     color: "secondary.main",
                     borderRadius: "8px",

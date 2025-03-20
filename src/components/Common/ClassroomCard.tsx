@@ -123,24 +123,6 @@ const ClassroomCard: React.FC<ClassroomCardProps> = ({ width = "100%" }) => {
                 An exceedingly advanced training program that provides comprehensive lectures
             </Typography>
 
-            {/* Course type badge */}
-            <CustomBtn
-                title={"Professional Diploma"}
-                variant="outlined"
-                sx={{
-                    height: 24,
-                    border: "1px solid",
-                    backgroundColor: "tertiary",
-                    borderColor: "neutral.neutral9",
-                    borderRadius: "4px",
-                    padding: "0 5px",
-                    color: "secondary.main",
-                }}
-                txtVariant="body2"
-                color="secondary.main"
-                aria-label="Course Type Badge"
-            />
-
             {/* Course metadata: language, rating, and duration */}
             <Box
                 component={"div"}

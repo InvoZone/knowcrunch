@@ -146,27 +146,8 @@ const CourseCard: React.FC<CourseCardProps> = ({
                 An exceedingly advanced training program that provides comprehensive lectures
             </Typography>
 
-            {/* Course type badge */}
-            <CustomBtn
-                title={"Professional Diploma"}
-                variant="outlined"
-                sx={{
-                    height: 24,
-                    border: "1px solid",
-                    backgroundColor: "tertiary",
-                    borderColor: "neutral.neutral9",
-                    borderRadius: "4px",
-                    padding: "0 5px",
-                    mb: 1,
-                    mt: 0.5,
-                }}
-                txtVariant="body2"
-                color="neutral.neutral2"
-                aria-label="Course Type Badge"
-            />
-
             {/* Course metadata: language, rating, and duration */}
-            <Box component={"div"} display={"flex"} gap={0.5} aria-label="Course Metadata">
+            <Box component={"div"} display={"flex"} gap={0.5} aria-label="Course Metadata" pt={1}>
                 {/* Language indicator */}
                 <Box
                     component={"div"}

@@ -23,7 +23,7 @@ export function generateMetadata({
     const siteLink = process.env.NEXT_PUBLIC_SITE_LINK;
     const imageUrl = image
         ? new URL(image.startsWith("http") ? image : `${siteLink}${image}`)
-        : new URL(`${siteLink}/og-image.jpg`);
+        : new URL(`${siteLink}/icons/Hero.webp`);
 
     return {
         // If title is provided, it will be used in the template

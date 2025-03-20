@@ -87,7 +87,7 @@ const SelectableLinks: React.FC = () => {
                         onClick={() => handleSelect(index)}
                         aria-label={`Select ${item?.name}`}
                     >
-                        <Typography variant="titleSmall" sx={{ width: "max-content" }}>
+                        <Typography variant="titleSmall" component={"h3"} sx={{ width: "max-content" }}>
                             {item?.name}
                         </Typography>
                     </Box>
