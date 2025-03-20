@@ -87,8 +87,11 @@ const Home: React.FC = () => {
         lg,
         xl,
         top,
+        left,
+        right,
         linkTitle = "View all",
         sectionPadding,
+        width,
     }: {
         heading: string;
         children: React.ReactNode;
@@ -97,14 +100,17 @@ const Home: React.FC = () => {
         lg: number;
         xl: number;
         top?: string;
+        left?: { [key: string]: string };
+        right?: { [key: string]: string };
         linkTitle?: string;
         sectionPadding?: { [key: string]: string };
+        width: { [key: string]: string };
     }) => (
         <ScrollSection
-            width={{ xs: "calc(100% - 44px)", md: "100%" }}
+            width={width}
             scrolAmount={getScrollAmount(small, med, lg, xl)}
-            leftArrowPosition={{ top: top ?? "44%", left: { xs: "-6px", md: "-30px" } }}
-            rightArrowPosition={{ top: top ?? "44%", right: { xs: "-6px", md: "-30px" } }}
+            leftArrowPosition={{ top: top ?? "44%", left: { ...left } }}
+            rightArrowPosition={{ top: top ?? "44%", right: { ...right } }}
             heading={heading}
             linkProps={{ title: linkTitle, pt: 1, pb: 3 }}
             sectionPadding={sectionPadding}
@@ -124,7 +130,7 @@ const Home: React.FC = () => {
             {/* E-learning courses section */}
             {renderScrollSection({
                 heading: "Popular E-learning Courses",
-                children: [...Array(12)].map((_, ind) => (
+                children: [...Array(6)].map((_, ind) => (
                     <CourseCard
                         key={ind}
                         discountTag={true}
@@ -133,13 +139,16 @@ const Home: React.FC = () => {
                         tag={ind % 2 === 0 ? "NEW" : "BEST SELLER"}
                     />
                 )),
-                small: 312,
+                small: 322,
                 med: 644,
                 lg: 966,
                 xl: 1288,
                 top: "44%",
+                left: { xs: "-6px", md: "-30px" },
+                right: { xs: "-6px", md: "-30px" },
                 linkTitle: "View all courses",
                 sectionPadding: { xs: "24px 0px 8px 0px", md: "24px 24px 24px 24px" },
+                width: { xs: "300px", md: "100%" },
             })}
 
             {/* Career path section */}
@@ -151,13 +160,16 @@ const Home: React.FC = () => {
                 children: [...Array(12)].map((_, ind) => (
                     <ClassroomCard key={ind} width={{ xs: 298, lg: 378.66, xl: 405 }} />
                 )),
-                small: 312,
+                small: 322,
                 med: 644,
                 lg: 804,
                 xl: 858,
                 top: "213px",
+                left: { xs: "-6px", md: "-30px" },
+                right: { xs: "-6px", md: "-30px" },
                 linkTitle: "View courses",
                 sectionPadding: { xs: "32px 0px 8px 0px", md: "48px 24px 24px 24px" },
+                width: { xs: "300px", md: "100%" },
             })}
 
             {/* Instructors courses section */}
@@ -171,8 +183,11 @@ const Home: React.FC = () => {
                 lg: 1136,
                 xl: 1136,
                 top: "163px",
+                left: { xs: "-16px", md: "-30px" },
+                right: { xs: "-16px", md: "-30px" },
                 linkTitle: "View all instructors",
                 sectionPadding: { xs: "32px 0px 8px 0px", md: "48px 24px 24px 24px" },
+                width: { xs: "361px", md: "100%" },
             })}
 
             {/* Testimonials section */}
@@ -184,8 +199,11 @@ const Home: React.FC = () => {
                 lg: 784,
                 xl: 1176,
                 top: "94px",
+                left: { xs: "-32px", md: "-30px" },
+                right: { xs: "-32px", md: "-30px" },
                 linkTitle: "",
                 sectionPadding: { xs: "32px 16px", md: "32px 24px" },
+                width: { xs: "390px", md: "100%" },
             })}
 
             {/* Certification section */}
