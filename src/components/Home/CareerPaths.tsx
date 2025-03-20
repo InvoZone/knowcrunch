@@ -148,8 +148,28 @@ const CareerPath: React.FC = () => {
                                     color="link.main"
                                     title={"View courses"}
                                     txtVariant="h6"
-                                    sx={{ px: "20px" }}
                                     variant="text"
+                                    sx={{
+                                        "backgroundColor": "transparent",
+                                        "position": "relative",
+                                        "textTransform": "none",
+                                        "&::after": {
+                                            // eslint-disable-next-line quotes
+                                            content: '""',
+                                            position: "absolute",
+                                            left: 0,
+                                            bottom: 0,
+                                            width: "100%",
+                                            height: "2px",
+                                            backgroundColor: "#3366cc", // Use the button's text color
+                                            transform: "scaleX(0)",
+                                            transformOrigin: "left",
+                                            transition: "transform 300ms ease-in-out",
+                                        },
+                                        "&:hover::after": {
+                                            transform: "scaleX(1)",
+                                        },
+                                    }}
                                 />
                             </Box>
                         </Box>
