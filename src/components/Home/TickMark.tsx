@@ -10,7 +10,7 @@ interface TickMarkProps {
 // Define the TickMark component
 const TickMark: React.FC<TickMarkProps> = ({ text }) => {
     return (
-        <Box sx={{ display: "flex", gap: "6px" }}>
+        <Box component={"ul"} sx={{ display: "flex", gap: "6px" }}>
             <Image
                 loading="lazy"
                 src="/icons/tickCircle.svg"
@@ -19,7 +19,9 @@ const TickMark: React.FC<TickMarkProps> = ({ text }) => {
                 alt={"Tick"}
                 title="Tick Icon"
             />
-            <Typography variant="body">{text}</Typography>
+            <Typography component={"li"} variant="body">
+                {text}
+            </Typography>
         </Box>
     );
 };

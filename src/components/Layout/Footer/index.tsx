@@ -156,6 +156,7 @@ const Footer: React.FC = () => {
                                 src={appStore}
                                 alt="appstore"
                                 title={"appstore"}
+                                style={{ cursor: "pointer" }}
                             />
                             <Image
                                 width={134}
@@ -164,6 +165,7 @@ const Footer: React.FC = () => {
                                 src={googlePlay}
                                 alt="googleplay"
                                 title={"googleplay"}
+                                style={{ cursor: "pointer" }}
                             />
                         </Box>
                     </Box>
@@ -215,6 +217,7 @@ const Footer: React.FC = () => {
                                     height={24}
                                     alt={icon.alt}
                                     title={icon.alt}
+                                    style={{ cursor: "pointer" }}
                                 />
                             ))}
                         </Box>

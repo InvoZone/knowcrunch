@@ -32,7 +32,7 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ title, links }) => {
                     aria-label={`Link to ${link}`}
                     component={"li"}
                 >
-                    <Link href={"/"}>  {link} </Link>
+                    <Link href={"/"}> {link} </Link>
                 </Typography>
             ))}
         </Box>
