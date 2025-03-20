@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
+import Link from "next/link";
 
 // Define the props for the FooterLinks component
 interface FooterLinksProps {
@@ -31,7 +32,7 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ title, links }) => {
                     aria-label={`Link to ${link}`}
                     component={"li"}
                 >
-                    {link}
+                    <Link href={"/"}>  {link} </Link>
                 </Typography>
             ))}
         </Box>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Box } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 
 // Define the props for the FooterAccordion component
 interface FooterAccordionProps {
@@ -100,7 +101,7 @@ const FooterAccordion: React.FC<FooterAccordionProps> = ({ title, links }) => {
                                 sx={{ listStyleType: "none" }}
                                 pb={1}
                             >
-                                {link}
+                                <Link href={"/"}>  {link} </Link>
                             </Typography>
                         ))}
                     </Box>
