@@ -19,7 +19,7 @@ const TickMark: React.FC<TickMarkProps> = ({ text }) => {
                 alt={"Tick"}
                 title="Tick Icon"
             />
-            <Typography component={"li"} variant="body">
+            <Typography component={"li"} sx={{ listStyleType: "none" }} variant="body">
                 {text}
             </Typography>
         </Box>
