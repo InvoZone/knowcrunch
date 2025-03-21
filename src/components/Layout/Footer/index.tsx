@@ -129,7 +129,7 @@ const Footer: React.FC = () => {
             }}
         >
             <Container sx={{ maxWidth: "1408px !important" }}>
-                <Box component="div" pt={{ xs: 4, lg: 6 }} pb={2} px={{ xs: 0, md: 3 }}>
+                <Box component="div" pt={{ xs: 4, lg: 6 }} pb={{xs:3, md: 2}} px={{ xs: 1, md: 3 }}>
                     {/* Mobile Navigation Links */}
                     <Box
                         component="nav"
@@ -278,7 +278,7 @@ const Footer: React.FC = () => {
                                     title={icon.alt}
                                     style={{
                                         cursor: "pointer",
-                                        transition: `opacity ${icon.transition || "300ms"} ease-in-out`,
+                                        transition: `opacity ${icon.transition ?? "300ms"} ease-in-out`,
                                     }}
                                     onMouseEnter={() => setHoveredIcon(icon.alt)}
                                     onMouseLeave={() => setHoveredIcon(null)}

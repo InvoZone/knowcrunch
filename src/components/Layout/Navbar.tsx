@@ -197,7 +197,9 @@ function Navbar() {
                                     pl: 3,
                                 }}
                             >
-                                <Box onMouseLeave={handleCloseSuperMenu} component={"ul"}>
+                                <Box
+                                    onMouseLeave={handleCloseSuperMenu}
+                                    component={"ul"} display={"flex"} gap={"24px"} alignItems={"center"}>
                                     {/* Main navigation buttons */}
                                     {navbarMenu.map((el: NavbarMenu) => (
                                         <CustomBtn
@@ -213,7 +215,7 @@ function Navbar() {
                                             onClick={() => router.push(el?.link)}
                                             color="secondary"
                                             sx={{
-                                                minWidth: 100,
+                                                minWidth: 30,
                                                 height: (menu as Menu)?.id === el?.id ? 80 : 45,
                                             }}
                                             aria-label={`Go to ${el?.title}`}

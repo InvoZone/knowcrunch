@@ -19,11 +19,11 @@ const VideoCard: React.FC<VideoCardProps> = ({ width = "100%", height = "100%" }
                 minWidth: width,
             }}
         >
-            <Box component={"div"} position={"absolute"} left={"42%"} top={"40%"}>
+            <Box component={"div"} position={"absolute"} left={"42%"} top={"37%"}>
                 <Image
                     src={"/icons/playBtn.webp"}
-                    height={50}
-                    width={50}
+                    height={64}
+                    width={64}
                     alt="playBtnIcon"
                     loading="lazy"
                     aria-label="Play button"

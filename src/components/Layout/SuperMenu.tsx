@@ -43,9 +43,9 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
             <Menu
                 sx={{
                     "mt": "80px",
-                    "minHeight": 100,
                     "position": "fixed",
                     "& .MuiMenu-paper": {
+                        "minHeight": 100,
                         width: "100%",
                         maxWidth: "100% !important",
                         left: "0px !important",
@@ -68,11 +68,11 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
                 autoFocus={false}
                 closeAfterTransition={false}
                 disableScrollLock={true}
-                MenuListProps={{ onMouseLeave: handleCloseSuperMenu }}
+                slotProps={{ list: { onMouseLeave: handleCloseSuperMenu } }}
                 aria-hidden={"false"}
                 aria-label={"Super Menu"}
             >
-                <Container maxWidth={"xl"} sx={{ py: 4 }}>
+                <Container maxWidth={"xl"} sx={{ py: 5 }}>
                     <Grid2 container spacing={2}>
                         {/* First level menu items */}
                         <Grid2 size={{ md: 4, lg: 4, xl: 3 }}>
@@ -81,9 +81,13 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
                                     key={menu?.id}
                                     onMouseEnter={() => handleSubMenu(menu as MenuType)}
                                     sx={{
-                                        height: 54,
+                                        height: 56,
                                         display: "flex",
                                         justifyContent: "space-between",
+                                        mb: 1,
+                                        ":last-child": {
+                                            mb: 0,
+                                        },
                                         borderRadius: 1,
                                         background:
                                             subMenu?.id === menu?.id
@@ -96,7 +100,7 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
                                         variant="subtitleLg"
                                         color={subMenu?.id === menu?.id ? base1.dark4 : "secondary"}
                                     >
-                                        {t(menu?.title || "")}{" "}
+                                        {t(menu?.title ?? "")}{" "}
                                     </Typography>{" "}
                                     <Image
                                         src={
@@ -126,10 +130,14 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
                                         key={el?.id}
                                         onMouseEnter={() => handleSubMenu1(el as MenuType)}
                                         sx={{
-                                            height: 54,
+                                            height: 56,
                                             display: "flex",
                                             justifyContent: "space-between",
                                             borderRadius: 1,
+                                            mb: 1,
+                                            ":last-child": {
+                                                mb: 0,
+                                            },
                                             background:
                                                 subMenu1?.id === el?.id
                                                     ? `${base2.light4} !important`
@@ -143,7 +151,7 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
                                                 subMenu1?.id === el?.id ? base1.dark4 : "secondary"
                                             }
                                         >
-                                            {t(el?.title || "")}{" "}
+                                            {t(el?.title ?? "")}{" "}
                                         </Typography>
                                     </MenuItem>
                                 ))}
