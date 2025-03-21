@@ -56,7 +56,7 @@ const WhyKnowcrunch: React.FC = () => {
                     }}
                 >
                     <Image
-                        className={"radius-16"}
+                        className={"radius-16 object-fit"}
                         src={whyknowcrunch}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
