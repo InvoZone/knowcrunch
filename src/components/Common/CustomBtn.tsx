@@ -7,29 +7,28 @@ type CustomBtnProps = {
     title: string | undefined;
     variant?: ButtonProps["variant"];
     txtVariant?:
-        | "h1"
-        | "h2"
-        | "h3"
-        | "h4"
-        | "h5"
-        | "h6"
-        | "subtitle1"
-        | "subtitle2"
-        | "body1"
-        | "body2"
-        | "titleSmall"
-        | "titleMd"
-        | "titleLg"
-        | "titleSm"
-        | "subtitleLg"
-        | "subtitleSm"
-        | "body";
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "subtitle1"
+    | "subtitle2"
+    | "body1"
+    | "body2"
+    | "titleSmall"
+    | "titleMd"
+    | "titleLg"
+    | "titleSm"
+    | "subtitleLg"
+    | "subtitleSm"
+    | "body";
     color?: string;
     sx?: ButtonProps["sx"];
     onClick?: MouseEventHandler<HTMLButtonElement>;
     onMouseEnter?: MouseEventHandler<HTMLButtonElement>;
     onMouseLeave?: MouseEventHandler<HTMLButtonElement>;
-    onMouseOver?: MouseEventHandler<HTMLButtonElement>;
     startIcon?: ReactNode;
     endIcon?: ReactNode;
     type?: "button" | "submit" | "reset";
@@ -50,7 +49,6 @@ const CustomBtn: React.FC<CustomBtnProps> = ({
     onClick,
     onMouseEnter,
     onMouseLeave,
-    onMouseOver,
     startIcon,
     endIcon,
     type = "button",
@@ -66,7 +64,6 @@ const CustomBtn: React.FC<CustomBtnProps> = ({
             component={component}
             type={type}
             variant={variant}
-            onMouseOver={onMouseOver}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             disabled={disabled}
