@@ -129,7 +129,12 @@ const Footer: React.FC = () => {
             }}
         >
             <Container sx={{ maxWidth: "1408px !important" }}>
-                <Box component="div" pt={{ xs: 4, lg: 6 }} pb={{xs:3, md: 2}} px={{ xs: 1, md: 3 }}>
+                <Box
+                    component="div"
+                    pt={{ xs: 4, lg: 6 }}
+                    pb={{ xs: 3, md: 2 }}
+                    px={{ xs: 1, md: 3 }}
+                >
                     {/* Mobile Navigation Links */}
                     <Box
                         component="nav"
@@ -162,8 +167,29 @@ const Footer: React.FC = () => {
                                 contact you according to our{" "}
                                 <Typography
                                     variant="body1"
-                                    component="span"
-                                    sx={{ color: "accents.bubble1", pl: "3px" }}
+                                    component="a"
+                                    // sx={{ color: "accents.bubble1", pl: "3px", cursor: "pointer" }}
+                                    sx={{
+                                        "color": "accents.bubble1",
+                                        "pl": "3px",
+                                        "cursor": "pointer",
+                                        "position": "relative",
+                                        "textDecoration": "none",
+                                        "&::after": {
+                                            // eslint-disable-next-line quotes
+                                            content: '""',
+                                            position: "absolute",
+                                            left: 0,
+                                            bottom: -2, // Adjust position of underline
+                                            width: "0%",
+                                            height: "2px",
+                                            backgroundColor: "currentColor", // Same as text color
+                                            transition: "width 0.3s ease-in-out",
+                                        },
+                                        "&:hover::after": {
+                                            width: "100%", // Expand underline on hover
+                                        },
+                                    }}
                                 >
                                     Data Privacy Policy
                                 </Typography>

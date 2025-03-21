@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import CustomBtn from "@/components/Common/CustomBtn";
@@ -28,25 +28,6 @@ const NewsletterForm: React.FC = () => {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <Box component={"div"} position={"relative"}>
-                <Typography
-                    component={"span"}
-                    color="error.light"
-                    sx={{ position: "absolute", left: 58, top: 14, zIndex: 1 }}
-                >
-                    *
-                </Typography>
-                <CustomInput
-                    name="email"
-                    value={formik?.values?.email}
-                    handleChange={formik.handleChange}
-                    handleBlur={formik.handleBlur}
-                    touched={formik?.touched?.email}
-                    errors={formik?.errors?.email}
-                    placeholder="E-mail"
-                    aria-label="Email"
-                />
-            </Box>
             <CustomInput
                 name="firstName"
                 value={formik?.values?.firstName}
@@ -61,6 +42,25 @@ const NewsletterForm: React.FC = () => {
                 placeholder="Surname"
                 aria-label="Surname"
             />
+            <Box component={"div"} position={"relative"}>
+                {/* <Typography
+                    component={"span"}
+                    color="error.light"
+                    sx={{ position: "absolute", left: 58, top: 14, zIndex: 1 }}
+                >
+                    *
+                </Typography> */}
+                <CustomInput
+                    name="email"
+                    value={formik?.values?.email}
+                    handleChange={formik.handleChange}
+                    handleBlur={formik.handleBlur}
+                    // touched={formik?.touched?.email}
+                    errors={formik?.errors?.email}
+                    placeholder="E-mail"
+                    aria-label="Email"
+                />
+            </Box>
             <CustomBtn
                 sx={{
                     backgroundColor: "base1.default",
