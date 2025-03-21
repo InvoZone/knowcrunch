@@ -35,7 +35,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ width = "100%", height = "100%" }
                     src={videoThumb}
                     alt="video img"
                     height={228}
-                    width={window.innerWidth < 360 ? 255 : 368}
+                    width={typeof window !== "undefined" && window.innerWidth < 360 ? 255 : 368}
                     className="radius-16 object-fit"
                     aria-label="Video thumbnail"
                     title="Video thumbnail"
