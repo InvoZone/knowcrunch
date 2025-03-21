@@ -24,6 +24,7 @@ const Banner: React.FC = () => {
                     alt="hero_img"
                     fill
                     priority
+                    style={{ objectFit: "cover" }}
                 />
             </Box>
             <Container maxWidth="xl" sx={{ py: 6, px: { xs: 3, md: 6 } }}>

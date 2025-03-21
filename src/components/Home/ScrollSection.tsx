@@ -36,7 +36,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
     const [showRightArrow, setShowRightArrow] = useState(true);
 
     const handleScroll = (direction: string) => {
-        const scrollAmount = scrolAmount ?? 644; // Adjust based on card width
+        const scrollAmount = scrolAmount ?? 644;
         if (scrollRef.current) {
             if (direction === "left") {
                 scrollRef.current.scrollLeft -= scrollAmount;

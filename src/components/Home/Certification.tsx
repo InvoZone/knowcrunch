@@ -6,7 +6,10 @@ import certification from "@/assets/home/professional-diploma.webp";
 const Certification: React.FC = () => {
     return (
         <Box component={"section"} sx={{ backgroundColor: "neutral.neutral10" }}>
-            <Container maxWidth={"xl"} sx={{ display: "flex", justifyContent: "center", py: { xs: 4, md: 6 } }}>
+            <Container
+                maxWidth={"xl"}
+                sx={{ display: "flex", justifyContent: "center", py: { xs: 4, md: 6 } }}
+            >
                 <Box
                     component={"div"}
                     sx={{
@@ -25,6 +28,7 @@ const Certification: React.FC = () => {
                             width: { xs: 327, md: 358 },
                             height: { xs: 237, md: 249 },
                             position: "relative",
+                            px: { xs: 1, sm: 0 },
                         }}
                         className="centerX"
                     >
@@ -35,6 +39,7 @@ const Certification: React.FC = () => {
                             loading="lazy"
                             priority={false}
                             height={249}
+                            style={{ padding: "0rem 1.5rem" }}
                             sizes="(max-width: 575px) 336px, (max-width: 1279px) 354px, 354px"
                         />
                     </Box>
