@@ -6,7 +6,6 @@ import Image from "next/image";
 
 import { Box } from "@mui/material";
 import CustomBtn from "./CustomBtn";
-import cardThumb from "@/assets/classroomCourse/courseThumb.webp";
 
 interface ClassroomCardProps {
     width?: { [key: string]: string | number } | string | number;
@@ -23,12 +22,13 @@ const ClassroomCard: React.FC<ClassroomCardProps> = ({ width = "100%" }) => {
                 overflow: "hidden",
                 width,
                 flexShrink: 0,
+                background: "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 79.7%), url(/icons/courseThumb.webp) lightgray 50% / cover no-repeat"
             }}
             p={2}
             component={"div"}
             aria-label="Classroom Card"
         >
-            <Image
+            {/* <Image
                 src={cardThumb}
                 alt="Classroom background"
                 fill
@@ -37,7 +37,7 @@ const ClassroomCard: React.FC<ClassroomCardProps> = ({ width = "100%" }) => {
                 priority
                 aria-label="Classroom Thumbnail"
                 title="Classroom Background"
-            />
+            /> */}
             {/* Course thumbnail section with play button overlay */}
             <Box
                 component={"div"}

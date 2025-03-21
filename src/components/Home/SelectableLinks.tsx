@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { Box, Typography } from "@mui/material";
+import React, { useState, useRef, useEffect } from "react";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import ScrollBtn from "./ScrollBtns";
 
 interface MarketingOption {
@@ -16,42 +16,61 @@ const marketingOptions: MarketingOption[] = [
     { id: "performance-marketing", name: "Performance marketing" },
     { id: "email-mobile-marketing", name: "Email & mobile marketing" },
     { id: "social-engine-optimization-2", name: "Social engine optimization" },
-    { id: "marketing", name: "Markeeting" },
+    { id: "marketing", name: "Marketing" },
 ];
 
 const SelectableLinks: React.FC = () => {
+    const theme = useTheme();
     const scrollRef = useRef<HTMLElement>(null); // Reference for scrolling
     const [selected, setSelected] = useState<number>(0);
-    const [isAtStart, setIsAtStart] = useState<boolean>(true);
+    const [showLeftArrow, setShowLeftArrow] = useState(false);
+    const [showRightArrow, setShowRightArrow] = useState(true);
+    const isMed = useMediaQuery(theme.breakpoints.between("md", "lg"));
+    const xlg = useMediaQuery(theme.breakpoints.up("xl"));
 
     const handleSelect = (index: number) => {
         setSelected(index);
     };
 
-    const scrollToEnd = () => {
+    const handleScroll = (direction: string) => {
+        const scrollAmount = xlg ? 400 : isMed ? 330 : 150; // Adjust based on card width
         if (scrollRef.current) {
-            const scrollWidth = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
-            scrollRef.current.scrollBy({ left: scrollWidth * 2, behavior: "smooth" }); // Scroll to the end faster
-            setIsAtStart(false);
+            if (direction === "left") {
+                scrollRef.current.scrollLeft -= scrollAmount;
+            } else {
+                scrollRef.current.scrollLeft += scrollAmount;
+            }
         }
     };
 
-    const scrollToStart = () => {
+    const updateArrows = () => {
         if (scrollRef.current) {
-            scrollRef.current.scrollTo({ left: 0, behavior: "smooth" }); // Scroll back to the start position
-            setIsAtStart(true);
+            const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+            setShowLeftArrow(scrollLeft > 0);
+
+            setShowRightArrow((scrollLeft + 1) < (scrollWidth - clientWidth));
         }
     };
+
+    useEffect(() => {
+        const scrollContainer = scrollRef.current;
+        if (scrollContainer) {
+            scrollContainer.addEventListener("scroll", updateArrows);
+            updateArrows(); // Initial check
+
+            return () => scrollContainer.removeEventListener("scroll", updateArrows);
+        }
+    }, []);
 
     return (
         <Box position="relative">
-            {!isAtStart && (
+            {showLeftArrow && (
                 <ScrollBtn
                     leftArrowPosition={{
                         top: "3px",
                         left: { xs: "-15px", md: "-15px", lg: "-25px" },
                     }}
-                    onClick={() => scrollToStart()}
+                    onClick={() => handleScroll("left")}
                     src={"/icons/home/leftArrow.svg"}
                     alt={"left scroll button"}
                 />
@@ -78,7 +97,7 @@ const SelectableLinks: React.FC = () => {
                             padding: "10px 16px",
                             cursor: "pointer",
                             borderRadius: 8,
-                            width: "auto",
+                            width: "235px !important",
                             height: "45px",
                             backgroundColor:
                                 index === selected ? "neutral.neutral1" : "transparent",
@@ -93,13 +112,13 @@ const SelectableLinks: React.FC = () => {
                     </Box>
                 ))}
             </Box>
-            {isAtStart && (
+            {showRightArrow && (
                 <ScrollBtn
                     rightArrowPosition={{
                         top: "3px",
                         right: { xs: "-15px", md: "-15px", lg: "-25px" },
                     }}
-                    onClick={() => scrollToEnd()}
+                    onClick={() => handleScroll("right")}
                     src={"/icons/home/rightArrow.svg"}
                     alt={"right scroll button"}
                 />

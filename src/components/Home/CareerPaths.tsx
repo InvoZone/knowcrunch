@@ -45,7 +45,7 @@ const CareerPath: React.FC = () => {
                             gap: { xs: 1, md: 1, lg: 6 },
                         }}
                     >
-                        <Box sx={{ width: { lg: 547, xl: 604 } }}>
+                        <Box sx={{ width: { xs: "100%", md: "50%", lg: 547, xl: 604 } }}>
                             <Box
                                 component={"div"}
                                 sx={{
@@ -121,15 +121,17 @@ const CareerPath: React.FC = () => {
                                 </Box>
                             </Box>
                         </Box>
-                        <Box component={"div"} sx={{ width: { lg: 612 } }}>
+                        <Box component={"div"} sx={{ width: { xs: "100%", md: "50%", lg: 612 } }}>
                             <Box
                                 component={"div"}
                                 sx={{
                                     display: "flex",
                                     gap: 2,
                                     py: { xs: 3, lg: 3 },
-                                    justifyContent: "center",
-                                }}
+                                    justifyContent: { xs: "center", md: "flex-end" },
+                                    width: "100%",
+                                }
+                                }
                             >
                                 <CourseCard tag={""} discountTag={true} width={"298px"} />
                                 <Box component={"div"} display={{ xs: "none", lg: "block" }}>
@@ -175,8 +177,8 @@ const CareerPath: React.FC = () => {
                         </Box>
                     </Box>
                 </Box>
-            </Container>
-        </Box>
+            </Container >
+        </Box >
     );
 };
 
