@@ -72,39 +72,41 @@ const LoginForm: React.FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotP
                 formik={formik}
                 mb={1}
                 type={showPassword ? "text" : "password"}
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <IconButton
-                                onMouseDown={(e) => e.preventDefault()}
-                                onClick={() => setShowPassword(!showPassword)}
-                                edge="end"
-                                color="primary"
-                                sx={{ visibility: "visible" }}
-                                aria-label="Toggle password visibility"
-                            >
-                                {showPassword ? (
-                                    <Image
-                                        src="/icons/header/eye.svg"
-                                        alt="eye_icon"
-                                        aria-label="show password"
-                                        loading="lazy"
-                                        height={20}
-                                        width={20}
-                                    />
-                                ) : (
-                                    <Image
-                                        src="/icons/header/eyeClose.svg"
-                                        alt="eye_close_icon"
-                                        aria-label="hide password"
-                                        loading="lazy"
-                                        height={20}
-                                        width={20}
-                                    />
-                                )}
-                            </IconButton>
-                        </InputAdornment>
-                    ),
+                slotProps={{
+                    input: {
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton
+                                    onMouseDown={(e) => e.preventDefault()}
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    edge="end"
+                                    color="primary"
+                                    sx={{ visibility: "visible" }}
+                                    aria-label="Toggle password visibility"
+                                >
+                                    {showPassword ? (
+                                        <Image
+                                            src="/icons/header/eye.svg"
+                                            alt="eye_icon"
+                                            aria-label="show password"
+                                            loading="lazy"
+                                            height={20}
+                                            width={20}
+                                        />
+                                    ) : (
+                                        <Image
+                                            src="/icons/header/eyeClose.svg"
+                                            alt="eye_close_icon"
+                                            aria-label="hide password"
+                                            loading="lazy"
+                                            height={20}
+                                            width={20}
+                                        />
+                                    )}
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                    }
                 }}
             />
 

@@ -77,7 +77,6 @@ const CompleteRegistration: React.FC<CompleteRegistrationProps> = ({ t, handleCl
                 label={t("name")}
                 formik={formik}
                 mb={1}
-                InputProps={{ autoComplete: "name" }}
                 aria-label="Name input"
             />
 
@@ -87,7 +86,6 @@ const CompleteRegistration: React.FC<CompleteRegistrationProps> = ({ t, handleCl
                 label={t("surname")}
                 formik={formik}
                 mb={1}
-                InputProps={{ autoComplete: "sur-name" }}
                 aria-label="Surname input"
             />
 
@@ -109,7 +107,6 @@ const CompleteRegistration: React.FC<CompleteRegistrationProps> = ({ t, handleCl
                         height: "45px",
                         borderRadius: "8px",
                     }}
-                    inputProps={{ autoComplete: "tel" }}
                     aria-label="Mobile phone input"
                 />
             </Box>
@@ -120,7 +117,6 @@ const CompleteRegistration: React.FC<CompleteRegistrationProps> = ({ t, handleCl
                 label={t("work title")}
                 formik={formik}
                 mb={1}
-                InputProps={{ autoComplete: "job-title" }}
                 aria-label="Work title input"
             />
 
@@ -130,7 +126,6 @@ const CompleteRegistration: React.FC<CompleteRegistrationProps> = ({ t, handleCl
                 label={t("company")}
                 formik={formik}
                 mb={1}
-                InputProps={{ autoComplete: "organization" }}
                 aria-label="Company input"
             />
 
@@ -140,7 +135,6 @@ const CompleteRegistration: React.FC<CompleteRegistrationProps> = ({ t, handleCl
                 label={t("city")}
                 formik={formik}
                 mb={3}
-                InputProps={{ autoComplete: "address-level2" }}
                 aria-label="City input"
             />
 
@@ -182,12 +176,12 @@ const CompleteRegistration: React.FC<CompleteRegistrationProps> = ({ t, handleCl
                     width: "100%",
                     opacity:
                         !formik.values.name ||
-                        !formik.values.surname ||
-                        !formik.values.mobile ||
-                        !formik.values.workTitle ||
-                        !formik.values.company ||
-                        !formik.values.city ||
-                        !formik.values.terms
+                            !formik.values.surname ||
+                            !formik.values.mobile ||
+                            !formik.values.workTitle ||
+                            !formik.values.company ||
+                            !formik.values.city ||
+                            !formik.values.terms
                             ? 0.5
                             : 1,
                 }}
