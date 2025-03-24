@@ -40,7 +40,7 @@ const LogoAnimate: React.FC = () => {
                     width: "82px",
                     height: "50px",
                     background:
-                        "linear-gradient(90deg, rgb(255 255 255) 87%, rgba(255, 255, 255, 0.563484768907563) 100%)",
+                        "linear-gradient(90deg, #FFF 90%, rgba(255, 255, 255, 0.00) 100%)",
                     position: "absolute",
                     left: {
                         xs: "30px",
@@ -87,7 +87,7 @@ const LogoAnimate: React.FC = () => {
                     direction={"left"}
                     loop={0}
                     style={{ paddingLeft: "40px", marginLeft: "40px", marginRight: "10px" }}
-                    // onCycleComplete={onCycleComplete}
+                // onCycleComplete={onCycleComplete}
                 >
                     {logos?.map((item) => (
                         <Box
