@@ -151,6 +151,7 @@ const CareerPath: React.FC = () => {
                                     title={"View courses"}
                                     txtVariant="h6"
                                     variant="text"
+                                    type="link"
                                     sx={{
                                         "backgroundColor": "transparent",
                                         "position": "relative",

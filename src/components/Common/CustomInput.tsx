@@ -2,18 +2,16 @@
 
 import TextField from "@mui/material/TextField";
 import { InputLabel, Stack, Typography } from "@mui/material";
-import type { TextFieldProps } from "@mui/material/TextField";
 import type { FormikProps } from "formik";
 
 // Define the props with a generic type <T>
 interface CustomInputProps<T> {
-    label?: string;
-    name: keyof T;
-    formik: FormikProps<T>;
-    mb?: number;
-    type?: string;
-    placeholder?: string;
-    InputProps?: TextFieldProps["InputProps"];
+    readonly label?: string;
+    readonly name: keyof T;
+    readonly formik: FormikProps<T>;
+    readonly mb?: number;
+    readonly type?: string;
+    readonly placeholder?: string;
 }
 
 // Define CustomInput as a generic component
@@ -24,7 +22,6 @@ export default function CustomInput<T>({
     mb = 0,
     type = "text",
     placeholder,
-    InputProps,
 }: CustomInputProps<T>) {
     return (
         <Stack>
@@ -51,7 +48,6 @@ export default function CustomInput<T>({
                 error={formik.touched?.[name] && Boolean(formik.errors?.[name])}
                 autoComplete={String(name)}
                 placeholder={placeholder}
-                InputProps={{ ...InputProps }}
                 aria-label={`Input field for ${String(name)}`}
                 sx={{
                     mb,

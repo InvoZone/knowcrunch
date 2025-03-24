@@ -7,6 +7,7 @@ import Image from "next/image";
 import courseThumb from "@/assets/course/courseThumb.webp";
 import { Box } from "@mui/material";
 import CustomBtn from "./CustomBtn";
+import TruncateText from "./TruncateText";
 
 interface CourseCardProps {
     enrollButton?: boolean;
@@ -121,122 +122,120 @@ const CourseCard: React.FC<CourseCardProps> = ({
                 />
             </Box>
 
-            {/* Course title */}
-            <Typography
-                gutterBottom
-                variant="titleLg"
-                component="h3"
-                pt={1}
-                color="tertiary"
-                aria-label="Course Title"
-            >
-                Masterclass in Google Advertising
-            </Typography>
+            <Box component={"div"} height={146}>
 
-            {/* Course description */}
-            <Typography
-                gutterBottom
-                variant="body2"
-                fontWeight={400}
-                component={"p"}
-                color="secondary.dark"
-                aria-label="Course Description"
-                sx={{ whiteSpace: "normal" }}
-            >
-                An exceedingly advanced training program that provides comprehensive lectures
-            </Typography>
+                {/* Course title */}
+                <TruncateText
+                    text={tag === "NEW" ? "Masterclass in Google Advertising and Masterclass in Google Advertising" : "Masterclass in Google Advertising"}
+                    variant="titleLg"
+                    color="tertiary"
+                    component={"h3"}
+                    sx={{ pt: 1, mb: "4px" }}
+                    length={70}
+                />
 
-            {/* Course metadata: language, rating, and duration */}
-            <Box component={"div"} display={"flex"} gap={0.5} aria-label="Course Metadata" pt={1}>
-                {/* Language indicator */}
-                <Box
-                    component={"div"}
-                    display={"flex"}
-                    alignItems={"center"}
-                    aria-label="Language Indicator"
-                >
-                    <Image
-                        src="/icons/course/glob.svg"
-                        alt="glob"
-                        width={20}
-                        height={20}
-                        title="Globe Icon"
-                        aria-label="Globe Icon"
-                    />
-                    <Typography
-                        variant="body"
-                        color="neutral.neutral2"
-                        pl={0.5}
-                        aria-label="Language"
+                {/* Course description */}
+                <TruncateText
+                    text="An exceedingly advanced training program that provides comprehensive lectures"
+                    variant="body2"
+                    color="secondary.dark"
+                    component={"p"}
+                    sx={{ fontWeight: 400 }}
+                    length={100}
+                />
+
+                {/* Course metadata: language, rating, and duration */}
+                <Box component={"div"} display={"flex"} gap={0.5} aria-label="Course Metadata" pt={1}>
+                    {/* Language indicator */}
+                    <Box
+                        component={"div"}
+                        display={"flex"}
+                        alignItems={"center"}
+                        aria-label="Language Indicator"
                     >
-                        EN •
-                    </Typography>
-                </Box>
-                {/* Rating display */}
-                <Box
-                    component={"div"}
-                    display={"flex"}
-                    alignItems={"center"}
-                    aria-label="Rating Display"
-                >
-                    <Image
-                        src="/icons/course/star.svg"
-                        alt="starIcon"
-                        width={20}
-                        height={20}
-                        title="Star Icon"
-                        priority
-                        aria-label="Star Icon"
-                    />
-                    <Typography
-                        variant="body"
-                        color="neutral.neutral2"
-                        pl={0.5}
-                        aria-label="Rating"
-                    >
-                        4,5{" "}
+                        <Image
+                            src="/icons/course/glob.svg"
+                            alt="glob"
+                            width={20}
+                            height={20}
+                            title="Globe Icon"
+                            aria-label="Globe Icon"
+                        />
                         <Typography
-                            variant="body2"
-                            fontWeight={400}
-                            component={"span"}
+                            variant="body"
                             color="neutral.neutral2"
-                            aria-label="Rating Count"
+                            pl={0.5}
+                            aria-label="Language"
                         >
-                            (544)
-                        </Typography>{" "}
-                        •
-                    </Typography>
-                </Box>
-                {/* Duration display */}
-                <Box
-                    component={"div"}
-                    display={"flex"}
-                    alignItems={"center"}
-                    aria-label="Duration Display"
-                >
-                    <Image
-                        src="/icons/course/clock.svg"
-                        alt="clockIcon"
-                        width={20}
-                        height={20}
-                        title="Clock Icon"
-                        priority
-                        aria-label="Clock Icon"
-                    />
-                    <Typography
-                        variant="body"
-                        color="neutral.neutral2"
-                        pl={0.5}
-                        aria-label="Duration"
+                            EN •
+                        </Typography>
+                    </Box>
+                    {/* Rating display */}
+                    <Box
+                        component={"div"}
+                        display={"flex"}
+                        alignItems={"center"}
+                        aria-label="Rating Display"
                     >
-                        25h
-                    </Typography>
+                        <Image
+                            src="/icons/course/star.svg"
+                            alt="starIcon"
+                            width={20}
+                            height={20}
+                            title="Star Icon"
+                            priority
+                            aria-label="Star Icon"
+                        />
+                        <Typography
+                            variant="body"
+                            color="neutral.neutral2"
+                            pl={0.5}
+                            aria-label="Rating"
+                        >
+                            4,5{" "}
+                            <Typography
+                                variant="body2"
+                                fontWeight={400}
+                                component={"span"}
+                                color="neutral.neutral2"
+                                aria-label="Rating Count"
+                            >
+                                (544)
+                            </Typography>{" "}
+                            •
+                        </Typography>
+                    </Box>
+                    {/* Duration display */}
+                    <Box
+                        component={"div"}
+                        display={"flex"}
+                        alignItems={"center"}
+                        aria-label="Duration Display"
+                    >
+                        <Image
+                            src="/icons/course/clock.svg"
+                            alt="clockIcon"
+                            width={20}
+                            height={20}
+                            title="Clock Icon"
+                            priority
+                            aria-label="Clock Icon"
+                        />
+                        <Typography
+                            variant="body"
+                            color="neutral.neutral2"
+                            pl={0.5}
+                            aria-label="Duration"
+                        >
+                            25h
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
 
             {/* Enrollment section with price and button */}
             {enrollButton && (
-                <Box component={"div"} pt={5} aria-label="Enrollment Section">
+                <Box component={"div"} aria-label="Enrollment Section">
                     {discountTag && (
                         <Box sx={{ display: "flex" }}>
                             <Typography

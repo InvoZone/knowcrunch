@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import { Box } from "@mui/material";
 import CustomBtn from "./CustomBtn";
+import TruncateText from "./TruncateText";
 
 interface ClassroomCardProps {
     width?: { [key: string]: string | number } | string | number;
@@ -28,16 +29,7 @@ const ClassroomCard: React.FC<ClassroomCardProps> = ({ width = "100%" }) => {
             component={"div"}
             aria-label="Classroom Card"
         >
-            {/* <Image
-                src={cardThumb}
-                alt="Classroom background"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-                className="imgFitBG"
-                priority
-                aria-label="Classroom Thumbnail"
-                title="Classroom Background"
-            /> */}
+
             {/* Course thumbnail section with play button overlay */}
             <Box
                 component={"div"}
@@ -88,118 +80,119 @@ const ClassroomCard: React.FC<ClassroomCardProps> = ({ width = "100%" }) => {
                 </Box>
             </Box>
 
-            {/* Course title */}
-            <Box component={"div"} display={"flex"} alignItems={"center"}>
-                <Image
-                    src="/icons/course/locationicon.svg"
-                    alt="calendaricon"
-                    width={20}
-                    height={20}
-                    loading="lazy"
-                    title="Location Icon"
-                />
-                <Typography variant="body" color="secondary.main" pl={0.5}>
-                    Athens, GR
-                </Typography>
-            </Box>
-            <Typography
-                variant="h5"
-                component={"h3"}
-                color="secondary.main"
-                sx={{ whiteSpace: "normal" }}
-            >
-                Masterclass in Digital Marketing, Athens
-            </Typography>
+            <Box component={"div"} height={206}>
 
-            {/* Course description */}
-            <Typography
-                variant="body2"
-                fontWeight={400}
-                component={"p"}
-                color="secondary.main"
-                sx={{ whiteSpace: "normal" }}
-                pb={1}
-            >
-                An exceedingly advanced training program that provides comprehensive lectures
-            </Typography>
-
-            {/* Course metadata: language, rating, and duration */}
-            <Box
-                component={"div"}
-                display={"flex"}
-                gap={0.5}
-                sx={{ flexWrap: "wrap" }}
-                py={"13px"}
-                aria-label="Course Metadata"
-            >
+                {/* Course title */}
                 <Box component={"div"} display={"flex"} alignItems={"center"}>
                     <Image
-                        src="/icons/course/calendaricon.svg"
+                        src="/icons/course/locationicon.svg"
                         alt="calendaricon"
                         width={20}
                         height={20}
                         loading="lazy"
-                        title="Calendar Icon"
+                        title="Location Icon"
                     />
-                    <Typography variant="body" color="secondary.main" pl={1}>
-                        January 2025 •
+                    <Typography variant="body" color="secondary.main" pl={0.5}>
+                        Athens, GR
                     </Typography>
                 </Box>
-                {/* Language indicator */}
-                <Box component={"div"} display={"flex"} alignItems={"center"}>
-                    <Image
-                        src="/icons/course/globalicon.svg"
-                        alt="glob"
-                        width={20}
-                        height={20}
-                        loading="lazy"
-                        title="Global Icon"
-                    />
-                    <Typography variant="body" color="secondary.main" pl={1}>
-                        EN •
-                    </Typography>
-                </Box>
-                {/* Rating display */}
-                <Box component={"div"} display={"flex"} alignItems={"center"}>
-                    <Image
-                        src="/icons/course/staricon.svg"
-                        alt="starIcon"
-                        width={20}
-                        height={20}
-                        loading="lazy"
-                        title="Star Icon"
-                    />
-                    <Typography variant="body" color="secondary.main" pl={1}>
-                        4.5{" "}
-                        <Typography
-                            variant="body2"
-                            fontWeight={400}
-                            component={"span"}
-                            color="secondary.main"
-                        >
-                            (544)
-                        </Typography>{" "}
-                        •
-                    </Typography>
-                </Box>
-                {/* Duration display */}
+
+                <TruncateText
+                    text="Masterclass in Digital Marketing, Athens"
+                    variant="h5"
+                    color="secondary.main"
+                    component={"h3"}
+                    length={48}
+                />
+
+                {/* Course description */}
+                <TruncateText
+                    text="An exceedingly advanced training program that provides comprehensive lectures"
+                    variant="body2"
+                    color="secondary.main"
+                    component={"p"}
+                    length={90}
+                    sx={{ fontWeight: 400, pb: 1 }}
+                />
+
+                {/* Course metadata: language, rating, and duration */}
                 <Box
                     component={"div"}
                     display={"flex"}
-                    alignItems={"center"}
-                    aria-label="Course Duration"
+                    gap={0.5}
+                    sx={{ flexWrap: "wrap" }}
+                    py={"13px"}
+                    aria-label="Course Metadata"
                 >
-                    <Image
-                        src="/icons/course/clockhour.svg"
-                        alt="clockIcon"
-                        width={20}
-                        height={20}
-                        loading="lazy"
-                        title="Clock Icon"
-                    />
-                    <Typography variant="body" color="secondary.main" pl={1}>
-                        139h
-                    </Typography>
+                    <Box component={"div"} display={"flex"} alignItems={"center"}>
+                        <Image
+                            src="/icons/course/calendaricon.svg"
+                            alt="calendaricon"
+                            width={20}
+                            height={20}
+                            loading="lazy"
+                            title="Calendar Icon"
+                        />
+                        <Typography variant="body" color="secondary.main" pl={1}>
+                            January 2025 •
+                        </Typography>
+                    </Box>
+                    {/* Language indicator */}
+                    <Box component={"div"} display={"flex"} alignItems={"center"}>
+                        <Image
+                            src="/icons/course/globalicon.svg"
+                            alt="glob"
+                            width={20}
+                            height={20}
+                            loading="lazy"
+                            title="Global Icon"
+                        />
+                        <Typography variant="body" color="secondary.main" pl={1}>
+                            EN •
+                        </Typography>
+                    </Box>
+                    {/* Rating display */}
+                    <Box component={"div"} display={"flex"} alignItems={"center"}>
+                        <Image
+                            src="/icons/course/staricon.svg"
+                            alt="starIcon"
+                            width={20}
+                            height={20}
+                            loading="lazy"
+                            title="Star Icon"
+                        />
+                        <Typography variant="body" color="secondary.main" pl={1}>
+                            4.5{" "}
+                            <Typography
+                                variant="body2"
+                                fontWeight={400}
+                                component={"span"}
+                                color="secondary.main"
+                            >
+                                (544)
+                            </Typography>{" "}
+                            •
+                        </Typography>
+                    </Box>
+                    {/* Duration display */}
+                    <Box
+                        component={"div"}
+                        display={"flex"}
+                        alignItems={"center"}
+                        aria-label="Course Duration"
+                    >
+                        <Image
+                            src="/icons/course/clockhour.svg"
+                            alt="clockIcon"
+                            width={20}
+                            height={20}
+                            loading="lazy"
+                            title="Clock Icon"
+                        />
+                        <Typography variant="body" color="secondary.main" pl={1}>
+                            139h
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
 

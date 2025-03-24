@@ -139,8 +139,8 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
                         color="link.main"
                         title={linkProps?.title}
                         txtVariant="h6"
-                        // sx={{ px: "20px" }}
                         variant="text"
+                        type="link"
                         sx={{
                             "backgroundColor": "transparent",
                             "position": "relative",

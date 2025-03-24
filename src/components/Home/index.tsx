@@ -199,10 +199,10 @@ const Home: React.FC = () => {
                 lg: 784,
                 xl: 1176,
                 top: "94px",
-                left: { xs: "-32px", md: "-30px" },
-                right: { xs: "-32px", md: "-30px" },
+                left: { xs: "-16px", md: "-30px" },
+                right: { xs: "-16px", md: "-30px" },
                 linkTitle: "",
-                sectionPadding: { xs: "32px 16px", md: "32px 24px" },
+                sectionPadding: { xs: "32px 0px", md: "32px 24px" },
                 width: { xs: "390px", md: "100%" },
             })}
 

@@ -31,7 +31,7 @@ type CustomBtnProps = {
     onMouseLeave?: MouseEventHandler<HTMLButtonElement>;
     startIcon?: ReactNode;
     endIcon?: ReactNode;
-    type?: "button" | "submit" | "reset";
+    type?: "button" | "submit" | "reset" | "link";
     fontWeight?: number | string;
     name?: string;
     disabled?: boolean;
@@ -68,6 +68,7 @@ const CustomBtn: React.FC<CustomBtnProps> = ({
             onMouseLeave={onMouseLeave}
             disabled={disabled}
             color={btnColor}
+            disableRipple={type === "link"}
             sx={{
                 borderRadius: 2,
                 textTransform: "none",
