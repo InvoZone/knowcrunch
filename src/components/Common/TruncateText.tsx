@@ -1,7 +1,7 @@
 import type { ElementType } from "react";
 import React from "react";
 import { Tooltip, Typography } from "@mui/material";
-import truncate from "lodash/truncate";
+import { truncate } from "lodash";
 
 interface TruncateTextProps {
     text: string;
