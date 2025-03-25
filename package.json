@@ -1,44 +1,44 @@
 {
-    "name": "Knowcrunch",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev --turbopack",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint",
-        "prettier": "prettier --write .",
-        "prepare": "husky"
-    },
-    "dependencies": {
-        "@emotion/react": "^11.14.0",
-        "@emotion/styled": "^11.14.0",
-        "@mui/icons-material": "^6.4.7",
-        "@mui/material": "^6.4.7",
-        "@react-oauth/google": "^0.12.1",
-        "@reduxjs/toolkit": "^2.6.1",
-        "eslint-config-prettier": "^10.1.1",
-        "formik": "^2.4.6",
-        "lodash": "^4.17.21",
-        "next": "15.2.1",
-        "next-intl": "^3.26.5",
-        "prettier": "^3.5.3",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "react-fast-marquee": "^1.6.5",
-        "react-phone-input-2": "^2.15.1",
-        "react-redux": "^9.2.0",
-        "yup": "^1.6.1"
-    },
-    "devDependencies": {
-        "@eslint/eslintrc": "^3",
-        "@types/lodash": "^4.17.16",
-        "@types/node": "^20",
-        "@types/react": "^19",
-        "@types/react-dom": "^19",
-        "eslint": "^9",
-        "eslint-config-next": "15.2.1",
-        "husky": "^9.1.7",
-        "typescript": "^5"
-    }
+  "name": "Knowcrunch",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier": "prettier --write .",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.7",
+    "@mui/material": "^6.4.7",
+    "@react-oauth/google": "^0.12.1",
+    "@reduxjs/toolkit": "^2.6.1",
+    "eslint-config-prettier": "^10.1.1",
+    "formik": "^2.4.6",
+    "lodash": "^4.17.21",
+    "next": "15.2.1",
+    "next-intl": "^3.26.5",
+    "prettier": "^3.5.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-fast-marquee": "^1.6.5",
+    "react-phone-input-2": "^2.15.1",
+    "react-redux": "^9.2.0",
+    "yup": "^1.6.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/lodash": "^4.17.16",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.1",
+    "husky": "^9.1.7",
+    "typescript": "^5"
+  }
 }

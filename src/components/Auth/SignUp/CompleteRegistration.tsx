@@ -1,194 +1,183 @@
-"use client";
+'use client';
 
-// Import necessary dependencies and components
-import CustomBtn from "@/components/Common/CustomBtn";
-import CustomInput from "@/components/Common/CustomInput";
-import { Box, Typography, useTheme } from "@mui/material";
-import { useFormik } from "formik";
-import type { FormikHelpers } from "formik";
-import * as yup from "yup";
-import "react-phone-input-2/lib/style.css";
-import PhoneInput from "react-phone-input-2";
-import { useDispatch } from "react-redux";
-import { login } from "@/lib/slices/auth";
-import CustomCheckbox from "@/components/Common/CustomCheckbox";
+import CustomBtn from '@/components/Common/CustomBtn';
+import CustomInput from '@/components/Common/CustomInput';
+import { Box, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { useFormik } from 'formik';
+import type { FormikHelpers } from 'formik';
+import * as yup from 'yup';
+import 'react-phone-input-2/lib/style.css';
+import PhoneInput from 'react-phone-input-2';
+import { useDispatch } from 'react-redux';
+import { login } from '@/lib/slices/auth';
+import CustomCheckbox from '@/components/Common/CustomCheckbox';
+import type { FC } from 'react';
+import Link from 'next/link';
 
-// Define validation schema for the registration form
 const validationSchema = yup.object({
-    name: yup.string().required("Name is required"),
-    surname: yup.string().required("Surname is required"),
-    mobile: yup.string().required("Mobile phone is required"),
-    workTitle: yup.string().required("Work title is required"),
-    company: yup.string().required("Company is required"),
-    city: yup.string().required("City is required"),
-    marketing: yup.boolean(),
-    terms: yup.boolean().oneOf([true], "You must accept the terms and conditions"),
+  name: yup.string().required('Name is required'),
+  surname: yup.string().required('Surname is required'),
+  mobile: yup.string().required('Mobile phone is required'),
+  workTitle: yup.string().required('Work title is required'),
+  company: yup.string().required('Company is required'),
+  city: yup.string().required('City is required'),
+  marketing: yup.boolean(),
+  terms: yup.boolean().oneOf([true], 'You must accept the terms and conditions')
 });
 
+const initialValues = {
+  name: '',
+  surname: '',
+  mobile: '',
+  workTitle: '',
+  company: '',
+  city: '',
+  terms: false,
+  marketing: false
+};
+
 interface CompleteRegistrationProps {
-    t: (_key: string) => string;
-    handleClose: () => void;
+  t: (_key: string) => string;
+  handleClose: () => void;
 }
 
 interface FormValues {
-    name: string;
-    surname: string;
-    mobile: string;
-    workTitle: string;
-    company: string;
-    city: string;
-    terms: boolean;
-    marketing: boolean;
+  name: string;
+  surname: string;
+  mobile: string;
+  workTitle: string;
+  company: string;
+  city: string;
+  terms: boolean;
+  marketing: boolean;
 }
 
-/**
- * CompleteRegistration component handles user registration
- */
-const CompleteRegistration: React.FC<CompleteRegistrationProps> = ({ t, handleClose }) => {
-    const theme = useTheme();
-    const { neutral } = theme.palette;
-    const dispatch = useDispatch();
+const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose }) => {
+  const theme = useTheme();
+  const dispatch = useDispatch();
 
-    // Initialize formik for form handling and validation
-    const formik = useFormik<FormValues>({
-        initialValues: {
-            name: "",
-            surname: "",
-            mobile: "",
-            workTitle: "",
-            company: "",
-            city: "",
-            terms: false,
-            marketing: false,
-        },
-        validationSchema,
-        onSubmit: (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
-            dispatch(login(true));
-            handleClose();
-            setSubmitting(false);
-        },
-    });
+  const { neutral } = theme.palette;
 
-    return (
-        <form onSubmit={formik.handleSubmit} aria-label="Registration form">
-            {/* Name input field */}
-            <CustomInput
-                name="name"
-                label={t("name")}
-                formik={formik}
-                mb={1}
-                aria-label="Name input"
-            />
+  // Initialize formik for form handling and validation
+  const formik = useFormik<FormValues>({
+    initialValues,
+    validationSchema,
+    onSubmit: (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
+      dispatch(login(true));
+      handleClose();
+      setSubmitting(false);
+    }
+  });
 
-            {/* Surname input field */}
-            <CustomInput
-                name="surname"
-                label={t("surname")}
-                formik={formik}
-                mb={1}
-                aria-label="Surname input"
-            />
+  return (
+    <form onSubmit={formik.handleSubmit} aria-label="Registration form">
+      {/* Name input field */}
+      <CustomInput name="name" label={t('name')} formik={formik} mb={1} aria-label="Name input" />
 
-            {/* Mobile phone input field */}
-            <Box sx={{ mb: 0.8 }}>
-                <Typography
-                    sx={{ mb: 0.5, fontSize: "12px", color: neutral.neutral1 }}
-                    aria-label="Mobile phone label"
-                >
-                    Mobile phone
-                </Typography>
-                <PhoneInput
-                    country="us"
-                    value={formik.values.mobile}
-                    onChange={(phone: string) => formik.setFieldValue("mobile", phone)}
-                    placeholder="Mobile number"
-                    inputStyle={{
-                        width: "100%",
-                        height: "45px",
-                        borderRadius: "8px",
-                    }}
-                    aria-label="Mobile phone input"
-                />
-            </Box>
+      {/* Surname input field */}
+      <CustomInput
+        name="surname"
+        label={t('surname')}
+        formik={formik}
+        mb={1}
+        aria-label="Surname input"
+      />
 
-            {/* Work title input field */}
-            <CustomInput
-                name="workTitle"
-                label={t("work title")}
-                formik={formik}
-                mb={1}
-                aria-label="Work title input"
-            />
+      {/* Mobile phone input field */}
+      <Box sx={{ mb: 0.8 }}>
+        <Typography
+          sx={{ mb: 0.5, fontSize: '12px', color: neutral.neutral1 }}
+          aria-label="Mobile phone label"
+        >
+          Mobile phone
+        </Typography>
+        <PhoneInput
+          country="us"
+          value={formik.values.mobile}
+          onChange={(phone: string) => formik.setFieldValue('mobile', phone)}
+          placeholder="Mobile number"
+          inputStyle={{
+            width: '100%',
+            height: '45px',
+            borderRadius: '8px'
+          }}
+          aria-label="Mobile phone input"
+        />
+      </Box>
 
-            {/* Company input field */}
-            <CustomInput
-                name="company"
-                label={t("company")}
-                formik={formik}
-                mb={1}
-                aria-label="Company input"
-            />
+      {/* Work title input field */}
+      <CustomInput
+        name="workTitle"
+        label={t('work title')}
+        formik={formik}
+        mb={1}
+        aria-label="Work title input"
+      />
 
-            {/* City input field */}
-            <CustomInput
-                name="city"
-                label={t("city")}
-                formik={formik}
-                mb={3}
-                aria-label="City input"
-            />
+      {/* Company input field */}
+      <CustomInput
+        name="company"
+        label={t('company')}
+        formik={formik}
+        mb={1}
+        aria-label="Company input"
+      />
 
-            {/* Terms and conditions checkbox */}
-            <Box pb={1} className="centerY">
-                <CustomCheckbox
-                    label={`${t("I agree to the")}`}
-                    checked={formik.values.terms}
-                    onChange={formik.handleChange}
-                    name="terms"
-                    colors={{ unchecked: "base1.dark4" }}
-                    aria-label="terms checkbox"
-                />
-                <Typography variant="titleMd" color="base1.default" component="a" pl={1}>
-                    {t("Terms & Conditions")}
-                </Typography>
-            </Box>
+      {/* City input field */}
+      <CustomInput name="city" label={t('city')} formik={formik} mb={3} aria-label="City input" />
 
-            {/* Marketing emails checkbox */}
-            <Box pb={1}>
-                <CustomCheckbox
-                    label={t("I want to receive marketing emails")}
-                    checked={formik.values.marketing}
-                    onChange={formik.handleChange}
-                    name="marketing"
-                    colors={{ unchecked: "base1.dark4" }}
-                    aria-label="marketing email checkbox"
-                />
-            </Box>
+      {/* Terms and conditions checkbox */}
+      <Box pb={1} className="centerY">
+        <CustomCheckbox
+          label={`${t('I agree to the')}`}
+          checked={formik.values.terms}
+          onChange={formik.handleChange}
+          name="terms"
+          colors={{ unchecked: 'base1.dark4' }}
+          aria-label="terms checkbox"
+        />
+        <Typography variant="titleMd" color="base1.default" component={Link} href="/" pl={1}>
+          {t('Terms & Conditions')}
+        </Typography>
+      </Box>
 
-            {/* Submit button for registration */}
-            <CustomBtn
-                type="submit"
-                title="Register"
-                variant="contained"
-                loading={formik.isSubmitting}
-                sx={{
-                    backgroundColor: "accents.bubble1",
-                    width: "100%",
-                    opacity:
-                        !formik.values.name ||
-                            !formik.values.surname ||
-                            !formik.values.mobile ||
-                            !formik.values.workTitle ||
-                            !formik.values.company ||
-                            !formik.values.city ||
-                            !formik.values.terms
-                            ? 0.5
-                            : 1,
-                }}
-                aria-label="Register button"
-            />
-        </form>
-    );
+      {/* Marketing emails checkbox */}
+      <Box pb={1}>
+        <CustomCheckbox
+          label={t('I want to receive marketing emails')}
+          checked={formik.values.marketing}
+          onChange={formik.handleChange}
+          name="marketing"
+          colors={{ unchecked: 'base1.dark4' }}
+          aria-label="marketing email checkbox"
+        />
+      </Box>
+
+      {/* Submit button for registration */}
+      <CustomBtn
+        type="submit"
+        title="Register"
+        variant="contained"
+        loading={formik.isSubmitting}
+        sx={{
+          backgroundColor: 'accents.bubble1',
+          width: '100%',
+          opacity:
+            !formik.values.name ||
+            !formik.values.surname ||
+            !formik.values.mobile ||
+            !formik.values.workTitle ||
+            !formik.values.company ||
+            !formik.values.city ||
+            !formik.values.terms
+              ? 0.5
+              : 1
+        }}
+        aria-label="Register button"
+      />
+    </form>
+  );
 };
 
 export default CompleteRegistration;
