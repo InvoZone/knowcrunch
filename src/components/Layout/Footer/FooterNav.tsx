@@ -1,16 +1,14 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Typography, Box } from '@mui/material';
 import Link from 'next/link';
-import './Footer.css';
+import styles from './footer.module.css';
 
-// Define the props for the FooterLinks component
 interface FooterLinksProps {
-  title: string; // Title of the footer links section
-  links: string[]; // Array of links to be displayed in the footer
+  title: string;
+  links: string[];
 }
 
-// FooterLinks component
-const FooterLinks: React.FC<FooterLinksProps> = ({ title, links }) => {
+const FooterLinks: FC<FooterLinksProps> = ({ title, links }) => {
   return (
     <Box
       sx={{ display: 'flex', flexDirection: 'column', gap: 1, width: 160 }}
@@ -40,13 +38,7 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ title, links }) => {
         >
           <Link
             href="/"
-            style={{
-              position: 'relative',
-              textDecoration: 'none',
-              color: 'white',
-              paddingBottom: '2px'
-            }}
-            className="hover-underline"
+            className={styles.hover_underline}
           >
             {link}
           </Link>

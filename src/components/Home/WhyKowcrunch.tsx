@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Box, Container, Typography } from '@mui/material';
 import whyknowcrunch from '@/assets/home/whyKnowcrunch.webp';
 import FeatureItem from './FeatureItem';
-import type { FC } from 'react';
 interface FeatureDataTypes {
   title: string;
   description: string;
@@ -32,7 +31,7 @@ const featureData: FeatureDataTypes[] = [
   }
 ];
 
-const WhyKnowcrunch: FC = () => {
+const WhyKnowcrunch = () => {
   return (
     <Container maxWidth="lg" component={'section'}>
       <Box

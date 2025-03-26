@@ -63,7 +63,7 @@ const Signup: FC<SignupProps> = ({ onClick = () => '' }) => {
       {/* Signup button that triggers the dialog */}
       <CustomBtn
         variant="contained"
-        title={'Join Us'}
+        title={t('joinUs')}
         sx={{
           backgroundColor: 'accents.bubble1',
           minWidth: 100

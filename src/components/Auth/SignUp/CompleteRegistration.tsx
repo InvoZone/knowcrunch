@@ -73,13 +73,26 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
   return (
     <form onSubmit={formik.handleSubmit} aria-label="Registration form">
       {/* Name input field */}
-      <CustomInput name="name" label={t('name')} formik={formik} mb={1} aria-label="Name input" />
+      <CustomInput
+        name="name"
+        label={t('name')}
+        value={formik.values.name}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.name && Boolean(formik.errors.name)}
+        touched={formik.touched.name}
+        mb={1}
+        aria-label="Name input" />
 
       {/* Surname input field */}
       <CustomInput
         name="surname"
         label={t('surname')}
-        formik={formik}
+        value={formik.values.surname}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.surname && Boolean(formik.errors.surname)}
+        touched={formik.touched.surname}
         mb={1}
         aria-label="Surname input"
       />
@@ -90,7 +103,7 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
           sx={{ mb: 0.5, fontSize: '12px', color: neutral.neutral1 }}
           aria-label="Mobile phone label"
         >
-          Mobile phone
+          {t('mobilePhone')}
         </Typography>
         <PhoneInput
           country="us"
@@ -110,7 +123,11 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
       <CustomInput
         name="workTitle"
         label={t('work title')}
-        formik={formik}
+        value={formik.values.workTitle}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.workTitle && Boolean(formik.errors.workTitle)}
+        touched={formik.touched.workTitle}
         mb={1}
         aria-label="Work title input"
       />
@@ -119,13 +136,27 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
       <CustomInput
         name="company"
         label={t('company')}
-        formik={formik}
+        value={formik.values.company}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.company && Boolean(formik.errors.company)}
+        touched={formik.touched.company}
         mb={1}
         aria-label="Company input"
       />
 
       {/* City input field */}
-      <CustomInput name="city" label={t('city')} formik={formik} mb={3} aria-label="City input" />
+      <CustomInput
+        name="city"
+        label={t('city')}
+        value={formik.values.city}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.city && Boolean(formik.errors.city)}
+        touched={formik.touched.city}
+        mb={3}
+        aria-label="City input"
+      />
 
       {/* Terms and conditions checkbox */}
       <Box pb={1} className="centerY">
@@ -165,12 +196,12 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
           width: '100%',
           opacity:
             !formik.values.name ||
-            !formik.values.surname ||
-            !formik.values.mobile ||
-            !formik.values.workTitle ||
-            !formik.values.company ||
-            !formik.values.city ||
-            !formik.values.terms
+              !formik.values.surname ||
+              !formik.values.mobile ||
+              !formik.values.workTitle ||
+              !formik.values.company ||
+              !formik.values.city ||
+              !formik.values.terms
               ? 0.5
               : 1
         }}

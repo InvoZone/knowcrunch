@@ -40,6 +40,12 @@ interface SignupFormProps {
   handleSubmitForm: () => void;
 }
 
+interface SubmitValues {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) => {
   const [showCompleteRegistration, setShowCompleteRegistration] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -49,8 +55,8 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
     initialValues,
     validationSchema,
     onSubmit: (
-      values: { email: string; password: string; confirmPassword: string },
-      { setSubmitting }: FormikHelpers<{ email: string; password: string; confirmPassword: string }>
+      values: SubmitValues,
+      { setSubmitting }: FormikHelpers<SubmitValues>
     ) => {
       handleSubmitForm();
       setShowCompleteRegistration(true);
@@ -73,7 +79,11 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
       <CustomInput
         name="email"
         label={t('email')}
-        formik={formik}
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.email && Boolean(formik.errors.email)}
+        touched={formik.touched.email}
         mb={1}
         aria-label="Email input"
       />
@@ -82,7 +92,11 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
       <CustomInput
         name="password"
         label={t('password')}
-        formik={formik}
+        value={formik.values.password}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.password && Boolean(formik.errors.password)}
+        touched={formik.touched.password}
         mb={1}
         type={showPassword ? 'text' : 'password'}
         slotProps={{
@@ -116,7 +130,11 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
       <CustomInput
         name="confirmPassword"
         label={t('rewritePassword')}
-        formik={formik}
+        value={formik.values.confirmPassword}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
+        touched={formik.touched.confirmPassword}
         mb={3}
         type={showConfirmPassword ? 'text' : 'password'}
         slotProps={{

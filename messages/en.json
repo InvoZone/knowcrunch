@@ -61,6 +61,9 @@
     "registrationHeading": "Complete registration",
     "email": "Email",
     "password": "Password",
+    "login": "Log In",
+    "mobilePhone": "Mobile phone",
+    "joinUs": "Join Us",
     "signin": "Sign in",
     "signup": "Sign up",
     "dontHaveAccount": "Don’t have an account?",
@@ -72,6 +75,9 @@
     "continue": "Continue",
     "name": "Name",
     "surname": "Surname",
+    "e-mail": "E-mail",
+    "firstName": "First name",
+    "subscribe": "Subscribe",
     "mobile phone": "Mobile phone",
     "work title": "Work title",
     "company": "Company",
@@ -92,5 +98,14 @@
   "classroomCourses": {
     "inClassCourses": "In class courses",
     "classroomListingSubheading": "Delivered on-site in different venues on scheduled days & times."
+  },
+  "footer": {
+    "getOurNews": "Get our news",
+    "subscribe": "Subscribe",
+    "firstName": "First name",
+    "surname": "Surname",
+    "e-mail": "E-mail",
+    "respectPersonalData": "We respect your personal data. By subscribing, you agree that we can contact you according to our",
+    "dataPrivacyPolicy": "Data Privacy Policy"
   }
 }

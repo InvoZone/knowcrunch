@@ -64,7 +64,11 @@ const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }
       <CustomInput
         name="email"
         label={t('email')}
-        formik={formik}
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.email && Boolean(formik.errors.email)}
+        touched={formik.touched.email}
         mb={1}
         aria-label="Email input"
       />
@@ -73,7 +77,11 @@ const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }
       <CustomInput
         name="password"
         label={t('password')}
-        formik={formik}
+        value={formik.values.password}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.password && Boolean(formik.errors.password)}
+        touched={formik.touched.password}
         mb={1}
         type={showPassword ? 'text' : 'password'}
         slotProps={{

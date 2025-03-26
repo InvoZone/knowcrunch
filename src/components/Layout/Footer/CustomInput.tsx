@@ -1,15 +1,12 @@
-// Import Material-UI components
 import TextField from '@mui/material/TextField';
 import { Stack } from '@mui/material';
+import type { FC, ChangeEvent, FocusEvent } from 'react';
 
-// Define props for CustomInput
 interface CustomInputProps {
   name: string;
   value: string;
-  // eslint-disable-next-line no-unused-vars
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  // eslint-disable-next-line no-unused-vars
-  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  handleChange: (_event: ChangeEvent<HTMLInputElement>) => void;
+  handleBlur?: (_event: FocusEvent<HTMLInputElement>) => void;
   touched?: boolean;
   errors?: string;
   mb?: number | string;
@@ -17,7 +14,7 @@ interface CustomInputProps {
   placeholder?: string;
 }
 
-export default function CustomInput({
+const CustomInput: FC<CustomInputProps> = ({
   name,
   value,
   handleChange,
@@ -27,7 +24,7 @@ export default function CustomInput({
   mb = 1,
   type = 'text',
   placeholder
-}: Readonly<CustomInputProps>) {
+}) => {
   return (
     <Stack>
       <TextField
@@ -72,4 +69,6 @@ export default function CustomInput({
       />
     </Stack>
   );
-}
+};
+
+export default CustomInput;

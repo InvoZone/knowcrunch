@@ -3,15 +3,16 @@
 import TextField from '@mui/material/TextField';
 import { InputLabel, Stack, Typography } from '@mui/material';
 import type { TextFieldProps } from '@mui/material/TextField';
-import type { FormikProps } from 'formik';
-import type { FC } from 'react';
+import type { ChangeEvent, FC, FocusEvent } from 'react';
 
-// Define the props with a generic type <T>
 interface CustomInputProps {
   label?: string;
   name: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  formik: FormikProps<any>;
+  value: string;
+  onChange: (_event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (_event: FocusEvent<HTMLInputElement>) => void;
+  error: boolean | undefined;
+  touched: boolean | undefined;
   mb?: number;
   type?: string;
   placeholder?: string;
@@ -21,7 +22,11 @@ interface CustomInputProps {
 const CustomInput: FC<CustomInputProps> = ({
   label,
   name,
-  formik,
+  value,
+  onChange,
+  onBlur,
+  error,
+  touched,
   mb = 0,
   type = 'text',
   placeholder,
@@ -41,10 +46,10 @@ const CustomInput: FC<CustomInputProps> = ({
         variant="outlined"
         name={name}
         type={type}
-        value={formik.values?.[name] as string | number | undefined} // Ensure type safety
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched?.[name] && Boolean(formik.errors?.[name])}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        error={error}
         autoComplete={name}
         placeholder={placeholder}
         aria-label={`Input field for ${name}`}
@@ -53,8 +58,7 @@ const CustomInput: FC<CustomInputProps> = ({
           mb,
           '& input': {
             height: 29,
-            background:
-              formik.touched?.[name] && Boolean(formik.errors?.[name]) ? '#EF978F54' : undefined,
+            background: touched && error ? '#EF978F54' : undefined,
             color: 'neutral.neutral2',
             fontSize: 16,
             fontWeight: 400,

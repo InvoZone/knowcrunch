@@ -1,100 +1,32 @@
 'use client';
-import React, { useState } from 'react';
 import { Box, Typography, Container } from '@mui/material';
 import 'react-phone-input-2/lib/style.css';
 import FooterLinks from './FooterNav';
 import FooterLinksMobile from './MobileFooterNav';
 
-// Import social media icons
 import appStore from '@/assets/footer/appStore.webp';
 import googlePlay from '@/assets/footer/googlePlay.webp';
-import facebook from '@/assets/footer/facebook.webp';
-import facbookHover from '@/assets/footer/fbbbb.svg';
-import instagram from '@/assets/footer/instagram.webp';
-import instagramHover from '@/assets/footer/instaHover.svg';
-import linkedin from '@/assets/footer/linkedin.webp';
-import linkedinHover from '@/assets/footer/LinkedinHover.svg';
-import youtube from '@/assets/footer/youtube.webp';
-import youtubeHover from '@/assets/footer/YoutubeHove.svg';
-import tikTok from '@/assets/footer/tikTok.webp';
-import tikTokHover from '@/assets/footer/tiktokHover.svg';
-import medium from '@/assets/footer/medium.webp';
-import mediumHover from '@/assets/footer/mediumHover.svg';
-import pinterest from '@/assets/footer/pinterest.webp';
-import pinterestHover from '@/assets/footer/pinterestHover.svg';
-import spotify from '@/assets/footer/spotify.webp';
-import spotifyHover from '@/assets/footer/spotifyHover.svg';
-import x from '@/assets/footer/x.webp';
-import xHover from '@/assets/footer/XHoverr.svg';
+import FaceBook from '@/assets/footer/facebook.svg';
+import Instagram from '@/assets/footer/instagram.svg';
+import Linkedin from '@/assets/footer/linkedin.svg';
+import Youtube from '@/assets/footer/youtube.svg';
+import TikTok from '@/assets/footer/tikTok.svg';
+import Medium from '@/assets/footer/medium.svg';
+import Pinterest from '@/assets/footer/pinterest.svg';
+import Spotify from '@/assets/footer/spotify.svg';
+import X from '@/assets/footer/x.svg';
 import Image from 'next/image';
 import NewsletterForm from './NewsletterForm';
+import { useTranslations } from 'next-intl';
+import styles from './footer.module.css';
 
 interface FooterSection {
   title: string;
   links: string[];
 }
 
-// Define social media icons list
-const socialIcons: { src: string; alt: string; hoverSrc?: string; transition?: string }[] = [
-  {
-    src: facebook as unknown as string,
-    alt: 'facebook',
-    hoverSrc: facbookHover as unknown as string,
-    transition: '300ms'
-  },
-  {
-    src: instagram as unknown as string,
-    alt: 'instagram',
-    hoverSrc: instagramHover as unknown as string,
-    transition: '300ms'
-  },
-  {
-    src: linkedin as unknown as string,
-    alt: 'linkedin',
-    hoverSrc: linkedinHover as unknown as string,
-    transition: '300ms'
-  },
-  {
-    src: youtube as unknown as string,
-    alt: 'youtube',
-    hoverSrc: youtubeHover as unknown as string,
-    transition: '300ms'
-  },
-  {
-    src: tikTok as unknown as string,
-    alt: 'tiktok',
-    hoverSrc: tikTokHover as unknown as string,
-    transition: '300ms'
-  },
-  {
-    src: medium as unknown as string,
-    alt: 'medium',
-    hoverSrc: mediumHover as unknown as string,
-    transition: '300ms'
-  },
-  {
-    src: pinterest as unknown as string,
-    alt: 'pinterest',
-    hoverSrc: pinterestHover as unknown as string,
-    transition: '300ms'
-  },
-  {
-    src: spotify as unknown as string,
-    alt: 'spotify',
-    hoverSrc: spotifyHover as unknown as string,
-    transition: '300ms'
-  },
-  {
-    src: x as unknown as string,
-    alt: 'x',
-    hoverSrc: xHover as unknown as string,
-    transition: '300ms'
-  }
-];
-
-const Footer: React.FC = () => {
-  const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
-  // Footer links sections
+const Footer = () => {
+  const t = useTranslations('footer');
   const footerData: FooterSection[] = [
     {
       title: 'About Us',
@@ -129,7 +61,7 @@ const Footer: React.FC = () => {
       }}
     >
       <Container sx={{ maxWidth: '1408px !important' }}>
-        <Box component="div" pt={{ xs: 4, lg: 6 }} pb={{ xs: 3, md: 2 }} px={{ xs: 1, md: 3 }}>
+        <Box pt={{ xs: 4, lg: 6 }} pb={{ xs: 3, md: 2 }} px={{ xs: 1, md: 3 }}>
           {/* Mobile Navigation Links */}
           <Box component="nav" sx={{ display: { xs: 'block', lg: 'none' }, pb: { xs: 3, md: 5 } }}>
             {footerData.map((section) => (
@@ -138,25 +70,22 @@ const Footer: React.FC = () => {
           </Box>
 
           <Box
-            component="div"
             display="flex"
             justifyContent={{ xs: 'center', md: 'flex-start' }}
             gap={6}
             flexWrap="wrap"
           >
             {/* Newsletter Subscription Section */}
-            <Box component="div" sx={{ width: { xs: 352, md: 290 } }}>
+            <Box sx={{ width: { xs: 352, md: 290 } }}>
               <Typography variant="titleLg" component={'p'} pb={3}>
-                Get our news
+                {t('getOurNews')}
               </Typography>
               <NewsletterForm />
               <Typography variant="body1" pt={1}>
-                We respect your personal data. By subscribing, you agree that we can contact you
-                according to our{' '}
+                {t('respectPersonalData')}
                 <Typography
                   variant="body1"
                   component="a"
-                  // sx={{ color: "accents.bubble1", pl: "3px", cursor: "pointer" }}
                   sx={{
                     'color': 'accents.bubble1',
                     'pl': '3px',
@@ -164,22 +93,21 @@ const Footer: React.FC = () => {
                     'position': 'relative',
                     'textDecoration': 'none',
                     '&::after': {
-                      // eslint-disable-next-line quotes
                       content: '""',
                       position: 'absolute',
                       left: 0,
-                      bottom: -2, // Adjust position of underline
+                      bottom: -2,
                       width: '0%',
                       height: '2px',
-                      backgroundColor: 'currentColor', // Same as text color
+                      backgroundColor: 'currentColor',
                       transition: 'width 0.3s ease-in-out'
                     },
                     '&:hover::after': {
-                      width: '100%' // Expand underline on hover
+                      width: '100%'
                     }
                   }}
                 >
-                  Data Privacy Policy
+                  {t('dataPrivacyPolicy')}
                 </Typography>
                 .
               </Typography>
@@ -202,7 +130,7 @@ const Footer: React.FC = () => {
 
             {/* App Download Section */}
             <Box
-              component="div"
+
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -262,7 +190,7 @@ const Footer: React.FC = () => {
               variant="body1"
               sx={{ textAlign: { xs: 'center', md: 'left' }, pb: { xs: 3, md: 0 } }}
             >
-              Knowcrunch Inc. © 2025 All Rights Reserved
+              Knowcrunch Inc. © {new Date().getFullYear()} All Rights Reserved
             </Typography>
             <Box
               sx={{
@@ -273,23 +201,15 @@ const Footer: React.FC = () => {
                 px: { xs: 1, md: 0 }
               }}
             >
-              {socialIcons.map((icon) => (
-                <Image
-                  key={icon.alt}
-                  loading="lazy"
-                  src={hoveredIcon === icon.alt && icon.hoverSrc ? icon.hoverSrc : icon.src}
-                  width={24}
-                  height={24}
-                  alt={icon.alt}
-                  title={icon.alt}
-                  style={{
-                    cursor: 'pointer',
-                    transition: `opacity ${icon.transition ?? '300ms'} ease-in-out`
-                  }}
-                  onMouseEnter={() => setHoveredIcon(icon.alt)}
-                  onMouseLeave={() => setHoveredIcon(null)}
-                />
-              ))}
+              <FaceBook className={styles.footerIcon} />
+              <Instagram className={styles.footerIcon} />
+              <Linkedin className={styles.footerIcon} />
+              <Youtube className={styles.footerIcon} />
+              <TikTok className={styles.footerIcon} />
+              <Medium className={styles.footerIcon} />
+              <Pinterest className={styles.footerIcon} />
+              <Spotify className={styles.footerIcon} />
+              <X className={styles.footerIcon} />
             </Box>
           </Box>
         </Box>

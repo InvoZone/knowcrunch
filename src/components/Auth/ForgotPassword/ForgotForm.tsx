@@ -33,7 +33,11 @@ const ForgotPasswordForm: FC<ForgotFormProps> = ({ t, handleClose }) => {
       <CustomInput
         name={'email'}
         label={t('email')}
-        formik={formik}
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.email && Boolean(formik.errors.email)}
+        touched={formik.touched.email}
         mb={1}
         aria-label="Email input"
       />

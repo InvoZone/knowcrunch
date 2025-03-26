@@ -14,7 +14,7 @@ interface LoginProps {
   onClick?: (_event: MouseEvent<HTMLElement>) => void;
 }
 
-const Login: FC<LoginProps> = ({ onClick = () => {} }) => {
+const Login: FC<LoginProps> = ({ onClick = () => { } }) => {
   const dispatch = useAppDispatch();
   const t = useTranslations('account');
   const { loginPopup } = useAppSelector((state) => state.auth);
@@ -59,7 +59,7 @@ const Login: FC<LoginProps> = ({ onClick = () => {} }) => {
     <>
       {/* Login button that triggers the dialog */}
       <CustomBtn
-        title={'Log In'}
+        title={t('login')}
         color="secondary"
         sx={{ minWidth: 100 }}
         onClick={handleOpen}

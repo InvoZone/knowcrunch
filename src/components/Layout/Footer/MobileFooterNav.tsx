@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import type { FC } from 'react';
+import { useState } from 'react';
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Box } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Define the props for the FooterAccordion component
 interface FooterAccordionProps {
-  title: string; // Title of the accordion section
-  links: string[]; // List of links to be displayed inside the accordion
+  title: string;
+  links: string[];
 }
 
-// FooterAccordion component
-const FooterAccordion: React.FC<FooterAccordionProps> = ({ title, links }) => {
-  // State to track whether the accordion is expanded or collapsed
-  const [expanded, setExpanded] = useState<boolean>(false);
+const FooterAccordion: FC<FooterAccordionProps> = ({ title, links }) => {
+  const [expanded, setExpanded] = useState(false);
 
-  // Toggle the expanded state when the accordion header is clicked
   const handleChange = (): void => {
     setExpanded((prev) => !prev);
   };
