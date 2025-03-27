@@ -18,7 +18,6 @@ const FooterAccordion: FC<FooterAccordionProps> = ({ title, links }) => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, pb: 1 }}>
-      {/* Accordion Component */}
       <Accordion
         expanded={expanded}
         onChange={handleChange}
@@ -38,7 +37,6 @@ const FooterAccordion: FC<FooterAccordionProps> = ({ title, links }) => {
           }
         }}
       >
-        {/* Accordion Header */}
         <AccordionSummary
           expandIcon={
             <Image
@@ -64,7 +62,6 @@ const FooterAccordion: FC<FooterAccordionProps> = ({ title, links }) => {
             }
           }}
         >
-          {/* Accordion Title */}
           <Typography
             variant="titleLg"
             component="li"
@@ -79,7 +76,6 @@ const FooterAccordion: FC<FooterAccordionProps> = ({ title, links }) => {
           </Typography>
         </AccordionSummary>
 
-        {/* Accordion Content */}
         <AccordionDetails
           aria-label={`Details for ${title}`}
           sx={{
@@ -87,7 +83,6 @@ const FooterAccordion: FC<FooterAccordionProps> = ({ title, links }) => {
             padding: '8px 0'
           }}
         >
-          {/* List of links inside the accordion */}
           <Box component="ul">
             {links.map((link) => (
               <Typography

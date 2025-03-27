@@ -10,7 +10,6 @@ import theme from '@/theme';
 import { breadcrumbJsonLd, organizationJsonLd, webpageJsonLd } from '@/constants/jsonLd';
 import Layout from '@/components/Layout';
 
-// Defining metadata for the application
 export const metadata: Metadata = {
   title: 'Knowcrunch - Professional digital marketing courses & training',
   applicationName: 'Knowcrunch',
@@ -22,7 +21,6 @@ export const metadata: Metadata = {
   publisher: 'Knowcrunch'
 };
 
-// Defining viewport settings
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -36,7 +34,6 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
 
-  // Providing all messages to the client
   const messages = await getMessages();
 
   return (

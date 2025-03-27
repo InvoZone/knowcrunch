@@ -1,12 +1,11 @@
 import { InputAdornment, TextField } from '@mui/material';
 import Image from 'next/image';
-import React from 'react';
-
+import type { FC } from 'react';
 interface SearchFieldProps {
   handleClose: () => void;
 }
 
-const SearchField: React.FC<SearchFieldProps> = ({ handleClose }) => {
+const SearchField: FC<SearchFieldProps> = ({ handleClose }) => {
   return (
     <TextField
       id="input-with-icon-textfield"
@@ -51,19 +50,19 @@ const SearchField: React.FC<SearchFieldProps> = ({ handleClose }) => {
             border: 0,
             borderRadius: 0,
             borderBottomWidth: '1px',
-            borderColor: 'base1.dark2' // Default border color
+            borderColor: 'base1.dark2'
           },
           '&:hover fieldset': {
             border: 0,
             borderRadius: 0,
             borderBottomWidth: '1px',
-            borderColor: 'base1.dark2' // Default border color
+            borderColor: 'base1.dark2'
           },
           '&.Mui-focused fieldset': {
             border: 0,
             borderRadius: 0,
             borderBottomWidth: '1px',
-            borderColor: 'base1.dark2' // Default border color
+            borderColor: 'base1.dark2'
           }
         }
       }}

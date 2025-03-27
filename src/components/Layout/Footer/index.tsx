@@ -19,13 +19,14 @@ import Image from 'next/image';
 import NewsletterForm from './NewsletterForm';
 import { useTranslations } from 'next-intl';
 import styles from './footer.module.css';
+import type { FC } from 'react';
 
 interface FooterSection {
   title: string;
   links: string[];
 }
 
-const Footer = () => {
+const Footer: FC = () => {
   const t = useTranslations('footer');
   const footerData: FooterSection[] = [
     {
@@ -130,7 +131,6 @@ const Footer = () => {
 
             {/* App Download Section */}
             <Box
-
               sx={{
                 display: 'flex',
                 flexDirection: 'column',

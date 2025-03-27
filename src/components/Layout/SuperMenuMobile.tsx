@@ -1,5 +1,3 @@
-// Import required components and icons
-import React from 'react';
 import { Box, Container, Menu, Grid2, MenuItem, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
@@ -9,6 +7,7 @@ import Signup from '../Auth/SignUp';
 import { useRouter } from 'next/navigation';
 import type { MenuItem as MenuItemsType } from './Navbar';
 import type { SubMenu, NavbarMenu } from '@/constants/navbarMenu';
+import type { FC, MouseEvent } from 'react';
 
 interface MenuItemType {
   id?: string;
@@ -28,13 +27,13 @@ interface SuperMenuMobileProps {
   t: (_key: string) => string;
   superMenu: MenuItemType[];
   isLoggedIn: boolean;
-  handleOpenSuperMenu: (_event: React.MouseEvent<HTMLElement>, _menu: NavbarMenu | object) => void;
-  handleOpenMobileMenu: (_event: React.MouseEvent<HTMLElement>) => void;
+  handleOpenSuperMenu: (_event: MouseEvent<HTMLElement>, _menu: NavbarMenu | object) => void;
+  handleOpenMobileMenu: (_event: MouseEvent<HTMLElement>) => void;
   goBack: () => void;
   handleLogout: () => void;
 }
 
-const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
+const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
   anchorElSuperMenu,
   handleCloseSuperMenu,
   handleSubMenu,
@@ -55,7 +54,6 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
 
   return (
     <Box position={'relative'}>
-      {/* Main Menu Component */}
       <Menu
         sx={{
           'position': 'fixed',
@@ -89,7 +87,6 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
       >
         <Container maxWidth={'xl'} sx={{ py: 4, minHeight: 569 }}>
           <Grid2 container>
-            {/* Header with back button and close icon */}
             <Grid2 size={12}>
               <Box
                 component={'div'}
@@ -168,9 +165,7 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
                   </MenuItem>
                 ))}
 
-                {/* Authentication buttons */}
                 <Box
-                  component={'div'}
                   sx={{
                     position: 'absolute',
                     bottom: 40,
@@ -207,7 +202,6 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
               </Grid2>
             )}
 
-            {/* First level submenu items */}
             {!('id' in subMenu) && (
               <Grid2 size={12}>
                 {menu?.menu?.map((menu) => (
@@ -237,7 +231,6 @@ const SuperMenuMobile: React.FC<SuperMenuMobileProps> = ({
               </Grid2>
             )}
 
-            {/* Second level submenu items */}
             {'subMenu' in subMenu && (
               <Grid2 size={{ md: 5, lg: 5 }}>
                 {Array.isArray(subMenu?.subMenu) &&
