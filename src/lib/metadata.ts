@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 
-// Define the types for our metadata parameters
 export type MetadataProps = {
   title?: string;
   description?: string;
@@ -19,19 +18,15 @@ export function generateMetadata({
   canonical,
   type = 'website'
 }: MetadataProps): Metadata {
-  // Construct the image URL with absolute path
   const siteLink = process.env.NEXT_PUBLIC_SITE_LINK;
   const imageUrl = image
     ? new URL(image.startsWith('http') ? image : `${siteLink}${image}`)
     : new URL(`${siteLink}/icons/Hero.webp`);
 
   return {
-    // If title is provided, it will be used in the template
     ...(title && { title }),
-    // Override description if provided
     ...(description && { description }),
 
-    // Open Graph metadata
     openGraph: {
       title,
       description,
@@ -48,7 +43,6 @@ export function generateMetadata({
       locale: 'en_US',
       type
     },
-    // Twitter metadata
     twitter: {
       card: 'summary_large_image',
       title,
@@ -60,7 +54,6 @@ export function generateMetadata({
       'twitter:domain': `${siteLink}`,
       'twitter:url': `${siteLink}`
     },
-    // Canonical URL
     ...(canonical && {
       alternates: {
         canonical

@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -23,6 +22,8 @@ import { logout } from '../../lib/slices/auth';
 import stripeLogo from '../../assets/Navbar/stripeLogo.webp';
 import Login from '../Auth/Login';
 import Signup from '../Auth/SignUp';
+import type { FC, MouseEvent } from 'react';
+import { useState, useEffect } from 'react';
 
 export interface MenuItem {
   id: string;
@@ -32,7 +33,7 @@ export interface MenuItem {
   subMenu?: SubMenu[];
 }
 
-function Navbar() {
+const Navbar: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const theme = useTheme();
@@ -42,15 +43,15 @@ function Navbar() {
   const isLg = useMediaQuery(theme.breakpoints.up('lg'));
   const isSm = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const [anchorElSuperMenu, setAnchorElSuperMenu] = React.useState<null | HTMLElement>(null);
-  const [scrollY, setScrollY] = React.useState(0);
-  const [searchActive, setSearchActive] = React.useState(false);
-  const [menu, setMenus] = React.useState<MenuItem | object>({});
-  const [subMenu, setSubMenu] = React.useState<MenuItem | object>({});
-  const [subMenu1, setSubMenu1] = React.useState<MenuItem | object>({});
-  const [mobileMenu, setMobileMenu] = React.useState(false);
+  const [anchorElSuperMenu, setAnchorElSuperMenu] = useState<null | HTMLElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [searchActive, setSearchActive] = useState(false);
+  const [menu, setMenus] = useState<MenuItem | object>({});
+  const [subMenu, setSubMenu] = useState<MenuItem | object>({});
+  const [subMenu1, setSubMenu1] = useState<MenuItem | object>({});
+  const [mobileMenu, setMobileMenu] = useState(false);
 
-  const handleOpenMobileMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenMobileMenu = (event: MouseEvent<HTMLElement>) => {
     setMobileMenu(!mobileMenu);
     setMenus({});
     setSubMenu({});
@@ -58,7 +59,7 @@ function Navbar() {
     setAnchorElSuperMenu(!mobileMenu ? event.currentTarget : null);
   };
 
-  const handleOpenSuperMenu = (event: React.MouseEvent<HTMLElement>, page: NavbarMenu | object) => {
+  const handleOpenSuperMenu = (event: MouseEvent<HTMLElement>, page: NavbarMenu | object) => {
     if (!page) return;
 
     setMenus(page);
@@ -103,7 +104,7 @@ function Navbar() {
     dispatch(logout());
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (typeof window === 'undefined') return;
 
     const handleScroll = () => {
@@ -131,7 +132,6 @@ function Navbar() {
             <SearchField handleClose={handleSearchField} aria-label="Search Field" />
           ) : (
             <>
-              {/* Mobile menu button */}
               <Box sx={{ display: { xs: isCheckout ? 'none' : 'flex', lg: 'none' } }}>
                 <IconButton onClick={handleOpenMobileMenu} aria-label="Open mobile navigation menu">
                   <Image
@@ -162,7 +162,6 @@ function Navbar() {
                 )}
               </Box>
 
-              {/* Logo with h1 for SEO */}
               <Box
                 component="div"
                 flexGrow={{ xs: 1, lg: isCheckout ? 1 : 0 }}
@@ -180,7 +179,6 @@ function Navbar() {
                 </Link>
               </Box>
 
-              {/* Desktop navigation menu */}
               <Box
                 sx={{
                   flexGrow: 1,
@@ -195,11 +193,10 @@ function Navbar() {
                   gap={'24px'}
                   alignItems={'center'}
                 >
-                  {/* Main navigation buttons */}
                   {navbarMenu.map((el: NavbarMenu) => (
                     <CustomBtn
                       key={el?.id}
-                      onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) =>
+                      onMouseEnter={(e: MouseEvent<HTMLButtonElement>) =>
                         el?.menu ? handleOpenSuperMenu(e, el) : handleCloseSuperMenu()
                       }
                       title={t(el?.title)}
@@ -214,7 +211,6 @@ function Navbar() {
                     />
                   ))}
 
-                  {/* Desktop super menu */}
                   {isLg && (
                     <SuperMenu
                       handleSubMenu={(menu: Menu) => handleSubMenu(menu)}
@@ -231,7 +227,6 @@ function Navbar() {
                 </Box>
               </Box>
 
-              {/* Right side icons and buttons */}
               {!isCheckout && (
                 <Box sx={{ flexGrow: 0, display: 'flex' }}>
                   {!searchActive && (
@@ -246,11 +241,9 @@ function Navbar() {
                     </IconButton>
                   )}
 
-                  {/* Search field */}
                   {searchActive && <SearchField handleClose={handleSearchField} />}
 
                   {isLoggedIn && !searchActive ? (
-                    // Logged-in user icons
                     <>
                       <IconButton
                         sx={{ display: { xs: 'none', md: 'flex' } }}
@@ -298,7 +291,6 @@ function Navbar() {
                       </IconButton>
                     </>
                   ) : (
-                    // Login/Join buttons for guests
                     isLg &&
                     !isCheckout &&
                     !searchActive && (
@@ -339,6 +331,6 @@ function Navbar() {
       </Container>
     </AppBar>
   );
-}
+};
 
 export default Navbar;

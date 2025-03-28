@@ -1,10 +1,9 @@
-// Import required components and icons from Material-UI and Next.js
-import React from 'react';
 import { Box, Container, Grid2, Menu, MenuItem, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
 import CourseCard from '../Common/CourseCard';
 import type { Menu as MenuType } from '@/constants/navbarMenu';
+import type { FC } from 'react';
 
 interface MenuItemType {
   id?: string;
@@ -24,7 +23,7 @@ interface SuperMenuProps {
   t: (_key: string) => string;
 }
 
-const SuperMenu: React.FC<SuperMenuProps> = ({
+const SuperMenu: FC<SuperMenuProps> = ({
   anchorElSuperMenu,
   handleCloseSuperMenu,
   handleSubMenu,
@@ -34,13 +33,11 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
   subMenu1,
   t
 }) => {
-  // Get theme and destructure needed colors
   const theme = useTheme();
   const { base2, base1 } = theme.palette;
 
   return (
-    <Box position={'relative'} component={'div'}>
-      {/* Main Menu Component */}
+    <Box position={'relative'}>
       <Menu
         sx={{
           'mt': '80px',
@@ -75,7 +72,6 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
       >
         <Container maxWidth={'xl'} sx={{ py: 5 }}>
           <Grid2 container spacing={2}>
-            {/* First level menu items */}
             <Grid2 size={{ md: 4, lg: 4, xl: 3 }}>
               {menu?.menu?.map((menu) => (
                 <MenuItem
@@ -114,7 +110,6 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
                 </MenuItem>
               ))}
             </Grid2>
-            {/* Second level submenu items with left border */}
             {subMenu?.subMenu && (
               <Grid2
                 size={{ md: 6, lg: 5, xl: 6 }}
@@ -150,7 +145,6 @@ const SuperMenu: React.FC<SuperMenuProps> = ({
                 ))}
               </Grid2>
             )}
-            {/* Course card display when third level is selected */}
             {subMenu1?.id && (
               <Grid2 size={{ md: 3, lg: 3 }}>
                 <CourseCard

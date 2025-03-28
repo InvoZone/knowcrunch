@@ -3,9 +3,7 @@ import { createTheme } from '@mui/material/styles';
 import type { Base1, Base2, Neutral, Accents } from '@/constants/colors';
 import { colors } from '@/constants/colors';
 
-// Extend the MUI theme to include custom palette and typography options
 declare module '@mui/material/styles' {
-  // Custom palette and typography options
   interface Palette {
     tertiary: Palette['primary'];
     base1: Base1;
@@ -41,9 +39,7 @@ declare module '@mui/material/styles' {
   }
 }
 
-// Update the Typography's variant prop options to include custom variants
 declare module '@mui/material/Typography' {
-  // Allow custom variants
   interface TypographyPropsVariantOverrides {
     titleLg: true;
     titleMd: true;
@@ -55,7 +51,6 @@ declare module '@mui/material/Typography' {
   }
 }
 
-// Create a custom theme with extended palette and typography options
 const theme = createTheme({
   breakpoints: {
     values: {
@@ -84,7 +79,6 @@ const theme = createTheme({
   }
 });
 
-// Define custom typography options
 theme.typography = {
   fontFamily: 'Foco',
   fontSize: 16,

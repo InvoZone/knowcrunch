@@ -1,8 +1,6 @@
-// ** Redux Imports
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-// Define the shape of the authentication state
 interface AuthState {
   isLoggedIn: boolean;
   loginPopup: boolean;
@@ -10,9 +8,8 @@ interface AuthState {
   forgotPopup: boolean;
 }
 
-// Initial state for authentication
 export const initialState: AuthState = {
-  isLoggedIn: false, // Tracks whether user is currently logged in
+  isLoggedIn: false,
   loginPopup: false,
   signupPopup: false,
   forgotPopup: false
@@ -44,8 +41,6 @@ export const authSlice = createSlice({
   }
 });
 
-// Export actions to be used by components
 export const { login, logout, openLoginSignUpPopup, openForgotPopup } = authSlice.actions;
 
-// Export reducer to be included in store
 export default authSlice.reducer;
