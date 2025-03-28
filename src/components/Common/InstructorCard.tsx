@@ -1,10 +1,11 @@
 'use client';
+import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import { Box, Typography } from '@mui/material';
 import type { FC } from 'react';
 
 interface InstructorCardProps {
-  img: string;
+  img: string | StaticImageData;
   name: string;
   title: string;
   company: string;

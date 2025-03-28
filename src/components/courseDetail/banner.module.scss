@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  gap: 50px;
+  align-items: center;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 60px !important;
+  @media (max-width: 1360) {
+    max-width: 100%;
+  }
+  @media (max-width: 600px) {
+    padding: 24px !important;
+  }
+}
+.breadcrumb {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.bannerImg {
+  img {
+    @media (min-width: 601px) and (max-width: 767px) {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
+}

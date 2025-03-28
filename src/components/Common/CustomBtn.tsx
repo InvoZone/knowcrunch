@@ -84,7 +84,7 @@ const CustomBtn: FC<CustomBtnProps> = ({
     >
       <Typography
         variant={txtVariant}
-        color={color}
+        color={color || 'white'}
         fontWeight={fontWeight}
         display="flex"
         alignItems="center"
