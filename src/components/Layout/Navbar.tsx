@@ -22,7 +22,7 @@ import { logout } from '../../lib/slices/auth';
 import stripeLogo from '../../assets/Navbar/stripeLogo.webp';
 import Login from '../Auth/Login';
 import Signup from '../Auth/SignUp';
-import type { FC, MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
 import { useState, useEffect } from 'react';
 
 export interface MenuItem {
@@ -33,7 +33,7 @@ export interface MenuItem {
   subMenu?: SubMenu[];
 }
 
-const Navbar: FC = () => {
+const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   const theme = useTheme();
@@ -46,14 +46,14 @@ const Navbar: FC = () => {
   const [anchorElSuperMenu, setAnchorElSuperMenu] = useState<null | HTMLElement>(null);
   const [scrollY, setScrollY] = useState(0);
   const [searchActive, setSearchActive] = useState(false);
-  const [menu, setMenus] = useState<MenuItem | object>({});
+  const [menu, setMenu] = useState<object | MenuItem>({});
   const [subMenu, setSubMenu] = useState<MenuItem | object>({});
   const [subMenu1, setSubMenu1] = useState<MenuItem | object>({});
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const handleOpenMobileMenu = (event: MouseEvent<HTMLElement>) => {
     setMobileMenu(!mobileMenu);
-    setMenus({});
+    setMenu({});
     setSubMenu({});
     setSubMenu1({});
     setAnchorElSuperMenu(!mobileMenu ? event.currentTarget : null);
@@ -62,7 +62,8 @@ const Navbar: FC = () => {
   const handleOpenSuperMenu = (event: MouseEvent<HTMLElement>, page: NavbarMenu | object) => {
     if (!page) return;
 
-    setMenus(page);
+    setMenu(page);
+
     if (isLg) {
       setAnchorElSuperMenu(event.currentTarget);
     }
@@ -72,7 +73,7 @@ const Navbar: FC = () => {
 
   const handleCloseSuperMenu = () => {
     setAnchorElSuperMenu(null);
-    setMenus({});
+    setMenu({});
     setSubMenu({});
     setSubMenu1({});
     setMobileMenu(false);
@@ -96,7 +97,7 @@ const Navbar: FC = () => {
     if ((subMenu as MenuItem)?.id) {
       setSubMenu({});
     } else {
-      setMenus({});
+      setMenu({});
     }
   };
 

@@ -89,7 +89,6 @@ const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
           <Grid2 container>
             <Grid2 size={12}>
               <Box
-                component={'div'}
                 sx={{
                   height: 54,
                   display: 'flex',
@@ -103,7 +102,6 @@ const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
               >
                 {('id' in menu || 'id' in subMenu) && (
                   <Box
-                    component={'div'}
                     display={'flex'}
                     alignItems={'center'}
                     gap={1}
@@ -174,7 +172,6 @@ const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
                   }}
                 >
                   <Box
-                    component={'div'}
                     display={'flex'}
                     justifyContent={{
                       xs: 'center',
