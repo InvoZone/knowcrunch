@@ -23,7 +23,7 @@ export const navbarMenu: NavbarMenu[] = [
   {
     id: 'super_menu_1',
     title: 'eLearningCourse',
-    link: '/',
+    link: '/courses',
     menu: [
       {
         id: 'menu_1_1',

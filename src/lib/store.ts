@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import auth from './slices/auth';
+import course from './slices/course';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      auth
+      auth,
+      course
     }
   });
 };

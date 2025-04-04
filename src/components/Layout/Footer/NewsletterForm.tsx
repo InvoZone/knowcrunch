@@ -33,7 +33,7 @@ const NewsletterForm = () => {
         <Typography
           component={"span"}
           color="error.light"
-          sx={{ position: "absolute", left: 58, top: 14, zIndex: 1 }}
+          sx={{ position: "absolute", left: 58, top: 14, zIndex: 1, display: formik.values.email ? 'none' : 'block' }}
         >
           *
         </Typography>
