@@ -2,7 +2,8 @@
 
 import CustomBtn from '@/components/Common/CustomBtn';
 import CustomInput from '@/components/Common/CustomInput';
-import { Box, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import { useFormik } from 'formik';
 import type { FormikHelpers } from 'formik';
@@ -14,6 +15,7 @@ import { login } from '@/lib/slices/auth';
 import CustomCheckbox from '@/components/Common/CustomCheckbox';
 import type { FC } from 'react';
 import Link from 'next/link';
+import Stack from '@mui/material/Stack';
 
 const validationSchema = yup.object({
   name: yup.string().required('Name is required'),
@@ -59,7 +61,6 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
 
   const { neutral } = theme.palette;
 
-  // Initialize formik for form handling and validation
   const formik = useFormik<FormValues>({
     initialValues,
     validationSchema,
@@ -70,34 +71,33 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
     }
   });
 
+  const { handleSubmit, handleChange, handleBlur, values, touched, errors } = formik;
+
   return (
-    <form onSubmit={formik.handleSubmit} aria-label="Registration form">
-      {/* Name input field */}
+    <form onSubmit={handleSubmit} aria-label="Registration form">
       <CustomInput
         name="name"
         label={t('name')}
-        value={formik.values.name}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.name && Boolean(formik.errors.name)}
-        touched={formik.touched.name}
+        value={values.name}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.name && Boolean(errors.name)}
+        touched={touched.name}
         mb={1}
         aria-label="Name input" />
 
-      {/* Surname input field */}
       <CustomInput
         name="surname"
         label={t('surname')}
-        value={formik.values.surname}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.surname && Boolean(formik.errors.surname)}
-        touched={formik.touched.surname}
+        value={values.surname}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.surname && Boolean(errors.surname)}
+        touched={touched.surname}
         mb={1}
         aria-label="Surname input"
       />
 
-      {/* Mobile phone input field */}
       <Box sx={{ mb: 0.8 }}>
         <Typography
           sx={{ mb: 0.5, fontSize: '12px', color: neutral.neutral1 }}
@@ -107,7 +107,7 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
         </Typography>
         <PhoneInput
           country="us"
-          value={formik.values.mobile}
+          value={values.mobile}
           onChange={(phone: string) => formik.setFieldValue('mobile', phone)}
           placeholder="Mobile number"
           inputStyle={{
@@ -119,51 +119,47 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
         />
       </Box>
 
-      {/* Work title input field */}
       <CustomInput
         name="workTitle"
         label={t('work title')}
-        value={formik.values.workTitle}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.workTitle && Boolean(formik.errors.workTitle)}
-        touched={formik.touched.workTitle}
+        value={values.workTitle}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.workTitle && Boolean(errors.workTitle)}
+        touched={touched.workTitle}
         mb={1}
         aria-label="Work title input"
       />
 
-      {/* Company input field */}
       <CustomInput
         name="company"
         label={t('company')}
-        value={formik.values.company}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.company && Boolean(formik.errors.company)}
-        touched={formik.touched.company}
+        value={values.company}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.company && Boolean(errors.company)}
+        touched={touched.company}
         mb={1}
         aria-label="Company input"
       />
 
-      {/* City input field */}
       <CustomInput
         name="city"
         label={t('city')}
-        value={formik.values.city}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.city && Boolean(formik.errors.city)}
-        touched={formik.touched.city}
+        value={values.city}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.city && Boolean(errors.city)}
+        touched={touched.city}
         mb={3}
         aria-label="City input"
       />
 
-      {/* Terms and conditions checkbox */}
-      <Box pb={1} className="centerY">
+      <Stack pb={1} direction="row" alignItems="center">
         <CustomCheckbox
-          label={`${t('I agree to the')}`}
-          checked={formik.values.terms}
-          onChange={formik.handleChange}
+          label={t('I agree to the')}
+          checked={values.terms}
+          onChange={handleChange}
           name="terms"
           colors={{ unchecked: 'base1.dark4' }}
           aria-label="terms checkbox"
@@ -171,37 +167,29 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
         <Typography variant="titleMd" color="base1.default" component={Link} href="/" pl={1}>
           {t('Terms & Conditions')}
         </Typography>
-      </Box>
+      </Stack>
 
-      {/* Marketing emails checkbox */}
       <Box pb={1}>
         <CustomCheckbox
           label={t('I want to receive marketing emails')}
-          checked={formik.values.marketing}
-          onChange={formik.handleChange}
+          checked={values.marketing}
+          onChange={handleChange}
           name="marketing"
           colors={{ unchecked: 'base1.dark4' }}
           aria-label="marketing email checkbox"
         />
       </Box>
 
-      {/* Submit button for registration */}
       <CustomBtn
         type="submit"
-        title="Register"
+        title={t("register")}
         variant="contained"
         loading={formik.isSubmitting}
         sx={{
           backgroundColor: 'accents.bubble1',
           width: '100%',
           opacity:
-            !formik.values.name ||
-              !formik.values.surname ||
-              !formik.values.mobile ||
-              !formik.values.workTitle ||
-              !formik.values.company ||
-              !formik.values.city ||
-              !formik.values.terms
+            Object.values(errors).some(Boolean)
               ? 0.5
               : 1
         }}

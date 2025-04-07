@@ -1,6 +1,10 @@
 import type { FC } from 'react';
 import { useState } from 'react';
-import { Accordion, AccordionSummary, AccordionDetails, Typography, Box } from '@mui/material';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -61,6 +65,7 @@ const FooterAccordion: FC<FooterAccordionProps> = ({ title, links }) => {
               margin: '8px 0 !important'
             }
           }}
+          component="ul"
         >
           <Typography
             variant="titleLg"

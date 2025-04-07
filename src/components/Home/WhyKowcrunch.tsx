@@ -1,6 +1,8 @@
 'use client';
 import Image from 'next/image';
-import { Box, Container, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import whyknowcrunch from '@/assets/home/whyKnowcrunch.webp';
 import FeatureItem from './FeatureItem';
 interface FeatureDataTypes {

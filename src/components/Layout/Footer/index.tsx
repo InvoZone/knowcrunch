@@ -1,5 +1,7 @@
 'use client';
-import { Box, Typography, Container } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import 'react-phone-input-2/lib/style.css';
 import FooterLinks from './FooterNav';
 import FooterLinksMobile from './MobileFooterNav';
@@ -26,44 +28,45 @@ interface FooterSection {
   links: string[];
 }
 
+const footerData: FooterSection[] = [
+  {
+    title: 'About Us',
+    links: [
+      'E-Learning Courses',
+      'Classroom Courses',
+      'Corporate Training',
+      'Brands that Trust Us',
+      'Instructors',
+      'Blog'
+    ]
+  },
+  {
+    title: 'Our Students',
+    links: ['Questions & Answers', 'Official Alumni Group', 'Digital Nation Group']
+  },
+  {
+    title: 'Legal',
+    links: ['Terms & Conditions', 'Cookies Policy', 'Data Privacy Policy', 'Contact Us']
+  }
+];
+
 const Footer: FC = () => {
   const t = useTranslations('footer');
-  const footerData: FooterSection[] = [
-    {
-      title: 'About Us',
-      links: [
-        'E-Learning Courses',
-        'Classroom Courses',
-        'Corporate Training',
-        'Brands that Trust Us',
-        'Instructors',
-        'Blog'
-      ]
-    },
-    {
-      title: 'Our Students',
-      links: ['Questions & Answers', 'Official Alumni Group', 'Digital Nation Group']
-    },
-    {
-      title: 'Legal',
-      links: ['Terms & Conditions', 'Cookies Policy', 'Data Privacy Policy', 'Contact Us']
-    }
-  ];
 
   return (
     <Box
       component="footer"
-      className="centerX"
       sx={{
         borderTopLeftRadius: '32px',
         borderTopRightRadius: '32px',
         backgroundColor: 'primary.main',
-        color: 'secondary.main'
+        color: 'secondary.main',
+        display: 'flex',
+        justifyContent: 'center'
       }}
     >
       <Container sx={{ maxWidth: '1408px !important' }}>
         <Box pt={{ xs: 4, lg: 6 }} pb={{ xs: 3, md: 2 }} px={{ xs: 1, md: 3 }}>
-          {/* Mobile Navigation Links */}
           <Box component="nav" sx={{ display: { xs: 'block', lg: 'none' }, pb: { xs: 3, md: 5 } }}>
             {footerData.map((section) => (
               <FooterLinksMobile key={section.title} title={section.title} links={section.links} />
@@ -76,7 +79,6 @@ const Footer: FC = () => {
             gap={6}
             flexWrap="wrap"
           >
-            {/* Newsletter Subscription Section */}
             <Box sx={{ width: { xs: 352, md: 290 } }}>
               <Typography variant="titleLg" component={'p'} pb={3}>
                 {t('getOurNews')}
@@ -114,7 +116,6 @@ const Footer: FC = () => {
               </Typography>
             </Box>
 
-            {/* Footer Links for Desktop View */}
             <Box
               component="nav"
               sx={{
@@ -129,7 +130,6 @@ const Footer: FC = () => {
               ))}
             </Box>
 
-            {/* App Download Section */}
             <Box
               sx={{
                 display: 'flex',
@@ -163,7 +163,6 @@ const Footer: FC = () => {
             </Box>
           </Box>
 
-          {/* Footer Bottom Section */}
           <Box
             sx={{
               display: 'flex',

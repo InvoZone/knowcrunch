@@ -1,7 +1,9 @@
 'use client';
 import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
-import { Box, Typography, Container } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import type { FC } from 'react';
 interface Logo {
     id: string;

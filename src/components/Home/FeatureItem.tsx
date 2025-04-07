@@ -1,7 +1,9 @@
 'use client';
 import Image from 'next/image';
-import { Box, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import type { FC } from 'react';
+
 interface FeatureItemProps {
   title: string;
   description: string;
@@ -10,7 +12,6 @@ interface FeatureItemProps {
 const FeatureItem: FC<FeatureItemProps> = ({ title, description }) => {
   return (
     <Box sx={{ display: 'flex', gap: '8px' }}>
-      {/* Display the tick icon */}
       <Image
         loading="lazy"
         src="/icons/tickCircle.svg"
@@ -20,7 +21,6 @@ const FeatureItem: FC<FeatureItemProps> = ({ title, description }) => {
         aria-label="Tick icon"
         title="tick"
       />
-      {/* Display the title and description in a list */}
       <Box
         component="ul"
         sx={{

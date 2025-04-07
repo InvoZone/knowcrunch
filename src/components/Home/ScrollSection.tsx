@@ -1,6 +1,8 @@
-import { Box, Container, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import { useRef, useState, useEffect } from 'react';
-import ScrollBtn from './ScrollBtns';
+import ScrollBtn from './ScrollBtn';
 import CustomBtn from '../Common/CustomBtn';
 import type { FC, ReactNode } from 'react';
 
@@ -12,7 +14,7 @@ interface ArrowPositionTypes {
 }
 
 interface ScrollSectionProps {
-  scrolAmount?: number | null;
+  scrollAmount?: number | null;
   children: ReactNode;
   width?: { [key: string]: string };
   leftArrowPosition?: ArrowPositionTypes;
@@ -23,7 +25,7 @@ interface ScrollSectionProps {
 }
 
 const ScrollSection: FC<ScrollSectionProps> = ({
-  scrolAmount = null,
+  scrollAmount = null,
   children,
   width,
   leftArrowPosition = { top: '44%', left: 10 },
@@ -37,13 +39,13 @@ const ScrollSection: FC<ScrollSectionProps> = ({
   const [showRightArrow, setShowRightArrow] = useState(true);
 
   const handleScroll = (direction: string) => {
-    const scrollAmount = scrolAmount ?? 644;
+    const scroll = scrollAmount ?? 644;
 
     if (scrollRef.current) {
       if (direction === 'left') {
-        scrollRef.current.scrollLeft -= scrollAmount;
+        scrollRef.current.scrollLeft -= scroll;
       } else {
-        scrollRef.current.scrollLeft += scrollAmount;
+        scrollRef.current.scrollLeft += scroll;
       }
     }
   };

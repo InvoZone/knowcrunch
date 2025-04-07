@@ -1,5 +1,5 @@
 import TextField from '@mui/material/TextField';
-import { Stack } from '@mui/material';
+import Stack from '@mui/material/Stack';
 import type { FC, ChangeEvent, FocusEvent } from 'react';
 
 interface CustomInputProps {

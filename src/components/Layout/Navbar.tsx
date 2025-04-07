@@ -6,7 +6,8 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Image from 'next/image';
-import { Badge, useMediaQuery } from '@mui/material';
+import Badge from '@mui/material/Badge';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import CustomBtn from '../Common/CustomBtn';
 import SearchField from './SearchField';
@@ -67,6 +68,7 @@ const Navbar = () => {
     if (isLg) {
       setAnchorElSuperMenu(event.currentTarget);
     }
+
     setSubMenu({});
     setSubMenu1({});
   };

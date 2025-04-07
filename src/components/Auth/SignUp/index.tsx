@@ -4,23 +4,26 @@ import { useState } from 'react';
 import type { FC, MouseEvent } from 'react';
 import CustomBtn from '@/components/Common/CustomBtn';
 import CustomDialog from '@/components/Common/CustomDialog';
-import { Box, Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import { useTranslations } from 'next-intl';
 import SignupForm from './SignupForm';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { openLoginSignUpPopup } from '@/lib/slices/auth';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
+import { GOOGLE_CLIENT_ID_REQUIRED } from '@/constants/validationMessages';
+
+const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+
+if (!googleClientId) {
+  throw new Error(GOOGLE_CLIENT_ID_REQUIRED);
+}
 
 interface SignupProps {
   onClick?: (_event: MouseEvent<HTMLElement>) => void;
 }
 
-type RegisterText = 'signupHeading' | 'Completeregistration';
+type RegisterText = 'signupHeading' | 'completeRegistration';
 
-/**
- * Signup component that handles the Signup dialog and button
- * Provides Google OAuth functionality and Signup form
- */
 const Signup: FC<SignupProps> = ({ onClick = () => '' }) => {
   const [registerText, setRegisterText] = useState<RegisterText>('signupHeading');
   const dispatch = useAppDispatch();
@@ -46,7 +49,7 @@ const Signup: FC<SignupProps> = ({ onClick = () => '' }) => {
   };
 
   const handleSubmitForm = () => {
-    setRegisterText('Completeregistration');
+    setRegisterText('completeRegistration');
   };
 
   const handleOpenLogin = () => {
@@ -60,7 +63,6 @@ const Signup: FC<SignupProps> = ({ onClick = () => '' }) => {
 
   return (
     <>
-      {/* Signup button that triggers the dialog */}
       <CustomBtn
         variant="contained"
         title={t('joinUs')}
@@ -72,31 +74,29 @@ const Signup: FC<SignupProps> = ({ onClick = () => '' }) => {
         aria-label="Open Signup Dialog"
       />
 
-      {/* Signup dialog containing the form */}
       <CustomDialog open={signupPopup} handleClose={handleClose} aria-label="Signup Dialog">
-        {/* Dialog heading */}
         <Typography variant="h4" color="tertiary" pb={3}>
           {t(registerText)}
         </Typography>
-        {/* Wrap Signup form with Google OAuth provider */}
-        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? ''}>
+        <GoogleOAuthProvider clientId={googleClientId}>
           <SignupForm t={t} handleClose={handleClose} handleSubmitForm={handleSubmitForm} />
-          {/* Sign up prompt for users without an account */}
           {registerText === 'signupHeading' && (
-            <Box textAlign={'center'}>
-              <Typography variant="body" color="neutral.neutral4" className="center">
-                {t('alreadyHaveAccount')} {'  '}
-                <CustomBtn
-                  onClick={handleOpenLogin}
-                  color="link.light"
-                  fontWeight={800}
-                  txtVariant="body"
-                  aria-label="Sign up link"
-                  title={t('signin')}
-                  sx={{ height: '24px' }}
-                />
-              </Typography>
-            </Box>
+            <Typography
+              variant="body"
+              color="neutral.neutral4"
+              sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              {t('alreadyHaveAccount')} {'  '}
+              <CustomBtn
+                onClick={handleOpenLogin}
+                color="link.light"
+                fontWeight={800}
+                txtVariant="body"
+                aria-label="Sign up link"
+                title={t('signin')}
+                sx={{ height: '24px' }}
+              />
+            </Typography>
           )}
         </GoogleOAuthProvider>
       </CustomDialog>

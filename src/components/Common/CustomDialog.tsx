@@ -1,6 +1,7 @@
 import type { FC, ReactNode } from 'react';
 import Dialog from '@mui/material/Dialog';
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import CloseOutlined from '@mui/icons-material/CloseOutlined';
 
 interface CustomDialogProps {
@@ -36,34 +37,35 @@ const CustomDialog: FC<CustomDialogProps> = ({
         '& .MuiDialog-paper': {
           borderRadius: 2,
           margin: '0px',
-          width // Responsive width based on screen size
+          width
         }
       }}
     >
-      {/* Dialog content wrapper */}
       <Box
         position={'relative'}
         sx={{
           pt: pt ?? 4,
           pb: pb ?? 3,
-          px: px ?? { xs: 3, lg: 4 } // Responsive padding
+          px: px ?? { xs: 3, lg: 4 }
         }}
       >
-        {/* Close button */}
-        <CloseOutlined
+        <IconButton onClick={handleClose}
           sx={{
-            color: 'neutral.neutral1',
-            height: 32,
-            width: 31,
             position: 'absolute',
-            right: 16,
-            top: 16,
-            cursor: 'pointer'
+            right: 8,
+            top: 8,
           }}
-          onClick={handleClose}
-        />
+        >
+          <CloseOutlined
+            sx={{
+              color: 'neutral.neutral1',
+              height: 32,
+              width: 31,
+            }}
 
-        {/* Render passed children content */}
+          />
+        </IconButton>
+
         {children}
       </Box>
     </Dialog>

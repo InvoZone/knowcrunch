@@ -1,4 +1,9 @@
-import { Box, Container, Grid2, Menu, MenuItem, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Grid2 from '@mui/material/Grid2';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
 import CourseCard from '../Common/CourseCard';

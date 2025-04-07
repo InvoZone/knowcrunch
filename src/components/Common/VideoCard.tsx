@@ -1,5 +1,5 @@
 'use client';
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 import videoThumb from '@/assets/testimonial/videoThumb.webp';
 import Image from 'next/image';
 import type { FC } from 'react';

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 import Image from 'next/image';
 import type { FC } from 'react';
 
@@ -37,10 +37,12 @@ const ScrollBtn: FC<ScrollBtnProps> = ({
         boxShadow: '0px 4px 10px 0px rgba(0, 0, 0, 0.15)',
         backgroundColor: 'secondary.main',
         cursor: 'pointer',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         ...leftArrowPosition,
         ...rightArrowPosition
       }}
-      className="center"
       onClick={onClick}
       aria-label={alt}
     >

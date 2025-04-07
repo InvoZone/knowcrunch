@@ -1,7 +1,9 @@
 'use client';
 
 import TextField from '@mui/material/TextField';
-import { InputLabel, Stack, Typography } from '@mui/material';
+import InputLabel from '@mui/material/InputLabel';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import type { TextFieldProps } from '@mui/material/TextField';
 import type { ChangeEvent, FC, FocusEvent } from 'react';
 

@@ -13,7 +13,6 @@ const eslintConfig = [
   ...compat.config({
     extends: ['next/core-web-vitals', 'next/typescript', 'prettier', 'next'],
     rules: {
-      'linebreak-style': ['error', 'unix'],
       'semi': ['error'],
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'no-console': ['warn'],

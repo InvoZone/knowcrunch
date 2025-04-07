@@ -1,8 +1,10 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { Box, Typography, useMediaQuery } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import ScrollBtn from './ScrollBtns';
+import ScrollBtn from './ScrollBtn';
 import type { FC } from 'react';
 
 interface MarketingOption {

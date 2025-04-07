@@ -1,10 +1,13 @@
 'use client';
 import Image from 'next/image';
-import { Box, Container, Typography, useMediaQuery } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import HeroImg1 from '../../assets/home/heropro.webp';
-import HeroImg2 from '../../assets/home/HeroDesk.webp';
-import HeroImg3 from '../../assets/home/Hero.webp';
+import HeroImg1 from '@/assets/home/heropro.webp';
+import HeroImg2 from '@/assets/home/HeroDesk.webp';
+import HeroImg3 from '@/assets/home/Hero.webp';
 import type { FC } from 'react';
 
 const Banner: FC = () => {

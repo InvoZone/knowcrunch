@@ -5,7 +5,9 @@ import type { FC } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import CustomBtn from '@/components/Common/CustomBtn';
 import CustomInput from '@/components/Common/CustomInput';
-import { Divider, InputAdornment, IconButton } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
 import { useFormik } from 'formik';
 import type { FormikHelpers } from 'formik';
 import * as yup from 'yup';
@@ -66,37 +68,37 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
 
   const googleSignup = useGoogleLogin({});
 
+  const { handleSubmit, handleChange, handleBlur, values, touched, errors } = formik;
+
   if (showCompleteRegistration) {
     return <CompleteRegistration t={t} handleClose={handleClose} />;
   }
 
-  const toggleShowPassword = () => setShowPassword(!showPassword);
-  const toggleShowConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
+  const toggleShowPassword = () => setShowPassword((prevState) => !prevState);
+  const toggleShowConfirmPassword = () => setShowConfirmPassword((prevState) => !prevState);
 
   return (
-    <form onSubmit={formik.handleSubmit} aria-label="Signup form">
-      {/* Email input field */}
+    <form onSubmit={handleSubmit} aria-label="Signup form">
       <CustomInput
         name="email"
         label={t('email')}
-        value={formik.values.email}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.email && Boolean(formik.errors.email)}
-        touched={formik.touched.email}
+        value={values.email}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.email && Boolean(errors.email)}
+        touched={touched.email}
         mb={1}
         aria-label="Email input"
       />
 
-      {/* Password input field */}
       <CustomInput
         name="password"
         label={t('password')}
-        value={formik.values.password}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.password && Boolean(formik.errors.password)}
-        touched={formik.touched.password}
+        value={values.password}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.password && Boolean(errors.password)}
+        touched={touched.password}
         mb={1}
         type={showPassword ? 'text' : 'password'}
         slotProps={{
@@ -126,15 +128,14 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
         }}
       />
 
-      {/* Rewrite Password input field */}
       <CustomInput
         name="confirmPassword"
         label={t('rewritePassword')}
-        value={formik.values.confirmPassword}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
-        touched={formik.touched.confirmPassword}
+        value={values.confirmPassword}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.confirmPassword && Boolean(errors.confirmPassword)}
+        touched={touched.confirmPassword}
         mb={3}
         type={showConfirmPassword ? 'text' : 'password'}
         slotProps={{
@@ -167,7 +168,6 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
         }}
       />
 
-      {/* Submit button for email/password signup */}
       <CustomBtn
         type="submit"
         title={t('continue')}
@@ -178,14 +178,13 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
           backgroundColor: 'base1.default',
           width: '100%',
           opacity:
-            !formik.values.email || !formik.values.password || !formik.values.confirmPassword
+            Object.values(errors).some(Boolean)
               ? 0.5
               : 1
         }}
         aria-label="Continue with email/password"
       />
 
-      {/* Divider between signup methods */}
       <Divider
         sx={{
           'py': 2,
@@ -198,7 +197,6 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
         {t('or')}
       </Divider>
 
-      {/* Google OAuth signup button */}
       <CustomBtn
         type="button"
         title={t('continueWithGoogle')}

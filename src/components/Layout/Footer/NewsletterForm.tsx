@@ -1,4 +1,5 @@
-import { Box, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import CustomBtn from '@/components/Common/CustomBtn';
@@ -7,6 +8,8 @@ import { EMAIL_INVALID, EMAIL_REQUIRED } from '@/constants/validationMessages';
 import { useTranslations } from 'next-intl';
 
 const validationSchema = Yup.object({
+  firstName: Yup.string(),
+  surname: Yup.string(),
   email: Yup.string().email(EMAIL_INVALID).required(EMAIL_REQUIRED)
 });
 
@@ -18,7 +21,7 @@ const initialValues = {
 
 const NewsletterForm = () => {
   const t = useTranslations('footer');
-  const formik = useFormik({
+  const { handleSubmit, values, handleChange, handleBlur, touched, errors } = useFormik({
     initialValues,
     validationSchema,
     onSubmit: (values) => {
@@ -28,7 +31,7 @@ const NewsletterForm = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Box position={'relative'}>
         <Typography
           component={"span"}
@@ -39,26 +42,26 @@ const NewsletterForm = () => {
         </Typography>
         <CustomInput
           name="email"
-          value={formik?.values?.email}
-          handleChange={formik.handleChange}
-          handleBlur={formik.handleBlur}
-          touched={formik?.touched?.email}
-          errors={formik?.errors?.email}
+          value={values.email}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+          touched={touched.email}
+          errors={errors.email}
           placeholder={t('e-mail')}
           aria-label="Email"
         />
       </Box>
       <CustomInput
         name="firstName"
-        value={formik?.values?.firstName}
-        handleChange={formik.handleChange}
+        value={values.firstName}
+        handleChange={handleChange}
         placeholder={t('firstName')}
         aria-label="First name"
       />
       <CustomInput
         name="surname"
-        value={formik?.values?.surname}
-        handleChange={formik.handleChange}
+        value={values.surname}
+        handleChange={handleChange}
         placeholder={t('surname')}
         aria-label="Surname"
       />

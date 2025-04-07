@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
-import { Box, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import type { FC } from 'react';
 
 interface InstructorCardProps {
@@ -74,5 +75,4 @@ const InstructorCard: FC<InstructorCardProps> = ({
   );
 };
 
-// Export the InstructorCard component
 export default InstructorCard;

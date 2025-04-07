@@ -1,5 +1,8 @@
 import Image from 'next/image';
-import { Box, Container, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
 import certification from '@/assets/home/professional-diploma.webp';
 import type { FC } from 'react';
 
@@ -8,27 +11,28 @@ const Certification: FC = () => {
     <Box component={'section'} sx={{ backgroundColor: 'neutral.neutral10' }}>
       <Container
         maxWidth={'xl'}
-        sx={{ display: 'flex', justifyContent: 'center', py: { xs: 4, md: 6 } }}
+        sx={{ py: { xs: 4, md: 6 } }}
       >
-        <Box
+        <Stack
+          direction={'row'}
           sx={{
-            display: 'flex',
             justifyContent: 'center',
             columnGap: 6,
             maxWidth: 1136,
             rowGap: 3,
             px: { xs: 4, sm: 4, md: '58px', lg: 6 },
+            margin: '0 auto',
             flexWrap: { xs: 'wrap', lg: 'unset' }
           }}
         >
-          <Box
+          <Stack
+            direction={'row'}
             sx={{
               width: { xs: 327, md: 358 },
               height: { xs: 237, md: 249 },
               position: 'relative',
-              px: { xs: 1, sm: 0 }
+              justifyContent: 'center',
             }}
-            className="centerX"
           >
             <Image
               src={certification}
@@ -37,10 +41,10 @@ const Certification: FC = () => {
               loading="lazy"
               priority={false}
               height={249}
-              style={{ padding: '0rem 1.5rem' }}
+              style={{ padding: '0rem 1rem' }}
               sizes="(max-width: 575px) 336px, (max-width: 1279px) 354px, 354px"
             />
-          </Box>
+          </Stack>
           <Box
             sx={{
               display: 'flex',
@@ -54,8 +58,8 @@ const Certification: FC = () => {
               color="base1.dark4"
               component={'h2'}
               pb={2}
-              pr={{ xs: 1, sm: 4 }}
-              pl={{ xs: 1, sm: 0, md: 2, lg: 0 }}
+              pr={{ xs: 0, sm: 4 }}
+              pl={{ xs: 0, sm: 0, md: 2, lg: 0 }}
             >
               Earn your professional certification or diploma
             </Typography>
@@ -70,11 +74,10 @@ const Certification: FC = () => {
               Certificate upon completing any of our other courses.
             </Typography>
           </Box>
-        </Box>
+        </Stack>
       </Container>
     </Box>
   );
 };
 
-// Exporting the Certification component
 export default Certification;

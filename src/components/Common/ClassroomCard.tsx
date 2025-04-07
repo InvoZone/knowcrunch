@@ -2,7 +2,8 @@
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import CustomBtn from './CustomBtn';
 import TruncateText from './TruncateText';
 import type { FC } from 'react';
@@ -28,7 +29,6 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
       p={2}
       aria-label="Classroom Card"
     >
-      {/* Course thumbnail section with play button overlay */}
       <Box
         sx={{
           width: '100%',
@@ -38,7 +38,6 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
         }}
         aria-label="Course Thumbnail"
       >
-        {/* Best seller badge and heart icon */}
         <Box
           sx={{
             position: 'absolute',
@@ -77,7 +76,6 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
       </Box>
 
       <Box height={206}>
-        {/* Course title */}
         <Box display={'flex'} alignItems={'center'}>
           <Image
             src="/icons/course/locationicon.svg"
@@ -100,7 +98,6 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
           length={48}
         />
 
-        {/* Course description */}
         <TruncateText
           text="An exceedingly advanced training program that provides comprehensive lectures"
           variant="body2"
@@ -110,7 +107,6 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
           sx={{ fontWeight: 400, pb: 1 }}
         />
 
-        {/* Course metadata: language, rating, and duration */}
         <Box
           display={'flex'}
           gap={0.5}
@@ -118,7 +114,7 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
           py={'13px'}
           aria-label="Course Metadata"
         >
-          <Box display={'flex'} alignItems={'center'}>
+          <Stack direction={'row'} alignItems={'center'}>
             <Image
               src="/icons/course/calendaricon.svg"
               alt="calendaricon"
@@ -130,9 +126,8 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
             <Typography variant="body" color="secondary.main" pl={1}>
               January 2025 •
             </Typography>
-          </Box>
-          {/* Language indicator */}
-          <Box display={'flex'} alignItems={'center'}>
+          </Stack>
+          <Stack direction={'row'} alignItems={'center'}>
             <Image
               src="/icons/course/globalicon.svg"
               alt="glob"
@@ -144,9 +139,8 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
             <Typography variant="body" color="secondary.main" pl={1}>
               EN •
             </Typography>
-          </Box>
-          {/* Rating display */}
-          <Box display={'flex'} alignItems={'center'}>
+          </Stack>
+          <Stack direction={'row'} alignItems={'center'}>
             <Image
               src="/icons/course/staricon.svg"
               alt="starIcon"
@@ -167,9 +161,8 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
               </Typography>{' '}
               •
             </Typography>
-          </Box>
-          {/* Duration display */}
-          <Box display={'flex'} alignItems={'center'} aria-label="Course Duration">
+          </Stack>
+          <Stack direction={'row'} alignItems={'center'} aria-label="Course Duration">
             <Image
               src="/icons/course/clockhour.svg"
               alt="clockIcon"
@@ -181,11 +174,10 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
             <Typography variant="body" color="secondary.main" pl={1}>
               139h
             </Typography>
-          </Box>
+          </Stack>
         </Box>
       </Box>
 
-      {/* Enrollment section with price and button */}
       <Box>
         <CustomBtn
           title="Enrol 100€"
@@ -196,7 +188,7 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
           aria-label="Enrollment Button"
         />
       </Box>
-    </Box>
+    </Box >
   );
 };
 

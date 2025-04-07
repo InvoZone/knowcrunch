@@ -1,4 +1,5 @@
-import { InputAdornment, TextField } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
+import TextField from '@mui/material/TextField';
 import Image from 'next/image';
 import type { FC } from 'react';
 interface SearchFieldProps {

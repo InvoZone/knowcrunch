@@ -93,7 +93,8 @@
     "resetAccountPassword": "Reset account password",
     "resetPasswordInstruction": "Enter a new password for info@bluepeak.gr",
     "resetInstruction": "To reset your password, enter the email address you use to login",
-    "sendResetLink": "Send reset link"
+    "sendResetLink": "Send reset link",
+    "register": "Register"
   },
   "classroomCourses": {
     "inClassCourses": "In class courses",

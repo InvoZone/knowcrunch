@@ -15,10 +15,6 @@ export const initialState: AuthState = {
   forgotPopup: false
 };
 
-/**
- * Auth slice handles authentication state management
- * Contains reducers for logging in and out
- */
 export const authSlice = createSlice({
   name: 'auth',
   initialState,

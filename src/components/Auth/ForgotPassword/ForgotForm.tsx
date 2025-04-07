@@ -17,7 +17,7 @@ interface ForgotFormProps {
 }
 
 const ForgotPasswordForm: FC<ForgotFormProps> = ({ t, handleClose }) => {
-  const formik = useFormik({
+  const { handleSubmit, handleChange, handleBlur, values, touched, errors } = useFormik({
     initialValues: {
       email: ''
     },
@@ -28,21 +28,19 @@ const ForgotPasswordForm: FC<ForgotFormProps> = ({ t, handleClose }) => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} aria-label="Forgot Password Form">
-      {/* Email input field */}
+    <form onSubmit={handleSubmit} aria-label="Forgot Password Form">
       <CustomInput
         name={'email'}
         label={t('email')}
-        value={formik.values.email}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.email && Boolean(formik.errors.email)}
-        touched={formik.touched.email}
+        value={values.email}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.email && Boolean(errors.email)}
+        touched={touched.email}
         mb={1}
         aria-label="Email input"
       />
 
-      {/* Submit button for email/password login */}
       <CustomBtn
         type="submit"
         title={t('sendResetLink')}

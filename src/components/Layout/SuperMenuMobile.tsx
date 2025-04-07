@@ -1,4 +1,9 @@
-import { Box, Container, Menu, Grid2, MenuItem, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Grid2 from '@mui/material/Grid2';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
 import CustomBtn from '../Common/CustomBtn';
@@ -131,7 +136,6 @@ const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
               </Box>
             </Grid2>
 
-            {/* Main menu items and auth buttons */}
             {!('id' in menu) && !('id' in subMenu) && (
               <Grid2 size={12}>
                 {isLoggedIn && (

@@ -1,5 +1,6 @@
 import type { FC } from 'react';
-import { Typography, Box } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import Link from 'next/link';
 import styles from './footer.module.css';
 

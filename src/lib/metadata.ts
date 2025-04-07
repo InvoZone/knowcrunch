@@ -8,9 +8,6 @@ export type MetadataProps = {
   type?: 'website';
 };
 
-/**
- * Generate metadata for a page with custom values
- */
 export function generateMetadata({
   title,
   description,

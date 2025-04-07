@@ -1,9 +1,8 @@
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 
-// Import assets and icons
 import courseThumb from '@/assets/course/courseThumb.webp';
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 import CustomBtn from './CustomBtn';
 import TruncateText from './TruncateText';
 import type { FC } from 'react';
@@ -37,13 +36,11 @@ const CourseCard: FC<CourseCardProps> = ({
         flexShrink: 0,
         boxShadow: shadow ? '0px 4px 4px 0px rgba(0, 0, 0, 0.15)' : 'none',
         mb: shadow ? 1 : 0
-        // minWidth: minWidth
       }}
       p={1}
       mx={mx}
       aria-label="Course Card"
     >
-      {/* Course thumbnail section with play button overlay */}
       <Box
         sx={{
           width: '100%',
@@ -53,7 +50,6 @@ const CourseCard: FC<CourseCardProps> = ({
         }}
         aria-label="Course Thumbnail"
       >
-        {/* Play button overlay */}
         <Box position={'absolute'} top={'40%'} left={'43%'} aria-label="Play Button">
           <Image
             src={'/icons/playBtn.webp'}
@@ -65,7 +61,6 @@ const CourseCard: FC<CourseCardProps> = ({
           />
         </Box>
 
-        {/* Best seller badge and heart icon */}
         <Box
           sx={{
             position: 'absolute',
@@ -113,7 +108,6 @@ const CourseCard: FC<CourseCardProps> = ({
       </Box>
 
       <Box height={146}>
-        {/* Course title */}
         <TruncateText
           text={
             tag === 'NEW'
@@ -127,7 +121,6 @@ const CourseCard: FC<CourseCardProps> = ({
           length={70}
         />
 
-        {/* Course description */}
         <TruncateText
           text="An exceedingly advanced training program that provides comprehensive lectures"
           variant="body2"
@@ -137,9 +130,7 @@ const CourseCard: FC<CourseCardProps> = ({
           length={100}
         />
 
-        {/* Course metadata: language, rating, and duration */}
         <Box display={'flex'} gap={0.5} aria-label="Course Metadata" pt={1}>
-          {/* Language indicator */}
           <Box display={'flex'} alignItems={'center'} aria-label="Language Indicator">
             <Image
               src="/icons/course/glob.svg"
@@ -153,7 +144,6 @@ const CourseCard: FC<CourseCardProps> = ({
               EN •
             </Typography>
           </Box>
-          {/* Rating display */}
           <Box display={'flex'} alignItems={'center'} aria-label="Rating Display">
             <Image
               src="/icons/course/star.svg"
@@ -178,7 +168,6 @@ const CourseCard: FC<CourseCardProps> = ({
               •
             </Typography>
           </Box>
-          {/* Duration display */}
           <Box display={'flex'} alignItems={'center'} aria-label="Duration Display">
             <Image
               src="/icons/course/clock.svg"
@@ -196,7 +185,6 @@ const CourseCard: FC<CourseCardProps> = ({
         </Box>
       </Box>
 
-      {/* Enrollment section with price and button */}
       {enrollButton && (
         <Box aria-label="Enrollment Section">
           {discountTag && (

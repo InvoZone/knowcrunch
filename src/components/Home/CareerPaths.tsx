@@ -1,4 +1,6 @@
-import { Box, Container, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import CourseCard from '../Common/CourseCard';
 import TickMark from './TickMark';
 import SelectableLinks from './SelectableLinks';
@@ -45,7 +47,6 @@ const CareerPath: FC = () => {
                   gap: '8px'
                 }}
               >
-                {/* Content Marketing Section */}
                 <Box
                   sx={{
                     borderRadius: '8px',
@@ -139,7 +140,7 @@ const CareerPath: FC = () => {
                       bottom: 0,
                       width: '100%',
                       height: '2px',
-                      backgroundColor: '#3366cc', // Use the button's text color
+                      backgroundColor: '#3366cc',
                       transform: 'scaleX(0)',
                       transformOrigin: 'left',
                       transition: 'transform 300ms ease-in-out'

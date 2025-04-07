@@ -2,7 +2,8 @@
 'use client';
 import { memo } from 'react';
 import type { ReactNode } from 'react';
-import { Box, useMediaQuery } from '@mui/material';
+import Box from '@mui/material/Box';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Certification from './Certification';
 import WhyKnowcrunch from './WhyKowcrunch';
@@ -104,7 +105,7 @@ const Home = () => {
   }) => (
     <ScrollSection
       width={width}
-      scrolAmount={getScrollAmount(small, med, lg, xl)}
+      scrollAmount={getScrollAmount(small, med, lg, xl)}
       leftArrowPosition={{ top: top ?? '44%', left: { ...left } }}
       rightArrowPosition={{ top: top ?? '44%', right: { ...right } }}
       heading={heading}
@@ -117,13 +118,11 @@ const Home = () => {
 
   return (
     <Box component="div">
-      {/* Banner section */}
       <Banner />
       <Box component={'section'} sx={{ marginTop: '-30px', px: { xs: 3, md: 6 } }}>
         <LogoAnimate />
       </Box>
 
-      {/* E-learning courses section */}
       {renderScrollSection({
         heading: 'Popular E-learning Courses',
         children: [...Array(6)].map((_, ind) => (
@@ -147,10 +146,8 @@ const Home = () => {
         width: { xs: '300px', md: '100%' }
       })}
 
-      {/* Career path section */}
       <CareerPath />
 
-      {/* Classroom courses section */}
       {renderScrollSection({
         heading: 'Classroom Courses',
         children: [...Array(12)].map((_, ind) => (
@@ -168,7 +165,6 @@ const Home = () => {
         width: { xs: '300px', md: '100%' }
       })}
 
-      {/* Instructors courses section */}
       {renderScrollSection({
         heading: 'Our Instructors',
         children: instructors.map((instructor, index) => (
@@ -186,7 +182,6 @@ const Home = () => {
         width: { xs: '361px', md: '100%' }
       })}
 
-      {/* Testimonials section */}
       {renderScrollSection({
         heading: 'Video Testimonials',
         children: [...Array(12)].map((_, ind) => <VideoCard key={ind} width={368} />),
@@ -202,10 +197,8 @@ const Home = () => {
         width: { xs: '390px', md: '100%' }
       })}
 
-      {/* Certification section */}
       <Certification />
 
-      {/* Why Knowcrunch section */}
       <WhyKnowcrunch />
     </Box>
   );

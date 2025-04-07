@@ -3,7 +3,10 @@
 import { useGoogleLogin } from '@react-oauth/google';
 import CustomBtn from '@/components/Common/CustomBtn';
 import CustomInput from '@/components/Common/CustomInput';
-import { Box, Divider, InputAdornment, IconButton } from '@mui/material';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Image from 'next/image';
@@ -37,14 +40,11 @@ const initialValues = {
   rememberMe: false
 };
 
-/**
- * LoginForm component handles user authentication through email/password and Google OAuth
- */
 const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }) => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
-  const toggleShowPassword = () => setShowPassword(!showPassword);
+  const toggleShowPassword = () => setShowPassword((prevState) => !prevState);
 
   const formik = useFormik({
     initialValues,
@@ -56,32 +56,32 @@ const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }
     }
   });
 
+  const { handleSubmit, handleChange, handleBlur, values, touched, errors } = formik;
+
   const handleLogin = useGoogleLogin({});
 
   return (
-    <form onSubmit={formik.handleSubmit} aria-label="Login form">
-      {/* Email input field */}
+    <form onSubmit={handleSubmit} aria-label="Login form">
       <CustomInput
         name="email"
         label={t('email')}
-        value={formik.values.email}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.email && Boolean(formik.errors.email)}
-        touched={formik.touched.email}
+        value={values.email}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.email && Boolean(errors.email)}
+        touched={touched.email}
         mb={1}
         aria-label="Email input"
       />
 
-      {/* Password input field */}
       <CustomInput
         name="password"
         label={t('password')}
-        value={formik.values.password}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.password && Boolean(formik.errors.password)}
-        touched={formik.touched.password}
+        value={values.password}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.password && Boolean(errors.password)}
+        touched={touched.password}
         mb={1}
         type={showPassword ? 'text' : 'password'}
         slotProps={{
@@ -111,11 +111,11 @@ const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }
         }}
       />
 
-      <Box component="div" display="flex" justifyContent="space-between" height={24}>
+      <Box display="flex" justifyContent="space-between" height={24}>
         <CustomCheckbox
           label={t('rememberMe')}
-          checked={formik.values.rememberMe}
-          onChange={formik.handleChange}
+          checked={values.rememberMe}
+          onChange={handleChange}
           name="rememberMe"
           colors={{ unchecked: 'neutral.neutral5' }}
           aria-label="Remember me checkbox"
@@ -133,7 +133,6 @@ const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }
         />
       </Box>
 
-      {/* Submit button for email/password login */}
       <CustomBtn
         type="submit"
         title={t('signin')}
@@ -143,12 +142,11 @@ const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }
           backgroundColor: 'accents.bubble1',
           width: '100%',
           mt: 3,
-          opacity: !formik.values.email && !formik.values.password ? 0.5 : 1
+          opacity: Object.values(errors).some(Boolean) ? 0.5 : 1
         }}
         aria-label="Sign in button"
       />
 
-      {/* Divider between login methods */}
       <Divider
         sx={{
           'py': 2,
@@ -161,7 +159,6 @@ const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }
         {t('or')}
       </Divider>
 
-      {/* Google OAuth login button */}
       <CustomBtn
         type="button"
         title={t('continueWithGoogle')}

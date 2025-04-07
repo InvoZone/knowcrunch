@@ -1,4 +1,5 @@
-import { Checkbox, FormControlLabel } from '@mui/material';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import type { ChangeEvent, FC } from 'react';
 
 interface CustomCheckboxProps {
@@ -18,7 +19,6 @@ const CustomCheckbox: FC<CustomCheckboxProps> = ({ label, checked, onChange, nam
       sx={{
         'height': 32,
         'mr': 0,
-        // Style customization for the checkbox label
         '& .MuiFormControlLabel-label': {
           color: 'neutral.neutral1',
           fontSize: 16,
@@ -28,16 +28,15 @@ const CustomCheckbox: FC<CustomCheckboxProps> = ({ label, checked, onChange, nam
         }
       }}
       control={
-        // Custom styled checkbox with ripple effect disabled
         <Checkbox
           disableRipple
           name={name}
           checked={checked}
           onChange={onChange}
           sx={{
-            'color': colors?.unchecked ?? 'base1.dark4', // Unchecked color
+            'color': colors?.unchecked ?? 'base1.dark4',
             '&.Mui-checked': {
-              color: colors?.checked ?? 'base1.default' // Checked color
+              color: colors?.checked ?? 'base1.default'
             }
           }}
           aria-label={`Toggle ${label}`}
