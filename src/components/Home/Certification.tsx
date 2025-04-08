@@ -9,10 +9,7 @@ import type { FC } from 'react';
 const Certification: FC = () => {
   return (
     <Box component={'section'} sx={{ backgroundColor: 'neutral.neutral10' }}>
-      <Container
-        maxWidth={'xl'}
-        sx={{ py: { xs: 4, md: 6 } }}
-      >
+      <Container maxWidth={'xl'} sx={{ py: { xs: 4, md: 6 } }}>
         <Stack
           direction={'row'}
           sx={{
@@ -31,7 +28,7 @@ const Certification: FC = () => {
               width: { xs: 327, md: 358 },
               height: { xs: 237, md: 249 },
               position: 'relative',
-              justifyContent: 'center',
+              justifyContent: 'center'
             }}
           >
             <Image

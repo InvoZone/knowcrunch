@@ -22,7 +22,7 @@ interface LoginProps {
   onClick?: (_event: MouseEvent<HTMLElement>) => void;
 }
 
-const Login: FC<LoginProps> = ({ onClick = () => { } }) => {
+const Login: FC<LoginProps> = ({ onClick = () => {} }) => {
   const dispatch = useAppDispatch();
   const t = useTranslations('account');
   const { loginPopup } = useAppSelector((state) => state.auth);

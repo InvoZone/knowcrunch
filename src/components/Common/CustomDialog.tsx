@@ -49,20 +49,20 @@ const CustomDialog: FC<CustomDialogProps> = ({
           px: px ?? { xs: 3, lg: 4 }
         }}
       >
-        <IconButton onClick={handleClose}
+        <IconButton
+          onClick={handleClose}
           sx={{
             position: 'absolute',
             right: 8,
-            top: 8,
+            top: 8
           }}
         >
           <CloseOutlined
             sx={{
               color: 'neutral.neutral1',
               height: 32,
-              width: 31,
+              width: 31
             }}
-
           />
         </IconButton>
 

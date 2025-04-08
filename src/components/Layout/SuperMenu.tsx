@@ -25,7 +25,7 @@ interface SuperMenuProps {
   menu: MenuItemType;
   subMenu: MenuItemType;
   subMenu1: MenuItemType;
-  t: (_key: string) => string;
+  t: (_key: string | undefined) => string;
 }
 
 const SuperMenu: FC<SuperMenuProps> = ({
@@ -99,7 +99,7 @@ const SuperMenu: FC<SuperMenuProps> = ({
                     variant="subtitleLg"
                     color={subMenu?.id === menu?.id ? base1.dark4 : 'secondary'}
                   >
-                    {t(menu?.title ?? '')}{' '}
+                    {t(menu?.title)}{' '}
                   </Typography>{' '}
                   <Image
                     src={
@@ -144,7 +144,7 @@ const SuperMenu: FC<SuperMenuProps> = ({
                       variant="subtitleLg"
                       color={subMenu1?.id === el?.id ? base1.dark4 : 'secondary'}
                     >
-                      {t(el?.title ?? '')}{' '}
+                      {t(el?.title)}{' '}
                     </Typography>
                   </MenuItem>
                 ))}

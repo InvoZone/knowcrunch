@@ -11,7 +11,7 @@ interface FeatureItemProps {
 
 const FeatureItem: FC<FeatureItemProps> = ({ title, description }) => {
   return (
-    <Box sx={{ display: 'flex', gap: '8px' }}>
+    <Box sx={{ display: 'flex', gap: '8px' }} component={'li'}>
       <Image
         loading="lazy"
         src="/icons/tickCircle.svg"
@@ -22,7 +22,6 @@ const FeatureItem: FC<FeatureItemProps> = ({ title, description }) => {
         title="tick"
       />
       <Box
-        component="ul"
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -30,10 +29,10 @@ const FeatureItem: FC<FeatureItemProps> = ({ title, description }) => {
           listStyleType: 'none'
         }}
       >
-        <Typography component="li" variant="titleLg" color="tertiary.main" aria-label={title}>
+        <Typography variant="titleLg" color="tertiary.main" aria-label={title} component={'p'}>
           {title}
         </Typography>
-        <Typography component="li" variant="body" sx={{ color: 'neutral.neutral1' }}>
+        <Typography variant="body" sx={{ color: 'neutral.neutral1' }} component={'p'}>
           {description}
         </Typography>
       </Box>

@@ -20,11 +20,7 @@ const ForgotPassword: React.FC = () => {
   };
 
   return (
-    <CustomDialog
-      open={forgotPopup}
-      handleClose={handleClose}
-      aria-label="Forgot Password Dialog"
-    >
+    <CustomDialog open={forgotPopup} handleClose={handleClose} aria-label="Forgot Password Dialog">
       <Typography variant="h4" color="tertiary" pb={1}>
         {t('resetYourPassword')}
       </Typography>

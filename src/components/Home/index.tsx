@@ -117,7 +117,7 @@ const Home = () => {
   );
 
   return (
-    <Box component="div">
+    <Box>
       <Banner />
       <Box component={'section'} sx={{ marginTop: '-30px', px: { xs: 3, md: 6 } }}>
         <LogoAnimate />

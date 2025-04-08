@@ -56,10 +56,7 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (
-      values: SubmitValues,
-      { setSubmitting }: FormikHelpers<SubmitValues>
-    ) => {
+    onSubmit: (values: SubmitValues, { setSubmitting }: FormikHelpers<SubmitValues>) => {
       handleSubmitForm();
       setShowCompleteRegistration(true);
       setSubmitting(false);
@@ -177,10 +174,7 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
         sx={{
           backgroundColor: 'base1.default',
           width: '100%',
-          opacity:
-            Object.values(errors).some(Boolean)
-              ? 0.5
-              : 1
+          opacity: Object.values(errors).some(Boolean) ? 0.5 : 1
         }}
         aria-label="Continue with email/password"
       />

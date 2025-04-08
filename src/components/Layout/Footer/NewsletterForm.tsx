@@ -34,9 +34,9 @@ const NewsletterForm = () => {
     <form onSubmit={handleSubmit}>
       <Box position={'relative'}>
         <Typography
-          component={"span"}
+          component={'span'}
           color="error.light"
-          sx={{ position: "absolute", left: 58, top: 14, zIndex: 1 }}
+          sx={{ position: 'absolute', left: 58, top: 14, zIndex: 1 }}
         >
           *
         </Typography>

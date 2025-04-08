@@ -188,7 +188,7 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
           aria-label="Enrollment Button"
         />
       </Box>
-    </Box >
+    </Box>
   );
 };
 

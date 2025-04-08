@@ -84,7 +84,8 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
         error={touched.name && Boolean(errors.name)}
         touched={touched.name}
         mb={1}
-        aria-label="Name input" />
+        aria-label="Name input"
+      />
 
       <CustomInput
         name="surname"
@@ -182,16 +183,13 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
 
       <CustomBtn
         type="submit"
-        title={t("register")}
+        title={t('register')}
         variant="contained"
         loading={formik.isSubmitting}
         sx={{
           backgroundColor: 'accents.bubble1',
           width: '100%',
-          opacity:
-            Object.values(errors).some(Boolean)
-              ? 0.5
-              : 1
+          opacity: Object.values(errors).some(Boolean) ? 0.5 : 1
         }}
         aria-label="Register button"
       />

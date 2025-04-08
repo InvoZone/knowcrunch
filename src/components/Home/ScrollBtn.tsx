@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import Image from 'next/image';
 import type { FC } from 'react';
 
@@ -25,7 +25,7 @@ const ScrollBtn: FC<ScrollBtnProps> = ({
   rightArrowPosition
 }) => {
   return (
-    <Box
+    <IconButton
       sx={{
         position: 'absolute',
         zIndex: 1,
@@ -40,6 +40,9 @@ const ScrollBtn: FC<ScrollBtnProps> = ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        '&:hover': {
+          backgroundColor: 'secondary.main'
+        },
         ...leftArrowPosition,
         ...rightArrowPosition
       }}
@@ -47,7 +50,7 @@ const ScrollBtn: FC<ScrollBtnProps> = ({
       aria-label={alt}
     >
       <Image src={src} alt={alt} height={24} width={24} loading="lazy" title="arrow button" />
-    </Box>
+    </IconButton>
   );
 };
 

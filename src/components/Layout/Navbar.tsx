@@ -12,15 +12,15 @@ import { useTheme } from '@mui/material/styles';
 import CustomBtn from '../Common/CustomBtn';
 import SearchField from './SearchField';
 import Link from 'next/link';
-import { navbarMenu } from '../../constants/navbarMenu';
-import type { NavbarMenu, Menu, SubMenu } from '../../constants/navbarMenu';
+import { navbarMenu } from '@/constants/navbarMenu';
+import type { NavbarMenu, Menu, SubMenu } from '@/constants/navbarMenu';
 import { useTranslations } from 'next-intl';
 import SuperMenu from './SuperMenu';
 import SuperMenuMobile from './SuperMenuMobile';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { logout } from '../../lib/slices/auth';
-import stripeLogo from '../../assets/Navbar/stripeLogo.webp';
+import { logout } from '@/lib/slices/auth';
+import stripeLogo from '@/assets/Navbar/stripeLogo.webp';
 import Login from '../Auth/Login';
 import Signup from '../Auth/SignUp';
 import type { MouseEvent } from 'react';
@@ -53,7 +53,7 @@ const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const handleOpenMobileMenu = (event: MouseEvent<HTMLElement>) => {
-    setMobileMenu(!mobileMenu);
+    setMobileMenu((prevState) => !prevState);
     setMenu({});
     setSubMenu({});
     setSubMenu1({});
@@ -87,6 +87,7 @@ const Navbar = () => {
 
   const handleSubMenu = (menu: MenuItem) => {
     if (!menu?.subMenu) return;
+
     setSubMenu(menu);
     setSubMenu1({});
   };
@@ -107,12 +108,12 @@ const Navbar = () => {
     dispatch(logout());
   };
 
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
 
     window.addEventListener('scroll', handleScroll);
 
@@ -149,7 +150,6 @@ const Navbar = () => {
                   <SuperMenuMobile
                     handleOpenSuperMenu={handleOpenSuperMenu}
                     handleSubMenu={handleSubMenu}
-                    handleSubMenu1={() => handleSubMenu1}
                     anchorElSuperMenu={anchorElSuperMenu}
                     handleCloseSuperMenu={handleCloseSuperMenu}
                     superMenu={navbarMenu}
@@ -166,7 +166,6 @@ const Navbar = () => {
               </Box>
 
               <Box
-                component="div"
                 flexGrow={{ xs: 1, lg: isCheckout ? 1 : 0 }}
                 aria-label="Website Logo"
               >
@@ -216,8 +215,8 @@ const Navbar = () => {
 
                   {isLg && (
                     <SuperMenu
-                      handleSubMenu={(menu: Menu) => handleSubMenu(menu)}
-                      handleSubMenu1={(menu: Menu) => handleSubMenu1(menu)}
+                      handleSubMenu={handleSubMenu}
+                      handleSubMenu1={handleSubMenu1}
                       anchorElSuperMenu={anchorElSuperMenu}
                       handleCloseSuperMenu={handleCloseSuperMenu}
                       menu={menu}
@@ -308,7 +307,6 @@ const Navbar = () => {
 
               {isCheckout && (
                 <Box
-                  component="div"
                   sx={{ flexGrow: 0, display: 'flex', gap: 2 }}
                   aria-label="Checkout icons"
                 >

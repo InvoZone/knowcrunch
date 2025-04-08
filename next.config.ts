@@ -1,16 +1,15 @@
-
 import createNextIntlPlugin from 'next-intl/plugin';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack(config: { module: { rules: { test: RegExp; use: string[]; }[]; }; }) {
+  webpack(config: { module: { rules: { test: RegExp; use: string[] }[] } }) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
+      use: ['@svgr/webpack']
     });
 
     return config;
-  },
+  }
 };
 
 const withNextIntl = createNextIntlPlugin();

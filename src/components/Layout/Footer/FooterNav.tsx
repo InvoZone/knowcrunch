@@ -37,10 +37,7 @@ const FooterLinks: FC<FooterLinksProps> = ({ title, links }) => {
           aria-label={`Link to ${link}`}
           component={'li'}
         >
-          <Link
-            href="/"
-            className={styles.hover_underline}
-          >
+          <Link href="/" className={styles.hover_underline}>
             {link}
           </Link>
         </Typography>

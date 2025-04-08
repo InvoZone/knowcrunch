@@ -6,7 +6,7 @@ import type { ReactNode } from 'react';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <Box component={'div'} aria-label="Application Layout">
+    <Box aria-label="Application Layout">
       <Navbar aria-label="Navigation Bar" />
       <Box component={'main'} aria-label="Main Content">
         {children}

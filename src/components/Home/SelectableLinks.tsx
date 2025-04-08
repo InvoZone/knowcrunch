@@ -32,20 +32,24 @@ const SelectableLinks: FC = () => {
   const isMed = useMediaQuery(theme.breakpoints.between('md', 'lg'));
   const xlg = useMediaQuery(theme.breakpoints.up('lg'));
 
-  const handleSelect = (index: number) => {
-    setSelected(index);
-  };
-
-  const handleScroll = (direction: string) => {
+  const handleScrollLeft = () => {
     const scrollAmount = xlg ? 400 : isMed ? 330 : 150;
 
     if (scrollRef.current) {
-      if (direction === 'left') {
-        scrollRef.current.scrollLeft -= scrollAmount;
-      } else {
-        scrollRef.current.scrollLeft += scrollAmount;
-      }
+      scrollRef.current.scrollLeft -= scrollAmount;
     }
+  };
+
+  const handleScrollRight = () => {
+    const scrollAmount = xlg ? 400 : isMed ? 330 : 150;
+
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += scrollAmount;
+    }
+  };
+
+  const handleSelect = (index: number) => () => {
+    setSelected(index);
   };
 
   const updateArrows = () => {
@@ -78,7 +82,7 @@ const SelectableLinks: FC = () => {
             top: '3px',
             left: { xs: '-15px', md: '-15px', lg: '-25px' }
           }}
-          onClick={() => handleScroll('left')}
+          onClick={handleScrollLeft}
           src={'/icons/home/leftArrow.svg'}
           alt={'left scroll button'}
         />
@@ -110,7 +114,7 @@ const SelectableLinks: FC = () => {
               backgroundColor: index === selected ? 'neutral.neutral1' : 'transparent'
             }}
             key={item?.id}
-            onClick={() => handleSelect(index)}
+            onClick={handleSelect(index)}
             aria-label={`Select ${item?.name}`}
           >
             <Typography variant="titleSmall" component={'h3'} sx={{ width: 'max-content' }}>
@@ -125,7 +129,7 @@ const SelectableLinks: FC = () => {
             top: '3px',
             right: { xs: '-15px', md: '-15px', lg: '-25px' }
           }}
-          onClick={() => handleScroll('right')}
+          onClick={handleScrollRight}
           src={'/icons/home/rightArrow.svg'}
           alt={'right scroll button'}
         />

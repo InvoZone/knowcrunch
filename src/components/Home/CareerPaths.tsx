@@ -93,6 +93,7 @@ const CareerPath: FC = () => {
                       gap: '16px',
                       marginTop: '16px'
                     }}
+                    component={'ul'}
                   >
                     {tickMarkData.map((item) => (
                       <TickMark key={item.id} text={item.text} />

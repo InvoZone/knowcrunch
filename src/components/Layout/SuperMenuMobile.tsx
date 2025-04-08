@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 import type { MenuItem as MenuItemsType } from './Navbar';
 import type { SubMenu, NavbarMenu } from '@/constants/navbarMenu';
 import type { FC, MouseEvent } from 'react';
+import IconButton from '@mui/material/IconButton';
 
 interface MenuItemType {
   id?: string;
@@ -26,7 +27,6 @@ interface SuperMenuMobileProps {
   anchorElSuperMenu: HTMLElement | null;
   handleCloseSuperMenu: () => void;
   handleSubMenu: (_menu: MenuItemsType) => void;
-  handleSubMenu1: () => void;
   menu: MenuItemType;
   subMenu: SubMenu | object;
   t: (_key: string) => string;
@@ -42,7 +42,6 @@ const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
   anchorElSuperMenu,
   handleCloseSuperMenu,
   handleSubMenu,
-  handleSubMenu1,
   menu,
   subMenu,
   t,
@@ -125,14 +124,15 @@ const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
                     </Typography>
                   </Box>
                 )}
-                <Image
-                  src={'/icons/header/cross.svg'}
-                  alt="cancel"
-                  width={48}
-                  height={48}
-                  onClick={handleOpenMobileMenu}
-                  aria-label="Close menu"
-                />
+                <IconButton onClick={handleOpenMobileMenu}>
+                  <Image
+                    src={'/icons/header/cross.svg'}
+                    alt="cancel"
+                    width={48}
+                    height={48}
+                    aria-label="Close menu"
+                  />
+                </IconButton>
               </Box>
             </Grid2>
 
@@ -238,7 +238,6 @@ const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
                   subMenu.subMenu.map((el: SubMenu) => (
                     <MenuItem
                       key={el?.id}
-                      onMouseEnter={handleSubMenu1}
                       sx={{
                         height: 54,
                         borderRadius: 1,

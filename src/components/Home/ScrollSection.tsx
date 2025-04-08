@@ -38,15 +38,18 @@ const ScrollSection: FC<ScrollSectionProps> = ({
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
 
-  const handleScroll = (direction: string) => {
+  const handleScrollLeft = () => {
     const scroll = scrollAmount ?? 644;
 
     if (scrollRef.current) {
-      if (direction === 'left') {
-        scrollRef.current.scrollLeft -= scroll;
-      } else {
-        scrollRef.current.scrollLeft += scroll;
-      }
+      scrollRef.current.scrollLeft -= scroll;
+    }
+  };
+
+  const handleScrollRight = () => {
+    const scroll = scrollAmount ?? 644;
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += scroll;
     }
   };
 
@@ -98,7 +101,7 @@ const ScrollSection: FC<ScrollSectionProps> = ({
         >
           {showLeftArrow && (
             <ScrollBtn
-              onClick={() => handleScroll('left')}
+              onClick={handleScrollLeft}
               src={'/icons/home/leftArrow.svg'}
               alt={'left scroll button'}
               leftArrowPosition={leftArrowPosition}
@@ -126,7 +129,7 @@ const ScrollSection: FC<ScrollSectionProps> = ({
 
           {showRightArrow && (
             <ScrollBtn
-              onClick={() => handleScroll('right')}
+              onClick={handleScrollRight}
               src={'/icons/home/rightArrow.svg'}
               alt={'right scroll button'}
               rightArrowPosition={rightArrowPosition}

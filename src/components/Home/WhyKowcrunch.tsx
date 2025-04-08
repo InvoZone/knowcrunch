@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import whyknowcrunch from '@/assets/home/whyKnowcrunch.webp';
 import FeatureItem from './FeatureItem';
+
 interface FeatureDataTypes {
   title: string;
   description: string;
@@ -91,6 +92,7 @@ const WhyKnowcrunch = () => {
               flexDirection: 'column',
               gap: '16px'
             }}
+            component={'ul'}
           >
             {featureData.map((feature) => (
               <FeatureItem

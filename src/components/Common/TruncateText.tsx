@@ -7,23 +7,23 @@ interface TruncateTextProps {
   text: string;
   length?: number;
   variant?:
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'subtitle1'
-  | 'subtitle2'
-  | 'body1'
-  | 'body2'
-  | 'titleSmall'
-  | 'titleMd'
-  | 'titleLg'
-  | 'titleSm'
-  | 'subtitleLg'
-  | 'subtitleSm'
-  | 'body';
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'subtitle1'
+    | 'subtitle2'
+    | 'body1'
+    | 'body2'
+    | 'titleSmall'
+    | 'titleMd'
+    | 'titleLg'
+    | 'titleSm'
+    | 'subtitleLg'
+    | 'subtitleSm'
+    | 'body';
   color?: string;
   sx?: object;
   component?: ElementType;
