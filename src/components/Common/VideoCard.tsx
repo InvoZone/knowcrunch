@@ -10,17 +10,24 @@ interface VideoCardProps {
 }
 
 const VideoCard: FC<VideoCardProps> = ({ width = '100%', height = '100%' }) => {
+  const boxStyles = {
+    position: 'relative',
+    flexShrink: 0,
+    width,
+    height,
+    minWidth: width
+  };
+
+  const playButtonStyles = {
+    position: 'absolute',
+    left: '42%',
+    top: '37%'
+  };
+
+  const imageWidth = typeof window !== 'undefined' && window.innerWidth < 360 ? 255 : 368;
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        flexShrink: 0,
-        width,
-        height,
-        minWidth: width
-      }}
-    >
-      <Box position={'absolute'} left={'42%'} top={'37%'}>
+    <Box sx={boxStyles}>
+      <Box sx={playButtonStyles}>
         <Image
           src={'/icons/playBtn.webp'}
           height={64}
@@ -36,7 +43,7 @@ const VideoCard: FC<VideoCardProps> = ({ width = '100%', height = '100%' }) => {
           src={videoThumb}
           alt="video img"
           height={228}
-          width={typeof window !== 'undefined' && window.innerWidth < 360 ? 255 : 368}
+          width={imageWidth}
           className="radius-16 object-fit"
           aria-label="Video thumbnail"
           title="Video thumbnail"

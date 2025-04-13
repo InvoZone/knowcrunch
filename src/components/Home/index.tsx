@@ -1,5 +1,5 @@
-/* eslint-disable react/no-array-index-key */
 'use client';
+
 import { memo } from 'react';
 import type { ReactNode } from 'react';
 import Box from '@mui/material/Box';
@@ -66,6 +66,31 @@ const instructors: Instructor[] = [
   }
 ];
 
+// Separated render logic into named functions
+function renderCourseCard(index: number) {
+  return (
+    <CourseCard
+      key={index}
+      discountTag={true}
+      width={298}
+      shadow={true}
+      tag={index % 2 === 0 ? 'NEW' : 'BEST SELLER'}
+    />
+  );
+}
+
+function renderClassroomCard(index: number) {
+  return <ClassroomCard key={index} width={{ xs: 298, lg: 378.66, xl: 405 }} />;
+}
+
+function renderInstructorCard(instructor: Instructor, index: number) {
+  return <InstructorCard key={index} height={366} width={260} {...instructor} />;
+}
+
+function renderVideoCard(index: number) {
+  return <VideoCard key={index} width={368} />;
+}
+
 const Home = () => {
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down('md'));
@@ -73,10 +98,15 @@ const Home = () => {
   const isLg = useMediaQuery(theme.breakpoints.between('lg', 'xl'));
   const xlg = useMediaQuery(theme.breakpoints.up('xl'));
 
-  const getScrollAmount = (small: number, med: number, lg: number, xl: number) =>
-    isSmall ? small : isMed ? med : isLg ? lg : xlg ? xl : small;
+  const getScrollAmount = (small: number, med: number, lg: number, xl: number) => {
+    if (isSmall) return small;
+    if (isMed) return med;
+    if (isLg) return lg;
+    if (xlg) return xl;
+    return small;
+  };
 
-  const renderScrollSection = ({
+  function renderScrollSection({
     heading,
     children,
     small,
@@ -102,38 +132,32 @@ const Home = () => {
     linkTitle?: string;
     sectionPadding?: { [key: string]: string };
     width: { [key: string]: string };
-  }) => (
-    <ScrollSection
-      width={width}
-      scrollAmount={getScrollAmount(small, med, lg, xl)}
-      leftArrowPosition={{ top: top ?? '44%', left: { ...left } }}
-      rightArrowPosition={{ top: top ?? '44%', right: { ...right } }}
-      heading={heading}
-      linkProps={{ title: linkTitle, pt: 1, pb: 3 }}
-      sectionPadding={sectionPadding}
-    >
-      {children}
-    </ScrollSection>
-  );
+  }) {
+    return (
+      <ScrollSection
+        width={width}
+        scrollAmount={getScrollAmount(small, med, lg, xl)}
+        leftArrowPosition={{ top: top ?? '44%', left: { ...left } }}
+        rightArrowPosition={{ top: top ?? '44%', right: { ...right } }}
+        heading={heading}
+        linkProps={{ title: linkTitle, pt: 1, pb: 3 }}
+        sectionPadding={sectionPadding}
+      >
+        {children}
+      </ScrollSection>
+    );
+  }
 
   return (
     <Box>
       <Banner />
-      <Box component={'section'} sx={{ marginTop: '-30px', px: { xs: 3, md: 6 } }}>
+      <Box component="section" sx={{ marginTop: '-30px', px: { xs: 3, md: 6 } }}>
         <LogoAnimate />
       </Box>
 
       {renderScrollSection({
         heading: 'Popular E-learning Courses',
-        children: [...Array(6)].map((_, ind) => (
-          <CourseCard
-            key={ind}
-            discountTag={true}
-            width={298}
-            shadow={true}
-            tag={ind % 2 === 0 ? 'NEW' : 'BEST SELLER'}
-          />
-        )),
+        children: [...Array(6)].map((_, ind) => renderCourseCard(ind)),
         small: 322,
         med: 644,
         lg: 966,
@@ -150,9 +174,7 @@ const Home = () => {
 
       {renderScrollSection({
         heading: 'Classroom Courses',
-        children: [...Array(12)].map((_, ind) => (
-          <ClassroomCard key={ind} width={{ xs: 298, lg: 378.66, xl: 405 }} />
-        )),
+        children: [...Array(12)].map((_, ind) => renderClassroomCard(ind)),
         small: 322,
         med: 644,
         lg: 804,
@@ -167,9 +189,7 @@ const Home = () => {
 
       {renderScrollSection({
         heading: 'Our Instructors',
-        children: instructors.map((instructor, index) => (
-          <InstructorCard key={index} height={366} width={260} {...instructor} />
-        )),
+        children: instructors.map((instructor, index) => renderInstructorCard(instructor, index)),
         small: 284,
         med: 568,
         lg: 1136,
@@ -184,7 +204,7 @@ const Home = () => {
 
       {renderScrollSection({
         heading: 'Video Testimonials',
-        children: [...Array(12)].map((_, ind) => <VideoCard key={ind} width={368} />),
+        children: [...Array(12)].map((_, ind) => renderVideoCard(ind)),
         small: 392,
         med: 392,
         lg: 784,
@@ -198,7 +218,6 @@ const Home = () => {
       })}
 
       <Certification />
-
       <WhyKnowcrunch />
     </Box>
   );

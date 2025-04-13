@@ -62,13 +62,10 @@ const Navbar = () => {
 
   const handleOpenSuperMenu = (event: MouseEvent<HTMLElement>, page: NavbarMenu | object) => {
     if (!page) return;
-
     setMenu(page);
-
     if (isLg) {
       setAnchorElSuperMenu(event.currentTarget);
     }
-
     setSubMenu({});
     setSubMenu1({});
   };
@@ -87,7 +84,6 @@ const Navbar = () => {
 
   const handleSubMenu = (menu: MenuItem) => {
     if (!menu?.subMenu) return;
-
     setSubMenu(menu);
     setSubMenu1({});
   };
@@ -114,15 +110,25 @@ const Navbar = () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const isCheckout = pathname === '/checkout';
+
+  const handleMenuMouseEnter = (event: MouseEvent<HTMLButtonElement>, el: NavbarMenu) => {
+    if (el?.menu) {
+      handleOpenSuperMenu(event, el);
+    } else {
+      handleCloseSuperMenu();
+    }
+  };
+
+  const handleMenuClick = (link: string) => {
+    router.push(link);
+  };
 
   return (
     <AppBar
@@ -165,10 +171,7 @@ const Navbar = () => {
                 )}
               </Box>
 
-              <Box
-                flexGrow={{ xs: 1, lg: isCheckout ? 1 : 0 }}
-                aria-label="Website Logo"
-              >
+              <Box flexGrow={{ xs: 1, lg: isCheckout ? 1 : 0 }} aria-label="Website Logo">
                 <Link href="/" passHref>
                   <Image
                     src="/icons/header/logo.svg"
@@ -198,11 +201,9 @@ const Navbar = () => {
                   {navbarMenu.map((el: NavbarMenu) => (
                     <CustomBtn
                       key={el?.id}
-                      onMouseEnter={(e: MouseEvent<HTMLButtonElement>) =>
-                        el?.menu ? handleOpenSuperMenu(e, el) : handleCloseSuperMenu()
-                      }
+                      onMouseEnter={(e) => handleMenuMouseEnter(e, el)}
                       title={t(el?.title)}
-                      onClick={() => router.push(el?.link)}
+                      onClick={() => handleMenuClick(el?.link)}
                       color="secondary"
                       sx={{
                         minWidth: 30,
@@ -252,11 +253,7 @@ const Navbar = () => {
                         aria-label="View cart"
                       >
                         <Badge
-                          sx={{
-                            '& .MuiBadge-dot': {
-                              backgroundColor: 'accents.bubble1'
-                            }
-                          }}
+                          sx={{ '& .MuiBadge-dot': { backgroundColor: 'accents.bubble1' } }}
                           variant="dot"
                           invisible={false}
                         >
@@ -306,10 +303,7 @@ const Navbar = () => {
               )}
 
               {isCheckout && (
-                <Box
-                  sx={{ flexGrow: 0, display: 'flex', gap: 2 }}
-                  aria-label="Checkout icons"
-                >
+                <Box sx={{ flexGrow: 0, display: 'flex', gap: 2 }} aria-label="Checkout icons">
                   <Image
                     src="/icons/header/secured.svg"
                     width={32}

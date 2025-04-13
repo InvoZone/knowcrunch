@@ -17,14 +17,16 @@ interface ForgotFormProps {
 }
 
 const ForgotPasswordForm: FC<ForgotFormProps> = ({ t, handleClose }) => {
+  const handleFormSubmit = () => {
+    handleClose();
+  };
+
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } = useFormik({
     initialValues: {
       email: ''
     },
     validationSchema,
-    onSubmit: () => {
-      handleClose();
-    }
+    onSubmit: handleFormSubmit
   });
 
   return (
