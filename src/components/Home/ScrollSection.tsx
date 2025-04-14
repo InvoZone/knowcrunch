@@ -1,7 +1,7 @@
+import { useRef, useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { useRef, useState, useEffect } from 'react';
 import ScrollBtn from './ScrollBtn';
 import CustomBtn from '../Common/CustomBtn';
 import type { FC, ReactNode } from 'react';

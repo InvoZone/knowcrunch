@@ -54,11 +54,11 @@ const WhyKnowcrunch = () => {
           }}
         >
           <Image
-            className={'radius-16 object-fit'}
             src={whyknowcrunch}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             alt="why knowcrunch"
+            style={{ borderRadius: '16px', objectFit: 'cover' }}
             loading="lazy"
             aria-label="why knowcrunch"
             title="why knowcrunch"

@@ -66,7 +66,6 @@ const instructors: Instructor[] = [
   }
 ];
 
-// Separated render logic into named functions
 function renderCourseCard(index: number) {
   return (
     <CourseCard

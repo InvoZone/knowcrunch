@@ -1,11 +1,11 @@
+import { EMAIL_INVALID, EMAIL_REQUIRED } from '@/constants/validationMessages';
+import { useFormik } from 'formik';
+import { useTranslations } from 'next-intl';
+import * as Yup from 'yup';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import CustomBtn from '@/components/Common/CustomBtn';
 import CustomInput from './CustomInput';
-import { EMAIL_INVALID, EMAIL_REQUIRED } from '@/constants/validationMessages';
-import { useTranslations } from 'next-intl';
 
 const validationSchema = Yup.object({
   firstName: Yup.string(),

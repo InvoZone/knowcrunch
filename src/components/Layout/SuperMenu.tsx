@@ -1,14 +1,14 @@
+import type { Menu as MenuType } from '@/constants/navbarMenu';
+import type { FC } from 'react';
+import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid2 from '@mui/material/Grid2';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
 import CourseCard from '../Common/CourseCard';
-import type { Menu as MenuType } from '@/constants/navbarMenu';
-import type { FC } from 'react';
 
 interface MenuItemType {
   id?: string;

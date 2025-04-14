@@ -1,6 +1,5 @@
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
-
 import courseThumb from '@/assets/course/courseThumb.webp';
 import Box from '@mui/material/Box';
 import CustomBtn from './CustomBtn';
@@ -99,7 +98,7 @@ const CourseCard: FC<CourseCardProps> = ({
         </Box>
         <Image
           src={courseThumb}
-          className="imgWidth"
+          style={{ width: '100%', height: '100%', borderRadius: '8px' }}
           alt="course thumb"
           title="Course Thumbnail"
           priority

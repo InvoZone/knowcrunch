@@ -71,6 +71,10 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
     }
   });
 
+  const handlePhoneChange = (phone: string) => {
+    formik.setFieldValue('mobile', phone);
+  };
+
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } = formik;
 
   return (
@@ -109,7 +113,7 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
         <PhoneInput
           country="us"
           value={values.mobile}
-          onChange={(phone: string) => formik.setFieldValue('mobile', phone)}
+          onChange={handlePhoneChange}
           placeholder="Mobile number"
           inputStyle={{
             width: '100%',

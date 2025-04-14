@@ -84,7 +84,6 @@ const LogoAnimate: FC = () => {
           direction={'left'}
           loop={0}
           style={{ paddingLeft: '40px', marginLeft: '40px', marginRight: '10px' }}
-          // onCycleComplete={onCycleComplete}
         >
           {logos?.map((item) => (
             <Box

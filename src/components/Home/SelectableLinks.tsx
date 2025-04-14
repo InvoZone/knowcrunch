@@ -3,8 +3,8 @@ import { useState, useRef, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
 import ScrollBtn from './ScrollBtn';
+import { useTheme } from '@mui/material/styles';
 import type { FC } from 'react';
 
 interface MarketingOption {

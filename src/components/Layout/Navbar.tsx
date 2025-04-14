@@ -1,5 +1,14 @@
 'use client';
 
+import { useTheme } from '@mui/material/styles';
+import { navbarMenu } from '@/constants/navbarMenu';
+import type { NavbarMenu, Menu, SubMenu } from '@/constants/navbarMenu';
+import { useTranslations } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { logout } from '@/lib/slices/auth';
+import type { MouseEvent } from 'react';
+import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,23 +17,14 @@ import Container from '@mui/material/Container';
 import Image from 'next/image';
 import Badge from '@mui/material/Badge';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
 import CustomBtn from '../Common/CustomBtn';
 import SearchField from './SearchField';
 import Link from 'next/link';
-import { navbarMenu } from '@/constants/navbarMenu';
-import type { NavbarMenu, Menu, SubMenu } from '@/constants/navbarMenu';
-import { useTranslations } from 'next-intl';
 import SuperMenu from './SuperMenu';
 import SuperMenuMobile from './SuperMenuMobile';
-import { useRouter, usePathname } from 'next/navigation';
-import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { logout } from '@/lib/slices/auth';
 import stripeLogo from '@/assets/Navbar/stripeLogo.webp';
 import Login from '../Auth/Login';
 import Signup from '../Auth/SignUp';
-import type { MouseEvent } from 'react';
-import { useState, useEffect } from 'react';
 
 export interface MenuItem {
   id: string;

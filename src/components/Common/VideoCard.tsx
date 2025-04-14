@@ -44,7 +44,7 @@ const VideoCard: FC<VideoCardProps> = ({ width = '100%', height = '100%' }) => {
           alt="video img"
           height={228}
           width={imageWidth}
-          className="radius-16 object-fit"
+          style={{ borderRadius: '16px', objectFit: 'cover' }}
           aria-label="Video thumbnail"
           title="Video thumbnail"
         />
