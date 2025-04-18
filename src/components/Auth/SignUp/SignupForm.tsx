@@ -11,7 +11,6 @@ import IconButton from '@mui/material/IconButton';
 import { useFormik } from 'formik';
 import type { FormikHelpers } from 'formik';
 import * as yup from 'yup';
-import Image from 'next/image';
 import CompleteRegistration from './CompleteRegistration';
 import {
   EMAIL_INVALID,
@@ -20,6 +19,9 @@ import {
   PASSWORD_REQUIRED,
   PASSWORD_MATCH
 } from '@/constants/validationMessages';
+import EyeIcon from '../../../../public/icons/header/eye.svg';
+import EyeCloseIcon from '../../../../public/icons/header/eyeClose.svg';
+import GoogleIcon from '../../../../public/icons/header/google.svg';
 
 const validationSchema = yup.object({
   email: yup.string().email(EMAIL_INVALID).required(EMAIL_REQUIRED),
@@ -63,15 +65,16 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
     }
   });
 
-  const googleSignup = useGoogleLogin({});
+  const { handleSubmit, handleChange, handleBlur, values, touched, errors, isSubmitting } = formik;
 
-  const { handleSubmit, handleChange, handleBlur, values, touched, errors } = formik;
+  const googleSignup = useGoogleLogin({});
 
   if (showCompleteRegistration) {
     return <CompleteRegistration t={t} handleClose={handleClose} />;
   }
 
   const toggleShowPassword = () => setShowPassword((prevState) => !prevState);
+
   const toggleShowConfirmPassword = () => setShowConfirmPassword((prevState) => !prevState);
 
   return (
@@ -110,14 +113,7 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
                   sx={{ visibility: 'visible' }}
                   aria-label="Toggle password visibility"
                 >
-                  <Image
-                    src={showPassword ? '/icons/header/eye.svg' : '/icons/header/eyeClose.svg'}
-                    alt={showPassword ? 'eye_icon' : 'eye_close_icon'}
-                    aria-label={showPassword ? 'show password' : 'hide password'}
-                    loading="lazy"
-                    height={20}
-                    width={20}
-                  />
+                  {showPassword ? <EyeIcon /> : <EyeCloseIcon />}
                 </IconButton>
               </InputAdornment>
             )
@@ -146,18 +142,7 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
                   color="primary"
                   aria-label="Toggle confirm password visibility"
                 >
-                  <Image
-                    src={
-                      showConfirmPassword ? '/icons/header/eye.svg' : '/icons/header/eyeClose.svg'
-                    }
-                    alt={showConfirmPassword ? 'eye_icon' : 'eye_close_icon'}
-                    aria-label={
-                      showConfirmPassword ? 'show confirm password' : 'hide confirm password'
-                    }
-                    loading="lazy"
-                    height={20}
-                    width={20}
-                  />
+                  {showConfirmPassword ? <EyeIcon /> : <EyeCloseIcon />}
                 </IconButton>
               </InputAdornment>
             )
@@ -169,7 +154,7 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
         type="submit"
         title={t('continue')}
         variant="contained"
-        loading={formik.isSubmitting}
+        loading={isSubmitting}
         color="secondary"
         sx={{
           backgroundColor: 'base1.default',
@@ -196,15 +181,7 @@ const SignupForm: FC<SignupFormProps> = ({ t, handleClose, handleSubmitForm }) =
         title={t('continueWithGoogle')}
         variant="outlined"
         onClick={googleSignup}
-        startIcon={
-          <Image
-            src="/icons/header/google.svg"
-            width={24}
-            height={24}
-            loading="lazy"
-            alt="google"
-          />
-        }
+        startIcon={<GoogleIcon />}
         sx={{
           border: '1px solid',
           borderColor: 'neutral.neutral8',

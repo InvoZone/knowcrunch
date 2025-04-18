@@ -5,6 +5,10 @@ import Box from '@mui/material/Box';
 import CustomBtn from './CustomBtn';
 import TruncateText from './TruncateText';
 import type { FC } from 'react';
+import HeartIcon from '../../../public/icons/heart.svg';
+import Glob from '../../../public/icons/course/glob.svg';
+import Star from '../../../public/icons/course/star.svg';
+import Clock from '../../../public/icons/course/clock.svg';
 
 interface CourseCardProps {
   enrollButton?: boolean;
@@ -86,15 +90,7 @@ const CourseCard: FC<CourseCardProps> = ({
             }}
             aria-label="Best Seller Badge"
           />
-          <Image
-            src="/icons/heart.svg"
-            height={24}
-            width={24}
-            alt="heart"
-            title="Heart Icon"
-            priority
-            aria-label="Heart Icon"
-          />
+          <HeartIcon />
         </Box>
         <Image
           src={courseThumb}
@@ -131,28 +127,13 @@ const CourseCard: FC<CourseCardProps> = ({
 
         <Box display={'flex'} gap={0.5} aria-label="Course Metadata" pt={1}>
           <Box display={'flex'} alignItems={'center'} aria-label="Language Indicator">
-            <Image
-              src="/icons/course/glob.svg"
-              alt="glob"
-              width={20}
-              height={20}
-              title="Globe Icon"
-              aria-label="Globe Icon"
-            />
+            <Glob />
             <Typography variant="body" color="neutral.neutral2" pl={0.5} aria-label="Language">
               EN •
             </Typography>
           </Box>
           <Box display={'flex'} alignItems={'center'} aria-label="Rating Display">
-            <Image
-              src="/icons/course/star.svg"
-              alt="starIcon"
-              width={20}
-              height={20}
-              title="Star Icon"
-              priority
-              aria-label="Star Icon"
-            />
+            <Star />
             <Typography variant="body" color="neutral.neutral2" pl={0.5} aria-label="Rating">
               4,5{' '}
               <Typography
@@ -168,15 +149,7 @@ const CourseCard: FC<CourseCardProps> = ({
             </Typography>
           </Box>
           <Box display={'flex'} alignItems={'center'} aria-label="Duration Display">
-            <Image
-              src="/icons/course/clock.svg"
-              alt="clockIcon"
-              width={20}
-              height={20}
-              title="Clock Icon"
-              priority
-              aria-label="Clock Icon"
-            />
+            <Clock />
             <Typography variant="body" color="neutral.neutral2" pl={0.5} aria-label="Duration">
               25h
             </Typography>

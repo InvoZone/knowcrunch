@@ -8,6 +8,10 @@ import { useTheme } from '@mui/material/styles';
 import HeroImg1 from '@/assets/home/heropro.webp';
 import HeroImg2 from '@/assets/home/HeroDesk.webp';
 import HeroImg3 from '@/assets/home/Hero.webp';
+import LeftAward from '../../../public/icons/home/leftaward.svg';
+import RightAward from '../../../public/icons/home/rightaward.svg';
+import BannerStar from '../../../public/icons/home/bannerstar.svg';
+
 import type { FC } from 'react';
 
 const Banner: FC = () => {
@@ -48,14 +52,7 @@ const Banner: FC = () => {
             <Typography variant="h6" sx={{ color: 'secondary.main', mr: 0.5 }} component={'p'}>
               4.8
             </Typography>{' '}
-            <Image
-              loading="lazy"
-              src="/icons/home/bannerstar.svg"
-              width={24}
-              height={24}
-              alt="Rating Star Icon"
-              title="Rating Star Icon"
-            />{' '}
+            <BannerStar />
             <Typography
               variant="h6"
               sx={{ color: 'secondary.main', ml: 0.5, marginRight: '32px' }}
@@ -63,25 +60,11 @@ const Banner: FC = () => {
             >
               Trustpilot
             </Typography>{' '}
-            <Image
-              loading="lazy"
-              src="/icons/home/leftaward.svg"
-              width={17}
-              height={52}
-              alt="Award Icon"
-              title="Award Icon"
-            />{' '}
+            <LeftAward />
             <Typography variant="h6" sx={{ color: 'secondary.main' }} component={'p'}>
               23 Awards
             </Typography>{' '}
-            <Image
-              loading="lazy"
-              src="/icons/home/rightaward.svg"
-              alt="Award Icon"
-              width={19}
-              height={52}
-              title="Award Icon"
-            />
+            <RightAward />
           </Box>
         </Box>
       </Container>

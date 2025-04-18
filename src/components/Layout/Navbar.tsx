@@ -20,11 +20,17 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import CustomBtn from '../Common/CustomBtn';
 import SearchField from './SearchField';
 import Link from 'next/link';
-import SuperMenu from './SuperMenu';
-import SuperMenuMobile from './SuperMenuMobile';
+import SuperMenu from '@/components/Layout/SuperMenu';
+import SuperMenuMobile from '@/components/Layout/SuperMenuMobile';
 import stripeLogo from '@/assets/Navbar/stripeLogo.webp';
-import Login from '../Auth/Login';
-import Signup from '../Auth/SignUp';
+import Login from '@/components/Auth/Login';
+import Signup from '@/components/Auth/SignUp';
+import Logo from '../../../public/icons/header/logo.svg';
+import MenuIcon from '../../../public/icons/header/menu.svg';
+import Search from '../../../public/icons/header/search.svg';
+import Cart from '../../../public/icons/header/cart.svg';
+import Secured from '../../../public/icons/header/secured.svg';
+import Notification from '../../../public/icons/header/notification.svg';
 
 export interface MenuItem {
   id: string;
@@ -62,10 +68,13 @@ const Navbar = () => {
 
   const handleOpenSuperMenu = (event: MouseEvent<HTMLElement>, page: NavbarMenu | object) => {
     if (!page) return;
+
     setMenu(page);
+
     if (isLg) {
       setAnchorElSuperMenu(event.currentTarget);
     }
+
     setSubMenu({});
     setSubMenu1({});
   };
@@ -84,6 +93,7 @@ const Navbar = () => {
 
   const handleSubMenu = (menu: MenuItem) => {
     if (!menu?.subMenu) return;
+
     setSubMenu(menu);
     setSubMenu1({});
   };
@@ -110,7 +120,9 @@ const Navbar = () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
+
     window.addEventListener('scroll', handleScroll);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -142,16 +154,12 @@ const Navbar = () => {
             <SearchField handleClose={handleSearchField} aria-label="Search Field" />
           ) : (
             <>
+              {/* Mobile Menu */}
               <Box sx={{ display: { xs: isCheckout ? 'none' : 'flex', lg: 'none' } }}>
                 <IconButton onClick={handleOpenMobileMenu} aria-label="Open mobile navigation menu">
-                  <Image
-                    src="/icons/header/menu.svg"
-                    width={24}
-                    height={24}
-                    alt="Open menu"
-                    priority
-                  />
+                  <MenuIcon />
                 </IconButton>
+
                 {!isLg && !isCheckout && (
                   <SuperMenuMobile
                     handleOpenSuperMenu={handleOpenSuperMenu}
@@ -173,14 +181,7 @@ const Navbar = () => {
 
               <Box flexGrow={{ xs: 1, lg: isCheckout ? 1 : 0 }} aria-label="Website Logo">
                 <Link href="/" passHref>
-                  <Image
-                    src="/icons/header/logo.svg"
-                    alt="Your Website Logo"
-                    width={135}
-                    height={40}
-                    priority
-                    unoptimized={true}
-                  />
+                  <Logo />
                 </Link>
               </Box>
 
@@ -234,13 +235,7 @@ const Navbar = () => {
                 <Box sx={{ flexGrow: 0, display: 'flex' }}>
                   {!searchActive && (
                     <IconButton onClick={handleSearchField} aria-label="Open search">
-                      <Image
-                        loading="lazy"
-                        src="/icons/header/search.svg"
-                        width={24}
-                        height={24}
-                        alt="Search icon"
-                      />
+                      <Search />
                     </IconButton>
                   )}
 
@@ -257,36 +252,18 @@ const Navbar = () => {
                           variant="dot"
                           invisible={false}
                         >
-                          <Image
-                            src="/icons/header/cart.svg"
-                            width={24}
-                            height={24}
-                            alt="Shopping cart"
-                            loading="lazy"
-                          />
+                          <Cart />
                         </Badge>
                       </IconButton>
 
                       <IconButton aria-label="View notifications">
                         <Badge color="error" variant="dot" invisible={false}>
-                          <Image
-                            src="/icons/header/notification.svg"
-                            width={24}
-                            height={24}
-                            alt="Notifications"
-                            loading="lazy"
-                          />
+                          <Notification />
                         </Badge>
                       </IconButton>
 
                       <IconButton onClick={handleLogout} aria-label="Logout">
-                        <Image
-                          src="/icons/header/person.svg"
-                          width={24}
-                          height={24}
-                          alt="User profile"
-                          loading="lazy"
-                        />
+                        <Cart />
                       </IconButton>
                     </>
                   ) : (
@@ -304,13 +281,7 @@ const Navbar = () => {
 
               {isCheckout && (
                 <Box sx={{ flexGrow: 0, display: 'flex', gap: 2 }} aria-label="Checkout icons">
-                  <Image
-                    src="/icons/header/secured.svg"
-                    width={32}
-                    height={32}
-                    alt="Secure checkout"
-                    loading="lazy"
-                  />
+                  <Secured />
                   <Image
                     src={stripeLogo}
                     width={146}

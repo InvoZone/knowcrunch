@@ -9,7 +9,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { login } from '@/lib/slices/auth';
 import CustomCheckbox from '@/components/Common/CustomCheckbox';
@@ -21,6 +20,9 @@ import {
   PASSWORD_MIN_LENGTH,
   PASSWORD_REQUIRED
 } from '@/constants/validationMessages';
+import EyeIcon from '../../../../public/icons/header/eye.svg';
+import EyeCloseIcon from '../../../../public/icons/header/eyeClose.svg';
+import GoogleIcon from '../../../../public/icons/header/google.svg';
 
 const validationSchema = yup.object({
   email: yup.string().email(EMAIL_INVALID).required(EMAIL_REQUIRED),
@@ -96,14 +98,7 @@ const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }
                   sx={{ visibility: 'visible' }}
                   aria-label="Toggle password visibility"
                 >
-                  <Image
-                    src={showPassword ? '/icons/header/eye.svg' : '/icons/header/eyeClose.svg'}
-                    alt={showPassword ? 'eye_icon' : 'eye_close_icon'}
-                    aria-label={showPassword ? 'show password' : 'hide password'}
-                    loading="lazy"
-                    height={20}
-                    width={20}
-                  />
+                  {showPassword ? <EyeIcon /> : <EyeCloseIcon />}
                 </IconButton>
               </InputAdornment>
             )
@@ -164,16 +159,7 @@ const LoginForm: FC<LoginFormProps> = ({ t, handleClose, handleOpenForgotPopup }
         title={t('continueWithGoogle')}
         variant="outlined"
         onClick={handleLogin}
-        startIcon={
-          <Image
-            src="/icons/header/google.svg"
-            width={24}
-            height={24}
-            loading="lazy"
-            alt="google"
-            aria-label="Google icon"
-          />
-        }
+        startIcon={<GoogleIcon />}
         sx={{
           border: '1px solid',
           borderColor: 'neutral.neutral8',

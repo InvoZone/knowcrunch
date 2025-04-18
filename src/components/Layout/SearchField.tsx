@@ -1,7 +1,8 @@
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
-import Image from 'next/image';
 import type { FC } from 'react';
+import SearchIcon from '../../../public/icons/header/search.svg';
+import CrossIcon from '../../../public/icons/header/cross.svg';
 
 interface SearchFieldProps {
   handleClose: () => void;
@@ -16,25 +17,12 @@ const SearchField: FC<SearchFieldProps> = ({ handleClose }) => {
         input: {
           startAdornment: (
             <InputAdornment position="start" aria-label="Search Icon">
-              <Image
-                src={'/icons/header/search.svg'}
-                width={24}
-                height={24}
-                alt={'searchIcon'}
-                loading="lazy"
-              />
+              <SearchIcon />
             </InputAdornment>
           ),
           endAdornment: (
             <InputAdornment position="end" sx={{ cursor: 'pointer' }} aria-label="Cancel Icon">
-              <Image
-                src={'/icons/header/cross.svg'}
-                width={24}
-                height={24}
-                alt={'cancelIcon'}
-                onClick={handleClose}
-                loading="lazy"
-              />
+              <CrossIcon onClick={handleClose} />
             </InputAdornment>
           )
         }

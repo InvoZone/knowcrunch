@@ -5,8 +5,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Image from 'next/image';
 import Link from 'next/link';
+import ExpandMore from '../../../../public/icons/expandmore.svg';
 
 interface FooterAccordionProps {
   title: string;
@@ -42,16 +42,7 @@ const FooterAccordion: FC<FooterAccordionProps> = ({ title, links }) => {
         }}
       >
         <AccordionSummary
-          expandIcon={
-            <Image
-              loading="lazy"
-              src="/icons/expandmore.svg"
-              width={24}
-              height={24}
-              alt="Expand More"
-              title="Expand More"
-            />
-          }
+          expandIcon={<ExpandMore />}
           aria-controls="panel1a-content"
           id="panel1a-header"
           aria-label={`Expand ${title}`}

@@ -7,8 +7,9 @@ import Grid2 from '@mui/material/Grid2';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
 import CourseCard from '../Common/CourseCard';
+import ChevLeft from '../../../public/icons/header/chevLeft.svg';
+import ChevRight from '../../../public/icons/header/chevRight.svg';
 
 interface MenuItemType {
   id?: string;
@@ -101,17 +102,7 @@ const SuperMenu: FC<SuperMenuProps> = ({
                   >
                     {t(menu?.title)}{' '}
                   </Typography>{' '}
-                  <Image
-                    src={
-                      subMenu?.id === menu?.id
-                        ? '/icons/header/chevRightBlack.svg'
-                        : '/icons/header/chevRight.svg'
-                    }
-                    alt="chevRightIcon"
-                    width={24}
-                    height={24}
-                    aria-label="Chevron right icon"
-                  />
+                  {subMenu?.id === menu?.id ? <ChevLeft /> : <ChevRight />}
                 </MenuItem>
               ))}
             </Grid2>

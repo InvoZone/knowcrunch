@@ -70,12 +70,20 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
       setSubmitting(false);
     }
   });
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    values,
+    touched,
+    errors,
+    setFieldValue,
+    isSubmitting
+  } = formik;
 
   const handlePhoneChange = (phone: string) => {
-    formik.setFieldValue('mobile', phone);
+    setFieldValue('mobile', phone);
   };
-
-  const { handleSubmit, handleChange, handleBlur, values, touched, errors } = formik;
 
   return (
     <form onSubmit={handleSubmit} aria-label="Registration form">
@@ -189,7 +197,7 @@ const CompleteRegistration: FC<CompleteRegistrationProps> = ({ t, handleClose })
         type="submit"
         title={t('register')}
         variant="contained"
-        loading={formik.isSubmitting}
+        loading={isSubmitting}
         sx={{
           backgroundColor: 'accents.bubble1',
           width: '100%',

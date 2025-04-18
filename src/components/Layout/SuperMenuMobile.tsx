@@ -9,12 +9,13 @@ import Grid2 from '@mui/material/Grid2';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
 import CustomBtn from '../Common/CustomBtn';
 import Login from '../Auth/Login';
 import Signup from '../Auth/SignUp';
 import IconButton from '@mui/material/IconButton';
-
+import ChevLeft from '../../../public/icons/header/chevLeft.svg';
+import ChevRight from '../../../public/icons/header/chevRight.svg';
+import CrossIcon from '../../../public/icons/header/cross.svg';
 interface MenuItemType {
   id?: string;
   title?: string;
@@ -112,26 +113,14 @@ const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
                     onClick={goBack}
                     aria-label="Go back"
                   >
-                    <Image
-                      src={'/icons/header/chevLeft.svg'}
-                      alt="chevLeftIcon"
-                      width={24}
-                      height={24}
-                      loading="lazy"
-                    />
+                    <ChevLeft />
                     <Typography variant="titleLg" color={'secondary'}>
                       {t((subMenu as SubMenu)?.title || (menu as SubMenu)?.title || '')}
                     </Typography>
                   </Box>
                 )}
                 <IconButton onClick={handleOpenMobileMenu}>
-                  <Image
-                    src={'/icons/header/cross.svg'}
-                    alt="cancel"
-                    width={48}
-                    height={48}
-                    aria-label="Close menu"
-                  />
+                  <CrossIcon />
                 </IconButton>
               </Box>
             </Grid2>
@@ -221,12 +210,7 @@ const SuperMenuMobile: FC<SuperMenuMobileProps> = ({
                     <Typography variant="body" color={'secondary'}>
                       {t(menu?.title ?? '')}{' '}
                     </Typography>{' '}
-                    <Image
-                      src={'/icons/header/chevRight.svg'}
-                      alt="chevRightIcon"
-                      width={24}
-                      height={24}
-                    />
+                    <ChevRight />
                   </MenuItem>
                 ))}
               </Grid2>

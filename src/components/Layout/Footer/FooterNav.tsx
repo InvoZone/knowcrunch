@@ -9,6 +9,7 @@ interface FooterLinksProps {
   title: string;
   links: string[];
 }
+
 const HoverUnderlineLink = styled(Link)(() => ({
   'position': 'relative',
   'display': 'inline-block',

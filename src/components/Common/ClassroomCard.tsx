@@ -7,6 +7,12 @@ import Stack from '@mui/material/Stack';
 import CustomBtn from './CustomBtn';
 import TruncateText from './TruncateText';
 import type { FC } from 'react';
+import HeartIcon from '../../../public/icons/heart.svg';
+import LocationIcon from '../../../public/icons/course/locationicon.svg';
+import CalendarIcon from '../../../public/icons/course/calendaricon.svg';
+import GlobalIcon from '../../../public/icons/course/globalicon.svg';
+import StarIcon from '../../../public/icons/course/staricon.svg';
+import ClockHour from '../../../public/icons/course/clockhour.svg';
 
 interface ClassroomCardProps {
   width?: { [key: string]: string | number } | string | number;
@@ -63,28 +69,13 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
             }}
             aria-label="Best Seller Badge"
           />
-          <Image
-            src="/icons/heart.svg"
-            height={24}
-            width={24}
-            alt="heart"
-            priority
-            aria-label="Heart Icon"
-            title="Heart Icon"
-          />
+          <HeartIcon />
         </Box>
       </Box>
 
       <Box height={206}>
         <Box display={'flex'} alignItems={'center'}>
-          <Image
-            src="/icons/course/locationicon.svg"
-            alt="calendaricon"
-            width={20}
-            height={20}
-            loading="lazy"
-            title="Location Icon"
-          />
+          <LocationIcon />
           <Typography variant="body" color="secondary.main" pl={0.5}>
             Athens, GR
           </Typography>
@@ -115,40 +106,19 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
           aria-label="Course Metadata"
         >
           <Stack direction={'row'} alignItems={'center'}>
-            <Image
-              src="/icons/course/calendaricon.svg"
-              alt="calendaricon"
-              width={20}
-              height={20}
-              loading="lazy"
-              title="Calendar Icon"
-            />
+            <CalendarIcon />
             <Typography variant="body" color="secondary.main" pl={1}>
               January 2025 •
             </Typography>
           </Stack>
           <Stack direction={'row'} alignItems={'center'}>
-            <Image
-              src="/icons/course/globalicon.svg"
-              alt="glob"
-              width={20}
-              height={20}
-              loading="lazy"
-              title="Global Icon"
-            />
+            <GlobalIcon />
             <Typography variant="body" color="secondary.main" pl={1}>
               EN •
             </Typography>
           </Stack>
           <Stack direction={'row'} alignItems={'center'}>
-            <Image
-              src="/icons/course/staricon.svg"
-              alt="starIcon"
-              width={20}
-              height={20}
-              loading="lazy"
-              title="Star Icon"
-            />
+            <StarIcon />
             <Typography variant="body" color="secondary.main" pl={1}>
               4.5{' '}
               <Typography
@@ -163,14 +133,7 @@ const ClassroomCard: FC<ClassroomCardProps> = ({ width = '100%' }) => {
             </Typography>
           </Stack>
           <Stack direction={'row'} alignItems={'center'} aria-label="Course Duration">
-            <Image
-              src="/icons/course/clockhour.svg"
-              alt="clockIcon"
-              width={20}
-              height={20}
-              loading="lazy"
-              title="Clock Icon"
-            />
+            <ClockHour />
             <Typography variant="body" color="secondary.main" pl={1}>
               139h
             </Typography>

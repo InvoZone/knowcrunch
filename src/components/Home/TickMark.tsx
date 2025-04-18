@@ -1,7 +1,7 @@
 import type { FC } from 'react';
-import Image from 'next/image';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import TickIcon from '../../../public/icons/tickCircle.svg';
 
 interface TickMarkProps {
   text: string;
@@ -10,14 +10,7 @@ interface TickMarkProps {
 const TickMark: FC<TickMarkProps> = ({ text }) => {
   return (
     <Box component={'li'} sx={{ display: 'flex', gap: '6px' }}>
-      <Image
-        loading="lazy"
-        src="/icons/tickCircle.svg"
-        width={24}
-        height={24}
-        alt={'Tick'}
-        title="Tick Icon"
-      />
+      <TickIcon />
       <Typography component={'p'} sx={{ listStyleType: 'none' }} variant="body">
         {text}
       </Typography>

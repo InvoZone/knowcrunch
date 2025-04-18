@@ -65,7 +65,7 @@ const InstructorCard: FC<InstructorCardProps> = ({
       <Typography sx={{ color: 'tertiary.main' }} variant="titleLg" component="h3" pt={1}>
         {name}
       </Typography>
-      <Typography sx={{ color: 'neutral.neutral1' }} variant="body" color="text.secondary">
+      <Typography sx={{ color: 'neutral.neutral1' }} variant="body">
         {title}
       </Typography>
       <Typography sx={{ color: 'tertiary.main' }} variant="body" pb={1}>

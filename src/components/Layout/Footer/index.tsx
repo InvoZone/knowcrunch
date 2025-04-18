@@ -1,4 +1,8 @@
 'use client';
+
+import { useTranslations } from 'next-intl';
+import { styled } from '@mui/material';
+import type { FC } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -19,8 +23,6 @@ import Spotify from '@/assets/footer/spotify.svg';
 import X from '@/assets/footer/x.svg';
 import Image from 'next/image';
 import NewsletterForm from './NewsletterForm';
-import { useTranslations } from 'next-intl';
-import type { FC } from 'react';
 
 interface FooterSection {
   title: string;
@@ -49,16 +51,24 @@ const footerData: FooterSection[] = [
   }
 ];
 
+const BoxWrapper = styled(Box)(() => ({
+  'svg': {
+    width: 24,
+    height: 24,
+    stroke: '#fff',
+    cursor: 'pointer',
+    transition: '300ms ease-in-out'
+  },
+
+  '&:hover': {
+    svg: {
+      stroke: '#9ba0aa'
+    }
+  }
+}));
+
 const Footer: FC = () => {
   const t = useTranslations('footer');
-
-  const handleMouseEnter = (e: React.MouseEvent<SVGElement>) => {
-    e.currentTarget.style.stroke = '#9ba0aa';
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent<SVGElement>) => {
-    e.currentTarget.style.stroke = '#fff';
-  };
 
   return (
     <Box
@@ -207,105 +217,33 @@ const Footer: FC = () => {
                 px: { xs: 1, md: 0 }
               }}
             >
-              <FaceBook
-                style={{
-                  width: 24,
-                  height: 24,
-                  stroke: '#fff',
-                  cursor: 'pointer',
-                  transition: 'stroke 300ms ease-in-out'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
-              <Instagram
-                style={{
-                  width: 24,
-                  height: 24,
-                  stroke: '#fff',
-                  cursor: 'pointer',
-                  transition: 'stroke 300ms ease-in-out'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
-              <Linkedin
-                style={{
-                  width: 24,
-                  height: 24,
-                  stroke: '#fff',
-                  cursor: 'pointer',
-                  transition: 'stroke 300ms ease-in-out'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
-              <Youtube
-                style={{
-                  width: 24,
-                  height: 24,
-                  stroke: '#fff',
-                  cursor: 'pointer',
-                  transition: 'stroke 300ms ease-in-out'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
-              <TikTok
-                style={{
-                  width: 24,
-                  height: 24,
-                  stroke: '#fff',
-                  cursor: 'pointer',
-                  transition: 'stroke 300ms ease-in-out'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
-              <Medium
-                style={{
-                  width: 24,
-                  height: 24,
-                  stroke: '#fff',
-                  cursor: 'pointer',
-                  transition: 'stroke 300ms ease-in-out'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
-              <Pinterest
-                style={{
-                  width: 24,
-                  height: 24,
-                  stroke: '#fff',
-                  cursor: 'pointer',
-                  transition: 'stroke 300ms ease-in-out'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
-              <Spotify
-                style={{
-                  width: 24,
-                  height: 24,
-                  stroke: '#fff',
-                  cursor: 'pointer',
-                  transition: 'stroke 300ms ease-in-out'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
-              <X
-                style={{
-                  width: 24,
-                  height: 24,
-                  stroke: '#fff',
-                  cursor: 'pointer',
-                  transition: 'stroke 300ms ease-in-out'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
+              <BoxWrapper>
+                <FaceBook />
+              </BoxWrapper>
+              <BoxWrapper>
+                <Instagram />
+              </BoxWrapper>
+              <BoxWrapper>
+                <Linkedin />
+              </BoxWrapper>
+              <BoxWrapper>
+                <Youtube />
+              </BoxWrapper>
+              <BoxWrapper>
+                <TikTok />
+              </BoxWrapper>
+              <BoxWrapper>
+                <Medium />
+              </BoxWrapper>
+              <BoxWrapper>
+                <Pinterest />
+              </BoxWrapper>
+              <BoxWrapper>
+                <Spotify />
+              </BoxWrapper>
+              <BoxWrapper>
+                <X />
+              </BoxWrapper>
             </Box>
           </Box>
         </Box>
